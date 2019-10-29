@@ -241,13 +241,13 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 */
 void LoadResources()
 {
-	textures->Add(ID_TEX_KNIFE, L"Resources\\captian.png", D3DCOLOR_XRGB(255, 230, 255));
-	textures->Add(ID_TEX_MARIO, L"Resources\\captian.png", D3DCOLOR_XRGB(255, 230, 255));
-	textures->Add(ID_TEX_MARIO_2, L"Resources\\american.png", D3DCOLOR_XRGB(255, 230, 255));
-	textures->Add(ID_TEX_LV1, L"Resources\\lv1.png", D3DCOLOR_XRGB(255, 230, 255));
+	textures->Add(ID_TEX_KNIFE, L"Resources\\captian.png", D3DCOLOR_XRGB(173, 214, 214));
+	textures->Add(ID_TEX_MARIO, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_MARIO_2, L"Resources\\american.png", D3DCOLOR_XRGB(173, 214, 214));
+	textures->Add(ID_TEX_LV1, L"Resources\\lv1.png", D3DCOLOR_XRGB(176, 224, 248));
 	textures->Add(ID_TEX_LV1_2, L"Resources\\maplv2.png", D3DCOLOR_XRGB(176, 224, 248));
-	textures->Add(ID_TEX_BRICK, L"Resources\\2.png", D3DCOLOR_XRGB(173, 214, 214));
-	textures->Add(ID_TEX_BRICK2, L"Resources\\BRICK1.png", D3DCOLOR_XRGB(173, 214, 214));
+	textures->Add(ID_TEX_BRICK, L"Resources\\2.png", D3DCOLOR_XRGB(3, 26, 110));
+	textures->Add(ID_TEX_BRICK2, L"Resources\\BRICK1.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ZOMBIE, L"Resources\\enemy.png", D3DCOLOR_XRGB(173, 214, 214));
 	textures->Add(ID_TEX_ZOMBIE_RIGHT, L"Resources\\enemy.png", D3DCOLOR_XRGB(173, 214, 214));
 	textures->Add(ID_TEX_PANTHER, L"Resources\\PANTHER.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -303,45 +303,71 @@ void LoadResources()
 	#pragma region Addsprite
 
 
-	sprites->Add(10001, 232, 3, 258, 45, texCaptain);		// đứng im phải
+	sprites->Add(10001, 1122, 6, 1162, 58, texCaptain);		// đứng im phải
 
-	sprites->Add(10002, 233, 52, 260, 94, texCaptain);		// đi phải
-	sprites->Add(10003, 260, 51, 286, 94, texCaptain);
-	sprites->Add(11002, 233, 52, 260, 94, texCaptain);
-	sprites->Add(11003, 260, 51, 286, 94, texCaptain);
+	sprites->Add(10002, 1186, 1215, 1229, 1275, texCaptain);		// đi phải
+	sprites->Add(10003, 1239, 1216, 1280, 1273, texCaptain);
+	sprites->Add(11002, 1290, 1215, 1333, 1275, texCaptain);
+	sprites->Add(11003, 1340, 1215, 1394, 1275, texCaptain);
+	sprites->Add(11004, 1397, 1215, 1449, 1275, texCaptain);
+	sprites->Add(11005, 1451, 1215, 1496, 1275, texCaptain);
+	sprites->Add(11006, 1505, 1215, 1547, 1275, texCaptain);
+	sprites->Add(11007, 1560, 1215, 1593, 1275, texCaptain);
 
-	sprites->Add(10004, 231, 138, 273, 178, texCaptain);		// đánh phải			
-	sprites->Add(10005, 273, 138, 315, 178, texCaptain);
-	//sprites->Add(10006, 0, 0, 64, 64, texCaptain);
+	sprites->Add(10004, 1125, 324, 1173, 387, texCaptain);		// đánh phải
+	sprites->Add(10005, 1174, 324, 1227, 387, texCaptain);					
+	sprites->Add(10006, 1232, 324, 1280, 387, texCaptain);
+	sprites->Add(10007, 1289, 324, 1373, 387, texCaptain);
+	sprites->Add(10008, 1377, 324, 1431, 387, texCaptain);
 
-	sprites->Add(10028, 259, 264, 297, 311, texCaptainSit);		// ngồi đánh phải			
-	sprites->Add(10029, 299, 263, 328, 310, texCaptainSit);
+	sprites->Add(10025, 1182, 618, 1235, 673, texCaptain);		// ngồi đánh phải			
+	sprites->Add(10026, 1235, 618, 1307, 673, texCaptain);
+	sprites->Add(10027, 1311, 618, 1404, 673, texCaptain);
+	sprites->Add(10028, 1416, 618, 1502, 673, texCaptain);
+	sprites->Add(10029, 1235, 618, 1307, 673, texCaptain);
 
 
-	sprites->Add(10018, 285, 146, 311, 191, texCaptainSit); // ngồi phải
+	sprites->Add(10018, 1129, 618, 1176, 673, texCaptain); // ngồi phải
 
-	sprites->Add(10020, 233, 96, 255, 135, texCaptain); // nhảy phải
+	sprites->Add(12001, 1196, 820, 1248, 890, texCaptain); // nhảy phải
+	sprites->Add(12002, 1258, 820, 1313, 890, texCaptain);
+	sprites->Add(12003, 1321, 820, 1377, 890, texCaptain);
+	sprites->Add(12004, 1506, 820, 1545, 890, texCaptain);
+	sprites->Add(12005, 1681, 810, 1713, 907, texCaptain);
 
 	sprites->Add(10054, 436, 67, 471, 130, texCaptain);//bị đánh từ bên trái
 
 	LPDIRECT3DTEXTURE9 texCaptain2 = textures->Get(ID_TEX_MARIO);
-	sprites->Add(10011, 203, 3, 227, 48, texCaptain2);		// đứng im trái
+	sprites->Add(10011, 1079, 6, 1120, 59, texCaptain2);		// đứng im trái
 
-	sprites->Add(10012, 203, 52, 230, 94, texCaptain2);		// đi trái
-	sprites->Add(10013, 175, 51, 199, 94, texCaptain2);
-	sprites->Add(11012, 203, 52, 230, 94, texCaptain2);
-	sprites->Add(11013, 175, 51, 199, 94, texCaptain2);
+	sprites->Add(10012, 1008, 1215, 1057, 1275, texCaptain2);		// đi trái
+	sprites->Add(10013, 959, 1215, 1003, 1275, texCaptain2);
+	sprites->Add(11012, 907, 1215, 952, 1275, texCaptain2);
+	sprites->Add(11013, 848, 1215, 904, 1275, texCaptain2);
+	sprites->Add(11014, 793, 1215, 846, 1275, texCaptain2);
+	sprites->Add(11015, 742, 1215, 789, 1275, texCaptain2);
+	sprites->Add(11016, 692, 1215, 736, 1275, texCaptain2);
+	sprites->Add(11017, 643, 1215, 685, 1275, texCaptain2);
 
-	sprites->Add(10014, 189, 138, 229, 177, texCaptain2);		// đánh trái				
-	sprites->Add(10015, 146, 138, 187, 177, texCaptain2);
-	//sprites->Add(10016, 421, 0, 464, 64, texCaptain2);
+	sprites->Add(10014, 1070, 324, 1115, 387, texCaptain2);		// đánh trái				
+	sprites->Add(10015, 1013, 324, 1068, 387, texCaptain2);
+	sprites->Add(10016, 956, 324, 1009, 387, texCaptain2);
+	sprites->Add(10017, 867, 324, 954, 387, texCaptain2);
+	sprites->Add(10009, 808, 324, 866, 387, texCaptain2);
 
-	sprites->Add(10031, 216, 265, 257, 310, texCaptainSit);		// ngồi đánh trái				
-	sprites->Add(10032, 185, 265, 217, 310, texCaptainSit);
+	sprites->Add(10031, 1005, 618, 1060, 673, texCaptain);		// ngồi đánh trái				
+	sprites->Add(10032, 927, 618, 1009, 673, texCaptain);
+	sprites->Add(10033, 835, 618, 930, 673, texCaptain);
+	sprites->Add(10034, 737, 618, 825, 673, texCaptain);
+	sprites->Add(10035, 927, 618, 1009, 673, texCaptain);
 
-	sprites->Add(10019, 253, 147, 281, 191, texCaptainSit); // ngồi trái
+	sprites->Add(10019, 1064, 618, 1115, 673, texCaptain); // ngồi trái
 
-	sprites->Add(10021, 203, 97, 229, 136, texCaptain2);//nhảy trái
+	sprites->Add(12011, 994, 820, 1047, 890, texCaptain);//nhảy trái
+	sprites->Add(12012, 929, 820, 986, 890, texCaptain);
+	sprites->Add(12013, 801, 820, 851, 890, texCaptain);
+	sprites->Add(12014, 694, 820, 728, 890, texCaptain);
+	sprites->Add(12015, 522, 820, 558, 890, texCaptain);
 
 	sprites->Add(10055, 12, 70, 41, 130, texCaptain2);//bị đánh từ bên phải
 
@@ -362,6 +388,10 @@ void LoadResources()
 	sprites->Add(10141, 202, 224, 227, 268, texCaptain);	//knifeing left
 	sprites->Add(1200, 315, 153, 333, 192, texShield);	//khien
 
+#pragma region ENEMY
+
+
+
 	LPDIRECT3DTEXTURE9 whipR = textures->Get(ID_TEX_WHIP);
 	sprites->Add(10022, 570, 200, 554, 267, whipR);			//roi lv2 phải
 	sprites->Add(10023, 342, 260, 312, 316, whipR);
@@ -377,10 +407,6 @@ void LoadResources()
 	
 
 	LPDIRECT3DTEXTURE9 whipL = textures->Get(ID_TEX_WHIP_2);
-	sprites->Add(10025, 105, 70, 165, 133, whipL);			//roi lv2 trái
-	sprites->Add(10026, 340, 65, 406, 117, whipL);
-	sprites->Add(10027, 575, 330, 458, 364, whipL);
-
 	sprites->Add(10065, 105, 70, 165, 133, whipL);			//roi lv1 trái	
 	sprites->Add(10066, 340, 65, 406, 117, whipL);
 	sprites->Add(10067, 572, 65, 530, 100, whipL); 
@@ -538,14 +564,13 @@ void LoadResources()
 
 	LPDIRECT3DTEXTURE9 texMisc17 = textures->Get(ID_TEX_ITEM3);
 	sprites->Add(40030, 0, 0, 16, 24, texMisc17);
-	#pragma endregion
 
 	LPDIRECT3DTEXTURE9 texBullet = textures->Get(ID_TEX_ZOMBIE); //bullet of soldier
 	sprites->Add(44444, 262, 30, 273, 40, texBullet);
 
 	LPDIRECT3DTEXTURE9 texBall = textures->Get(ID_TEX_ZOMBIE); //bullet of soldier
 	sprites->Add(45555, 229, 70, 250, 84, texBall);
-
+#pragma endregion
 	LPANIMATION ani;
 
 	#pragma region CaptainAnimation
@@ -563,6 +588,10 @@ void LoadResources()
 	ani->Add(10003);
 	ani->Add(11002);
 	ani->Add(11003);
+	ani->Add(11004);
+	ani->Add(11005);
+	ani->Add(11006);
+	ani->Add(11007);
 	animations->Add(500, ani);
 
 	ani = new CAnimation(180);	//đi trái
@@ -570,20 +599,26 @@ void LoadResources()
 	ani->Add(10013);
 	ani->Add(11012);
 	ani->Add(11013);
+	ani->Add(11014);
+	ani->Add(11015);
+	ani->Add(11016);
+	ani->Add(11017);
 	animations->Add(501, ani);
 
 	ani = new CAnimation(150); //đánh phải
 	ani->Add(10004);
 	ani->Add(10005);
-	//ani->Add(10006);
-
+	ani->Add(10006);
+	ani->Add(10007);
+	ani->Add(10008);
 	animations->Add(402, ani);
 
 	ani = new CAnimation(150);//đánh trái
 	ani->Add(10014);
 	ani->Add(10015);
-	//ani->Add(10016);
-
+	ani->Add(10016);
+	ani->Add(10017);
+	ani->Add(10009);
 	animations->Add(403, ani);
 
 	ani = new CAnimation(100); //ngồi phải
@@ -595,35 +630,35 @@ void LoadResources()
 	animations->Add(405, ani);
 
 	ani = new CAnimation(100);//nhảy phải
-	ani->Add(10020);
+	ani->Add(12001);
+	ani->Add(12002);
+	ani->Add(12003);
+	ani->Add(12004);
+	ani->Add(12005);
 	animations->Add(406, ani);
 
 	ani = new CAnimation(100);//nhảy trái
-	ani->Add(10021);
+	ani->Add(12011);
+	ani->Add(12012);
+	ani->Add(12013);
+	ani->Add(12014);
+	ani->Add(12015);
 	animations->Add(407, ani);
 
-	ani = new CAnimation(150);//roi phải 
-	ani->Add(10022);
-	ani->Add(10023);
-	ani->Add(10024);
-	animations->Add(408, ani);
-
-	ani = new CAnimation(150);//roi trái
+	ani = new CAnimation(150);//ngồi đánh phải
 	ani->Add(10025);
 	ani->Add(10026);
 	ani->Add(10027);
-	animations->Add(409, ani);
-
-	ani = new CAnimation(150);//ngồi đánh phải
 	ani->Add(10028);
 	ani->Add(10029);
-	//ani->Add(10030);
 	animations->Add(410, ani);
 
 	ani = new CAnimation(150);//ngồi đánh trái
 	ani->Add(10031);
 	ani->Add(10032);
-	//ani->Add(10033);
+	ani->Add(10033);
+	ani->Add(10034);
+	ani->Add(10035);
 	animations->Add(411, ani);
 
 	ani = new CAnimation(150);//trên thang phải đánh phải
@@ -997,7 +1032,7 @@ void LoadResources()
 	captain->AddAnimation(1606);	//knifeing left
 
 	
-	captain->SetPosition(15, 600);
+	captain->SetPosition(15, 160);
 	//objects.push_back(captain);
 
 	// khởi tạo listgrids
@@ -1012,7 +1047,7 @@ void LoadResources()
 	{
 		Ground *ground = new Ground();
 		ground->AddAnimation(601);
-		ground->SetPosition(0 + i * 16.0f, 1000);
+		ground->SetPosition(0 + i * 16.0f, 285);
 		//objects.push_back(ground);
 		listGrids->AddObject(ground);
 	}
@@ -1896,7 +1931,7 @@ void Update(DWORD dt)
 		if (y > SCREEN_HEIGHT / 2&&y < MAX_HEIGHT - SCREEN_HEIGHT / 2)
 		{
 			game->mCamera->setX(game->mCamera->getX());
-			game->mCamera->setY(y-SCREEN_HEIGHT/2+50);
+			game->mCamera->setY(y-SCREEN_HEIGHT/2);
 		}
 		/*else if(y<MAX_HEIGHT-SCREEN_HEIGHT/2)
 		{
