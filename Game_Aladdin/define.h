@@ -31,6 +31,7 @@
 //action
 #define SIMON_ACTION_JUMP				300
 #define SIMON_ACTION_ATTACK				600
+#define SIMON_ACTION_THROW				900
 
 //animation
 #define SIMON_ANI_IDLE_RIGHT			0
@@ -67,6 +68,10 @@
 #define SIMON_ANI_DASHING_LEFT			31
 #define SIMON_ANI_SHIELD_RIGHT			32
 #define SIMON_ANI_SHIELD_LEFT			33
+#define SIMON_ANI_THROW_RIGHT			34
+#define SIMON_ANI_THROW_LEFT			35
+#define SIMON_ANI_SIT_THROW_RIGHT		36
+#define SIMON_ANI_SIT_THROW_LEFT		37
 // Whip
 #define WHIP_RIGHT 						0
 #define WHIP_LEFT						1

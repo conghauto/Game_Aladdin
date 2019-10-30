@@ -1,0 +1,20 @@
+﻿  Captain.cpp
+g:\game uit\game_aladdin\game_aladdin\define.h(306): warning C4005: 'BALLBEGIN': macro redefinition
+  g:\game uit\game_aladdin\game_aladdin\define.h(303): note: see previous definition of 'BALLBEGIN'
+g:\game uit\game_aladdin\game_aladdin\captain.h(91): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+g:\game uit\game_aladdin\game_aladdin\captain.h(92): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+g:\game uit\game_aladdin\game_aladdin\define.h(303): warning C4005: 'BALLBEGIN': macro redefinition
+  g:\game uit\game_aladdin\game_aladdin\define.h(306): note: see previous definition of 'BALLBEGIN'
+g:\game uit\game_aladdin\game_aladdin\define.h(306): warning C4005: 'BALLBEGIN': macro redefinition
+  g:\game uit\game_aladdin\game_aladdin\define.h(303): note: see previous definition of 'BALLBEGIN'
+g:\game uit\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+g:\game uit\game_aladdin\game_aladdin\define.h(303): warning C4005: 'BALLBEGIN': macro redefinition
+  g:\game uit\game_aladdin\game_aladdin\define.h(306): note: see previous definition of 'BALLBEGIN'
+g:\game uit\game_aladdin\game_aladdin\define.h(306): warning C4005: 'BALLBEGIN': macro redefinition
+  g:\game uit\game_aladdin\game_aladdin\define.h(303): note: see previous definition of 'BALLBEGIN'
+g:\game uit\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+g:\game uit\game_aladdin\game_aladdin\bossone.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+g:\game uit\game_aladdin\game_aladdin\captain.cpp(15): warning C4005: 'SCREEN_HEIGHT': macro redefinition
+  g:\game uit\game_aladdin\game_aladdin\define.h(222): note: see previous definition of 'SCREEN_HEIGHT'
+g:\game uit\game_aladdin\game_aladdin\captain.cpp(109): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Game_Aladdin.vcxproj -> G:\Game UIT\Game_Aladdin\Game_Aladdin\Debug\Game_Aladdin.exe

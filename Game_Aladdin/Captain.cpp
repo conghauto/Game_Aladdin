@@ -63,6 +63,18 @@ void Captain::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		// Check collision between whip and game objects here
 		whip->Update(dt, coObjects);
 	}
+	if (isThrow == true && GetTickCount() - attackTime >= SIMON_TIMER_ATTACK)
+	{
+		isThrow = false;
+		if (isExitSit)
+		{
+			isSit = false;
+			y -= SIMON_SIT_TO_STAND;
+			isExitSit = false;
+		}
+		// Check collision between whip and game objects here
+		whip->Update(dt, coObjects);
+	}
 
 	// Simple fall down
 		vy += SIMON_GRAVITY * dt;
@@ -248,6 +260,31 @@ void Captain::Render()
 				}
 			}
 		}
+		else if (isThrow)
+		{
+			if (nx > 0)
+			{
+				if (isSit)
+				{
+					ani = SIMON_ANI_SIT_THROW_RIGHT;
+				}
+				else
+				{
+					ani = SIMON_ANI_THROW_RIGHT;
+				}
+			}
+			else
+			{
+				if (isSit)
+				{
+					ani = SIMON_ANI_SIT_THROW_LEFT;
+				}
+				else
+				{
+					ani = SIMON_ANI_THROW_LEFT;
+				}
+			}
+		}
 		else if (isJump)
 		{
 			if (nx > 0)
@@ -265,6 +302,9 @@ void Captain::Render()
 			switch (state)
 			{
 			case SIMON_STATE_SIT:
+				if (isThrow)
+					ani = SIMON_ANI_SIT_THROW_RIGHT;
+				else
 				if (isAttack)
 					ani = SIMON_ANI_SIT_ATTACK_RIGHT;
 				else
@@ -290,6 +330,9 @@ void Captain::Render()
 				ani = SIMON_ANI_WALKING_LEFT;
 				break;
 			case SIMON_STATE_SIT:
+				if (isThrow)
+					ani = SIMON_ANI_SIT_THROW_LEFT;
+				else
 				if (isAttack)
 					ani = SIMON_ANI_SIT_ATTACK_LEFT;
 				else
@@ -403,6 +446,14 @@ void Captain::SetAction(int action)
 		break;
 		// Don gian la cho nhay, khong ngat bat ki trang thai nao
 		// Them van toc nhay
+	case SIMON_ACTION_THROW:
+		isThrow = true;
+		if (!isJump)
+			vx = 0;
+		isJump = false;
+		isMoving = false;
+		attackTime = GetTickCount();
+		break;
 	case SIMON_ACTION_JUMP:
 		isJump = true;
 		vy = -SIMON_JUMP_SPEED_Y;

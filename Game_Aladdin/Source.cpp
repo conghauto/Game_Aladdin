@@ -94,15 +94,16 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 
 	if (KeyCode == DIK_C)
 	{
-		if (captain->isDoubleJump == false && captain->isSit == false && captain->isAttack == false)
-			captain->SetState(SIMON_STATE_DOUBLE_JUMP);
+		if (captain->isAttack == false)
+			captain->SetAction(SIMON_ACTION_ATTACK);
 	}
+	else
 	if (KeyCode == DIK_X)
 	{
 		captain->SetCurrentWeapon(809);
 		if (captain->isAttack == false) {
 			int nx = captain->nx;
-			captain->SetAction(SIMON_ACTION_ATTACK);
+			captain->SetAction(SIMON_ACTION_THROW);
 			switch (captain->currentWeapon)
 			{
 			case ITEM_KNIFE:
@@ -148,11 +149,6 @@ void CSampleKeyHander::OnKeyUp(int KeyCode)
 		captain->SetState(SIMON_STATE_IDLE);
 		captain->isDashing = false;
 
-	}
-	if (KeyCode == DIK_C) {
-		captain->SetState(SIMON_STATE_IDLE);
-		captain->isDoubleJump = false;
-		captain->isJump = false;
 	}
 	// Ngoi
 	if (KeyCode == DIK_DOWN)
@@ -241,7 +237,7 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 */
 void LoadResources()
 {
-	textures->Add(ID_TEX_KNIFE, L"Resources\\captian.png", D3DCOLOR_XRGB(173, 214, 214));
+	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_MARIO, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_MARIO_2, L"Resources\\american.png", D3DCOLOR_XRGB(173, 214, 214));
 	textures->Add(ID_TEX_LV1, L"Resources\\lv1.png", D3DCOLOR_XRGB(176, 224, 248));
@@ -337,6 +333,18 @@ void LoadResources()
 
 	sprites->Add(10054, 436, 67, 471, 130, texCaptain);//bị đánh từ bên trái
 
+	sprites->Add(13001, 1124, 225, 1170, 290, texCaptain); //ném táo phải
+	sprites->Add(13002, 1178, 225, 1217, 290, texCaptain);
+	sprites->Add(13003, 1227, 225, 1270, 290, texCaptain);
+	sprites->Add(13004, 1282, 225, 1330, 290, texCaptain);
+	sprites->Add(13005, 1339, 225, 1382, 290, texCaptain);
+
+	sprites->Add(13021, 1127, 562, 1169, 615, texCaptain); // ngồi ném táo phải
+	sprites->Add(13022, 1176, 562, 1218, 615, texCaptain);
+	sprites->Add(13023, 1225, 562, 1278, 615, texCaptain);
+	sprites->Add(13024, 1284, 562, 1365, 615, texCaptain);
+	sprites->Add(13025, 1378, 562, 1436, 615, texCaptain);
+
 	LPDIRECT3DTEXTURE9 texCaptain2 = textures->Get(ID_TEX_MARIO);
 	sprites->Add(10011, 1079, 6, 1120, 59, texCaptain2);		// đứng im trái
 
@@ -369,6 +377,18 @@ void LoadResources()
 	sprites->Add(12014, 694, 820, 728, 890, texCaptain);
 	sprites->Add(12015, 522, 820, 558, 890, texCaptain);
 
+	sprites->Add(13011, 1070, 225, 1115, 290, texCaptain); // ném táo trái
+	sprites->Add(13012, 1022, 225, 1067, 290, texCaptain);
+	sprites->Add(13013, 973, 225, 1014, 290, texCaptain);
+	sprites->Add(13014, 912, 225, 928, 290, texCaptain);
+	sprites->Add(13015, 861, 225, 902, 290, texCaptain);
+
+	sprites->Add(13031, 1073, 562, 1115, 615, texCaptain); //ngồi ném táo trái
+	sprites->Add(13032, 1022, 562, 1065, 615, texCaptain);
+	sprites->Add(13033, 962, 562, 1015, 615, texCaptain);
+	sprites->Add(13034, 877, 562, 956, 615, texCaptain);
+	sprites->Add(13035, 808, 562, 866, 615, texCaptain);
+
 	sprites->Add(10055, 12, 70, 41, 130, texCaptain2);//bị đánh từ bên phải
 
 	sprites->Add(10099, 180, 237, 240, 264, texCaptain);		// chết 
@@ -386,7 +406,7 @@ void LoadResources()
 
 	sprites->Add(10140, 233, 224, 258, 268, texCaptain); // knifeing right
 	sprites->Add(10141, 202, 224, 227, 268, texCaptain);	//knifeing left
-	sprites->Add(1200, 315, 153, 333, 192, texShield);	//khien
+	sprites->Add(1200, 1482, 19, 1511, 71, texShield);	//khien
 
 #pragma region ENEMY
 
@@ -802,6 +822,37 @@ void LoadResources()
 	ani->Add(45555);
 	animations->Add(1609, ani); //nem dan of soldier
 
+	ani = new CAnimation(100); // ném táo phải
+	ani->Add(13001);
+	ani->Add(13002);
+	ani->Add(13003);
+	ani->Add(13004);
+	ani->Add(13005);
+	animations->Add(1610, ani);
+
+	ani = new CAnimation(100); // ném táo trái
+	ani->Add(13011);
+	ani->Add(13012);
+	ani->Add(13013);
+	ani->Add(13014);
+	ani->Add(13015);
+	animations->Add(1611, ani);
+
+	ani = new CAnimation(100); // ngồi ném táo phải
+	ani->Add(13021);
+	ani->Add(13022);
+	ani->Add(13023);
+	ani->Add(13024);
+	ani->Add(13025);
+	animations->Add(1612, ani);
+
+	ani = new CAnimation(100); // ngồi ném táo trái
+	ani->Add(13031);
+	ani->Add(13032);
+	ani->Add(13033);
+	ani->Add(13034);
+	ani->Add(13035);
+	animations->Add(1613, ani);
 
 	ani = new CAnimation(100);//Boss di phai
 	ani->Add(41000);
@@ -1030,8 +1081,11 @@ void LoadResources()
 	captain->AddAnimation(1604); // dashing left
 	captain->AddAnimation(1605);	//knifeing right
 	captain->AddAnimation(1606);	//knifeing left
+	captain->AddAnimation(1610); //ném táo phải
+	captain->AddAnimation(1611); //ném táo trái
+	captain->AddAnimation(1612);	//ngồi ném táo phải
+	captain->AddAnimation(1613); // ngồi ném táo trái
 
-	
 	captain->SetPosition(15, 160);
 	//objects.push_back(captain);
 

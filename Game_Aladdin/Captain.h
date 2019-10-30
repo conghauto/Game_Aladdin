@@ -35,6 +35,7 @@ public:
 	bool isExitSit;
 	bool isDashing;
 	bool isJump;
+	bool isThrow;
 
 	bool isMoving;
 
