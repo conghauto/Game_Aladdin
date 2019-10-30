@@ -242,8 +242,8 @@ void LoadResources()
 	textures->Add(ID_TEX_MARIO_2, L"Resources\\american.png", D3DCOLOR_XRGB(173, 214, 214));
 	textures->Add(ID_TEX_LV1, L"Resources\\lv1.png", D3DCOLOR_XRGB(176, 224, 248));
 	textures->Add(ID_TEX_LV1_2, L"Resources\\maplv2.png", D3DCOLOR_XRGB(176, 224, 248));
-	textures->Add(ID_TEX_BRICK, L"Resources\\2.png", D3DCOLOR_XRGB(3, 26, 110));
-	textures->Add(ID_TEX_BRICK2, L"Resources\\BRICK1.png", D3DCOLOR_XRGB(255, 0, 255));
+	/*textures->Add(ID_TEX_BRICK, L"Resources\\2.png", D3DCOLOR_XRGB(74, 73, 191));*/
+	/*textures->Add(ID_TEX_BRICK2, L"Resources\\BRICK1.png", D3DCOLOR_XRGB(255, 0, 255));*/
 	textures->Add(ID_TEX_ZOMBIE, L"Resources\\enemy.png", D3DCOLOR_XRGB(173, 214, 214));
 	textures->Add(ID_TEX_ZOMBIE_RIGHT, L"Resources\\enemy.png", D3DCOLOR_XRGB(173, 214, 214));
 	textures->Add(ID_TEX_PANTHER, L"Resources\\PANTHER.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -438,11 +438,11 @@ void LoadResources()
 	
 
 
-	LPDIRECT3DTEXTURE9 texMisc = textures->Get(ID_TEX_BRICK);
-	sprites->Add(20001, 0, 0, 32, 32, texMisc);
+	/*LPDIRECT3DTEXTURE9 texMisc = textures->Get(ID_TEX_BRICK);
+	sprites->Add(20001, 0, 0, 32, 32, texMisc);*/
 
-	LPDIRECT3DTEXTURE9 texMisc2 = textures->Get(ID_TEX_BRICK2);
-	sprites->Add(20002, 0, 0, 32, 32, texMisc2);
+	/*LPDIRECT3DTEXTURE9 texMisc2 = textures->Get(ID_TEX_BRICK2);
+	sprites->Add(20002, 0, 0, 32, 32, texMisc2);*/
 
 	LPDIRECT3DTEXTURE9 texEnemy = textures->Get(ID_TEX_ZOMBIE);
 	sprites->Add(30001, 135, 12, 161, 56, texEnemy); // đi trái 
@@ -1086,7 +1086,7 @@ void LoadResources()
 	captain->AddAnimation(1612);	//ngồi ném táo phải
 	captain->AddAnimation(1613); // ngồi ném táo trái
 
-	captain->SetPosition(15, 160);
+	captain->SetPosition(15, 600);
 	//objects.push_back(captain);
 
 	// khởi tạo listgrids
@@ -1100,120 +1100,20 @@ void LoadResources()
 	for (int i = 0; i < 128; i++)
 	{
 		Ground *ground = new Ground();
-		ground->AddAnimation(601);
-		ground->SetPosition(0 + i * 16.0f, 285);
+		ground->SetPosition(0 + i * 16.0f, 990);
 		//objects.push_back(ground);
 		listGrids->AddObject(ground);
 	}
-
-	//// nước
-	//for (int i = 0; i < 128; i++)
-	//{
-	//	Water *water = new Water();
-	//	water->AddAnimation(812);
-	//	water->SetPosition(0 + i * 16.0f, 258);
-	//	//objects.push_back(water);
-	//	listGrids->AddObject(water);
-	//}
-
-	//for (int i = 0; i < 128; i++)
-	//{
-	//	Water *water = new Water();
-	//	water->AddAnimation(812);
-	//	water->SetPosition(0 + i * 16.0f, 274);
-	//	//objects.push_back(water);
-	//	listGrids->AddObject(water);
-	//}
 
 	// vật cản trên 1
-	for (int i = 0; i < 3; i++)
-	{
-		Ground *ground = new Ground();
-		ground->AddAnimation(601);
-		ground->SetPosition(48 + i * 16.0f, 120);
-		//objects.push_back(ground);
-		listGrids->AddObject(ground);
-	}
-
-	// vật cản trên 2
-	for (int i = 0; i < 2; i++)
-	{
-		Ground *ground = new Ground();
-		ground->AddAnimation(601);
-		ground->SetPosition(576 + i * 16.0f, 164);
-		//objects.push_back(ground);
-		listGrids->AddObject(ground);
-	}
-
-	// vật cản trên 3
-	for (int i = 0; i < 2; i++)
-	{
-		Ground *ground = new Ground();
-		ground->AddAnimation(601);
-		ground->SetPosition(624 + i * 16.0f, 88);
-		//objects.push_back(ground);
-		listGrids->AddObject(ground);
-	}
-
-	// vật cản trên 4
-	for (int i = 0; i < 3; i++)
-	{
-		Ground *ground = new Ground();
-		ground->AddAnimation(601);
-		ground->SetPosition(672 + i * 16.0f, 164);
-		//objects.push_back(ground);
-		listGrids->AddObject(ground);
-	}
-
-	// vật cản trên 5
-	for (int i = 0; i < 2; i++)
-	{
-		Ground *ground = new Ground();
-		ground->AddAnimation(601);
-		ground->SetPosition(832 + i * 16.0f, 164);
-		//objects.push_back(ground);
-		listGrids->AddObject(ground);
-	}
-
-	// vật cản trên 6
-	for (int i = 0; i < 2; i++)
-	{
-		Ground *ground = new Ground();
-		ground->AddAnimation(601);
-		ground->SetPosition(880 + i * 16.0f, 88);
-		//objects.push_back(ground);
-		listGrids->AddObject(ground);
-	}
-
-	// vật cản trên 7
-	for (int i = 0; i < 3; i++)
-	{
-		Ground *ground = new Ground();
-		ground->AddAnimation(601);
-		ground->SetPosition(926 + i * 16.0f, 164);
-		//objects.push_back(ground);
-		listGrids->AddObject(ground);
-	}
-
-	// vật cản trên 8
-	for (int i = 0; i < 3; i++)
-	{
-		Ground *ground = new Ground();
-		ground->AddAnimation(601);
-		ground->SetPosition(1332 + i * 16.0f, 120);
-		//objects.push_back(ground);
-		listGrids->AddObject(ground);
-	}
-
-	// vật cản 9
-	for (int i = 0; i < 4; i++)
-	{
-		Ground *ground = new Ground();
-		ground->AddAnimation(601);
-		ground->SetPosition(1792 + i * 16.0f, 229);
-		//objects.push_back(ground);
-		listGrids->AddObject(ground);
-	}
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	Ground *ground = new Ground();
+	//	ground->AddAnimation(601);
+	//	ground->SetPosition(48 + i * 16.0f, 120);
+	//	//objects.push_back(ground);
+	//	listGrids->AddObject(ground);
+	//}
 	#pragma endregion
 
 #pragma region Zombie
@@ -1330,12 +1230,12 @@ void LoadResources()
 #pragma endregion
 
 #pragma region CheckPoint
-	CheckPoint *checkPoint;
-	checkPoint = new CheckPoint();
-	checkPoint->SetType(CHECKPOINT_LEVELUP);
-	checkPoint->SetPosition(2000, 374);
-	//objects.push_back(checkPoint);
-	listGrids->AddObject(checkPoint);
+	//CheckPoint *checkPoint;
+	//checkPoint = new CheckPoint();
+	//checkPoint->SetType(CHECKPOINT_LEVELUP);
+	//checkPoint->SetPosition(2000, 374);
+	////objects.push_back(checkPoint);
+	//listGrids->AddObject(checkPoint);
 #pragma endregion
 }
 
@@ -1355,11 +1255,11 @@ void LoadResourceLv1() {
 		listGrids->AddObject(ground);
 	}
 
-	CheckPoint *checkPoint;
+	/*CheckPoint *checkPoint;
 	checkPoint = new CheckPoint();
 	checkPoint->SetType(CHECKPOINT_LEVELUP);
 	checkPoint->SetPosition(625, 261);
-	listGrids->AddObject(checkPoint);
+	listGrids->AddObject(checkPoint);*/
 }
 
 void Update(DWORD dt)
@@ -1985,7 +1885,7 @@ void Update(DWORD dt)
 		if (y > SCREEN_HEIGHT / 2&&y < MAX_HEIGHT - SCREEN_HEIGHT / 2)
 		{
 			game->mCamera->setX(game->mCamera->getX());
-			game->mCamera->setY(y-SCREEN_HEIGHT/2);
+			game->mCamera->setY(y-SCREEN_HEIGHT/2+50);
 		}
 		/*else if(y<MAX_HEIGHT-SCREEN_HEIGHT/2)
 		{

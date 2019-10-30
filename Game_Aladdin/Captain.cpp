@@ -119,6 +119,7 @@ void Captain::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		//x = rightCorner;
 	}
 
+
 	// No collision occured, proceed normally
 	if (coEvents.size() == 0 )
 	{

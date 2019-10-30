@@ -280,8 +280,8 @@
 #define ID_TEX_MONEY					195
 #define ID_TEX_LANTERN					196
 
-#define BRICK_BBOX_WIDTH				16
-#define BRICK_BBOX_HEIGHT				16
+#define BRICK_BBOX_WIDTH				1
+#define BRICK_BBOX_HEIGHT				1
 
 #define EFFECT_TIME						200
 #define LEVELUP_TIME					3000
