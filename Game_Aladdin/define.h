@@ -219,9 +219,9 @@
 
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(0, 0, 0)
 #define SCREEN_WIDTH					640
-#define SCREEN_HEIGHT					300
-#define MAX_HEIGHT                      1024
-#define MAX_WIDTH_LV1					2048
+#define SCREEN_HEIGHT					370
+#define MAX_HEIGHT_LV1                  1070
+#define MAX_WIDTH_LV1					2144
 #define MAX_WIDTH_LV2					512
 #define MAX_WIDTH_LV2_1					4096
 #define MAX_WIDTH_LV2_2					5650
@@ -231,8 +231,7 @@
 #define ID_TEX_MARIO					0
 #define ID_TEX_LV1						10
 #define ID_TEX_LV1_2					15
-#define ID_TEX_BRICK					20
-#define ID_TEX_MARIO_2					30
+#define ID_TEX_ROCK					20
 #define ID_TEX_PANTHER					25
 #define ID_TEX_PANTHER_RIGHT			26
 #define ID_TEX_ZOMBIE					35
@@ -280,7 +279,7 @@
 #define ID_TEX_MONEY					195
 #define ID_TEX_LANTERN					196
 
-#define BRICK_BBOX_WIDTH				1
+#define BRICK_BBOX_WIDTH				10
 #define BRICK_BBOX_HEIGHT				1
 
 #define EFFECT_TIME						200
@@ -323,8 +322,12 @@
 #define LANTERN_BBOX_WIDTH				16
 #define LANTERN_BBOX_HEIGHT				16
 
+// Rock
+#define ROCK_BBOX_WIDTH					32
+#define ROCK_BBOX_HEIGHT				16
+
 // Water
 #define WATER_BBOX_WIDTH				16
 #define WATER_BBOX_HEIGHT				16
 
-#define GRID_WIDTH	(SCREEN_WIDTH / 2 + 100)
+#define CELL_SIZE						295

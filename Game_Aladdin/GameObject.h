@@ -50,7 +50,7 @@ public:
 
 	DWORD dt;
 
-	int gridNumber;
+	int cellNumber;
 	vector<LPANIMATION> animations;
 
 public:

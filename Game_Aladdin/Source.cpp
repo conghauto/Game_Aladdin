@@ -15,11 +15,12 @@
 #include "Zombie.h"
 #include "Item.h"
 #include "Lantern.h"
+#include "Rock.h"
 #include "Map.h"
 #include "CheckPoint.h"
 #include "UI.h"
 #include "Water.h"
-#include "GridObjects.h"
+#include "Grid.h"
 #include "Soldier.h"
 #include "Bullet.h"
 #include "Ball.h"
@@ -46,8 +47,8 @@ CSprite *sprite;
 //vector<LPGAMEOBJECT> objects;
 //vector<int> willDeleteObjects;
 
-ListGrids *listGrids;
-vector<GridObjects*> currentGrids;
+Grid *grid;
+vector<Cell*> currentCell;
 
 bool lv1 = true;
 bool lv2 = false;
@@ -123,7 +124,7 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 				knife->appearTime = GetTickCount();
 				knife->firstCast = GetTickCount();
 				//objects.push_back(knife);
-				listGrids->AddObject(knife);
+				grid->AddObject(knife);
 				break;
 			}
 		}
@@ -239,11 +240,9 @@ void LoadResources()
 {
 	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_MARIO, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(ID_TEX_MARIO_2, L"Resources\\american.png", D3DCOLOR_XRGB(173, 214, 214));
 	textures->Add(ID_TEX_LV1, L"Resources\\lv1.png", D3DCOLOR_XRGB(176, 224, 248));
-	textures->Add(ID_TEX_LV1_2, L"Resources\\maplv2.png", D3DCOLOR_XRGB(176, 224, 248));
-	/*textures->Add(ID_TEX_BRICK, L"Resources\\2.png", D3DCOLOR_XRGB(74, 73, 191));*/
-	/*textures->Add(ID_TEX_BRICK2, L"Resources\\BRICK1.png", D3DCOLOR_XRGB(255, 0, 255));*/
+	textures->Add(ID_TEX_LV1_2, L"Resources\\maplv2.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_ROCK, L"Resources\\rock.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_ZOMBIE, L"Resources\\enemy.png", D3DCOLOR_XRGB(173, 214, 214));
 	textures->Add(ID_TEX_ZOMBIE_RIGHT, L"Resources\\enemy.png", D3DCOLOR_XRGB(173, 214, 214));
 	textures->Add(ID_TEX_PANTHER, L"Resources\\PANTHER.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -255,8 +254,6 @@ void LoadResources()
 	textures->Add(ID_TEX_TILESET, L"Resources\\tileset.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_TILESET_2, L"Resources\\tileset2.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_CANDLE, L"Resources\\1.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(ID_TEX_LADDER, L"Resources\\3.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(ID_TEX_LADDER_LEFT, L"Resources\\3_.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_BBOX, L"Resources\\bbox.png", D3DCOLOR_XRGB(255, 255, 255));
 	textures->Add(ID_TEX_STAIR_BOT, L"Resources\\stair_bottom.png", D3DCOLOR_XRGB(0, 0, 255));//
 	textures->Add(ID_TEX_STAIR_TOP, L"Resources\\stair_top.png", D3DCOLOR_XRGB(0, 0, 255));
@@ -281,7 +278,6 @@ void LoadResources()
 	textures->Add(ID_TEX_STOP_WATCH, L"Resources\\UI\\STOP_WATCH.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_RECT, L"Resources\\rect.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_LANTERN, L"Resources\\lantern.png", D3DCOLOR_XRGB(255,0,255));
-	textures->Add(ID_TEX_WATER, L"Resources\\Water.png", D3DCOLOR_XRGB(255, 0, 255));
 
 
 	textures->Add(ID_TEX_EFFECT1, L"Resources\\0.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -296,9 +292,8 @@ void LoadResources()
 	LPDIRECT3DTEXTURE9 texShield = textures->Get(ID_TEX_KNIFE);
 	LPDIRECT3DTEXTURE9 texCaptain = textures->Get(ID_TEX_MARIO);
 	LPDIRECT3DTEXTURE9 texCaptainSit = textures->Get(ID_TEX_SIT);
+	
 	#pragma region Addsprite
-
-
 	sprites->Add(10001, 1122, 6, 1162, 58, texCaptain);		// đứng im phải
 
 	sprites->Add(10002, 1186, 1215, 1229, 1275, texCaptain);		// đi phải
@@ -407,10 +402,9 @@ void LoadResources()
 	sprites->Add(10140, 233, 224, 258, 268, texCaptain); // knifeing right
 	sprites->Add(10141, 202, 224, 227, 268, texCaptain);	//knifeing left
 	sprites->Add(1200, 1482, 19, 1511, 71, texShield);	//khien
+	#pragma endregion
 
-#pragma region ENEMY
-
-
+	#pragma region ENEMY
 
 	LPDIRECT3DTEXTURE9 whipR = textures->Get(ID_TEX_WHIP);
 	sprites->Add(10022, 570, 200, 554, 267, whipR);			//roi lv2 phải
@@ -434,9 +428,6 @@ void LoadResources()
 	sprites->Add(10059, 110, 0, 166, 66, whipL);			//roi lv0 trái
 	sprites->Add(10060, 349, 0, 408, 52, whipL);
 	sprites->Add(10061, 585, 0, 529, 30, whipL);
-
-	
-
 
 	/*LPDIRECT3DTEXTURE9 texMisc = textures->Get(ID_TEX_BRICK);
 	sprites->Add(20001, 0, 0, 32, 32, texMisc);*/
@@ -585,12 +576,22 @@ void LoadResources()
 	LPDIRECT3DTEXTURE9 texMisc17 = textures->Get(ID_TEX_ITEM3);
 	sprites->Add(40030, 0, 0, 16, 24, texMisc17);
 
+	LPDIRECT3DTEXTURE9 texRock1 = textures->Get(ID_TEX_ROCK); // rock
+	sprites->Add(40031, 0, 4, 30, 20, texRock1);
+	sprites->Add(40032, 35, 4, 66, 20, texRock1);
+	sprites->Add(40033, 72, 4, 105, 21, texRock1);
+	sprites->Add(40034, 111,4, 147, 24, texRock1);
+	sprites->Add(40035, 154, 4, 194, 26, texRock1);
+
 	LPDIRECT3DTEXTURE9 texBullet = textures->Get(ID_TEX_ZOMBIE); //bullet of soldier
 	sprites->Add(44444, 262, 30, 273, 40, texBullet);
 
 	LPDIRECT3DTEXTURE9 texBall = textures->Get(ID_TEX_ZOMBIE); //bullet of soldier
 	sprites->Add(45555, 229, 70, 250, 84, texBall);
-#pragma endregion
+	
+	#pragma endregion
+
+
 	LPANIMATION ani;
 
 	#pragma region CaptainAnimation
@@ -1042,6 +1043,13 @@ void LoadResources()
 	ani->Add(40030);
 	animations->Add(815, ani);
 
+	ani = new CAnimation(100); // bậc thang
+	ani->Add(40031);
+	ani->Add(40032);
+	ani->Add(40033);
+	ani->Add(40034);
+	ani->Add(40035);
+	animations->Add(900, ani);
 
 	#pragma endregion
 
@@ -1086,12 +1094,12 @@ void LoadResources()
 	captain->AddAnimation(1612);	//ngồi ném táo phải
 	captain->AddAnimation(1613); // ngồi ném táo trái
 
-	captain->SetPosition(15, 600);
+	captain->SetPosition(40, 700);
 	//objects.push_back(captain);
 
-	// khởi tạo listgrids
-	listGrids->InitList(MAX_WIDTH_LV1);
-	//listGrids->AddObject(captain);
+	// khởi tạo grid
+	grid->InitList(MAX_WIDTH_LV1,MAX_HEIGHT_LV1);
+	//grid->AddObject(captain);
 
 	#pragma endregion
 
@@ -1100,9 +1108,9 @@ void LoadResources()
 	for (int i = 0; i < 128; i++)
 	{
 		Ground *ground = new Ground();
-		ground->SetPosition(0 + i * 16.0f, 990);
+		ground->SetPosition(0 + i * 16.0f,990);
 		//objects.push_back(ground);
-		listGrids->AddObject(ground);
+		grid->AddObject(ground);
 	}
 
 	// vật cản trên 1
@@ -1112,7 +1120,7 @@ void LoadResources()
 	//	ground->AddAnimation(601);
 	//	ground->SetPosition(48 + i * 16.0f, 120);
 	//	//objects.push_back(ground);
-	//	listGrids->AddObject(ground);
+	//	grid->AddObject(ground);
 	//}
 	#pragma endregion
 
@@ -1123,7 +1131,7 @@ void LoadResources()
 	zombie->SetPosition(100, 200);
 	zombie->SetState(ZOMBIE_STATE_WALKING);
 	//objects.push_back(zombie);
-	listGrids->AddObject(zombie);
+	grid->AddObject(zombie);
 
 
 	zombie1 = new Zombie();
@@ -1133,7 +1141,7 @@ void LoadResources()
 	zombie1->SetPosition(450, 200);
 	zombie1->SetState(ZOMBIE_STATE_WALKING);
 	//objects.push_back(zombie1);
-	listGrids->AddObject(zombie1);
+	grid->AddObject(zombie1);
 
 #pragma endregion
 #pragma region Soldier
@@ -1143,7 +1151,7 @@ void LoadResources()
 	soldier->SetPosition(800, 200);
 	soldier->SetState(SOLDIER_STATE_WALKING);
 	//objects.push_back(zombie1);
-	listGrids->AddObject(soldier);
+	grid->AddObject(soldier);
 
 	soldier1 = new Soldier();
 	soldier1->vx = -1;
@@ -1152,81 +1160,28 @@ void LoadResources()
 	soldier1->SetPosition(1400, 200);
 	soldier1->SetState(SOLDIER_STATE_WALKING);
 	//objects.push_back(zombie1);
-	listGrids->AddObject(soldier1);
+	grid->AddObject(soldier1);
 #pragma endregion
-#pragma region Lantern
-	Lantern *lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(64, 80);
-	//objects.push_back(lantern);
-	listGrids->AddObject(lantern);
+#pragma region Rock
+	Rock*rock = new Rock();
+	rock->AddAnimation(900);
+	rock->SetPosition(200,900);
+	grid->AddObject(rock);
 
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(128, 180);
-	//objects.push_back(lantern);
-	listGrids->AddObject(lantern);
 
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	//lantern3->SetPosition(318, 188);
-	lantern->SetPosition(318, 184);
-	//objects.push_back(lantern);
-	listGrids->AddObject(lantern);
+	//Lantern *lantern = new Lantern();
+	//lantern->AddAnimation(811);
+	//lantern->SetPosition(64, 80);
+	////objects.push_back(lantern);
+	//grid->AddObject(lantern);
 
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(414, 96);
-	//objects.push_back(lantern);
-	listGrids->AddObject(lantern);
+	//lantern = new Lantern();
+	//lantern->AddAnimation(811);
+	//lantern->SetPosition(128, 180);
+	////objects.push_back(lantern);
+	//grid->AddObject(lantern);
 
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(574, 128);
-	//objects.push_back(lantern);
-	listGrids->AddObject(lantern);
-
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(832, 128);
-	//objects.push_back(lantern);
-	listGrids->AddObject(lantern);
-
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(1088, 180);
-	//objects.push_back(lantern7);
-	listGrids->AddObject(lantern);
-
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(1184, 96);
-	//objects.push_back(lantern8);
-	listGrids->AddObject(lantern);
-
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(1344,80);
-	//objects.push_back(lantern);
-	listGrids->AddObject(lantern);
-
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(1408, 172);
-	//objects.push_back(lantern10);
-	listGrids->AddObject(lantern);
-
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(1600, 180);
-	//objects.push_back(lantern11);
-	listGrids->AddObject(lantern);
-
-	lantern = new Lantern();
-	lantern->AddAnimation(811);
-	lantern->SetPosition(1696, 96);
-	//objects.push_back(lantern);
-	listGrids->AddObject(lantern);
+	
 #pragma endregion
 
 #pragma region CheckPoint
@@ -1235,7 +1190,7 @@ void LoadResources()
 	//checkPoint->SetType(CHECKPOINT_LEVELUP);
 	//checkPoint->SetPosition(2000, 374);
 	////objects.push_back(checkPoint);
-	//listGrids->AddObject(checkPoint);
+	//grid->AddObject(checkPoint);
 #pragma endregion
 }
 
@@ -1245,21 +1200,21 @@ void LoadResourceLv1() {
 		Ground *ground = new Ground();
 		ground->AddAnimation(601);
 		ground->SetPosition(0 + i * 16.0f, 261);
-		listGrids->AddObject(ground);
+		grid->AddObject(ground);
 	}
 	for (int i = 0; i < 7; i++)
 	{
 		Ground *ground = new Ground();
 		ground->AddAnimation(601);
 		ground->SetPosition(128 + i * 16.0f, 134);
-		listGrids->AddObject(ground);
+		grid->AddObject(ground);
 	}
 
 	/*CheckPoint *checkPoint;
 	checkPoint = new CheckPoint();
 	checkPoint->SetType(CHECKPOINT_LEVELUP);
 	checkPoint->SetPosition(625, 261);
-	listGrids->AddObject(checkPoint);*/
+	grid->AddObject(checkPoint);*/
 }
 
 void Update(DWORD dt)
@@ -1273,7 +1228,7 @@ void Update(DWORD dt)
 		if (captain->isLevelUp) {
 			//captain->SetState(SIMON_STATE_WALK);
 
-			listGrids->ReleaseList();
+			grid->ReleaseList();
 
 			lv2 = true;
 			lv1 = false;
@@ -1285,41 +1240,41 @@ void Update(DWORD dt)
 
 	if (lv2 == true) {
 
-		if (countLoadResourceLv2 == false)
-		{
+		//if (countLoadResourceLv2 == false)
+		//{
 
-			game->mCamera->setX(0);
-			listGrids->InitList(MAX_WIDTH_LV2);
-			countLoadResourceLv2 = true;
-			captain->SetPosition(10, 20);
-			captain->GetPosition(x, y);
+		//	game->mCamera->setX(0);
+		//	grid->InitList(MAX_WIDTH_LV2);
+		//	countLoadResourceLv2 = true;
+		//	captain->SetPosition(10, 20);
+		//	captain->GetPosition(x, y);
 
-			LoadResourceLv1();
+		//	LoadResourceLv1();
 
-			beginBullet = new BulletBegin();
-			beginBullet->AddAnimation(WEAPON_ANI_BALLBEGIN);
-			beginBullet->AddAnimation(WEAPON_ANI_BALLBEGIN);
-			//beginBullet->time_start_shoot = GetTickCount();
-			beginBullet->SetPosition(100, 215);
-			beginBullet->SetState(SOLDIER_STATE_WALKING);
-			//objects.push_back(zombie1);
-			listGrids->AddObject(beginBullet);		
+		//	beginBullet = new BulletBegin();
+		//	beginBullet->AddAnimation(WEAPON_ANI_BALLBEGIN);
+		//	beginBullet->AddAnimation(WEAPON_ANI_BALLBEGIN);
+		//	//beginBullet->time_start_shoot = GetTickCount();
+		//	beginBullet->SetPosition(100, 215);
+		//	beginBullet->SetState(SOLDIER_STATE_WALKING);
+		//	//objects.push_back(zombie1);
+		//	grid->AddObject(beginBullet);		
 
 
-		}
+		//}
 	}
 #pragma endregion
 
 #pragma region Collision
 	vector<LPGAMEOBJECT> coObjects;
 	if (captain->x < 0)
-		currentGrids = listGrids->GetCurrentGrids(0);
+		currentCell = grid->GetCurrentCells(0, captain->y);
 	else
-		currentGrids = listGrids->GetCurrentGrids(captain->x);
+		currentCell = grid->GetCurrentCells(captain->x, captain->y);
 
-	for (int i = 0; i < currentGrids.size(); i++)
+	for (int i = 0; i < currentCell.size(); i++)
 	{
-		vector<LPGAMEOBJECT> listObjects = currentGrids[i]->GetListObject();
+		vector<LPGAMEOBJECT> listObjects = currentCell[i]->GetListObject();
 		int listObjectSize = listObjects.size();
 		for (int j = 0; j < listObjectSize; j++)
 		{
@@ -1338,10 +1293,8 @@ void Update(DWORD dt)
 		for (int i = 0; i < coObjects.size(); i++)
 		{
 				coObjects[i]->Update( dt, &coObjects);
-				listGrids->UpdateObjectInGrid(coObjects[i]);
+				grid->UpdateObjectInCell(coObjects[i]);
 		}
-		
-
 	}
 
 	
@@ -1365,7 +1318,7 @@ void Update(DWORD dt)
 					//knife->SetType(ITEM_KNIFE);
 					bullet->SetPosition(zombie->x, zombie->y);
 					//objects.push_back(knife);
-					listGrids->AddObject(bullet);
+					grid->AddObject(bullet);
 				}
 			}
 			else
@@ -1379,7 +1332,7 @@ void Update(DWORD dt)
 					//knife->SetType(ITEM_KNIFE);
 					bullet->SetPosition(zombie->x, zombie->y);
 					//objects.push_back(knife);
-					listGrids->AddObject(bullet);
+					grid->AddObject(bullet);
 				}
 			}
 		}
@@ -1400,7 +1353,7 @@ void Update(DWORD dt)
 					//knife->SetType(ITEM_KNIFE);
 					bullet->SetPosition(zombie->x, zombie->y);
 					//objects.push_back(knife);
-					listGrids->AddObject(bullet);
+					grid->AddObject(bullet);
 				}
 			}
 			else
@@ -1415,7 +1368,7 @@ void Update(DWORD dt)
 					bullet->SetPosition(zombie->x, zombie->y);
 					bullet->appearTime = GetTickCount();
 					//objects.push_back(knife);
-					listGrids->AddObject(bullet);
+					grid->AddObject(bullet);
 				}
 			}
 		}
@@ -1437,7 +1390,7 @@ void Update(DWORD dt)
 				//knife->SetType(ITEM_KNIFE);
 				bullet->SetPosition(zombie1->x, zombie1->y);
 				//objects.push_back(knife);
-				listGrids->AddObject(bullet);
+				grid->AddObject(bullet);
 			}
 		}
 		else
@@ -1451,7 +1404,7 @@ void Update(DWORD dt)
 				//knife->SetType(ITEM_KNIFE);
 				bullet->SetPosition(zombie1->x, zombie1->y);
 				//objects.push_back(knife);
-				listGrids->AddObject(bullet);
+				grid->AddObject(bullet);
 			}
 		}
 
@@ -1470,7 +1423,7 @@ void Update(DWORD dt)
 				//knife->SetType(ITEM_KNIFE);
 				bullet->SetPosition(zombie1->x, zombie1->y);
 				//objects.push_back(knife);
-				listGrids->AddObject(bullet);
+				grid->AddObject(bullet);
 			}
 		}
 		else
@@ -1485,7 +1438,7 @@ void Update(DWORD dt)
 				bullet->SetPosition(zombie1->x, zombie1->y);
 				bullet->appearTime = GetTickCount();
 				//objects.push_back(knife);
-				listGrids->AddObject(bullet);
+				grid->AddObject(bullet);
 			}
 		}
 
@@ -1509,7 +1462,7 @@ void Update(DWORD dt)
 					//knife->SetType(ITEM_KNIFE);
 					ball->SetPosition(soldier->x, soldier->y);
 					//objects.push_back(knife);
-					listGrids->AddObject(ball);
+					grid->AddObject(ball);
 				}
 			}
 			else
@@ -1523,7 +1476,7 @@ void Update(DWORD dt)
 					//knife->SetType(ITEM_KNIFE);
 					ball->SetPosition(soldier->x, soldier->y);
 					//objects.push_back(knife);
-					listGrids->AddObject(ball);
+					grid->AddObject(ball);
 				}
 			}
 		}
@@ -1544,7 +1497,7 @@ void Update(DWORD dt)
 					//knife->SetType(ITEM_KNIFE);
 					ball->SetPosition(soldier->x, soldier->y);
 					//objects.push_back(knife);
-					listGrids->AddObject(ball);
+					grid->AddObject(ball);
 				}
 			}
 			else
@@ -1559,7 +1512,7 @@ void Update(DWORD dt)
 					ball->SetPosition(soldier->x, soldier->y);
 					ball->appearTime = GetTickCount();
 					//objects.push_back(knife);
-					listGrids->AddObject(ball);
+					grid->AddObject(ball);
 				}
 			}
 		}
@@ -1581,7 +1534,7 @@ void Update(DWORD dt)
 				//knife->SetType(ITEM_KNIFE);
 				ball->SetPosition(soldier1->x, soldier1->y);
 				//objects.push_back(knife);
-				listGrids->AddObject(ball);
+				grid->AddObject(ball);
 			}
 		}
 		else
@@ -1595,7 +1548,7 @@ void Update(DWORD dt)
 				//knife->SetType(ITEM_KNIFE);
 				ball->SetPosition(soldier1->x, soldier1->y);
 				//objects.push_back(knife);
-				listGrids->AddObject(ball);
+				grid->AddObject(ball);
 			}
 		}
 
@@ -1614,7 +1567,7 @@ void Update(DWORD dt)
 				//knife->SetType(ITEM_KNIFE);
 				ball->SetPosition(soldier1->x, soldier1->y);
 				//objects.push_back(knife);
-				listGrids->AddObject(ball);
+				grid->AddObject(ball);
 			}
 		}
 		else
@@ -1629,7 +1582,7 @@ void Update(DWORD dt)
 				ball->SetPosition(soldier1->x, soldier1->y);
 				ball->appearTime = GetTickCount();
 				//objects.push_back(knife);
-				listGrids->AddObject(ball);
+				grid->AddObject(ball);
 			}
 		}
 	}
@@ -1652,7 +1605,7 @@ void Update(DWORD dt)
 					//knife->SetType(ITEM_KNIFE);
 					bossbullet->SetPosition(trum->x, trum->y);
 					//objects.push_back(knife);
-					listGrids->AddObject(bossbullet);
+					grid->AddObject(bossbullet);
 				}
 			}
 			else
@@ -1666,7 +1619,7 @@ void Update(DWORD dt)
 					//knife->SetType(ITEM_KNIFE);
 					bossbullet->SetPosition(trum->x, trum->y);
 					//objects.push_back(knife);
-					listGrids->AddObject(bossbullet);
+					grid->AddObject(bossbullet);
 				}
 			}
 		}
@@ -1687,7 +1640,7 @@ void Update(DWORD dt)
 					//knife->SetType(ITEM_KNIFE);
 					bossbullet->SetPosition(trum->x, trum->y);
 					//objects.push_back(knife);
-					listGrids->AddObject(bossbullet);
+					grid->AddObject(bossbullet);
 				}
 			}
 			else
@@ -1702,7 +1655,7 @@ void Update(DWORD dt)
 					bossbullet->SetPosition(trum->x, trum->y);
 					bossbullet->appearTime = GetTickCount();
 					//objects.push_back(knife);
-					listGrids->AddObject(bossbullet);
+					grid->AddObject(bossbullet);
 				}
 			}
 		}
@@ -1722,7 +1675,7 @@ void Update(DWORD dt)
 				item->SetPosition(zombie->x, zombie->y);
 				item->SetSpeed(0, -0.1);
 				coObjects.push_back(item);
-				listGrids->AddObject(item);
+				grid->AddObject(item);
 				srand(time(NULL));
 				int random_portion = rand() % 100;
 
@@ -1763,7 +1716,7 @@ void Update(DWORD dt)
 				item->SetPosition(soldier->x, soldier->y);
 				item->SetSpeed(0, -0.1);
 				coObjects.push_back(item);
-				listGrids->AddObject(item);
+				grid->AddObject(item);
 				srand(time(NULL));
 				int random_portion = rand() % 100;
 
@@ -1807,7 +1760,7 @@ void Update(DWORD dt)
 				item->SetPosition(lantern_x, lantern_y);
 				item->SetSpeed(0, -0.1);
 				coObjects.push_back(item);
-				listGrids->AddObject(item);
+				grid->AddObject(item);
 				// Whip item
 				if (captain->whip->level < 2)
 				{
@@ -1871,10 +1824,10 @@ void Update(DWORD dt)
 		}
 	}
 
-	// Remove lần lượt từng object từ listRemoveObjects trong listGrids
+	// Remove lần lượt từng object từ listRemoveObjects trong grid
 	for (int i = 0; i < listRemoveObjects.size(); i++)
 	{
-		listGrids->RemoveObject(listRemoveObjects[i]);
+		grid->RemoveObject(listRemoveObjects[i]);
 		delete listRemoveObjects[i];
 	}
 #pragma endregion	
@@ -1882,10 +1835,10 @@ void Update(DWORD dt)
 #pragma region Camera
 	if (lv1 == true)
 	{
-		if (y > SCREEN_HEIGHT / 2&&y < MAX_HEIGHT - SCREEN_HEIGHT / 2)
+		if (y > SCREEN_HEIGHT / 2&&y < MAX_HEIGHT_LV1 - SCREEN_HEIGHT / 2)
 		{
 			game->mCamera->setX(game->mCamera->getX());
-			game->mCamera->setY(y-SCREEN_HEIGHT/2+50);
+			game->mCamera->setY(y-SCREEN_HEIGHT/2);
 		}
 		/*else if(y<MAX_HEIGHT-SCREEN_HEIGHT/2)
 		{
@@ -1951,7 +1904,7 @@ void Render()
 		if (lv2 == true&&check==false) {
 			if (beginBullet->time_end_start - beginBullet->time_start_shoot > 5000) {
 				beginBullet->time_start_shoot = GetTickCount();
-				listGrids->RemoveObject(beginBullet);
+				grid->RemoveObject(beginBullet);
 				delete beginBullet;
 				trum = new BossOne();
 				trum->AddAnimation(667);
@@ -1963,7 +1916,7 @@ void Render()
 				trum->SetPosition(300, 100);
 				trum->SetState(BOSS_STATE_WALKING);
 				//objects.push_back(zombie1);
-				listGrids->AddObject(trum);
+				grid->AddObject(trum);
 				check = true;
 			
 			}
@@ -1982,9 +1935,9 @@ void Render()
 			//map->Draw(game->x_cam, game->y_cam);
 		}
 		map->Draw(game->mCamera->getX(), game->mCamera->getY());
-		for (int i = 0; i < currentGrids.size(); i++)
+		for (int i = 0; i < currentCell.size(); i++)
 		{
-			vector<LPGAMEOBJECT> listObject = currentGrids[i]->GetListObject();
+			vector<LPGAMEOBJECT> listObject = currentCell[i]->GetListObject();
 			int listObjectSize = listObject.size();
 
 			for (int j = 0; j < listObjectSize; j++)
@@ -2105,7 +2058,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	keyHandler = new CSampleKeyHander();
 	game->InitKeyboard(keyHandler);
 	
-	listGrids = ListGrids::GetInstance();
+	grid = Grid::GetInstance();
 
 	LoadResources();
 

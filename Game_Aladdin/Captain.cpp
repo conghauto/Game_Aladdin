@@ -1,12 +1,11 @@
 ﻿#include <algorithm>
 #include "debug.h"
-
+#include "Rock.h"
 #include "Captain.h"
 #include "Game.h"
 #include "Item.h"
 #include "Zombie.h"
 #include "Ground.h"
-#include "Lantern.h"
 #include "CheckPoint.h"
 #include "Soldier.h"
 #include "Bullet.h"
@@ -31,7 +30,7 @@ void Captain::CalcPotentialCollisions(
 	for (UINT i = 0; i < coObjects->size(); i++)
 	{
 		// Captain se khong va cham voi nhung vat sau:
-		if (!dynamic_cast<Lantern *>(coObjects->at(i)))
+		if (!dynamic_cast<Rock *>(coObjects->at(i)))
 		{
 			LPCOLLISIONEVENT e = SweptAABBEx(coObjects->at(i));
 
