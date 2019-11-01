@@ -134,9 +134,10 @@
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GridObjects.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Rock.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Lantern.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -165,9 +166,10 @@
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GridObjects.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Rock.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="Lantern.h" />
     <ClInclude Include="Map.h" />
