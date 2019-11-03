@@ -6,6 +6,7 @@
 #include "Item.h"
 #include "Zombie.h"
 #include "Ground.h"
+#include "Lantern.h"
 #include "CheckPoint.h"
 #include "Soldier.h"
 #include "Bullet.h"
@@ -30,7 +31,7 @@ void Captain::CalcPotentialCollisions(
 	for (UINT i = 0; i < coObjects->size(); i++)
 	{
 		// Captain se khong va cham voi nhung vat sau:
-		if (!dynamic_cast<Rock *>(coObjects->at(i)))
+		if (!dynamic_cast<Lantern *>(coObjects->at(i)))
 		{
 			LPCOLLISIONEVENT e = SweptAABBEx(coObjects->at(i));
 
@@ -39,6 +40,16 @@ void Captain::CalcPotentialCollisions(
 			else
 				delete e;
 		}
+
+		/*if (!dynamic_cast<Rock *>(coObjects->at(i)))
+		{
+			LPCOLLISIONEVENT e = SweptAABBEx(coObjects->at(i));
+
+			if (e->t > 0 && e->t <= 1.0f)
+				coEvents.push_back(e);
+			else
+				delete e;
+		}*/
 	}
 
 	std::sort(coEvents.begin(), coEvents.end(), CCollisionEvent::compare);
@@ -166,6 +177,17 @@ void Captain::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				//	//SetState(SIMON_STATE_DIE);
 				//}
 				StartUntouchable();
+			}
+			else if (dynamic_cast<Rock*>(e->obj))
+			{
+				// Da cham dat
+				// Khong va cham theo phuong ngang
+				if (isJump && e->nx == 0 && e->ny < 0)
+					isJump = false;
+
+				// Xét va chạm cứng
+				if (nx != 0) vx = 0;
+				if (ny != 0) vy = 0;
 			}
 			else if (dynamic_cast<Ground *>(e->obj))
 			{

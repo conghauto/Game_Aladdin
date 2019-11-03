@@ -214,13 +214,13 @@
 
 #define SIMON_UNTOUCHABLE_TIME			5000
 
-#define WINDOW_CLASS_NAME L"Game Captain America"
-#define MAIN_WINDOW_TITLE L"Game Captain America"
+#define WINDOW_CLASS_NAME L"Game Aladdin"
+#define MAIN_WINDOW_TITLE L"Game Aladdin"
 
-#define BACKGROUND_COLOR D3DCOLOR_XRGB(0, 0, 0)
+#define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 255, 255)
 #define SCREEN_WIDTH					640
-#define SCREEN_HEIGHT					370
-#define MAX_HEIGHT_LV1                  1070
+#define SCREEN_HEIGHT					375
+#define MAX_HEIGHT_LV1                  1067
 #define MAX_WIDTH_LV1					2144
 #define MAX_WIDTH_LV2					512
 #define MAX_WIDTH_LV2_1					4096
@@ -231,7 +231,7 @@
 #define ID_TEX_MARIO					0
 #define ID_TEX_LV1						10
 #define ID_TEX_LV1_2					15
-#define ID_TEX_ROCK					20
+#define ID_TEX_ROCK						20
 #define ID_TEX_PANTHER					25
 #define ID_TEX_PANTHER_RIGHT			26
 #define ID_TEX_ZOMBIE					35

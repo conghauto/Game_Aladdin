@@ -32,6 +32,7 @@ void Grid::InitList(float mapWidth,float mapHeight)
 	int cellY_Count = ceil(mapHeight / CELL_SIZE);
 	
 	this->cellCountInRow = cellX_Count;
+	this->cellCountInColumn = cellY_Count;
 
 	for (int i = 0; i < cellY_Count; i++) {
 		for (int j = 0; j < cellX_Count; j++)
@@ -110,8 +111,12 @@ vector<Cell*> Grid::GetCurrentCells(float x,float y)
 	result.push_back(listCells[cellCurrent]);
 	if (cellCurrent > 0)
 		result.push_back(listCells[cellCurrent - 1]);
-	if (cellCurrent + 1 < listCells.size())
+	if (cellCurrent + 1 < cellCountInRow)
 		result.push_back(listCells[cellCurrent + 1]);
+	if (cellY_Number > 0)
+		result.push_back(listCells[cellCurrent - cellCountInRow - 1]);
+	if (cellY_Number + 1 < cellCountInColumn)
+		result.push_back(listCells[cellCurrent + cellCountInRow - 1]);
 
 	return result;
 }

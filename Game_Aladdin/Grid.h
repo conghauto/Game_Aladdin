@@ -26,7 +26,9 @@ class Grid
 {
 	static Grid *instance;
 	vector<Cell*> listCells;
+
 	int cellCountInRow;
+	int cellCountInColumn;
 public:
 	void InitList(float mapWidth, float mapHeight);
 	void ReleaseList();
