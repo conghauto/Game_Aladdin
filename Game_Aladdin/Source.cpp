@@ -786,6 +786,30 @@ void LoadResources()
 		//objects.push_back(ground);
 		grid->AddObject(ground);
 	}
+
+	for (int i = 0; i < 6; i++)
+	{
+		Ground *ground = new Ground();
+		ground->SetPosition(1056 + i * 16.0f, 820);
+		//objects.push_back(ground);
+		grid->AddObject(ground);
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		Ground *ground = new Ground();
+		ground->SetPosition(1328 + i * 16.0f, 840);
+		//objects.push_back(ground);
+		grid->AddObject(ground);
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		Ground *ground = new Ground();
+		ground->SetPosition(1350 + i * 16.0f, 780);
+		//objects.push_back(ground);
+		grid->AddObject(ground);
+	}
 	#pragma endregion
 
 	#pragma region Zombie
@@ -831,12 +855,17 @@ void LoadResources()
 	#pragma region Rock
 		Rock*rock = new Rock();
 		rock->AddAnimation(990);
-		rock->SetPosition(250,950);
+		rock->SetPosition(1232,928);
+		grid->AddObject(rock);
+
+		rock = new Rock();
+		rock->AddAnimation(990);
+		rock->SetPosition(1248, 864);
 		grid->AddObject(rock);
 
 		Rock*rock1 = new Rock();
 		rock1->AddAnimation(991);
-		rock1->SetPosition(400, 950);
+		rock1->SetPosition(1155, 890);
 		grid->AddObject(rock1);
 	#pragma endregion
 

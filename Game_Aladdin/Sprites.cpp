@@ -83,7 +83,7 @@ void CAnimation::RenderRock(float x, float y, int alpha)
 	else
 	{
 		DWORD t = frames[currentFrame]->GetTime();
-		if (now - lastFrameTime > t+1500)
+		if (now - lastFrameTime > t+1000)
 		{
 			currentFrame++;
 			lastFrameTime = now;

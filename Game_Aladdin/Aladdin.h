@@ -51,7 +51,7 @@ public:
 	int currentWeapon;
 	Aladdin() : CGameObject()
 	{
-		level = SIMON_LEVEL_BIG;
+		level = 1;
 		untouchable = 0;
 		whip = new Whip();
 		life = 3;
