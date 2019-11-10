@@ -108,11 +108,11 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	}
 
 	// reset untouchable timer if untouchable time has passed
-	/*if (untouchable != 0 && GetTickCount() - untouchable_start > SIMON_UNTOUCHABLE_TIME)
+	if (untouchable != 0 && GetTickCount() - untouchable_start > SIMON_UNTOUCHABLE_TIME)
 	{
 		untouchable_start = 0;
 		untouchable = 0;
-	}*/
+	}
 
 
 	// Handle Aladdin go over screen camera
@@ -381,7 +381,7 @@ void Aladdin::Render()
 	}
 
 	int alpha = 255;
-	if (untouchable) alpha = 128;
+	if (untouchable) alpha = 0;
 
 	if (ani != -1)
 	{

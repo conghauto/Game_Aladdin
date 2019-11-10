@@ -25,3 +25,4 @@ private:
 	D3DXVECTOR3     mPosition;
 };
 
+

@@ -692,13 +692,22 @@ void LoadResources()
 	ani->Add(40023);
 	animations->Add(809, ani);
 
-	ani = new CAnimation(0); // bậc thang
+	ani = new CAnimation(0); // bậc thang 1
 	ani->Add(40031);
 	ani->Add(40032);
 	ani->Add(40033);
 	ani->Add(40034);
 	ani->Add(40035);
-	animations->Add(999, ani);
+	animations->Add(990, ani);
+
+
+	ani = new CAnimation(0); // bậc thang 2
+	ani->Add(40033);
+	ani->Add(40034);
+	ani->Add(40035);
+	ani->Add(40031);
+	ani->Add(40032);
+	animations->Add(991, ani);
 
 	ani = new CAnimation(0); // pillar 1
 	ani->Add(410036);
@@ -820,15 +829,15 @@ void LoadResources()
 	#pragma endregion
 
 	#pragma region Rock
-		/*Rock*rock = new Rock();
-		rock->AddAnimation(999);
-		rock->SetPosition(200,950);
+		Rock*rock = new Rock();
+		rock->AddAnimation(990);
+		rock->SetPosition(250,950);
 		grid->AddObject(rock);
 
 		Rock*rock1 = new Rock();
-		rock1->AddAnimation(999);
+		rock1->AddAnimation(991);
 		rock1->SetPosition(400, 950);
-		grid->AddObject(rock1);*/
+		grid->AddObject(rock1);
 	#pragma endregion
 
 	#pragma region CheckPoint
