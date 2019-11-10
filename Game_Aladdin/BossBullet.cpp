@@ -1,5 +1,5 @@
 #include "BossBullet.h"
-#include "Captain.h"
+#include "Aladdin.h"
 
 void BossBullet::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
@@ -68,10 +68,10 @@ void BossBullet::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			{
 				LPCOLLISIONEVENT e = coEventsResult[i];
 
-				if (dynamic_cast<Captain *>(e->obj))
+				if (dynamic_cast<Aladdin *>(e->obj))
 				{
-					Captain *captain = dynamic_cast<Captain *>(e->obj);
-					captain->SetState(SIMON_STATE_DIE);
+					Aladdin *aladdin = dynamic_cast<Aladdin *>(e->obj);
+					aladdin->SetState(SIMON_STATE_DIE);
 					this->isEaten = true;
 				}
 			}

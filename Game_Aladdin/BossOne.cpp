@@ -2,7 +2,7 @@
 #include "define.h"
 #include "Ground.h"
 #include <algorithm>
-#include "Captain.h"
+#include "Aladdin.h"
 #include "Shield.h"
 
 void BossOne::CalcPotentialCollisions(
@@ -13,7 +13,7 @@ void BossOne::CalcPotentialCollisions(
 
 	for (UINT i = 0; i < coObjects->size(); i++)
 	{
-		// Captain se khong va cham voi nhung vat sau:
+		// aladdin se khong va cham voi nhung vat sau:
 			LPCOLLISIONEVENT e = SweptAABBEx(coObjects->at(i));
 
 			if (e->t > 0 && e->t <= 1.0f)

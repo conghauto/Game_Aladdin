@@ -38,9 +38,9 @@ void Grid::InitList(float mapWidth,float mapHeight)
 		for (int j = 0; j < cellX_Count; j++)
 		{
 			float left, right;
-			left = ( i + j )* CELL_SIZE;
-			right = ( i + j + 1)* CELL_SIZE;
-			cell = new Cell(left, right);
+			left = j* CELL_SIZE;
+			right = (j + 1)* CELL_SIZE;
+			cell = new Cell(left, right,i);
 			listCells.push_back(cell);
 		}
 	}
@@ -61,13 +61,24 @@ void Grid::AddObject(LPGAMEOBJECT object)
 	int cellX_Number = floor(objectX / CELL_SIZE);
 	int cellY_Number = floor(objectY / CELL_SIZE);
 
+/*	int cellX_Number = floor((x / CELL_SIZE));
+	int cellY_Number = floor((y / CELL_SIZE));
+
+	int cellCurrent = cellY_Number > 0 ? (cellX_Number + (cellCountInRow - 1)*cellY_Number) : cellX_Number*/;
 	// Tránh trường hợp vật ra khỏi map
-	cellX_Number = (cellX_Number == this->listCells.size())? (this->listCells.size() - 1): cellX_Number;
+	cellX_Number = (cellX_Number == cellCountInRow)? (cellCountInRow - 1): cellX_Number;
+	int cellCurrent = cellY_Number > 0 ? (cellX_Number + (cellCountInRow - 1)*cellY_Number) : cellX_Number;
 
-	object->cellNumber = cellY_Number>0?(cellX_Number+(cellCountInRow-1)*cellY_Number): cellX_Number;
-	int cellNumber = object->cellNumber;
+	if (object->x+16 > (cellX_Number+1)*CELL_SIZE) {
+		cellCurrent += 1;
+	}
+	else if(object->x -16 < (cellX_Number)*CELL_SIZE&&cellX_Number>0){
+		cellCurrent -= 1;
+	}
 
-	listCells[cellNumber]->AddObject(object);
+	object->cellNumber = cellCurrent;
+
+	listCells[cellCurrent]->AddObject(object);
 }
 
 void Grid::RemoveObject(LPGAMEOBJECT object)
@@ -102,21 +113,21 @@ Grid * Grid::GetInstance()
 vector<Cell*> Grid::GetCurrentCells(float x,float y)
 {
 	vector<Cell*> result;
-	int cellX_Number = floor(x / CELL_SIZE);
-	int cellY_Number = floor(y / CELL_SIZE);
+	int cellX_Number = floor((x / CELL_SIZE));
+	int cellY_Number = floor((y / CELL_SIZE));
 
-	int cellCurrent = cellY_Number > 0 ? (cellX_Number + (cellCountInRow - 1)*cellY_Number) : cellX_Number;
+	int cellCurrent = cellY_Number > 0 ? (cellX_Number + (cellCountInRow-1)*cellY_Number) : cellX_Number;
 
 	// Trường hợp màn hình game nằm giữa 2 Cell
 	result.push_back(listCells[cellCurrent]);
 	if (cellCurrent > 0)
 		result.push_back(listCells[cellCurrent - 1]);
-	if (cellCurrent + 1 < cellCountInRow)
+	if (cellCurrent< cellCountInRow)
 		result.push_back(listCells[cellCurrent + 1]);
-	if (cellY_Number > 0)
-		result.push_back(listCells[cellCurrent - cellCountInRow - 1]);
-	if (cellY_Number + 1 < cellCountInColumn)
-		result.push_back(listCells[cellCurrent + cellCountInRow - 1]);
+	/*if (cellY_Number > 0)
+		result.push_back(listCells[cellCurrent - cellCountInRow-1]);
+	if (cellY_Number< cellCountInColumn)
+		result.push_back(listCells[cellCurrent + cellCountInRow-1]);*/
 
 	return result;
 }

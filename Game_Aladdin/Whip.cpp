@@ -1,8 +1,8 @@
 #include "define.h"
-#include"Captain.h"
+#include"Aladdin.h"
 #include "Whip.h"
 #include "Zombie.h"
-#include "Lantern.h"
+#include "Pillar.h"
 
 void Whip::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
@@ -22,17 +22,17 @@ void Whip::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 				if (zombie->GetState() != ZOMBIE_STATE_DIE) {
 					zombie->SetState(ZOMBIE_STATE_DIE);
 				}
-				Captain::score += 100;
+				Aladdin::score += 100;
 			}
 		}
-		else if (dynamic_cast<Lantern *>(coObjects->at(i)))
+		else if (dynamic_cast<Pillar *>(coObjects->at(i)))
 		{
-			Lantern *lantern = dynamic_cast<Lantern *>(coObjects->at(i));
+			Pillar *pillar = dynamic_cast<Pillar *>(coObjects->at(i));
 			float zl, zr, zt, zb;
-			lantern->GetBoundingBox(zl, zt, zr, zb);
+			pillar->GetBoundingBox(zl, zt, zr, zb);
 			if (wl < zl && wr > zr &&wt<zt+16&& wb < zb+16)
 			{
-				lantern->isHitted = true;
+				pillar->isHitted = true;
 			}
 		}
 	}

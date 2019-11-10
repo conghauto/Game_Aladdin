@@ -6,13 +6,15 @@
 class Cell
 {
 	float left, right;
+	int cellNumber;
 public:
 	vector<LPGAMEOBJECT> listObject;
 
-	Cell(float left, float right)
+	Cell(float left, float right, int cellNumber)
 	{
 		this->left = left;
 		this->right = right;
+		this->cellNumber = cellNumber;
 	}
 
 	void GetPoint(float &left, float &right);

@@ -1,5 +1,5 @@
 #include "Shield.h"
-#include "Lantern.h"
+#include "Pillar.h"
 #include "Soldier.h"
 
 void Shield::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
@@ -58,10 +58,10 @@ void Shield::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 					soldier->SetState(SOLDIER_STATE_DIE);
 					this->isEaten = true;
 				}
-				else if (dynamic_cast<Lantern *>(e->obj))
+				else if (dynamic_cast<Pillar *>(e->obj))
 				{
-					Lantern *lantern = dynamic_cast<Lantern *>(e->obj);
-					lantern->isHitted = true;
+					Pillar *pillar = dynamic_cast<Pillar *>(e->obj);
+					pillar->isHitted = true;
 					this->isEaten = true;
 				}
 			}

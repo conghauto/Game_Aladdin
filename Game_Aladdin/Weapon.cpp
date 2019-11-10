@@ -6,10 +6,10 @@ void Weapon::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	{
 		if (GetTickCount() - firstCast > WEAPON_ACTIVATE_TIME)
 		{
-			float x = captain->x;
-			float y = captain->y;
+			float x = aladdin->x;
+			float y = aladdin->y;
 			
-			nx = captain->nx;
+			nx = aladdin->nx;
 
 			if (nx > 0)
 			{

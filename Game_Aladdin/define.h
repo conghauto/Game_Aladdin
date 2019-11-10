@@ -97,10 +97,6 @@
 #define LANTERN_BBOX_HEIGHT				16
 
 
-// Heart
-#define HEART_BBOX_WIDTH				16
-#define HEART_BBOX_HEIGHT				16
-
 // Whip item
 #define WHIPITEM_BBOX_WIDTH				32
 #define WHIPITEM_BBOX_HEIGHT			32
@@ -228,56 +224,25 @@
 #define MAX_FRAME_RATE					120
 
 //texture
-#define ID_TEX_MARIO					0
+#define ID_TEX_SIMON					0
 #define ID_TEX_LV1						10
 #define ID_TEX_LV1_2					15
 #define ID_TEX_ROCK						20
-#define ID_TEX_PANTHER					25
-#define ID_TEX_PANTHER_RIGHT			26
 #define ID_TEX_ZOMBIE					35
 #define ID_TEX_ZOMBIE_RIGHT				36
-#define ID_TEX_FIRE						40
-#define ID_TEX_CANDLE					45
-#define ID_TEX_WHIP						50
-#define ID_TEX_WHIP_2					55
 #define ID_TEX_TILESET					60
 #define ID_TEX_TILESET_2				61
 #define ID_TEX_TILESET_3				62
-#define ID_TEX_BRICK2					65
-#define ID_TEX_LADDER					70
-#define ID_TEX_LADDER_LEFT				75
-#define ID_TEX_STAIR_BOT				80
-#define ID_TEX_STAIR_TOP				85
-#define ID_TEX_MERMAN_RIGHT				90
-#define ID_TEX_MERMAN_LEFT				95
-#define ID_TEX_BAT                      100 
-#define ID_TEX_HEART					105
-#define ID_TEX_BOSS						110
 #define ID_TEX_SIT						200
-//#define ID_TEX_KNIFE					177
-#define ID_TEX_AXE						115
-#define ID_TEX_BLACK					120
-#define ID_TEX_CROSS					125
-#define ID_TEX_DOUBLE_SHOT_UI			130
-#define ID_TEX_DOUBLE_SHOT				135
-#define ID_TEX_TRIPLE_SHOT_UI			140
-#define ID_TEX_TRIPLE_SHOT				145
-#define ID_TEX_ENEMYHP					150
-#define ID_TEX_HOLY_WATER				155
-#define ID_TEX_HP						160
 #define ID_TEX_KNIFE					165
-#define ID_TEX_NOHP						170
-#define ID_TEX_STOP_WATCH				175
 #define ID_TEX_RECT						176
-#define ID_TEX_ITEM1					177
-#define ID_TEX_ITEM2					178
-#define ID_TEX_ITEM3					179
 
-#define ID_TEX_EFFECT1					180
-#define ID_TEX_EFFECT2					185
-#define ID_TEX_WHIP_VIP					190
-#define ID_TEX_MONEY					195
-#define ID_TEX_LANTERN					196
+// Pillar
+#define ID_TEX_PILLAR1					197
+#define ID_TEX_PILLAR2					198
+#define ID_TEX_PILLAR3					199
+#define ID_TEX_PILLAR4					200
+#define ID_TEX_GATE						201
 
 #define BRICK_BBOX_WIDTH				10
 #define BRICK_BBOX_HEIGHT				1
@@ -317,7 +282,7 @@
 // Checkpoint type
 #define CHECKPOINT_LEVELUP				0
 #define CHECKPOINT_BONUS				1
-#define ID_TEX_WATER				    197
+
 // Lantern 
 #define LANTERN_BBOX_WIDTH				16
 #define LANTERN_BBOX_HEIGHT				16
@@ -330,4 +295,4 @@
 #define WATER_BBOX_WIDTH				16
 #define WATER_BBOX_HEIGHT				16
 
-#define CELL_SIZE						295
+#define CELL_SIZE						640
