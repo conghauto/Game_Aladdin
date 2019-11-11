@@ -51,6 +51,9 @@ bool boss = false;
 bool checkScene = false;
 bool check1 = false;
 bool check = false;
+vector<ObjectTile*> listObjectsInMap;
+ListObject*lsObjs;
+
 //
 //check scene lv2_1 ->lv2_2
 bool checkScene1 = false;
@@ -779,37 +782,50 @@ void LoadResources()
 
 	#pragma region Ground
 	// nền di chuyển
-	for (int i = 0; i < 134; i++)
-	{
-		Ground *ground = new Ground();
-		ground->SetPosition(0 + i * 16.0f,990);
-		//objects.push_back(ground);
-		grid->AddObject(ground);
+	//for (int i = 0; i < 134; i++)
+	//{
+	//	Ground *ground = new Ground();
+	//	ground->SetPosition(0 + i * 16.0f,990);
+	//	//objects.push_back(ground);
+	//	grid->AddObject(ground);
+	//}
+
+
+	listObjectsInMap = lsObjs->getObjectsInFile("Resources\\objects.txt");
+
+	if (listObjectsInMap.size()>0) {
+		for (int i = 0; i < listObjectsInMap.size(); i++) {
+			Ground *ground = new Ground();
+			if (listObjectsInMap[i]->name == "Ground") {
+				ground->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
+				grid->AddObject(ground);
+			}
+		}
 	}
 
-	for (int i = 0; i < 6; i++)
-	{
-		Ground *ground = new Ground();
-		ground->SetPosition(1056 + i * 16.0f, 820);
-		//objects.push_back(ground);
-		grid->AddObject(ground);
-	}
+	//for (int i = 0; i < 6; i++)
+	//{
+	//	Ground *ground = new Ground();
+	//	ground->SetPosition(1056 + i * 16.0f, 820);
+	//	//objects.push_back(ground);
+	//	grid->AddObject(ground);
+	//}
 
-	for (int i = 0; i < 5; i++)
-	{
-		Ground *ground = new Ground();
-		ground->SetPosition(1328 + i * 16.0f, 840);
-		//objects.push_back(ground);
-		grid->AddObject(ground);
-	}
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	Ground *ground = new Ground();
+	//	ground->SetPosition(1328 + i * 16.0f, 840);
+	//	//objects.push_back(ground);
+	//	grid->AddObject(ground);
+	//}
 
-	for (int i = 0; i < 4; i++)
-	{
-		Ground *ground = new Ground();
-		ground->SetPosition(1350 + i * 16.0f, 780);
-		//objects.push_back(ground);
-		grid->AddObject(ground);
-	}
+	//for (int i = 0; i < 4; i++)
+	//{
+	//	Ground *ground = new Ground();
+	//	ground->SetPosition(1350 + i * 16.0f, 780);
+	//	//objects.push_back(ground);
+	//	grid->AddObject(ground);
+	//}
 	#pragma endregion
 
 	#pragma region Zombie
@@ -927,9 +943,9 @@ void Update(DWORD dt)
 	#pragma region Collision
 		vector<LPGAMEOBJECT> coObjects;
 		if (aladdin->x < 0)
-			currentCell = grid->GetCurrentCells(0, aladdin->y);
+			currentCell = grid->GetCurrentCells(0,y);
 		else
-			currentCell = grid->GetCurrentCells(aladdin->x, aladdin->y);
+			currentCell = grid->GetCurrentCells(x,y);
 
 		for (int i = 0; i < currentCell.size(); i++)
 		{

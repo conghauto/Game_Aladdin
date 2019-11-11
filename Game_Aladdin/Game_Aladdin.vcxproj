@@ -137,6 +137,7 @@
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ObjectTile.cpp" />
     <ClCompile Include="Rock.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Pillar.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ObjectTile.h" />
     <ClInclude Include="Rock.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="Pillar.h" />

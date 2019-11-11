@@ -36,8 +36,6 @@ Map::~Map()
 	}
 }
 
-
-
 void Map::LoadMatrixMap(LPCSTR fileSource)
 {
 	fstream pFile;
@@ -120,3 +118,4 @@ void Map::Draw(float x,float y)
 		}
 	}
 }
+

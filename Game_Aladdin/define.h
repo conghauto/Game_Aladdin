@@ -4,7 +4,7 @@
 #define SIMON_WALKING_SPEED				0.15f 
 #define SIMON_CLIMBING_SPEED_X			0.05f
 #define SIMON_CLIMBING_SPEED_Y			0.05f
-#define SIMON_JUMP_SPEED_Y				0.52f
+#define SIMON_JUMP_SPEED_Y				2.0//0.52f
 #define SIMON_JUMP_DEFLECT_SPEED		0.2f
 #define SIMON_LEVELUP_SPEED				0.01f
 #define SIMON_GRAVITY					0.0015f
@@ -215,7 +215,7 @@
 
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 255, 255)
 #define SCREEN_WIDTH					640
-#define SCREEN_HEIGHT					375
+#define SCREEN_HEIGHT					377
 #define MAX_HEIGHT_LV1                  1067
 #define MAX_WIDTH_LV1					2144
 #define MAX_WIDTH_LV2					512
@@ -244,8 +244,8 @@
 #define ID_TEX_PILLAR4					200
 #define ID_TEX_GATE						201
 
-#define BRICK_BBOX_WIDTH				10
-#define BRICK_BBOX_HEIGHT				1
+#define BRICK_BBOX_WIDTH				32
+#define BRICK_BBOX_HEIGHT				5
 
 #define EFFECT_TIME						200
 #define LEVELUP_TIME					3000

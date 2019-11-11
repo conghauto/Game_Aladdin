@@ -8,7 +8,9 @@
 #include <string.h>
 #include "Sprites.h"
 #include"Game.h"
+#include "GameObject.h"
 #include"define.h"
+#include "ObjectTile.h"
 #define TILE_WIDTH 32
 #define TILE_HEIGHT 32
 

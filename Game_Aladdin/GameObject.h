@@ -33,7 +33,8 @@ struct CCollisionEvent
 class CGameObject
 {
 public:
-
+	int id;
+	string name;
 	float x;
 	float y;
 
@@ -51,7 +52,6 @@ public:
 	DWORD dt;
 
 	int cellNumber;
-	bool objectRock;
 	vector<LPANIMATION> animations;
 
 public:
@@ -84,10 +84,6 @@ public:
 	
 	virtual void Render() = 0;
 	virtual void SetState(int state) { this->state = state; }
-	bool getObjectRock() {
-		if (objectRock)return true;
-		return false;
-	}
 
 	~CGameObject();
 };

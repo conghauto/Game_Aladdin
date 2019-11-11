@@ -129,7 +129,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		x = rightCorner;
 	}
 
-	if (level==1&&((x >= 140 && x < 180&&y>704)
+	if (level==1&&((x >= 140 && x < 180&&y>800)
 		||(x >= 440 && x < 480 && y>864)
 		|| (x >= 740&& x < 780 && y>660)
 		|| (x >= 1080 && x < 1120 && y>832)))

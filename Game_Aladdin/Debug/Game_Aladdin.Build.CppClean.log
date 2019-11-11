@@ -1,10 +1,10 @@
 d:\game_uit\game_aladdin\game_aladdin\debug\vc141.pdb
 d:\game_uit\game_aladdin\game_aladdin\debug\vc141.idb
-d:\game_uit\game_aladdin\game_aladdin\debug\aladdin.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\map.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\pillar.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\shield.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\rock.obj
+d:\game_uit\game_aladdin\game_aladdin\debug\objecttile.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\item.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\ground.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\grid.obj
@@ -26,8 +26,9 @@ d:\game_uit\game_aladdin\game_aladdin\debug\weapon.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\water.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\textures.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\sprites.obj
-d:\game_uit\game_aladdin\game_aladdin\debug\source.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\soldier.obj
+d:\game_uit\game_aladdin\game_aladdin\debug\aladdin.obj
+d:\game_uit\game_aladdin\game_aladdin\debug\source.obj
 d:\game_uit\game_aladdin\game_aladdin\debug\game_aladdin.exe
 d:\game_uit\game_aladdin\game_aladdin\debug\game_aladdin.ilk
 d:\game_uit\game_aladdin\game_aladdin\debug\game_aladdin.pdb
