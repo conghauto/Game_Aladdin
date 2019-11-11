@@ -6,12 +6,12 @@ void Zombie::GetBoundingBox(float &left, float &top, float &right, float &bottom
 {
 	left = x;
 	top = y;
-	right = x + ZOMBIE_BBOX_WIDTH;
+	right = x + GUARDIAN_BBOX_WIDTH;
 
-	if (state == ZOMBIE_STATE_DIE)
-		bottom = y + ZOMBIE_BBOX_HEIGHT_DIE;
+	if (state == GUARDIAN_STATE_DIE)
+		bottom = y + GUARDIAN_BBOX_HEIGHT_DIE;
 	else
-		bottom = y + ZOMBIE_BBOX_HEIGHT;
+		bottom = y + GUARDIAN_BBOX_HEIGHT;
 }
 
 void Zombie::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
@@ -19,7 +19,7 @@ void Zombie::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	CGameObject::Update(dt, coObjects);
 	x += dx;
 	y += dy;
-	if (state == ZOMBIE_STATE_DIE)
+	if (state == GUARDIAN_STATE_DIE)
 	{
 		SetSpeed(0.0f, 0.0f);
 		return;
@@ -43,25 +43,26 @@ void Zombie::Render()
 {
 	int ani ;
 	
-	if (state == ZOMBIE_STATE_DIE) {
+	if (state == GUARDIAN_STATE_DIE) {
 		if (nx > 0) {
-			ani = ZOMBIE_ANI_DIE_RIGHT;
+			ani = GUARDIAN_ANI_DIE_RIGHT;
 		}
 		else
 		{
-			ani = ZOMBIE_ANI_DIE_LEFT;
+			ani = GUARDIAN_ANI_DIE_LEFT;
 		}
 
 		return;
 	}
 	else {
 		if (vx < 0)
-			ani = ZOMBIE_ANI_WALKING_LEFT;
-		else if (vx > 0)
-			ani = ZOMBIE_ANI_WALKING_RIGHT;
+			ani = GUARDIAN_ANI_ATTACKING_RIGHT;
+		else if (vx >= 0)
+			ani = GUARDIAN_ANI_ATTACKING_LEFT;
 
-		animations[ani]->Render(x, y);
+	
 	}
+	animations[ani]->Render(x, y);
 	RenderBoundingBox();
 }
 
@@ -70,13 +71,13 @@ void Zombie::SetState(int state)
 	CGameObject::SetState(state);
 	switch (state)
 	{
-	case ZOMBIE_STATE_DIE:
-		y += ZOMBIE_BBOX_HEIGHT - ZOMBIE_BBOX_HEIGHT_DIE + 1;
+	case GUARDIAN_STATE_DIE:
+		y += GUARDIAN_BBOX_HEIGHT - GUARDIAN_BBOX_HEIGHT_DIE + 1;
 		vx = 0;
 		vy = 0;
 		break;
-	case ZOMBIE_STATE_WALKING:
-		vx = -ZOMBIE_WALKING_SPEED;
+	case GUARDIAN_STATE_WALKING:
+		vx = 0;
 	}
 
 }

@@ -57,11 +57,12 @@ void Soldier::Render()
 	else {
 		if (vx < 0)
 			ani = SOLDIER_ANI_WALKING_LEFT;
-		else if (vx > 0)
+		else if (vx >= 0)
 			ani = SOLDIER_ANI_WALKING_RIGHT;
 
-		animations[ani]->Render(x, y);
+
 	}
+	animations[ani]->Render(x, y);
 	RenderBoundingBox();
 }
 
@@ -76,7 +77,7 @@ void Soldier::SetState(int state)
 		vy = 0;
 		break;
 	case SOLDIER_STATE_WALKING:
-		vx = SOLDIER_WALKING_SPEED;
+		vx = 0;
 		
 	}
 

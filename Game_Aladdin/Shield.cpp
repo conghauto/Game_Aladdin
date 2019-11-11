@@ -49,7 +49,7 @@ void Shield::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 				if (dynamic_cast<Zombie *>(e->obj))
 				{
 					Zombie *zombie = dynamic_cast<Zombie *>(e->obj);
-					zombie->SetState(ZOMBIE_STATE_DIE);
+					zombie->SetState(GUARDIAN_STATE_DIE);
 					this->isEaten = true;
 				}
 				else if (dynamic_cast<Soldier *>(e->obj))

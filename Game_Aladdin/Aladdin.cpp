@@ -167,7 +167,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			if (dynamic_cast<Zombie *>(e->obj))
 			{
 				Zombie *zombie = dynamic_cast<Zombie *>(e->obj);
-				if (zombie->GetState() != ZOMBIE_STATE_DIE) {
+				if (zombie->GetState() != GUARDIAN_STATE_DIE) {
 					StartUntouchable();
 					//SetState(SIMON_STATE_DIE);
 				}

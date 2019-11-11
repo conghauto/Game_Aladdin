@@ -19,8 +19,8 @@ void Whip::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			zombie->GetBoundingBox(zl, zt, zr, zb);
 			if (wl < zl && wr > zr && wt > zt && wb < zb)
 			{
-				if (zombie->GetState() != ZOMBIE_STATE_DIE) {
-					zombie->SetState(ZOMBIE_STATE_DIE);
+				if (zombie->GetState() != GUARDIAN_STATE_DIE) {
+					zombie->SetState(GUARDIAN_STATE_DIE);
 				}
 				Aladdin::score += 100;
 			}
