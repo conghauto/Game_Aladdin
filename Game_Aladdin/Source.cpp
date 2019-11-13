@@ -1097,48 +1097,48 @@ void LoadResources()
 	#pragma endregion
 
 	#pragma region Zombie
-	Zombie *zombie = new Zombie();
-	zombie->nx = -1;
-	zombie->AddAnimation(551);
-	zombie->AddAnimation(552);
-	zombie->AddAnimation(553);
-	zombie->AddAnimation(554);
-	zombie->SetPosition(200, 950);
-	zombie->SetState(GUARDIAN_STATE_WALKING);
-	//objects.push_back(zombie);
-	grid->AddObject(zombie);
+	//Zombie *zombie = new Zombie();
+	//zombie->nx = -1;
+	//zombie->AddAnimation(551);
+	//zombie->AddAnimation(552);
+	//zombie->AddAnimation(553);
+	//zombie->AddAnimation(554);
+	//zombie->SetPosition(200, 950);
+	//zombie->SetState(GUARDIAN_STATE_WALKING);
+	////objects.push_back(zombie);
+	//grid->AddObject(zombie);
 
 
-	Zombie *zombie1 = new Zombie();
-	zombie1->nx = 1;
-	zombie1->AddAnimation(551);
-	zombie1->AddAnimation(552);
-	zombie1->AddAnimation(553);
-	zombie1->AddAnimation(554);
-	zombie1->SetPosition(600, 950);
-	zombie1->SetState(GUARDIAN_STATE_WALKING);
-	//objects.push_back(zombie1);
-	grid->AddObject(zombie1);
+	//Zombie *zombie1 = new Zombie();
+	//zombie1->nx = 1;
+	//zombie1->AddAnimation(551);
+	//zombie1->AddAnimation(552);
+	//zombie1->AddAnimation(553);
+	//zombie1->AddAnimation(554);
+	//zombie1->SetPosition(600, 950);
+	//zombie1->SetState(GUARDIAN_STATE_WALKING);
+	////objects.push_back(zombie1);
+	//grid->AddObject(zombie1);
 
 #pragma endregion
 
 #pragma region Soldier
-	soldier = new Soldier();
-	soldier->AddAnimation(561);
-	soldier->AddAnimation(562);
-	soldier->SetPosition(400, 950);
-	soldier->SetState(SOLDIER_STATE_WALKING);
-	//objects.push_back(zombie1);
-	grid->AddObject(soldier);
+	//soldier = new Soldier();
+	//soldier->AddAnimation(561);
+	//soldier->AddAnimation(562);
+	//soldier->SetPosition(400, 950);
+	//soldier->SetState(SOLDIER_STATE_WALKING);
+	////objects.push_back(zombie1);
+	//grid->AddObject(soldier);
 
-	soldier1 = new Soldier();
-	soldier1->vx = -1;
-	soldier1->AddAnimation(561);
-	soldier1->AddAnimation(562);
-	soldier1->SetPosition(800, 950);
-	soldier1->SetState(SOLDIER_STATE_WALKING);
-	//objects.push_back(zombie1);
-	grid->AddObject(soldier1);
+	//soldier1 = new Soldier();
+	//soldier1->vx = -1;
+	//soldier1->AddAnimation(561);
+	//soldier1->AddAnimation(562);
+	//soldier1->SetPosition(800, 950);
+	//soldier1->SetState(SOLDIER_STATE_WALKING);
+	////objects.push_back(zombie1);
+	//grid->AddObject(soldier1);
 	#pragma endregion
 
 

@@ -131,6 +131,7 @@
     <ClCompile Include="CheckPoint.cpp" />
     <ClCompile Include="debug.cpp" />
     <ClCompile Include="define.cpp" />
+    <ClCompile Include="Dumbbell.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -145,6 +146,7 @@
     <ClCompile Include="Aladdin.cpp" />
     <ClCompile Include="Soldier.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Water.cpp" />
@@ -162,6 +164,7 @@
     <ClInclude Include="CheckPoint.h" />
     <ClInclude Include="debug.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="Dumbbell.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -175,6 +178,7 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="Aladdin.h" />
     <ClInclude Include="Soldier.h" />
+    <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Water.h" />
