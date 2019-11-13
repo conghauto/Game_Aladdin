@@ -4,7 +4,7 @@
 void Pillar::Render()
 {
 	if (!isHitted)
-		animations[0]->Render(x, y, 255);
+		animations[0]->Render(x, y);
 }
 void Pillar::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {

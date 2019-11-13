@@ -888,11 +888,11 @@ void LoadResources()
 
 
 	ani = new CAnimation(0); // bậc thang 2
-	ani->Add(40033);
-	ani->Add(40034);
 	ani->Add(40035);
-	ani->Add(40031);
+	ani->Add(40034);
+	ani->Add(40033);
 	ani->Add(40032);
+	ani->Add(40031);
 	animations->Add(991, ani);
 
 
