@@ -4,7 +4,7 @@
 #define SIMON_WALKING_SPEED				0.15f 
 #define SIMON_CLIMBING_SPEED_X			0.05f
 #define SIMON_CLIMBING_SPEED_Y			0.05f
-#define SIMON_JUMP_SPEED_Y				2.0//0.52f
+#define SIMON_JUMP_SPEED_Y				0.52f
 #define SIMON_JUMP_DEFLECT_SPEED		0.2f
 #define SIMON_LEVELUP_SPEED				0.01f
 #define SIMON_GRAVITY					0.0015f
@@ -145,7 +145,7 @@
 
 #define BOSS_WALKING_SPEED			0.05f
 
-#define BOSS_BBOX_WIDTH				29
+#define BOSS_BBOX_WIDTH					29
 #define BOSS_BBOX_HEIGHT				45
 #define BOSS_BBOX_HEIGHT_DIE			37
 
@@ -164,23 +164,6 @@
 #define BOSS_ANI_DIE_LEFT			903
 
 
-#define PANTHER_WALKING_SPEED			0.16f
-//Panther
-#define PANTHER_BBOX_WIDTH				32
-#define PANTHER_BBOX_HEIGHT				32
-#define PANTHER_BBOX_HEIGHT_DIE			9
-
-#define PANTHER_STATE_WAIT				100
-#define PANTHER_STATE_ATTACK			150
-#define PANTHER_STATE_DIE				200
-
-
-#define PANTHER_ANI_WAIT				0
-#define PANTHER_ANI_RUN_LEFT			1
-#define PANTHER_ANI_RUN_RIGHT			2
-#define PANTHER_ANI_GRAB				3
-#define PANTHER_ANI_DIE					4
-
 //BossBat
 #define BOSSBAT_BBOX_WIDTH				100	
 #define BOSSBAT_BBOX_HEIGHT				45
@@ -198,8 +181,8 @@
 #define CHECKSTAIR_DOWN_LEFT			2
 #define CHECKSTAIR_DOWN_RIGHT			3
 
-#define CHECKSTAIR_BBOX_WIDTH			32
-#define CHECKSTAIR_BBOX_HEIGHT			32
+#define CHECKGATE_BBOX_WIDTH			32
+#define CHECKGATE_BBOX_HEIGHT			16
 
 // Timer
 #define SIMON_TIMER_ATTACK				450
@@ -232,8 +215,10 @@
 #define ID_TEX_LV1						10
 #define ID_TEX_LV1_2					15
 #define ID_TEX_ROCK						20
+#define ID_TEX_SPIKE					25
+#define ID_TEX_DUMBBELL				    30
 #define ID_TEX_GUARDIAN					35
-#define ID_TEX_GUARDIAN_RIGHT				36
+#define ID_TEX_GUARDIAN_RIGHT			36
 #define ID_TEX_TILESET					60
 #define ID_TEX_TILESET_2				61
 #define ID_TEX_TILESET_3				62
@@ -295,8 +280,16 @@
 #define ROCK_BBOX_WIDTH					32
 #define ROCK_BBOX_HEIGHT				16
 
+// Spike
+#define SPIKE_BBOX_WIDTH				16
+#define SPIKE_BBOX_HEIGHT				16
+
+// Dumbbell
+#define DUMBBELL_BBOX_WIDTH				16
+#define DUMBBELL_BBOX_HEIGHT			16
+
 // Water
 #define WATER_BBOX_WIDTH				16
 #define WATER_BBOX_HEIGHT				16
 
-#define CELL_SIZE						640
+#define CELL_SIZE						1024

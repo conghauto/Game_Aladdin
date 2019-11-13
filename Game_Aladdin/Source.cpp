@@ -24,6 +24,8 @@
 #include "BossOne.h"
 #include "BulletBegin.h"
 #include "BossBullet.h"
+#include "Spike.h"
+#include "Dumbbell.h"
 BossBullet *bossbullet;
 BulletBegin *beginBullet;
 BossOne *trum;
@@ -244,6 +246,8 @@ void LoadResources()
 	textures->Add(ID_TEX_PILLAR3, L"Resources\\pillar_3.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_PILLAR4, L"Resources\\pillar_4.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_GATE, L"Resources\\gate_exit.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ID_TEX_DUMBBELL, L"Resources\\dumbbell.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ID_TEX_SPIKE, L"Resources\\spike.png", D3DCOLOR_XRGB(163, 73, 164));
 
 	LPDIRECT3DTEXTURE9 texShield = textures->Get(ID_TEX_KNIFE);
 	LPDIRECT3DTEXTURE9 texAladdin = textures->Get(ID_TEX_ALLADIN);
@@ -439,7 +443,7 @@ void LoadResources()
 
 	LPDIRECT3DTEXTURE9 texRock1 = textures->Get(ID_TEX_ROCK); // rock
 	sprites->Add(40031, 0, 4, 30, 20, texRock1);
-	sprites->Add(40032, 35, 4, 66, 20, texRock1);
+	sprites->Add(40032, 36, 4, 66, 20, texRock1);
 	sprites->Add(40033, 72, 4, 105, 21, texRock1);
 	sprites->Add(40034, 111,4, 147, 24, texRock1);
 	sprites->Add(40035, 154, 4, 194, 26, texRock1);
@@ -458,6 +462,31 @@ void LoadResources()
 
 	LPDIRECT3DTEXTURE9 texGate = textures->Get(ID_TEX_GATE); //gate
 	sprites->Add(410040, 0, 0, 78, 212, texGate);
+	
+	LPDIRECT3DTEXTURE9 texSpike = textures->Get(ID_TEX_SPIKE); // spike - cây chông
+	sprites->Add(40041, 1, 2, 25, 24, texSpike);
+	sprites->Add(40042, 29, 2, 52, 24, texSpike);
+	sprites->Add(40043, 57, 2, 81, 30, texSpike);
+	sprites->Add(40044, 88, 2, 122, 34, texSpike);
+	sprites->Add(40045, 126, 2, 170, 35, texSpike);
+	sprites->Add(40046, 173, 2, 222, 38, texSpike);
+
+	LPDIRECT3DTEXTURE9 texDumbbell = textures->Get(ID_TEX_DUMBBELL); // dumbbell - quả tạ
+	sprites->Add(40050, 3, 2, 19, 69, texDumbbell);
+	sprites->Add(40051, 23,2, 38, 69, texDumbbell);
+	sprites->Add(40052, 43, 2, 58, 69, texDumbbell);
+	sprites->Add(40053, 63, 2, 78, 69, texDumbbell);
+	sprites->Add(40054, 83, 2, 98, 69, texDumbbell);
+	sprites->Add(40055, 103, 2, 120, 69, texDumbbell);
+	sprites->Add(40056, 124, 2, 143, 69, texDumbbell);
+	sprites->Add(40057, 147, 2, 169, 69, texDumbbell);
+	sprites->Add(40058, 173, 2, 201, 69, texDumbbell);
+	sprites->Add(40059, 204, 2, 233, 69, texDumbbell);
+	sprites->Add(40060, 237, 2, 269, 69, texDumbbell);
+	sprites->Add(40061, 272, 2, 305, 69, texDumbbell);
+	sprites->Add(40062, 308, 2, 342, 69, texDumbbell);
+	sprites->Add(40063, 345, 2, 380, 69, texDumbbell);
+	sprites->Add(40064, 383, 2, 416, 69, texDumbbell);
 	
 	#pragma endregion
 
@@ -866,6 +895,7 @@ void LoadResources()
 	ani->Add(40032);
 	animations->Add(991, ani);
 
+
 	ani = new CAnimation(0); // pillar 1
 	ani->Add(410036);
 	animations->Add(1000, ani);
@@ -881,6 +911,78 @@ void LoadResources()
 	ani = new CAnimation(0); // pillar 4
 	ani->Add(410039);
 	animations->Add(1003, ani);
+
+	ani = new CAnimation(0); // spike 1
+	ani->Add(40041);
+	ani->Add(40042);
+	ani->Add(40043);
+	ani->Add(40044);
+	ani->Add(40045);
+	ani->Add(40046);
+	animations->Add(992, ani);
+
+	ani = new CAnimation(0); // spike 2
+	ani->Add(40044);
+	ani->Add(40045);
+	ani->Add(40046);
+	ani->Add(40041);
+	ani->Add(40042);
+	ani->Add(40043);
+	animations->Add(993, ani);
+
+	ani = new CAnimation(0); // dumbbell 1
+	ani->Add(40050);
+	ani->Add(40051);
+	ani->Add(40052);
+	ani->Add(40053);
+	ani->Add(40054);
+	ani->Add(40055);
+	ani->Add(40056);
+	ani->Add(40057);
+	ani->Add(40058);
+	ani->Add(40059);
+	ani->Add(40060);
+	ani->Add(40061);
+	ani->Add(40062);
+	ani->Add(40063);
+	ani->Add(40064);
+	animations->Add(994, ani);
+
+	ani = new CAnimation(0); // dumbbell 1
+	ani->Add(40055);
+	ani->Add(40056);
+	ani->Add(40057);
+	ani->Add(40058);
+	ani->Add(40059);
+	ani->Add(40060);
+	ani->Add(40061);
+	ani->Add(40062);
+	ani->Add(40063);
+	ani->Add(40064);
+	ani->Add(40050);
+	ani->Add(40051);
+	ani->Add(40052);
+	ani->Add(40053);
+	ani->Add(40054);
+	animations->Add(995, ani);
+
+	ani = new CAnimation(0); // dumbbell 1
+	ani->Add(40060);
+	ani->Add(40061);
+	ani->Add(40062);
+	ani->Add(40063);
+	ani->Add(40064);
+	ani->Add(40050);
+	ani->Add(40051);
+	ani->Add(40052);
+	ani->Add(40053);
+	ani->Add(40054);
+	ani->Add(40055);
+	ani->Add(40056);
+	ani->Add(40057);
+	ani->Add(40058);
+	ani->Add(40059);
+	animations->Add(996, ani);
 
 	#pragma endregion
 
@@ -927,7 +1029,7 @@ void LoadResources()
 	aladdin->AddAnimation(502);	//Leo dây phải
 	aladdin->AddAnimation(503); // Leo dây trái
 
-	aladdin->SetPosition(40, 660);
+	aladdin->SetPosition(40, 850);
 	//objects.push_back(aladdin);
 
 	// khởi tạo grid
@@ -937,51 +1039,61 @@ void LoadResources()
 	#pragma endregion
 
 	#pragma region Ground
-	// nền di chuyển
-	//for (int i = 0; i < 134; i++)
-	//{
-	//	Ground *ground = new Ground();
-	//	ground->SetPosition(0 + i * 16.0f,990);
-	//	//objects.push_back(ground);
-	//	grid->AddObject(ground);
-	//}
-
-
 	listObjectsInMap = lsObjs->getObjectsInFile("Resources\\objects.txt");
 
+	int count = 1;
+	int countRocks = 1;
 	if (listObjectsInMap.size()>0) {
-		for (int i = 0; i < listObjectsInMap.size(); i++) {
+		for (int i = 0; i < listObjectsInMap.size(); i++)
+		{
 			Ground *ground = new Ground();
-			if (listObjectsInMap[i]->name == "Ground") {
+			if (listObjectsInMap[i]->name == "Ground")
+			{
 				ground->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
 				grid->AddObject(ground);
+			}
+
+			Pillar*pillar = new Pillar();
+			if (listObjectsInMap[i]->name == "Pillar")
+			{
+				if (count == 1) {
+					pillar->AddAnimation(1000);
+				}
+				else if (count == 2) {
+					pillar->AddAnimation(1001);
+				}
+				else if (count == 3) {
+					pillar->AddAnimation(1002);
+				}
+				else if (count == 4) {
+					pillar->AddAnimation(1003);
+				}
+
+				pillar->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
+				grid->AddObject(pillar);
+				count++;
+			}
+
+			Rock*rock = new Rock();
+			if (listObjectsInMap[i]->name == "Rock")
+			{
+				if (countRocks == 1) {
+					rock->AddAnimation(990);
+				}
+				else if (countRocks == 2) {
+					rock->AddAnimation(990);
+				}
+				else if (countRocks == 3) {
+					rock->AddAnimation(991);
+				}
+
+				rock->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
+				grid->AddObject(rock);
+				countRocks++;
 			}
 		}
 	}
 
-	//for (int i = 0; i < 6; i++)
-	//{
-	//	Ground *ground = new Ground();
-	//	ground->SetPosition(1056 + i * 16.0f, 820);
-	//	//objects.push_back(ground);
-	//	grid->AddObject(ground);
-	//}
-
-	//for (int i = 0; i < 5; i++)
-	//{
-	//	Ground *ground = new Ground();
-	//	ground->SetPosition(1328 + i * 16.0f, 840);
-	//	//objects.push_back(ground);
-	//	grid->AddObject(ground);
-	//}
-
-	//for (int i = 0; i < 4; i++)
-	//{
-	//	Ground *ground = new Ground();
-	//	ground->SetPosition(1350 + i * 16.0f, 780);
-	//	//objects.push_back(ground);
-	//	grid->AddObject(ground);
-	//}
 	#pragma endregion
 
 	#pragma region Zombie
@@ -1008,7 +1120,7 @@ void LoadResources()
 	//objects.push_back(zombie1);
 	grid->AddObject(zombie1);
 
-	//#pragma endregion
+#pragma endregion
 
 #pragma region Soldier
 	soldier = new Soldier();
@@ -1029,53 +1141,53 @@ void LoadResources()
 	grid->AddObject(soldier1);
 	#pragma endregion
 
-	#pragma region Rock
-		Rock*rock = new Rock();
-		rock->AddAnimation(990);
-		rock->SetPosition(1232,928);
-		grid->AddObject(rock);
-
-		rock = new Rock();
-		rock->AddAnimation(990);
-		rock->SetPosition(1248, 864);
-		grid->AddObject(rock);
-
-		Rock*rock1 = new Rock();
-		rock1->AddAnimation(991);
-		rock1->SetPosition(1155, 890);
-		grid->AddObject(rock1);
-	#pragma endregion
 
 	#pragma region CheckPoint
-		//CheckPoint *checkPoint;
-		//checkPoint = new CheckPoint();
-		//checkPoint->SetType(CHECKPOINT_LEVELUP);
-		//checkPoint->SetPosition(2000, 374);
-		////objects.push_back(checkPoint);
-		//grid->AddObject(checkPoint);
+		CheckPoint *checkPoint;
+		checkPoint = new CheckPoint();
+		checkPoint->SetType(CHECKPOINT_LEVELUP);
+		checkPoint->SetPosition(2071, 62);
+		grid->AddObject(checkPoint);
 	#pragma endregion
 
-	#pragma region Pillar
-		Pillar*pillar1 = new Pillar();
-		pillar1->AddAnimation(1000);
-		pillar1->SetPosition(160, 704);
-		grid->AddObject(pillar1);
+#pragma region Spike
+	Spike*spike = new Spike();
+	spike->AddAnimation(992);
+	spike->SetPosition(683, 927);
+	grid->AddObject(spike);
 
-		Pillar*pillar2 = new Pillar();
-		pillar2->AddAnimation(1001);
-		pillar2->SetPosition(462, 864);
-		grid->AddObject(pillar2);
+	spike = new Spike();
+	spike->AddAnimation(992);
+	spike->SetPosition(683, 964);
+	grid->AddObject(spike);
 
-		Pillar*pillar3 = new Pillar();
-		pillar3->AddAnimation(1002);
-		pillar3->SetPosition(765, 660);
-		grid->AddObject(pillar3);
+	spike = new Spike();
+	spike->AddAnimation(993);
+	spike->SetPosition(720, 927);
+	grid->AddObject(spike);
 
-		Pillar*pillar4 = new Pillar();
-		pillar4->AddAnimation(1003);
-		pillar4->SetPosition(1098, 832);
-		grid->AddObject(pillar4);
-	#pragma endregion
+	spike = new Spike();
+	spike->AddAnimation(993);
+	spike->SetPosition(720, 964);
+	grid->AddObject(spike);
+#pragma endregion
+
+#pragma region Dumbbell
+	Dumbbell*dumbbell = new Dumbbell();
+	dumbbell->AddAnimation(994);
+	dumbbell->SetPosition(922, 909);
+	grid->AddObject(dumbbell);
+
+	dumbbell = new Dumbbell();
+	dumbbell->AddAnimation(995);
+	dumbbell->SetPosition(984, 909);
+	grid->AddObject(dumbbell);
+
+	dumbbell = new Dumbbell();
+	dumbbell->AddAnimation(996);
+	dumbbell->SetPosition(1055, 909);
+	grid->AddObject(dumbbell);
+#pragma endregion
 }
 
 void Update(DWORD dt)
