@@ -4,14 +4,17 @@ void Rock::Render()
 {
 	if (!isHitted)
 	{
-		if (animations[0]->currentFrame != 0)
+		if ((animations[0]->currentFrame > 0 && name=="rock1")|| (animations[0]->currentFrame < 4 && name == "rock2"))
+		{
 			SetBound();
+		}
 		else
 		{
 			width = 0;
-			height = 0;
+			height = 0; 
 		}
-		animations[0]->Render(x, y, 255);
+		animations[0]->RenderRock(x, y, 255);
+		
 	}
 }
 

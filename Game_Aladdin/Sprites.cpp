@@ -54,6 +54,30 @@ void CAnimation::Render(float x, float y, int alpha)
 	DWORD now = GetTickCount();
 	if (currentFrame == -1)
 	{
+		currentFrame = 0;
+		lastFrameTime = now;
+	}
+	else
+	{
+		DWORD t = frames[currentFrame]->GetTime();
+		if (now - lastFrameTime > t)
+		{
+			currentFrame++;
+			lastFrameTime = now;
+			if (currentFrame == frames.size()) currentFrame = 0;
+		}
+
+	}
+
+	frames[currentFrame]->GetSprite()->Draw(x, y, alpha);
+	
+}
+
+void CAnimation::RenderRock(float x, float y, int alpha)
+{
+	DWORD now = GetTickCount();
+	if (currentFrame == -1)
+	{
 		currentFrame++;
 		lastFrameTime = now;
 		t = frames[currentFrame]->GetTime() + 2500;
@@ -86,29 +110,6 @@ void CAnimation::Render(float x, float y, int alpha)
 				t = frames[currentFrame]->GetTime() + 5000;
 			}
 		}
-	}
-
-	frames[currentFrame]->GetSprite()->Draw(x, y, alpha);
-}
-
-void CAnimation::RenderRock(float x, float y, int alpha)
-{
-	DWORD now = GetTickCount();
-	if (currentFrame == -1)
-	{
-		currentFrame = 0;
-		lastFrameTime = now;
-	}
-	else
-	{
-		DWORD t = frames[currentFrame]->GetTime();
-		if (now - lastFrameTime > t+1000)
-		{
-			currentFrame++;
-			lastFrameTime = now;
-			if (currentFrame == frames.size()) currentFrame = 0;
-		}
-
 	}
 
 	frames[currentFrame]->GetSprite()->Draw(x, y, alpha);

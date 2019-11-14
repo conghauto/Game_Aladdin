@@ -1079,12 +1079,15 @@ void LoadResources()
 			{
 				if (countRocks == 1) {
 					rock->AddAnimation(990);
+					rock->name = "rock1";
 				}
 				else if (countRocks == 2) {
 					rock->AddAnimation(990);
+					rock->name = "rock1";
 				}
 				else if (countRocks == 3) {
 					rock->AddAnimation(991);
+					rock->name = "rock2";
 				}
 
 				rock->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
