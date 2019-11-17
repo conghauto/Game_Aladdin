@@ -314,6 +314,13 @@ void LoadResources()
 	sprites->Add(13024, 1284, 562, 1365, 615, texAladdin);
 	sprites->Add(13025, 1378, 562, 1436, 615, texAladdin);
 
+	sprites->Add(14111, 1128, 2163, 1172, 2212, texAladdin); //bị thương bên phải
+	sprites->Add(14112, 1178, 2163, 1234, 2212, texAladdin);
+	sprites->Add(14113, 1241, 2163, 1300, 2212, texAladdin);
+	sprites->Add(14114, 1310, 2163, 1389, 2212, texAladdin);
+	sprites->Add(14115, 1402, 2163, 1464, 2212, texAladdin);
+	sprites->Add(14116, 1474, 2163, 1530, 2212, texAladdin);
+
 	LPDIRECT3DTEXTURE9 texAladdin2 = textures->Get(ID_TEX_ALLADIN);
 	sprites->Add(10011, 1079, 0, 1120, 66, texAladdin2);		// đứng im trái
 
@@ -372,6 +379,13 @@ void LoadResources()
 	sprites->Add(13033, 962, 562, 1015, 615, texAladdin);
 	sprites->Add(13034, 877, 562, 956, 615, texAladdin);
 	sprites->Add(13035, 808, 562, 866, 615, texAladdin);
+
+	sprites->Add(14121, 1070, 2163, 1113, 2212, texAladdin); //bị thương bên trái
+	sprites->Add(14122, 1008, 2163, 1062, 2212, texAladdin);
+	sprites->Add(14123, 940, 2163, 998, 2212, texAladdin);
+	sprites->Add(14124, 852, 2163, 928, 2212, texAladdin);
+	sprites->Add(14125, 778, 2163, 838, 2212, texAladdin);
+	sprites->Add(14126, 712, 2163, 768, 2212, texAladdin);
 
 	sprites->Add(10055, 12, 70, 41, 130, texAladdin2);//bị đánh từ bên phải
 
@@ -673,12 +687,22 @@ void LoadResources()
 	ani->Add(10053);
 	animations->Add(423, ani);
 
-	ani = new CAnimation(100);//bị đánh từ bên trái
-	ani->Add(10054);
+	ani = new CAnimation(100);//bị đánh từ bên phải
+	ani->Add(14111);
+	ani->Add(14112);
+	ani->Add(14113);
+	ani->Add(14114);
+	ani->Add(14115);
+	ani->Add(14116);
 	animations->Add(424, ani);
 
-	ani = new CAnimation(100);//bị đánh từ bên phải
-	ani->Add(10055);
+	ani = new CAnimation(100);//bị đánh từ bên trái
+	ani->Add(14121);
+	ani->Add(14122);
+	ani->Add(14123);
+	ani->Add(14124);
+	ani->Add(14125);
+	ani->Add(14126);
 	animations->Add(425, ani);
 
 	ani = new CAnimation(150);//roi lv0 phải
@@ -1012,8 +1036,8 @@ void LoadResources()
 	aladdin->AddAnimation(421);	//đứng im bên phải thang trái
 	aladdin->AddAnimation(422);	//đứng im bên trái thang phải
 	aladdin->AddAnimation(423);	//đứng im bên trái thang trái
-	aladdin->AddAnimation(424);	//bị đánh từ bên trái
-	aladdin->AddAnimation(425);	//bị đánh từ bên phải
+	aladdin->AddAnimation(424);	//bị đánh từ bên phải
+	aladdin->AddAnimation(425);	//bị đánh từ bên trái
 	aladdin->AddAnimation(599);	//chết
 	aladdin->AddAnimation(1600); // nhay danh phai
 	aladdin->AddAnimation(1601); // nhay danh trai
@@ -1152,28 +1176,28 @@ void LoadResources()
 #pragma endregion
 
 #pragma region Zombie
-	//Zombie *zombie = new Zombie();
-	//zombie->nx = -1;
-	//zombie->AddAnimation(551);
-	//zombie->AddAnimation(552);
-	//zombie->AddAnimation(553);
-	//zombie->AddAnimation(554);
-	//zombie->SetPosition(200, 950);
-	//zombie->SetState(GUARDIAN_STATE_WALKING);
-	////objects.push_back(zombie);
-	//grid->AddObject(zombie);
+	Zombie *zombie = new Zombie();
+	zombie->nx = -1;
+	zombie->AddAnimation(551);
+	zombie->AddAnimation(552);
+	zombie->AddAnimation(553);
+	zombie->AddAnimation(554);
+	zombie->SetPosition(200, 950);
+	zombie->SetState(GUARDIAN_STATE_WALKING);
+	//objects.push_back(zombie);
+	grid->AddObject(zombie);
 
 
-	//Zombie *zombie1 = new Zombie();
-	//zombie1->nx = 1;
-	//zombie1->AddAnimation(551);
-	//zombie1->AddAnimation(552);
-	//zombie1->AddAnimation(553);
-	//zombie1->AddAnimation(554);
-	//zombie1->SetPosition(600, 950);
-	//zombie1->SetState(GUARDIAN_STATE_WALKING);
-	////objects.push_back(zombie1);
-	//grid->AddObject(zombie1);
+	Zombie *zombie1 = new Zombie();
+	zombie1->nx = 1;
+	zombie1->AddAnimation(551);
+	zombie1->AddAnimation(552);
+	zombie1->AddAnimation(553);
+	zombie1->AddAnimation(554);
+	zombie1->SetPosition(600, 950);
+	zombie1->SetState(GUARDIAN_STATE_WALKING);
+	//objects.push_back(zombie1);
+	grid->AddObject(zombie1);
 
 #pragma endregion
 

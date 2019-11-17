@@ -12,7 +12,7 @@ class Aladdin : public CGameObject
 
 public:
 	bool isDead;
-
+	bool isHurt;
 	bool isAttack;
 	bool isDoubleJump;
 	bool isHoldShield;

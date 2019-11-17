@@ -87,7 +87,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	}
 
 	// Simple fall down
-		vy += SIMON_GRAVITY * dt;
+	vy += SIMON_GRAVITY * dt;
 
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
@@ -95,20 +95,20 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	coEvents.clear();
 
 	// turn off collision when die 
-	if (state != SIMON_STATE_DIE)
+	if (state != SIMON_STATE_DIE || state != SIMON_STATE_HURT)
 		CalcPotentialCollisions(coObjects, coEvents);
 
 	// turn off isOnCheckStair
 
 
 	// Set idle state
-	if (!isSit && !isMoving && !isJump && !isAttack)
+	if (!isSit && !isMoving && !isJump && !isAttack && !isHurt)
 	{
 		SetState(SIMON_STATE_IDLE);
 	}
 
 	// reset untouchable timer if untouchable time has passed
-	if (untouchable != 0 && GetTickCount() - untouchable_start > SIMON_UNTOUCHABLE_TIME)
+	if (untouchable == 1 && GetTickCount() - untouchable_start > SIMON_UNTOUCHABLE_TIME)
 	{
 		untouchable_start = 0;
 		untouchable = 0;
@@ -126,16 +126,16 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	// Right corner
 	else if (x > rightCorner)
 	{
-		x = rightCorner-16;
+		x = rightCorner - 16;
 	}
 
-	if (level == 1  && (y >= 365 && y <= 1024)) {
-		if (x > 1365&&x<=1470)x = 1365;
-		if(x>1480&&x<=1490) x = 1480;
+	if (level == 1 && (y >= 365 && y <= 1024)) {
+		if (x > 1365 && x <= 1470)x = 1365;
+		if (x > 1480 && x <= 1490) x = 1480;
 	}
-	if (level==1&&((x >= 140 && x < 180&&y>800)
-		||(x >= 440 && x < 480 && y>864)
-		|| (x >= 740&& x < 780 && y>337)
+	if (level == 1 && ((x >= 140 && x < 180 && y>800)
+		|| (x >= 440 && x < 480 && y>864)
+		|| (x >= 740 && x < 780 && y>337)
 		|| (x >= 1080 && x < 1120 && y>832)))
 	{
 		StartUntouchable();
@@ -146,7 +146,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	}
 
 	// No collision occured, proceed normally
-	if (coEvents.size() == 0 )
+	if (coEvents.size() == 0)
 	{
 		x += dx;
 		y += dy;
@@ -156,7 +156,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		float min_tx, min_ty, nx = 0, ny;
 
 		FilterCollision(coEvents, coEventsResult, min_tx, min_ty, nx, ny);
-
+		bool willHurt = false;
 		// block 
 		x += min_tx * dx + nx * 0.4f;		// nx*0.4f : need to push out a bit to avoid overlapping next frame
 		y += min_ty * dy + ny * 0.4f;
@@ -171,9 +171,16 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			if (dynamic_cast<Zombie *>(e->obj))
 			{
 				Zombie *zombie = dynamic_cast<Zombie *>(e->obj);
-				if (zombie->GetState() != GUARDIAN_STATE_DIE) {
+				if (zombie->GetState() != GUARDIAN_STATE_DIE && untouchable == 0) {
+					// Đặt hướng hurt
+					if (e->nx > 0)
+						this->nx = -1;
+					else if (e->nx < 0)
+						this->nx = 1;
+
+					SetState(SIMON_STATE_HURT);
+					willHurt = true;
 					StartUntouchable();
-					//SetState(SIMON_STATE_DIE);
 				}
 			}
 			else if (dynamic_cast<Soldier *>(e->obj))
@@ -181,7 +188,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				Soldier *zombie = dynamic_cast<Soldier *>(e->obj);
 				if (zombie->GetState() != SOLDIER_STATE_DIE) {
 					StartUntouchable();
-					//SetState(SIMON_STATE_DIE);
+					SetState(SIMON_STATE_UNTOUCHABLE);
 				}
 			}
 			else if (dynamic_cast<Bullet *>(e->obj))
@@ -199,18 +206,20 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				// Khong va cham theo phuong ngang
 				if (isJump && e->nx == 0 && e->ny < 0)
 					isJump = false;
-
+				if (isHurt)
+					isHurt = false;
 				// Xét va chạm cứng
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
 			}
-			else if (dynamic_cast<Ground *>(e->obj))
+			else if (dynamic_cast<Ground *>(e->obj) && !willHurt)
 			{
 				// Da cham dat
 				// Khong va cham theo phuong ngang
 				if (isJump && e->nx == 0 && e->ny < 0)
 					isJump = false;
-
+				if (isHurt)
+					isHurt = false;
 				// Xét va chạm cứng
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
@@ -272,120 +281,128 @@ void Aladdin::Render()
 		ani = SIMON_ANI_DIE;
 	else
 	{
-		if (isAttack)
+		if (isHurt)
 		{
 			if (nx > 0)
+				ani = SIMON_ANI_HURT_RIGHT;
+			else if (nx < 0)
+				ani = SIMON_ANI_HURT_LEFT;
+		}
+		else
+			if (isAttack)
 			{
-				if (isSit)
+				if (nx > 0)
 				{
-					ani = SIMON_ANI_SIT_ATTACK_RIGHT;
+					if (isSit)
+					{
+						ani = SIMON_ANI_SIT_ATTACK_RIGHT;
+					}
+					else
+					{
+						ani = SIMON_ANI_ATTACK_RIGHT;
+					}
 				}
 				else
 				{
-					ani = SIMON_ANI_ATTACK_RIGHT;
+					if (isSit)
+					{
+						ani = SIMON_ANI_SIT_ATTACK_LEFT;
+					}
+					else
+					{
+						ani = SIMON_ANI_ATTACK_LEFT;
+					}
 				}
 			}
-			else
+			else if (isThrow)
 			{
-				if (isSit)
+				if (nx > 0)
 				{
-					ani = SIMON_ANI_SIT_ATTACK_LEFT;
+					if (isSit)
+					{
+						ani = SIMON_ANI_SIT_THROW_RIGHT;
+					}
+					else
+					{
+						ani = SIMON_ANI_THROW_RIGHT;
+					}
 				}
 				else
 				{
-					ani = SIMON_ANI_ATTACK_LEFT;
+					if (isSit)
+					{
+						ani = SIMON_ANI_SIT_THROW_LEFT;
+					}
+					else
+					{
+						ani = SIMON_ANI_THROW_LEFT;
+					}
 				}
 			}
-		}
-		else if (isThrow)
-		{
-			if (nx > 0)
+			else if (isJump)
 			{
-				if (isSit)
-				{
-					ani = SIMON_ANI_SIT_THROW_RIGHT;
-				}
+				if (nx > 0)
+					ani = SIMON_ANI_JUMP_RIGHT;
 				else
-				{
-					ani = SIMON_ANI_THROW_RIGHT;
-				}
+					ani = SIMON_ANI_JUMP_LEFT;
 			}
-			else
-			{
-				if (isSit)
-				{
-					ani = SIMON_ANI_SIT_THROW_LEFT;
-				}
-				else
-				{
-					ani = SIMON_ANI_THROW_LEFT;
-				}
+			else if (isDoubleJump) {
+				ani = SIMON_ANI_DOUBLE_JUMP;
+				isJump = false;
 			}
-		}
-		else if (isJump)
-		{
-			if (nx > 0)
-				ani = SIMON_ANI_JUMP_RIGHT;
-			else
-				ani = SIMON_ANI_JUMP_LEFT;
-		}
-		else if (isDoubleJump) {
-			ani = SIMON_ANI_DOUBLE_JUMP;
-			isJump = false;
-		}
 		// Right direction
-		else if (nx > 0)
-		{
-			switch (state)
+			else if (nx > 0)
 			{
-			case SIMON_STATE_SIT:
-				if (isThrow)
-					ani = SIMON_ANI_SIT_THROW_RIGHT;
-				else
-				if (isAttack)
-					ani = SIMON_ANI_SIT_ATTACK_RIGHT;
-				else
-					ani = SIMON_ANI_SIT_RIGHT;
-				break;
-			case SIMON_STATE_WALK:
-				ani = SIMON_ANI_WALKING_RIGHT;
-				break;
-			case SIMON_STATE_DASHING:
-				ani = SIMON_ANI_DASHING_RIGHT;
-				break;
-			case SIMON_STATE_IDLE:
-				ani = SIMON_ANI_IDLE_RIGHT;
-				break;
+				switch (state)
+				{
+				case SIMON_STATE_SIT:
+					if (isThrow)
+						ani = SIMON_ANI_SIT_THROW_RIGHT;
+					else
+						if (isAttack)
+							ani = SIMON_ANI_SIT_ATTACK_RIGHT;
+						else
+							ani = SIMON_ANI_SIT_RIGHT;
+					break;
+				case SIMON_STATE_WALK:
+					ani = SIMON_ANI_WALKING_RIGHT;
+					break;
+				case SIMON_STATE_DASHING:
+					ani = SIMON_ANI_DASHING_RIGHT;
+					break;
+				case SIMON_STATE_IDLE:
+					ani = SIMON_ANI_IDLE_RIGHT;
+					break;
+				}
 			}
-		}
 		// Left direction
-		else if (nx < 0)
-		{
-			switch (state)
+			else if (nx < 0)
 			{
-			case SIMON_STATE_ONCHECKSTAIR:
-				ani = SIMON_ANI_WALKING_LEFT;
-				break;
-			case SIMON_STATE_SIT:
-				if (isThrow)
-					ani = SIMON_ANI_SIT_THROW_LEFT;
-				else
-				if (isAttack)
-					ani = SIMON_ANI_SIT_ATTACK_LEFT;
-				else
-					ani = SIMON_ANI_SIT_LEFT;
-				break;
-			case SIMON_STATE_WALK:
-				ani = SIMON_ANI_WALKING_LEFT;
-				break;
-			case SIMON_STATE_DASHING:
-				ani = SIMON_ANI_DASHING_LEFT;
-				break;
-			case SIMON_STATE_IDLE:
-				ani = SIMON_ANI_IDLE_LEFT;
-				break;
+				switch (state)
+				{
+				case SIMON_STATE_ONCHECKSTAIR:
+					ani = SIMON_ANI_WALKING_LEFT;
+					break;
+				case SIMON_STATE_SIT:
+					if (isThrow)
+						ani = SIMON_ANI_SIT_THROW_LEFT;
+					else
+						if (isAttack)
+							ani = SIMON_ANI_SIT_ATTACK_LEFT;
+						else
+							ani = SIMON_ANI_SIT_LEFT;
+					break;
+				case SIMON_STATE_WALK:
+					ani = SIMON_ANI_WALKING_LEFT;
+					break;
+				case SIMON_STATE_DASHING:
+					ani = SIMON_ANI_DASHING_LEFT;
+					break;
+				case SIMON_STATE_IDLE:
+					ani = SIMON_ANI_IDLE_LEFT;
+					break;
+				}
 			}
-		}
 	}
 
 	int alpha = 255;
@@ -425,7 +442,29 @@ void Aladdin::SetState(int state)
 		isDead = true;
 		vy = -SIMON_DIE_DEFLECT_SPEED;
 		break;
+	case SIMON_STATE_HURT:
+		isHurt = true;
 
+		vy = -SIMON_DIE_DEFLECT_SPEED;
+		if (nx > 0)
+		{
+
+			vx = -SIMON_DIE_DEFLECT_SPEED;
+		}
+		else if (nx < 0)
+		{
+			vx = SIMON_DIE_DEFLECT_SPEED;
+		}
+
+		isAttack = false;
+		isJump = false;
+		isMoving = false;
+		isOnStair = false;
+		isOnCheckStairDown = false;
+		isOnCheckStairUp = false;
+		isSit = false;
+		isExitSit = false;
+		break;
 	case SIMON_STATE_SIT:
 		//isOnCheckStair = false;
 		isSit = true;
