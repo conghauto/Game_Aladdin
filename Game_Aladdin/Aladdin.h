@@ -16,7 +16,7 @@ public:
 	bool isHurt;
 	bool isAttack;
 	bool isDoubleJump;
-	bool isHoldShield;
+	bool isHoldApple;
 	bool isOnCheckStairUp;
 	bool isOnCheckStairDown;
 	bool isOnStair;
@@ -45,7 +45,6 @@ public:
 	int yStartJump;
 
 public:
-	Whip * whip;
 	static float XforGet;
 	static int score;
 	static int heartsAmount;
@@ -54,7 +53,6 @@ public:
 	{
 		level = 1;
 		untouchable = 0;
-		whip = new Whip();
 		life = 3;
 		preHP = 16;
 		currentWeapon = 0;
@@ -71,7 +69,6 @@ public:
 	void SetPosition(float x, float y) {
 		this->x = x;
 		this->y = y;
-		whip->SetPosition(x, y);
 	}
 	void IncHeart(int num) { heartsAmount += num; }
 	void IncScore(int num) { score += num; }

@@ -3,7 +3,7 @@
 #include "Ground.h"
 #include <algorithm>
 #include "Aladdin.h"
-#include "Shield.h"
+#include "Apple.h"
 
 void BossOne::CalcPotentialCollisions(
 	vector<LPGAMEOBJECT> *coObjects,
@@ -96,7 +96,7 @@ void BossOne::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				isMoving = true;
 				//this->time_start_walking = GetTickCount();
 		 }
-		 else  if (dynamic_cast<Shield*>(e->obj))
+		 else  if (dynamic_cast<Apple*>(e->obj))
 		 {
 			 // Da cham dat
 			 // Khong va cham theo phuong ngang

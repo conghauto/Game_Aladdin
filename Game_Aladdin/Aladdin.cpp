@@ -72,8 +72,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			y -= SIMON_SIT_TO_STAND;
 			isExitSit = false;
 		}
-		// Check collision between whip and game objects here
-		whip->Update(dt, coObjects);
 	}
 	if (isThrow == true && GetTickCount() - attackTime >= SIMON_TIMER_ATTACK)
 	{
@@ -84,8 +82,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			y -= SIMON_SIT_TO_STAND;
 			isExitSit = false;
 		}
-		// Check collision between whip and game objects here
-		whip->Update(dt, coObjects);
 	}
 
 	// Simple fall down
@@ -283,9 +279,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				{
 				case ITEM_HEART:
 					IncHeart(5);
-					break;
-				case ITEM_WHIPITEM:
-					whip->UpLevel();
 					break;
 				case ITEM_KNIFE:
 					SetCurrentWeapon(ITEM_KNIFE);

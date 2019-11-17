@@ -8,7 +8,7 @@
 #include "Game.h"
 #include "GameObject.h"
 #include "Textures.h"
-#include "Shield.h"
+#include "Apple.h"
 #include "Aladdin.h"
 #include "Ground.h"
 #include "define.h"
@@ -17,7 +17,6 @@
 #include "Rock.h"
 #include "Map.h"
 #include "CheckPoint.h"
-#include "Water.h"
 #include "Grid.h"
 #include "Bullet.h"
 #include "Ball.h"
@@ -38,7 +37,7 @@ Effect *whipEffect;
 Soldier *soldier;
 Soldier *soldier1;
 Map *map;
-Shield *knife;
+Apple *knife;
 Bullet *bullet;
 Ball *ball;
 //UI * ui;
@@ -108,7 +107,7 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 				switch (aladdin->currentWeapon)
 				{
 				case ITEM_KNIFE:
-					knife = new Shield(aladdin, 2 * SCREEN_WIDTH / 3);
+					knife = new Apple(aladdin, 2 * SCREEN_WIDTH / 3);
 					if (nx > 0)
 					{
 						knife->SetSpeed(KNIFE_SPEED, 0);
@@ -139,10 +138,10 @@ void CSampleKeyHander::OnKeyUp(int KeyCode)
 	// Len xuong cau thang
 	if (KeyCode == DIK_UP)
 	{
-		if (aladdin->isHoldShield)
+		if (aladdin->isHoldApple)
 		{
 			aladdin->SetState(SIMON_STATE_IDLE);
-			aladdin->isHoldShield = false;
+			aladdin->isHoldApple = false;
 		}
 	}
 
@@ -252,7 +251,7 @@ void LoadResources()
 	textures->Add(ID_TEX_DUMBBELL, L"Resources\\dumbbell.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_SPIKE, L"Resources\\spike.png", D3DCOLOR_XRGB(163, 73, 164));
 
-	LPDIRECT3DTEXTURE9 texShield = textures->Get(ID_TEX_KNIFE);
+	LPDIRECT3DTEXTURE9 texApple = textures->Get(ID_TEX_KNIFE);
 	LPDIRECT3DTEXTURE9 texAladdin = textures->Get(ID_TEX_ALLADIN);
 	LPDIRECT3DTEXTURE9 texAladdinSit = textures->Get(ID_TEX_SIT);
 	LPDIRECT3DTEXTURE9 texBat = textures->Get(ID_TEX_BAT);
@@ -408,7 +407,7 @@ void LoadResources()
 
 	sprites->Add(10140, 233, 224, 258, 268, texAladdin); // knifeing right
 	sprites->Add(10141, 202, 224, 227, 268, texAladdin);	//knifeing left
-	sprites->Add(1200, 1482, 19, 1511, 71, texShield);	//khien
+	sprites->Add(1200, 1482, 19, 1511, 71, texApple);	//khien
 #pragma endregion
 
 #pragma region ENEMY
@@ -1495,13 +1494,15 @@ void Update(DWORD dt)
 	vector<LPGAMEOBJECT> listRemoveObjects;
 	for (int i = 0; i < coObjects.size(); i++)
 	{
-		//if (dynamic_cast<Zombie *>(coObjects.at(i)))
-		//{
-		//	Zombie *zombie = dynamic_cast<Zombie *>(coObjects.at(i));
+		if (dynamic_cast<Zombie *>(coObjects.at(i)))
+		{
+			Zombie *zombie = dynamic_cast<Zombie *>(coObjects.at(i));
 
-		//	if (zombie->GetState() == GUARDIAN_STATE_DIE)
-		//	{
-		//		listRemoveObjects.push_back(zombie);
+			if (zombie->GetState() == GUARDIAN_STATE_DIE)
+			{
+				listRemoveObjects.push_back(zombie);
+			}
+		}
 		//		item = new Item();
 		//		item->SetPosition(zombie->x, zombie->y);
 		//		item->SetSpeed(0, -0.1);
