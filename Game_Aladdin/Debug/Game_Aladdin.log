@@ -1,277 +1,309 @@
-﻿  Aladdin.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\bossone.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.cpp(119): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Ball.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\bossone.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+﻿  Ball.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Zombie.h(11,39): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Soldier.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
   BossBullet.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\bossone.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\BossOne.h(11,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Zombie.h(11,39): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Soldier.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
   BossOne.cpp
-g:\nmgame\game_aladdin\game_aladdin\bossone.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\BossOne.h(11,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\BossOne.h(11,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Zombie.h(11,39): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
   Bullet.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\bossone.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Soldier.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Zombie.h(11,39): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Soldier.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
   BulletBegin.cpp
-g:\nmgame\game_aladdin\game_aladdin\bulletbegin.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\bulletbegin.cpp(40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\BossOne.h(11,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\BulletBegin.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Camera.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\BulletBegin.cpp(40,37): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Camera.cpp(6,10): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Camera.cpp(7,10): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Camera.cpp(19,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
   CheckPoint.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Camera.cpp(22,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+  debug.cpp
+  define.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
   Dumbbell.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
   Effect.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Game.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Game.cpp(267,26): warning C4305: '=': truncation from '__int64' to 'float'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Game.cpp(268,24): warning C4305: '=': truncation from '__int64' to 'float'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Game.cpp(278,26): warning C4305: '=': truncation from '__int64' to 'float'
+  GameObject.cpp
   Grid.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(31): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(41): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(61): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(62): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(116): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(117): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(138): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(139): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(145): warning C4018: '>=': signed/unsigned mismatch
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(174): warning C4018: '<': signed/unsigned mismatch
-g:\nmgame\game_aladdin\game_aladdin\grid.cpp(180): warning C4018: '<': signed/unsigned mismatch
+D:\GitHub\Game_Aladdin\Game_Aladdin\Game.cpp(279,24): warning C4305: '=': truncation from '__int64' to 'float'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(31,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(32,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(41,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(42,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(61,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(62,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(116,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(117,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(138,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(139,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(145,23): warning C4018: '>=': signed/unsigned mismatch
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(174,20): warning C4018: '<': signed/unsigned mismatch
   Ground.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Grid.cpp(180,20): warning C4018: '<': signed/unsigned mismatch
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
   Item.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-  Map.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\map.cpp(99): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\map.cpp(101): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\map.cpp(115): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
   ObjectTile.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\objecttile.cpp(29): warning C4101: 'id': unreferenced local variable
-g:\nmgame\game_aladdin\game_aladdin\objecttile.cpp(30): warning C4101: 'y': unreferenced local variable
-g:\nmgame\game_aladdin\game_aladdin\objecttile.cpp(30): warning C4101: 'x': unreferenced local variable
-  Pillar.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\ObjectTile.cpp(45,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\ObjectTile.cpp(29,7): warning C4101: 'id': unreferenced local variable
+D:\GitHub\Game_Aladdin\Game_Aladdin\ObjectTile.cpp(30,12): warning C4101: 'y': unreferenced local variable
   Rock.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\ObjectTile.cpp(30,9): warning C4101: 'x': unreferenced local variable
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Rope.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
   Shield.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\bossone.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-  Soldier.cpp
-g:\nmgame\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-  Source.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\bossone.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\bulletbegin.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(205): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(212): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1073): warning C4018: '<': signed/unsigned mismatch
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1302): warning C4018: '<': signed/unsigned mismatch
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1314): warning C4018: '<': signed/unsigned mismatch
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1320): warning C4018: '<': signed/unsigned mismatch
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1405): warning C4018: '<': signed/unsigned mismatch
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1451): warning C4018: '<': signed/unsigned mismatch
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1464): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1469): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1470): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1478): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1482): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1483): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1518): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\source.cpp(1519): warning C4018: '<': signed/unsigned mismatch
-  Spike.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Zombie.h(11,39): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Soldier.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\BossOne.h(11,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
   Generating Code...
   Compiling...
+  Pillar.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Map.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Map.cpp(99,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Map.cpp(101,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Map.cpp(115,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Aladdin.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\Map.cpp(115,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Zombie.h(11,39): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Soldier.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\BossOne.h(11,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+  Soldier.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.cpp(121,19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Soldier.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Source.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Zombie.h(11,39): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Soldier.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\BossOne.h(11,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\BulletBegin.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(206,18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(213,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1074,21): warning C4018: '<': signed/unsigned mismatch
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1310,20): warning C4018: '<': signed/unsigned mismatch
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1322,21): warning C4018: '<': signed/unsigned mismatch
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1328,21): warning C4018: '<': signed/unsigned mismatch
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1413,20): warning C4018: '<': signed/unsigned mismatch
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1459,20): warning C4018: '<': signed/unsigned mismatch
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1472,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1477,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1478,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1486,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1490,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1491,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1526,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1526,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Spike.cpp
+D:\GitHub\Game_Aladdin\Game_Aladdin\Source.cpp(1527,21): warning C4018: '<': signed/unsigned mismatch
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Sprites.cpp
+  Textures.cpp
   Water.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
   Weapon.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\bossone.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Zombie.h(11,39): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Soldier.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
   Whip.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\BossOne.h(11,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Zombie.h(11,39): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
   Zombie.cpp
-g:\nmgame\game_aladdin\game_aladdin\zombie.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(257): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(260): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(81): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\aladdin.h(82): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\soldier.h(12): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-g:\nmgame\game_aladdin\game_aladdin\bossone.h(11): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
-  define.cpp
-g:\nmgame\game_aladdin\game_aladdin\define.h(260): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\nmgame\game_aladdin\game_aladdin\define.h(257): note: see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Zombie.h(11,39): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(263,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\GitHub\Game_Aladdin\Game_Aladdin\define.h(260): message : see previous definition of 'BALLBEGIN'
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(81,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Aladdin.h(82,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\GitHub\Game_Aladdin\Game_Aladdin\Soldier.h(12,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
   Generating Code...
-  Game_Aladdin.vcxproj -> G:\NMGAME\Game_Aladdin\Game_Aladdin\Debug\Game_Aladdin.exe
+D:\GitHub\Game_Aladdin\Game_Aladdin\BossOne.h(11,40): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+  Game_Aladdin.vcxproj -> D:\GitHub\Game_Aladdin\Game_Aladdin\Debug\Game_Aladdin.exe

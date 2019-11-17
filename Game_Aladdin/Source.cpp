@@ -947,12 +947,12 @@ void LoadResources()
 	animations->Add(992, ani);
 
 	ani = new CAnimation(0); // spike 2
-	ani->Add(40044);
-	ani->Add(40045);
 	ani->Add(40046);
-	ani->Add(40041);
-	ani->Add(40042);
+	ani->Add(40045);
+	ani->Add(40044);
 	ani->Add(40043);
+	ani->Add(40042);
+	ani->Add(40041);
 	animations->Add(993, ani);
 
 	ani = new CAnimation(0); // dumbbell 1
