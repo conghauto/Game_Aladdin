@@ -13,7 +13,7 @@ void Spike::Render()
 			width = 0;
 			height = 0;
 		}
-		animations[0]->RenderRock(x, y, 255);
+		animations[0]->RenderSpike(x, y, 255);
 
 	}
 }
@@ -26,14 +26,14 @@ void Spike::SetHit()
 void Spike::SetBound()
 {
 
-	width = 0;
-	height = 0;
+	this->width = x + BRICK_BBOX_WIDTH;
+	this->height = y + BRICK_BBOX_HEIGHT;
 }
 
 void Spike::GetBoundingBox(float &l, float &t, float &r, float &b)
 {
 	l = x;
 	t = y;
-	r = x;
-	b = y;
+	r = width;
+	b = height;
 }

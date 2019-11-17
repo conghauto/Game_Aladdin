@@ -120,19 +120,38 @@ void CAnimation::RenderSpike(float x, float y, int alpha)
 	DWORD now = GetTickCount();
 	if (currentFrame == -1)
 	{
-		currentFrame = 0;
+		currentFrame++;
 		lastFrameTime = now;
+		t = frames[currentFrame]->GetTime() + 2500;
 	}
 	else
 	{
-		DWORD t = frames[currentFrame]->GetTime();
-		if (now - lastFrameTime > t + 500)
+		if (now - lastFrameTime > t&& status == 0)
 		{
+
+			t = frames[currentFrame]->GetTime() + 100;
 			currentFrame++;
 			lastFrameTime = now;
-			if (currentFrame == frames.size()) currentFrame = 0;
+			if (currentFrame == frames.size())
+			{
+				status = 1;
+				currentFrame = frames.size() - 1;
+				t = frames[currentFrame]->GetTime() + 5000;
+			}
 		}
+		if (now - lastFrameTime > t&& status == 1)
+		{
 
+			t = frames[currentFrame]->GetTime() + 100;
+			currentFrame--;
+			lastFrameTime = now;
+			if (currentFrame == -1)
+			{
+				status = 0;
+				currentFrame = 0;
+				t = frames[currentFrame]->GetTime() + 5000;
+			}
+		}
 	}
 
 	frames[currentFrame]->GetSprite()->Draw(x, y, alpha);

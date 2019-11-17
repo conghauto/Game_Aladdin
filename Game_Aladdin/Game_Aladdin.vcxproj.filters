@@ -110,6 +110,8 @@
     </ClCompile>
     <ClCompile Include="Bat.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="Rope.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +207,7 @@
     </ClInclude>
     <ClInclude Include="Bat.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
+    </ClInclude>    <ClInclude Include="Rope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>  </ItemGroup>
 </Project>

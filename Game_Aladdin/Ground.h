@@ -6,6 +6,10 @@
 class Ground : public CGameObject
 {
 public:
+	float width, height;
+	bool checkCollision=true;
+	void SetBound();
+	void SetBoundNoCollision() { width = 0; height = 0; }
 	virtual void Render();
 	virtual void GetBoundingBox(float &l, float &t, float &r, float &b);
 };

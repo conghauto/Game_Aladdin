@@ -26,6 +26,7 @@
 #include "BossBullet.h"
 #include "Spike.h"
 #include "Dumbbell.h"
+#include "Rope.h"
 #include "Bat.h"
 BossBullet *bossbullet;
 BulletBegin *beginBullet;
@@ -1018,12 +1019,12 @@ void LoadResources()
 	animations->Add(992, ani);
 
 	ani = new CAnimation(0); // spike 2
-	ani->Add(40044);
-	ani->Add(40045);
 	ani->Add(40046);
-	ani->Add(40041);
-	ani->Add(40042);
+	ani->Add(40045);
+	ani->Add(40044);
 	ani->Add(40043);
+	ani->Add(40042);
+	ani->Add(40041);
 	animations->Add(993, ani);
 
 	ani = new CAnimation(0); // dumbbell 1
@@ -1150,6 +1151,13 @@ void LoadResources()
 			{
 				ground->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
 				grid->AddObject(ground);
+			}
+
+			Rope *rope = new Rope();
+			if (listObjectsInMap[i]->name == "Rope")
+			{
+				rope->SetPositionAndHeight(listObjectsInMap[i]->x, listObjectsInMap[i]->y,listObjectsInMap[i]->height);
+				grid->AddObject(rope);
 			}
 
 			Pillar*pillar = new Pillar();

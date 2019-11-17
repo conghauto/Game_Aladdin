@@ -22,14 +22,14 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{62A0BC96-7277-4AF5-A9C5-69C818D72797}</ProjectGuid>
     <RootNamespace>GameCaptainAmerica</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>Game_Aladdin</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -141,6 +141,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ObjectTile.cpp" />
     <ClCompile Include="Rock.cpp" />
+    <ClCompile Include="Rope.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Pillar.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="ObjectTile.h" />
     <ClInclude Include="Rock.h" />
+    <ClInclude Include="Rope.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="Pillar.h" />
     <ClInclude Include="Map.h" />

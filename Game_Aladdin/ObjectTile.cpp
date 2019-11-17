@@ -42,6 +42,7 @@ vector<ObjectTile*>ListObject::getObjectsInFile(LPCSTR fileSource)
 		}else{
 			object->y = (float)(::atof(col4.c_str()));
 		}
+		object->height = (float)(::atof(col5.c_str()));
 		if (object->name != "") {
 			result.push_back(object);
 		}

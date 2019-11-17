@@ -34,6 +34,7 @@ class CGameObject
 {
 public:
 	int id;
+	int heightCollision;
 	string name;
 	float x;
 	float y;
@@ -56,6 +57,10 @@ public:
 
 public:
 	virtual void SetPosition(float x, float y) { this->x = x, this->y = y; }
+	virtual void SetPositionAndHeight(float x, float y, int height) 
+	{
+		this->x = x, this->y = y; this->heightCollision= height;
+	}
 	void SetSpeed(float vx, float vy) { this->vx = vx, this->vy = vy; }
 	void GetPosition(float &x, float &y) { x = this->x; y = this->y; }
 	void GetSpeed(float &vx, float &vy) { vx = this->vx; vy = this->vy; }
