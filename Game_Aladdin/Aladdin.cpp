@@ -5,11 +5,13 @@
 #include "Game.h"
 #include "Item.h"
 #include "Zombie.h"
-#include "Ground.h"
+//#include "Ground.h"
 #include "Pillar.h"
 #include "CheckPoint.h"
 #include "Soldier.h"
 #include "Bullet.h"
+#include "Spike.h"
+#include "Rope.h"
 
 //#define SCREEN_WIDTH 640
 //#define SCREEN_HEIGHT 480
@@ -212,17 +214,43 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
 			}
+			else if (dynamic_cast<Rope*>(e->obj))
+			{
+				// Da cham dat
+				// Khong va cham theo phuong ngang
+				y -= 2;
+				ny = -1;
+				vy = -0.5;
+				/*vy= -1.0;*/
+			}
+			//else if (dynamic_cast<Spike*>(e->obj))
+			//{
+			//	// Da cham dat
+			//	// Khong va cham theo phuong ngang
+			//	if (isJump && e->nx == 0 && e->ny < 0)
+			//		isJump = false;
+
+			//	// Xét va chạm cứng
+			//	if (nx != 0) vx = 0;
+			//	if (ny != 0) vy = 0;
+			//}
 			else if (dynamic_cast<Ground *>(e->obj) && !willHurt)
 			{
 				// Da cham dat
 				// Khong va cham theo phuong ngang
-				if (isJump && e->nx == 0 && e->ny < 0)
-					isJump = false;
+				if (y<= e->obj->y) {
+					if (isJump && e->nx == 0 && e->ny < 0)
+						isJump = false;
 				if (isHurt)
 					isHurt = false;
-				// Xét va chạm cứng
-				if (nx != 0) vx = 0;
-				if (ny != 0) vy = 0;
+					// Xét va chạm cứng
+					if (nx != 0) vx = 0;
+					if (ny != 0) vy = 0;
+					dynamic_cast<Ground *>(e->obj)->checkCollision = true;
+				}
+				else{
+					dynamic_cast<Ground *>(e->obj)->checkCollision = false;
+				}
 			}
 			else if (dynamic_cast<CheckPoint *>(e->obj))
 			{
