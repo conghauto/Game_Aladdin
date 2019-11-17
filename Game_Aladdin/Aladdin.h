@@ -11,6 +11,7 @@ class Aladdin : public CGameObject
 	DWORD untouchable_start;
 
 public:
+
 	bool isDead;
 	bool isHurt;
 	bool isAttack;
@@ -37,7 +38,6 @@ public:
 	int preHP;
 	bool isLevelUp;
 	bool isBonus;
-
 	float timePressJump;
 	float distanceDash;
 	float distanceJump;
@@ -46,6 +46,7 @@ public:
 
 public:
 	Whip * whip;
+	static float XforGet;
 	static int score;
 	static int heartsAmount;
 	int currentWeapon;
@@ -89,4 +90,5 @@ public:
 	int GetLife() { return life; }
 	int GetHP() { return preHP; }
 	int GetHeart() { return heartsAmount; }
+	float GetX() { return XforGet; };
 };

@@ -26,6 +26,7 @@
 #include "BossBullet.h"
 #include "Spike.h"
 #include "Dumbbell.h"
+#include "Bat.h"
 BossBullet *bossbullet;
 BulletBegin *beginBullet;
 BossOne *trum;
@@ -238,6 +239,7 @@ void LoadResources()
 {
 	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_BAT, L"Resources\\bat.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ROCK, L"Resources\\rock.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_TILESET, L"Resources\\tileset.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_GUARDIAN, L"Resources\\enemy.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -252,6 +254,7 @@ void LoadResources()
 	LPDIRECT3DTEXTURE9 texShield = textures->Get(ID_TEX_KNIFE);
 	LPDIRECT3DTEXTURE9 texAladdin = textures->Get(ID_TEX_ALLADIN);
 	LPDIRECT3DTEXTURE9 texAladdinSit = textures->Get(ID_TEX_SIT);
+	LPDIRECT3DTEXTURE9 texBat = textures->Get(ID_TEX_BAT);
 
 #pragma region Addsprite
 	sprites->Add(10001, 1121, 0, 1162, 66, texAladdin);		// đứng im phải
@@ -417,6 +420,11 @@ void LoadResources()
 	sprites->Add(16003, 702, 572, 777, 626, guardian);
 	sprites->Add(16002, 608, 572, 694, 626, guardian);
 	sprites->Add(16001, 502, 572, 600, 626, guardian);
+	sprites->Add(16007, 943, 643, 985, 702, guardian);
+	sprites->Add(16008, 888, 643, 930, 702, guardian);
+	sprites->Add(16009, 824, 643, 878, 702, guardian);
+	sprites->Add(16010, 701, 643, 790, 702, guardian);
+
 
 	sprites->Add(16011, 395, 572, 492, 626, guardian); // guardian tấn công trái
 	sprites->Add(16012, 297, 572, 388, 626, guardian);
@@ -424,6 +432,10 @@ void LoadResources()
 	sprites->Add(16014, 140, 572, 212, 626, guardian);
 	sprites->Add(16015, 65, 572, 133, 626, guardian);
 	sprites->Add(16016, 6, 572, 64, 626, guardian);
+	sprites->Add(16017, 6, 572, 64, 626, guardian);
+	sprites->Add(16018, 6, 572, 64, 626, guardian);
+	sprites->Add(16019, 6, 572, 64, 626, guardian);
+	sprites->Add(16020, 6, 572, 64, 626, guardian);
 
 	sprites->Add(16021, 657, 237, 727, 270, guardian); //guardian chet phai
 	sprites->Add(16022, 744, 237, 811, 270, guardian);
@@ -435,7 +447,20 @@ void LoadResources()
 	sprites->Add(16033, 93, 237, 161, 270, guardian);
 	sprites->Add(16034, 18, 237, 83, 270, guardian);
 
+	sprites->Add(16041, 666, 448, 714, 504, guardian); //guardian đứng phải
+	sprites->Add(16042, 721, 448, 770, 504, guardian);
+	sprites->Add(16043, 775, 448, 835, 504, guardian);
+	sprites->Add(16044, 838, 448, 894, 504, guardian);
+	sprites->Add(16045, 896, 448, 936, 504, guardian);
+	sprites->Add(16046, 942, 448, 986, 504, guardian);
 
+
+	sprites->Add(16051, 277, 448, 325, 504, guardian); //guardian đứng trái
+	sprites->Add(16052, 220, 448, 272, 504, guardian);
+	sprites->Add(16053, 158, 448, 216, 504, guardian);
+	sprites->Add(16054, 97, 448, 154, 504, guardian);
+	sprites->Add(16055, 56, 448, 96, 504, guardian);
+	sprites->Add(16056, 4, 448, 52, 504, guardian);
 	//Soldier
 	LPDIRECT3DTEXTURE9 soldierTex = textures->Get(ID_TEX_GUARDIAN); //solider danh phai
 	sprites->Add(17001, 570, 92, 609, 156, soldierTex);
@@ -451,6 +476,17 @@ void LoadResources()
 	sprites->Add(17014, 111, 92, 203, 156, soldierTex);
 	sprites->Add(17015, 53, 92, 101, 156, soldierTex);
 	sprites->Add(17016, 9, 92, 50, 156, soldierTex);
+
+	//Bat enemy
+	sprites->Add(17100, 4, 8, 18, 34, texBat); //bat đứng yên
+
+	sprites->Add(17101, 8, 50, 34, 78, texBat); //bat tấn công
+	sprites->Add(17102, 36, 50, 54, 78, texBat);
+	sprites->Add(17103, 55, 50, 85, 78, texBat);
+	sprites->Add(17104, 89, 57, 123, 86, texBat);
+	sprites->Add(17105, 124, 64, 139, 94, texBat);
+	sprites->Add(17106, 143, 50, 163, 78, texBat);
+	sprites->Add(17107, 164, 60, 199, 88, texBat);
 
 	LPDIRECT3DTEXTURE9 texMisc11 = textures->Get(ID_TEX_KNIFE);
 	sprites->Add(40023, 0, 0, 32, 18, texMisc11);
@@ -851,15 +887,19 @@ void LoadResources()
 	ani->Add(16004);
 	ani->Add(16005);
 	ani->Add(16006);
+	ani->Add(16007);
+	ani->Add(16008);
+	ani->Add(16009);
+	ani->Add(16010);
 	animations->Add(551, ani);
 
 	ani = new CAnimation(100);	//Guardian tan cong trai
-	ani->Add(16001);
-	ani->Add(16002);
-	ani->Add(16003);
-	ani->Add(16004);
-	ani->Add(16005);
-	ani->Add(16006);
+	ani->Add(16011);
+	ani->Add(16012);
+	ani->Add(16013);
+	ani->Add(16014);
+	ani->Add(16015);
+	ani->Add(16016);
 	animations->Add(552, ani);
 
 	ani = new CAnimation(100);	//Guardian chet phai
@@ -875,6 +915,24 @@ void LoadResources()
 	ani->Add(16033);
 	ani->Add(16034);
 	animations->Add(554, ani);
+
+	ani = new CAnimation(100);	//Guardian đứng phải
+	ani->Add(16041);
+	ani->Add(16042);
+	ani->Add(16043);
+	ani->Add(16044);
+	ani->Add(16045);
+	ani->Add(16046);
+	animations->Add(555, ani);
+
+	ani = new CAnimation(100);	//Guardian đứng trái
+	ani->Add(16051);
+	ani->Add(16052);
+	ani->Add(16053);
+	ani->Add(16054);
+	ani->Add(16055);
+	ani->Add(16056);
+	animations->Add(556, ani);
 
 	ani = new CAnimation(100);	//soldier danh phai
 	ani->Add(17001);
@@ -893,6 +951,20 @@ void LoadResources()
 	ani->Add(17015);
 	ani->Add(17016);
 	animations->Add(562, ani);
+
+	ani = new CAnimation(100);	//bat đứng đợi
+	ani->Add(17100);
+	animations->Add(605, ani);
+
+	ani = new CAnimation(100);	//bat tấn công
+	ani->Add(17101);
+	ani->Add(17102);
+	ani->Add(17103);
+	ani->Add(17104);
+	ani->Add(17105);
+	ani->Add(17106);
+	ani->Add(17107);
+	animations->Add(606, ani);
 
 	ani = new CAnimation(100);	//đất1
 	ani->Add(20001);
@@ -1182,25 +1254,34 @@ void LoadResources()
 	zombie->AddAnimation(552);
 	zombie->AddAnimation(553);
 	zombie->AddAnimation(554);
-	zombie->SetPosition(200, 950);
-	zombie->SetState(GUARDIAN_STATE_WALKING);
+	zombie->AddAnimation(555);
+	zombie->AddAnimation(556);
+	zombie->SetPosition(300, 950);
+	zombie->SetState(GUARDIAN_STATE_IDLE);
 	//objects.push_back(zombie);
 	grid->AddObject(zombie);
 
 
-	Zombie *zombie1 = new Zombie();
-	zombie1->nx = 1;
-	zombie1->AddAnimation(551);
-	zombie1->AddAnimation(552);
-	zombie1->AddAnimation(553);
-	zombie1->AddAnimation(554);
-	zombie1->SetPosition(600, 950);
-	zombie1->SetState(GUARDIAN_STATE_WALKING);
-	//objects.push_back(zombie1);
-	grid->AddObject(zombie1);
+	//Zombie *zombie1 = new Zombie();
+	//zombie1->nx = 1;
+	//zombie1->AddAnimation(551);
+	//zombie1->AddAnimation(552);
+	//zombie1->AddAnimation(553);
+	//zombie1->AddAnimation(554);
+	//zombie1->SetPosition(600, 950);
+	//zombie1->SetState(GUARDIAN_STATE_WALKING);
+	////objects.push_back(zombie1);
+	//grid->AddObject(zombie1);
 
 #pragma endregion
-
+#pragma region Bat
+	Bat *bat1 = new Bat();
+	bat1->AddAnimation(605);
+	bat1->AddAnimation(606);
+	bat1->SetPosition(700, 800);
+	bat1->SetState(BAT_STATE_WAIT);
+	grid->AddObject(bat1);
+#pragma endregion
 #pragma region Soldier
 	//soldier = new Soldier();
 	//soldier->AddAnimation(561);
@@ -1268,11 +1349,13 @@ void LoadResources()
 	grid->AddObject(dumbbell);*/
 #pragma endregion
 }
-
+float Aladdin::XforGet = 0;
 void Update(DWORD dt)
 {
+
 	float x, y;
 	aladdin->GetPosition(x, y);
+	Aladdin::XforGet = x;
 #pragma region Resource
 	if (lv1 == true)
 	{

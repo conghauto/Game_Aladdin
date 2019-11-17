@@ -1,6 +1,8 @@
 #include "Zombie.h"
 #include "define.h"
 #include "Bullet.h"
+#include "Game.h"
+#include "Aladdin.h"
 
 void Zombie::GetBoundingBox(float &left, float &top, float &right, float &bottom)
 {
@@ -35,7 +37,14 @@ void Zombie::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		x = 600; 
 		vx = -vx;
 	}
-
+	float check = this->x - Aladdin::XforGet;
+	if (check < 100)
+		this->SetState(GUARDIAN_STATE_ATTACK);
+	if (check < 0)
+	{
+		nx = -nx;
+		this->SetState(GUARDIAN_STATE_IDLE);
+	}
 
 }
 
@@ -54,10 +63,16 @@ void Zombie::Render()
 
 		return;
 	}
+	if (state == GUARDIAN_STATE_IDLE)
+	{
+		if (nx > 0) ani = GUARDIAN_ANI_IDLE_RIGHT;
+		else
+			ani = GUARDIAN_ANI_IDLE_LEFT;
+	}
 	else {
-		if (vx < 0)
+		if (nx > 0)
 			ani = GUARDIAN_ANI_ATTACKING_RIGHT;
-		else if (vx >= 0)
+		else 
 			ani = GUARDIAN_ANI_ATTACKING_LEFT;
 
 	
@@ -76,8 +91,13 @@ void Zombie::SetState(int state)
 		vx = 0;
 		vy = 0;
 		break;
-	case GUARDIAN_STATE_WALKING:
+	case GUARDIAN_STATE_IDLE:
 		vx = 0;
+		vy = 0;
+		break;
+	case GUARDIAN_STATE_ATTACK:
+		vx = 0;
+		break;
 	}
 
 }

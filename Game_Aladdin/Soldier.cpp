@@ -25,18 +25,6 @@ void Soldier::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		return;
 	}
 
-
-
-	if (vx < 0 && x < 500) {
-		x = 500; vx = -vx;
-	}
-
-	if (vx > 0 && x > 1200) {
-		x = 1200;
-		vx = -vx;
-	}
-
-
 }
 
 void Soldier::Render()
@@ -56,9 +44,9 @@ void Soldier::Render()
 	}
 	else {
 		if (vx < 0)
-			ani = SOLDIER_ANI_WALKING_LEFT;
+			ani = SOLDIER_ANI_ATTACK_LEFT;
 		else if (vx >= 0)
-			ani = SOLDIER_ANI_WALKING_RIGHT;
+			ani = SOLDIER_ANI_ATTACK_RIGHT;
 
 
 	}

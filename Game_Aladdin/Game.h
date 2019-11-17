@@ -40,7 +40,6 @@ class CGame
 	LPKEYEVENTHANDLER keyHandler;
 
 public:
-	//float x_cam = 0, y_cam = 0;
 	Camera* mCamera = new Camera(0, 28, 640, 600);
 	void InitKeyboard(LPKEYEVENTHANDLER handler);
 	void Init(HWND hWnd);

@@ -123,6 +123,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BossBullet.cpp" />
     <ClCompile Include="BossOne.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="Bat.h" />
     <ClInclude Include="BossBullet.h" />
     <ClInclude Include="BossOne.h" />
     <ClInclude Include="Bullet.h" />
