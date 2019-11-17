@@ -237,6 +237,9 @@
 #define BRICK_BBOX_WIDTH				32
 #define BRICK_BBOX_HEIGHT				5
 
+#define ROPE_BBOX_WIDTH					1
+#define ROPE_BBOX_HEIGHT				64
+
 #define EFFECT_TIME						200
 #define LEVELUP_TIME					3000
 

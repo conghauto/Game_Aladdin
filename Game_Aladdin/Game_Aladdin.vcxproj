@@ -140,6 +140,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ObjectTile.cpp" />
     <ClCompile Include="Rock.cpp" />
+    <ClCompile Include="Rope.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Pillar.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="ObjectTile.h" />
     <ClInclude Include="Rock.h" />
+    <ClInclude Include="Rope.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="Pillar.h" />
     <ClInclude Include="Map.h" />

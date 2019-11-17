@@ -26,6 +26,7 @@
 #include "BossBullet.h"
 #include "Spike.h"
 #include "Dumbbell.h"
+#include "Rope.h"
 BossBullet *bossbullet;
 BulletBegin *beginBullet;
 BossOne *trum;
@@ -1078,6 +1079,13 @@ void LoadResources()
 			{
 				ground->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
 				grid->AddObject(ground);
+			}
+
+			Rope *rope = new Rope();
+			if (listObjectsInMap[i]->name == "Rope")
+			{
+				rope->SetPositionAndHeight(listObjectsInMap[i]->x, listObjectsInMap[i]->y,listObjectsInMap[i]->height);
+				grid->AddObject(rope);
 			}
 
 			Pillar*pillar = new Pillar();
