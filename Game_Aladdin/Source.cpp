@@ -97,36 +97,36 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 			aladdin->SetAction(SIMON_ACTION_ATTACK);
 	}
 	else
-	if (KeyCode == DIK_X)
-	{
-		aladdin->SetCurrentWeapon(809);
-		if (aladdin->isAttack == false) {
-			int nx = aladdin->nx;
-			aladdin->SetAction(SIMON_ACTION_THROW);
-			switch (aladdin->currentWeapon)
-			{
-			case ITEM_KNIFE:
-				knife = new Shield(aladdin, 2 * SCREEN_WIDTH / 3);
-				if (nx > 0)
+		if (KeyCode == DIK_X)
+		{
+			aladdin->SetCurrentWeapon(809);
+			if (aladdin->isAttack == false) {
+				int nx = aladdin->nx;
+				aladdin->SetAction(SIMON_ACTION_THROW);
+				switch (aladdin->currentWeapon)
 				{
-					knife->SetSpeed(KNIFE_SPEED, 0);
-					knife->AddAnimation(WEAPON_ANI_KNIFE);
+				case ITEM_KNIFE:
+					knife = new Shield(aladdin, 2 * SCREEN_WIDTH / 3);
+					if (nx > 0)
+					{
+						knife->SetSpeed(KNIFE_SPEED, 0);
+						knife->AddAnimation(WEAPON_ANI_KNIFE);
+					}
+					else if (nx < 0)
+					{
+						knife->SetSpeed(-KNIFE_SPEED, 0);
+						knife->AddAnimation(WEAPON_ANI_KNIFE);
+					}
+					//knife->SetType(ITEM_KNIFE);
+					knife->SetPosition(aladdin->x, aladdin->y);
+					knife->appearTime = GetTickCount();
+					knife->firstCast = GetTickCount();
+					//objects.push_back(knife);
+					grid->AddObject(knife);
+					break;
 				}
-				else if (nx < 0)
-				{
-					knife->SetSpeed(-KNIFE_SPEED, 0);
-					knife->AddAnimation(WEAPON_ANI_KNIFE);
-				}
-				//knife->SetType(ITEM_KNIFE);
-				knife->SetPosition(aladdin->x, aladdin->y);
-				knife->appearTime = GetTickCount();
-				knife->firstCast = GetTickCount();
-				//objects.push_back(knife);
-				grid->AddObject(knife);
-				break;
 			}
 		}
-	}
 }
 
 void CSampleKeyHander::OnKeyUp(int KeyCode)
@@ -153,7 +153,7 @@ void CSampleKeyHander::OnKeyUp(int KeyCode)
 	if (KeyCode == DIK_DOWN)
 	{
 
-		 if (aladdin->isSit)
+		if (aladdin->isSit)
 		{
 			if (!aladdin->isAttack)
 			{
@@ -192,7 +192,7 @@ void CSampleKeyHander::KeyState(BYTE *states)
 	}
 	if (game->IsKeyDown(DIK_DOWN))
 	{
-		 if (!aladdin->isAttack && !aladdin->isJump)
+		if (!aladdin->isAttack && !aladdin->isJump)
 			aladdin->SetState(SIMON_STATE_SIT);
 	}
 
@@ -201,7 +201,7 @@ void CSampleKeyHander::KeyState(BYTE *states)
 	{
 		if (!aladdin->isSit && !aladdin->isAttack)
 			aladdin->SetState(SIMON_STATE_WALK);
-		if (!aladdin->isJump &&  !aladdin->isAttack)
+		if (!aladdin->isJump && !aladdin->isAttack)
 			aladdin->nx = 1.0f;
 	}
 	else if (game->IsKeyDown(DIK_LEFT))
@@ -238,7 +238,7 @@ void LoadResources()
 {
 	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(ID_TEX_ROCK, L"Resources\\rock.png", D3DCOLOR_XRGB(163,73, 164));
+	textures->Add(ID_TEX_ROCK, L"Resources\\rock.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_TILESET, L"Resources\\tileset.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_GUARDIAN, L"Resources\\enemy.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_PILLAR1, L"Resources\\pillar_1.png", D3DCOLOR_XRGB(163, 73, 164));
@@ -252,8 +252,8 @@ void LoadResources()
 	LPDIRECT3DTEXTURE9 texShield = textures->Get(ID_TEX_KNIFE);
 	LPDIRECT3DTEXTURE9 texAladdin = textures->Get(ID_TEX_ALLADIN);
 	LPDIRECT3DTEXTURE9 texAladdinSit = textures->Get(ID_TEX_SIT);
-	
-	#pragma region Addsprite
+
+#pragma region Addsprite
 	sprites->Add(10001, 1121, 0, 1162, 66, texAladdin);		// đứng im phải
 
 	sprites->Add(14002, 1186, 1215, 1229, 1275, texAladdin);		// đi phải
@@ -445,7 +445,7 @@ void LoadResources()
 	sprites->Add(40031, 0, 4, 30, 20, texRock1);
 	sprites->Add(40032, 36, 4, 66, 20, texRock1);
 	sprites->Add(40033, 72, 4, 105, 21, texRock1);
-	sprites->Add(40034, 111,4, 147, 24, texRock1);
+	sprites->Add(40034, 111, 4, 147, 24, texRock1);
 	sprites->Add(40035, 154, 4, 194, 26, texRock1);
 
 	LPDIRECT3DTEXTURE9 texPillar1 = textures->Get(ID_TEX_PILLAR1); //pillar 1
@@ -462,7 +462,7 @@ void LoadResources()
 
 	LPDIRECT3DTEXTURE9 texGate = textures->Get(ID_TEX_GATE); //gate
 	sprites->Add(410040, 0, 0, 78, 212, texGate);
-	
+
 	LPDIRECT3DTEXTURE9 texSpike = textures->Get(ID_TEX_SPIKE); // spike - cây chông
 	sprites->Add(40041, 1, 2, 25, 24, texSpike);
 	sprites->Add(40042, 29, 2, 52, 24, texSpike);
@@ -473,7 +473,7 @@ void LoadResources()
 
 	LPDIRECT3DTEXTURE9 texDumbbell = textures->Get(ID_TEX_DUMBBELL); // dumbbell - quả tạ
 	sprites->Add(40050, 3, 2, 19, 69, texDumbbell);
-	sprites->Add(40051, 23,2, 38, 69, texDumbbell);
+	sprites->Add(40051, 23, 2, 38, 69, texDumbbell);
 	sprites->Add(40052, 43, 2, 58, 69, texDumbbell);
 	sprites->Add(40053, 63, 2, 78, 69, texDumbbell);
 	sprites->Add(40054, 83, 2, 98, 69, texDumbbell);
@@ -487,12 +487,12 @@ void LoadResources()
 	sprites->Add(40062, 308, 2, 342, 69, texDumbbell);
 	sprites->Add(40063, 345, 2, 380, 69, texDumbbell);
 	sprites->Add(40064, 383, 2, 416, 69, texDumbbell);
-	
-	#pragma endregion
+
+#pragma endregion
 
 	LPANIMATION ani;
 
-	#pragma region AladdinAnimation
+#pragma region AladdinAnimation
 	ani = new CAnimation(100);	//đứng phải
 	ani->Add(10001);
 	animations->Add(400, ani);
@@ -984,9 +984,9 @@ void LoadResources()
 	ani->Add(40059);
 	animations->Add(996, ani);
 
-	#pragma endregion
+#pragma endregion
 
-	#pragma region aladdin
+#pragma region aladdin
 	aladdin = new Aladdin();
 	aladdin->AddAnimation(400);	// đứng phải	
 	aladdin->AddAnimation(401);	//đứng trái	
@@ -1033,19 +1033,22 @@ void LoadResources()
 	//objects.push_back(aladdin);
 
 	// khởi tạo grid
-	grid->InitList(MAX_WIDTH_LV1,MAX_HEIGHT_LV1);
+	grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
 	//grid->AddObject(aladdin);
 
-	#pragma endregion
+#pragma endregion
 
-	#pragma region Ground
+#pragma region Ground
 	listObjectsInMap = lsObjs->getObjectsInFile("Resources\\objects.txt");
 
 	int count = 1;
 	int countRocks = 1;
-	if (listObjectsInMap.size()>0) {
+	int countSpikes = 1;
+	int countDumbbells = 1;
+	if (listObjectsInMap.size() > 0) {
 		for (int i = 0; i < listObjectsInMap.size(); i++)
 		{
+			// Gắn đường đi - Ground
 			Ground *ground = new Ground();
 			if (listObjectsInMap[i]->name == "Ground")
 			{
@@ -1074,6 +1077,7 @@ void LoadResources()
 				count++;
 			}
 
+			// Gắn viên đá - Rock
 			Rock*rock = new Rock();
 			if (listObjectsInMap[i]->name == "Rock")
 			{
@@ -1094,12 +1098,60 @@ void LoadResources()
 				grid->AddObject(rock);
 				countRocks++;
 			}
+
+			// Gắn mũi nhọn - Spike
+			Spike*spike = new Spike();
+			if (listObjectsInMap[i]->name == "Spike")
+			{
+				if (countSpikes == 1) {
+					spike->AddAnimation(992);
+					spike->name = "spike1";
+				}
+				else if (countSpikes == 2) {
+					spike->AddAnimation(992);
+					spike->name = "spike1";
+				}
+				else if (countSpikes == 3) {
+					spike->AddAnimation(993);
+					spike->name = "spike2";
+				}
+				else if (countSpikes == 4) {
+					spike->AddAnimation(993);
+					spike->name = "spike2";
+				}
+
+				spike->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
+				grid->AddObject(spike);
+				countSpikes++;
+			}
+
+			// Gắn quả tạ - Dumbbell
+			Dumbbell*dumbbell = new Dumbbell();
+			if (listObjectsInMap[i]->name == "Dumbbell")
+			{
+				if (countDumbbells == 1) {
+					dumbbell->AddAnimation(994);
+					dumbbell->name = "dumbbell1";
+				}
+				else if (countDumbbells == 2) {
+					dumbbell->AddAnimation(995);
+					dumbbell->name = "dumbbell2";
+				}
+				else if (countDumbbells == 3) {
+					dumbbell->AddAnimation(996);
+					dumbbell->name = "dumbbell3";
+				}
+
+				dumbbell->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
+				grid->AddObject(dumbbell);
+				countDumbbells++;
+			}
 		}
 	}
 
-	#pragma endregion
+#pragma endregion
 
-	#pragma region Zombie
+#pragma region Zombie
 	//Zombie *zombie = new Zombie();
 	//zombie->nx = -1;
 	//zombie->AddAnimation(551);
@@ -1142,19 +1194,19 @@ void LoadResources()
 	//soldier1->SetState(SOLDIER_STATE_WALKING);
 	////objects.push_back(zombie1);
 	//grid->AddObject(soldier1);
-	#pragma endregion
+#pragma endregion
 
 
-	#pragma region CheckPoint
-		CheckPoint *checkPoint;
-		checkPoint = new CheckPoint();
-		checkPoint->SetType(CHECKPOINT_LEVELUP);
-		checkPoint->SetPosition(2071, 62);
-		grid->AddObject(checkPoint);
-	#pragma endregion
+#pragma region CheckPoint
+	CheckPoint *checkPoint;
+	checkPoint = new CheckPoint();
+	checkPoint->SetType(CHECKPOINT_LEVELUP);
+	checkPoint->SetPosition(2071, 62);
+	grid->AddObject(checkPoint);
+#pragma endregion
 
 #pragma region Spike
-	Spike*spike = new Spike();
+	/*Spike*spike = new Spike();
 	spike->AddAnimation(992);
 	spike->SetPosition(683, 927);
 	grid->AddObject(spike);
@@ -1172,11 +1224,11 @@ void LoadResources()
 	spike = new Spike();
 	spike->AddAnimation(993);
 	spike->SetPosition(720, 964);
-	grid->AddObject(spike);
+	grid->AddObject(spike);*/
 #pragma endregion
 
 #pragma region Dumbbell
-	Dumbbell*dumbbell = new Dumbbell();
+	/*Dumbbell*dumbbell = new Dumbbell();
 	dumbbell->AddAnimation(994);
 	dumbbell->SetPosition(922, 909);
 	grid->AddObject(dumbbell);
@@ -1189,7 +1241,7 @@ void LoadResources()
 	dumbbell = new Dumbbell();
 	dumbbell->AddAnimation(996);
 	dumbbell->SetPosition(1055, 909);
-	grid->AddObject(dumbbell);
+	grid->AddObject(dumbbell);*/
 #pragma endregion
 }
 
@@ -1197,59 +1249,59 @@ void Update(DWORD dt)
 {
 	float x, y;
 	aladdin->GetPosition(x, y);
-	#pragma region Resource
-		if (lv1 == true)
-		{
-			// Lên cấp
-			if (aladdin->isLevelUp) {
-				//aladdin->SetState(SIMON_STATE_WALK);
+#pragma region Resource
+	if (lv1 == true)
+	{
+		// Lên cấp
+		if (aladdin->isLevelUp) {
+			//aladdin->SetState(SIMON_STATE_WALK);
 
-				grid->ReleaseList();
+			grid->ReleaseList();
 
-				lv2 = true;
-				lv1 = false;
-				/*aladdin->isLevelUp = false;
-				aladdin->SetState(SIMON_STATE_IDLE);*/
+			lv2 = true;
+			lv1 = false;
+			/*aladdin->isLevelUp = false;
+			aladdin->SetState(SIMON_STATE_IDLE);*/
 
-			}
 		}
+	}
 
-	#pragma endregion
+#pragma endregion
 
-	#pragma region Collision
-		vector<LPGAMEOBJECT> coObjects;
-		if (aladdin->x < 0)
-			currentCell = grid->GetCurrentCells(0,y);
-		else
-			currentCell = grid->GetCurrentCells(x,y);
+#pragma region Collision
+	vector<LPGAMEOBJECT> coObjects;
+	if (aladdin->x < 0)
+		currentCell = grid->GetCurrentCells(0, y);
+	else
+		currentCell = grid->GetCurrentCells(x, y);
 
-		for (int i = 0; i < currentCell.size(); i++)
+	for (int i = 0; i < currentCell.size(); i++)
+	{
+		vector<LPGAMEOBJECT> listObjects = currentCell[i]->GetListObject();
+		int listObjectSize = listObjects.size();
+		for (int j = 0; j < listObjectSize; j++)
 		{
-			vector<LPGAMEOBJECT> listObjects = currentCell[i]->GetListObject();
-			int listObjectSize = listObjects.size();
-			for (int j = 0; j < listObjectSize; j++)
-			{
-				coObjects.push_back(listObjects[j]);
-			}
+			coObjects.push_back(listObjects[j]);
 		}
+	}
 
-		aladdin->Update(dt, &coObjects);
-		if(boss == false)
-			for (int i = 0; i < coObjects.size(); i++)
-			{
-					coObjects[i]->Update(dt+200, &coObjects);
-			}
-		else if(boss == true)
+	aladdin->Update(dt, &coObjects);
+	if (boss == false)
+		for (int i = 0; i < coObjects.size(); i++)
 		{
-			for (int i = 0; i < coObjects.size(); i++)
-			{
-					coObjects[i]->Update( dt, &coObjects);
-					grid->UpdateObjectInCell(coObjects[i]);
-			}
+			coObjects[i]->Update(dt + 200, &coObjects);
 		}
+	else if (boss == true)
+	{
+		for (int i = 0; i < coObjects.size(); i++)
+		{
+			coObjects[i]->Update(dt, &coObjects);
+			grid->UpdateObjectInCell(coObjects[i]);
+		}
+	}
 
-	
-	#pragma endregion	
+
+#pragma endregion	
 
 	//if (check) {
 	//	if (aladdin->nx > 0) {
@@ -1324,90 +1376,90 @@ void Update(DWORD dt)
 	//		}
 	//	}
 	//}
-	#pragma region Remove Object
-		vector<LPGAMEOBJECT> listRemoveObjects;
-		for (int i = 0; i < coObjects.size(); i++)
+#pragma region Remove Object
+	vector<LPGAMEOBJECT> listRemoveObjects;
+	for (int i = 0; i < coObjects.size(); i++)
+	{
+		//if (dynamic_cast<Zombie *>(coObjects.at(i)))
+		//{
+		//	Zombie *zombie = dynamic_cast<Zombie *>(coObjects.at(i));
+
+		//	if (zombie->GetState() == GUARDIAN_STATE_DIE)
+		//	{
+		//		listRemoveObjects.push_back(zombie);
+		//		item = new Item();
+		//		item->SetPosition(zombie->x, zombie->y);
+		//		item->SetSpeed(0, -0.1);
+		//		coObjects.push_back(item);
+		//		grid->AddObject(item);
+		//		srand(time(NULL));
+		//		int random_portion = rand() % 100;
+
+		//		// Heart
+		//		if (random_portion < 30)
+		//		{
+		//			item->AddAnimation(ITEM_HEART);
+		//			item->SetType(ITEM_HEART);
+		//		}
+		//		// Item 1
+		//		else if (random_portion >= 30 && random_portion < 50)
+		//		{
+		//			item->AddAnimation(ITEM_1);
+		//			item->SetType(ITEM_1);
+		//		}
+		//		// Item 2
+		//		else if (random_portion >= 50 && random_portion < 80)
+		//		{
+		//			item->AddAnimation(ITEM_2);
+		//			item->SetType(ITEM_2);
+		//		}
+		//		// Item 3
+		//		else
+		//		{
+		//			item->AddAnimation(ITEM_3);
+		//			item->SetType(ITEM_3);
+		//		}
+		//	}
+		//}
+	}
+
+	// Remove lần lượt từng object từ listRemoveObjects trong grid
+	for (int i = 0; i < listRemoveObjects.size(); i++)
+	{
+		grid->RemoveObject(listRemoveObjects[i]);
+		delete listRemoveObjects[i];
+	}
+#pragma endregion	
+
+#pragma region Camera
+	if (lv1 == true)
+	{
+		// Oy
+		if (y > SCREEN_HEIGHT / 2 && y < MAX_HEIGHT_LV1 - SCREEN_HEIGHT / 2)
 		{
-			//if (dynamic_cast<Zombie *>(coObjects.at(i)))
-			//{
-			//	Zombie *zombie = dynamic_cast<Zombie *>(coObjects.at(i));
-
-			//	if (zombie->GetState() == GUARDIAN_STATE_DIE)
-			//	{
-			//		listRemoveObjects.push_back(zombie);
-			//		item = new Item();
-			//		item->SetPosition(zombie->x, zombie->y);
-			//		item->SetSpeed(0, -0.1);
-			//		coObjects.push_back(item);
-			//		grid->AddObject(item);
-			//		srand(time(NULL));
-			//		int random_portion = rand() % 100;
-
-			//		// Heart
-			//		if (random_portion < 30)
-			//		{
-			//			item->AddAnimation(ITEM_HEART);
-			//			item->SetType(ITEM_HEART);
-			//		}
-			//		// Item 1
-			//		else if (random_portion >= 30 && random_portion < 50)
-			//		{
-			//			item->AddAnimation(ITEM_1);
-			//			item->SetType(ITEM_1);
-			//		}
-			//		// Item 2
-			//		else if (random_portion >= 50 && random_portion < 80)
-			//		{
-			//			item->AddAnimation(ITEM_2);
-			//			item->SetType(ITEM_2);
-			//		}
-			//		// Item 3
-			//		else
-			//		{
-			//			item->AddAnimation(ITEM_3);
-			//			item->SetType(ITEM_3);
-			//		}
-			//	}
-			//}
+			game->mCamera->setX(game->mCamera->getX());
+			game->mCamera->setY(y - SCREEN_HEIGHT / 2);
+		}
+		else
+		{
+			game->mCamera->setX(game->mCamera->getX());
+			game->mCamera->setY(game->mCamera->getY());
 		}
 
-		// Remove lần lượt từng object từ listRemoveObjects trong grid
-		for (int i = 0; i < listRemoveObjects.size(); i++)
+		// Ox
+		if (x > SCREEN_WIDTH / 2 && x < MAX_WIDTH_LV1 - SCREEN_WIDTH / 2)
 		{
-			grid->RemoveObject(listRemoveObjects[i]);
-			delete listRemoveObjects[i];
-		}
-	#pragma endregion	
 
-	#pragma region Camera
-		if (lv1 == true)
+			game->mCamera->setX(x - SCREEN_WIDTH / 2);
+			game->mCamera->setY(game->mCamera->getY());
+		}
+		else
 		{
-			// Oy
-			if (y > SCREEN_HEIGHT / 2&&y < MAX_HEIGHT_LV1 - SCREEN_HEIGHT / 2)
-			{
-				game->mCamera->setX(game->mCamera->getX());
-				game->mCamera->setY(y-SCREEN_HEIGHT/2);
-			}
-			else
-			{
-				game->mCamera->setX(game->mCamera->getX());
-				game->mCamera->setY(game->mCamera->getY());
-			}
-
-			// Ox
-			if (x > SCREEN_WIDTH / 2 && x < MAX_WIDTH_LV1 - SCREEN_WIDTH / 2)
-			{
-
-				game->mCamera->setX(x - SCREEN_WIDTH / 2);
-				game->mCamera->setY(game->mCamera->getY());
-			}
-			else
-			{
-				game->mCamera->setX(game->mCamera->getX());
-				game->mCamera->setY(game->mCamera->getY());
-			}
+			game->mCamera->setX(game->mCamera->getX());
+			game->mCamera->setY(game->mCamera->getY());
 		}
-	#pragma endregion
+	}
+#pragma endregion
 }
 
 void Render()
@@ -1424,7 +1476,7 @@ void Render()
 		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
 		CTextures * textures = CTextures::GetInstance();
 		LPDIRECT3DTEXTURE9 tex = textures->Get(ID_TEX_LV1);
-		LPDIRECT3DTEXTURE9 tex2 = textures->Get(ID_TEX_LV1_2);		
+		LPDIRECT3DTEXTURE9 tex2 = textures->Get(ID_TEX_LV1_2);
 		float x, y;
 		aladdin->GetPosition(x, y);
 
@@ -1433,8 +1485,8 @@ void Render()
 		LPDIRECT3DTEXTURE9 tileset2 = textures->Get(ID_TEX_TILESET_3);
 		if (lv1 == true)
 		{
-			
-			map = new	Map (/*48, 10,*/ tileset, 16, 16); 
+
+			map = new	Map(/*48, 10,*/ tileset, 16, 16);
 			map->LoadMatrixMap("Resources\\Mapstate.txt");
 			//map->Draw(game->x_cam, game->y_cam);
 		}
@@ -1446,8 +1498,8 @@ void Render()
 			int listObjectSize = listObject.size();
 
 			for (int j = 0; j < listObjectSize; j++)
-			{	
-					listObject[j]->Render();
+			{
+				listObject[j]->Render();
 			}
 		}
 
@@ -1556,7 +1608,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	keyHandler = new CSampleKeyHander();
 	game->InitKeyboard(keyHandler);
-	
+
 	grid = Grid::GetInstance();
 
 	LoadResources();
