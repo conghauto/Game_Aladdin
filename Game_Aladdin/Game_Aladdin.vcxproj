@@ -127,7 +127,6 @@
     <ClCompile Include="BossBullet.cpp" />
     <ClCompile Include="BossOne.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="BulletBegin.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CheckPoint.cpp" />
     <ClCompile Include="debug.cpp" />
@@ -146,6 +145,7 @@
     <ClCompile Include="Pillar.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Aladdin.cpp" />
+    <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="Soldier.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Spike.cpp" />
@@ -160,7 +160,6 @@
     <ClInclude Include="BossBullet.h" />
     <ClInclude Include="BossOne.h" />
     <ClInclude Include="Bullet.h" />
-    <ClInclude Include="BulletBegin.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CheckPoint.h" />
     <ClInclude Include="debug.h" />
@@ -179,6 +178,7 @@
     <ClInclude Include="Pillar.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Aladdin.h" />
+    <ClInclude Include="Skeleton.h" />
     <ClInclude Include="Soldier.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprites.h" />

@@ -1,6 +1,6 @@
 #include "Soldier.h"
 #include "define.h"
-
+#include "Aladdin.h"
 void Soldier::GetBoundingBox(float &left, float &top, float &right, float &bottom)
 {
 	left = x;
@@ -24,7 +24,14 @@ void Soldier::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		SetSpeed(0.0f, 0.0f);
 		return;
 	}
-
+	float check = this->x - Aladdin::XforGet;
+	if (check < 100)
+		this->SetState(SOLDIER_ANI_ATTACK_RIGHT);
+	if (check < 0)
+	{
+		nx = -nx;
+		this->SetState(SOLDIER_STATE_IDLE);
+	}
 }
 
 void Soldier::Render()
@@ -32,22 +39,20 @@ void Soldier::Render()
 	int ani;
 
 	if (state == SOLDIER_STATE_DIE) {
-		if (nx > 0) {
-			ani = SOLDIER_ANI_DIE_RIGHT;
-		}
-		else
-		{
-			ani = SOLDIER_ANI_DIE_LEFT;
-		}
 
 		return;
 	}
+	if (state == SOLDIER_STATE_IDLE)
+	{
+		if (nx > 0) ani = SOLDIER_ANI_IDLE_RIGHT;
+		else
+			ani = SOLDIER_ANI_IDLE_LEFT;
+	}
 	else {
-		if (vx < 0)
-			ani = SOLDIER_ANI_ATTACK_LEFT;
-		else if (vx >= 0)
+		if (nx > 0)
 			ani = SOLDIER_ANI_ATTACK_RIGHT;
-
+		else
+			ani = SOLDIER_ANI_ATTACK_LEFT;
 
 	}
 	animations[ani]->Render(x, y);
@@ -64,8 +69,13 @@ void Soldier::SetState(int state)
 		vx = 0;
 		vy = 0;
 		break;
-	case SOLDIER_STATE_WALKING:
+	case SOLDIER_STATE_IDLE:
 		vx = 0;
+		vy = 0;
+		break;
+	case SOLDIER_STATE_ATTACK:
+		vx = 0;
+		break;
 		
 	}
 

@@ -14,6 +14,7 @@
 #include "define.h"
 #include "Item.h"
 #include "Pillar.h"
+#include "Skeleton.h"
 #include "Rock.h"
 #include "Map.h"
 #include "CheckPoint.h"
@@ -21,14 +22,12 @@
 #include "Bullet.h"
 #include "Ball.h"
 #include "BossOne.h"
-#include "BulletBegin.h"
 #include "BossBullet.h"
 #include "Spike.h"
 #include "Dumbbell.h"
 #include "Rope.h"
 #include "Bat.h"
 BossBullet *bossbullet;
-BulletBegin *beginBullet;
 BossOne *trum;
 CGame *game;
 Aladdin * aladdin;
@@ -240,6 +239,7 @@ void LoadResources()
 	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_BAT, L"Resources\\bat.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_SKELETON, L"Resources\\skeleton.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ROCK, L"Resources\\rock.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_TILESET, L"Resources\\tileset.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_GUARDIAN, L"Resources\\enemy.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -255,6 +255,7 @@ void LoadResources()
 	LPDIRECT3DTEXTURE9 texAladdin = textures->Get(ID_TEX_ALLADIN);
 	LPDIRECT3DTEXTURE9 texAladdinSit = textures->Get(ID_TEX_SIT);
 	LPDIRECT3DTEXTURE9 texBat = textures->Get(ID_TEX_BAT);
+	LPDIRECT3DTEXTURE9 texSkeleton = textures->Get(ID_TEX_SKELETON);
 
 #pragma region Addsprite
 	sprites->Add(10001, 1121, 0, 1162, 66, texAladdin);		// đứng im phải
@@ -477,6 +478,9 @@ void LoadResources()
 	sprites->Add(17015, 53, 92, 101, 156, soldierTex);
 	sprites->Add(17016, 9, 92, 50, 156, soldierTex);
 
+	sprites->Add(17021, 941, 166, 983, 233, soldierTex); // sodier đứng phải
+
+	sprites->Add(17031, 6, 166, 52, 233, soldierTex); //sodier đứng trái
 	//Bat enemy
 	sprites->Add(17100, 4, 8, 18, 34, texBat); //bat đứng yên
 
@@ -487,6 +491,24 @@ void LoadResources()
 	sprites->Add(17105, 124, 64, 139, 94, texBat);
 	sprites->Add(17106, 143, 50, 163, 78, texBat);
 	sprites->Add(17107, 164, 60, 199, 88, texBat);
+
+	sprites->Add(17201, 880, 124, 932, 204, texSkeleton); // skeleton đứng phải
+	sprites->Add(17202, 943, 124, 995, 204, texSkeleton);
+	sprites->Add(17203, 999, 124, 1062, 204, texSkeleton);
+	sprites->Add(17204, 1072, 124, 1136, 204, texSkeleton);
+	sprites->Add(17205, 1149, 124, 1222, 204, texSkeleton);
+	sprites->Add(17206, 1248, 124, 1325, 204, texSkeleton);
+	sprites->Add(17207, 1350, 124, 1440, 204, texSkeleton);
+	sprites->Add(17208, 1460, 124, 1522, 204, texSkeleton);
+
+	sprites->Add(17211, 806, 124, 856, 204, texSkeleton); //skeleton đứng trái
+	sprites->Add(17212, 744, 124, 794, 204, texSkeleton);
+	sprites->Add(17213, 674, 124, 736, 204, texSkeleton);
+	sprites->Add(17214, 600, 124, 666, 204, texSkeleton);
+	sprites->Add(17215, 514, 124, 586, 204, texSkeleton);
+	sprites->Add(17216, 412, 124, 490, 204, texSkeleton);
+	sprites->Add(17217, 294, 124, 386, 204, texSkeleton);
+	sprites->Add(17218, 214, 124, 276, 204, texSkeleton);
 
 	LPDIRECT3DTEXTURE9 texMisc11 = textures->Get(ID_TEX_KNIFE);
 	sprites->Add(40023, 0, 0, 32, 18, texMisc11);
@@ -952,6 +974,14 @@ void LoadResources()
 	ani->Add(17016);
 	animations->Add(562, ani);
 
+	ani = new CAnimation(100);	//soldier dung phai
+	ani->Add(17021);
+	animations->Add(563, ani);
+
+	ani = new CAnimation(100);	//soldier dung trai
+	ani->Add(17031);
+	animations->Add(564, ani);
+
 	ani = new CAnimation(100);	//bat đứng đợi
 	ani->Add(17100);
 	animations->Add(605, ani);
@@ -965,6 +995,28 @@ void LoadResources()
 	ani->Add(17106);
 	ani->Add(17107);
 	animations->Add(606, ani);
+
+	ani = new CAnimation(100);	//skeleton dung phai
+	ani->Add(17201);
+	ani->Add(17202);
+	ani->Add(17203);
+	ani->Add(17204);
+	ani->Add(17205);
+	ani->Add(17206);
+	ani->Add(17207);
+	ani->Add(17208);
+	animations->Add(607, ani);
+
+	ani = new CAnimation(100);	//skeleton dung trai
+	ani->Add(17211);
+	ani->Add(17212);
+	ani->Add(17213);
+	ani->Add(17214);
+	ani->Add(17215);
+	ani->Add(17216);
+	ani->Add(17217);
+	ani->Add(17218);
+	animations->Add(608, ani);
 
 	ani = new CAnimation(100);	//đất1
 	ani->Add(20001);
@@ -1289,14 +1341,27 @@ void LoadResources()
 	bat1->SetState(BAT_STATE_WAIT);
 	grid->AddObject(bat1);
 #pragma endregion
+	Skeleton *skeleton = new Skeleton();
+	skeleton->nx = -1;
+	skeleton->AddAnimation(607);
+	skeleton->AddAnimation(608);
+	skeleton->SetPosition(500, 930);
+	skeleton->SetState(SKELETON_STATE_IDLE);
+	grid->AddObject(skeleton);
+#pragma region Skeleton
+
+#pragma endregion
 #pragma region Soldier
-	//soldier = new Soldier();
-	//soldier->AddAnimation(561);
-	//soldier->AddAnimation(562);
-	//soldier->SetPosition(400, 950);
-	//soldier->SetState(SOLDIER_STATE_WALKING);
-	////objects.push_back(zombie1);
-	//grid->AddObject(soldier);
+	soldier = new Soldier();
+	soldier->nx = 1;
+	soldier->AddAnimation(563);
+	soldier->AddAnimation(564);
+	soldier->AddAnimation(561);
+	soldier->AddAnimation(562);
+	soldier->SetPosition(200, 940);
+	soldier->SetState(SOLDIER_STATE_IDLE);
+	//objects.push_back(zombie1);
+	grid->AddObject(soldier);
 
 	//soldier1 = new Soldier();
 	//soldier1->vx = -1;

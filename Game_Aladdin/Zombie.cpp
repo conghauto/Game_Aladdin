@@ -72,9 +72,8 @@ void Zombie::Render()
 	else {
 		if (nx > 0)
 			ani = GUARDIAN_ANI_ATTACKING_RIGHT;
-		else 
+		else
 			ani = GUARDIAN_ANI_ATTACKING_LEFT;
-
 	
 	}
 	animations[ani]->Render(x, y);

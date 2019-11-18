@@ -508,22 +508,6 @@ void Aladdin::SetState(int state)
 		vx = 0;
 		isMoving = false;
 		break;
-	case SIMON_STATE_DASHING:
-		isMoving = true;
-		if (nx == 1.0f)
-		{
-			vx = 0.2f;
-		}
-		else if (nx == -1.0f)
-		{
-			vx = -0.2f;
-		}
-		isDashing = true;
-		break;
-	case SIMON_STATE_DOUBLE_JUMP:
-		isDoubleJump = true;
-		vy = -0.6f;
-		break;
 	}
 }
 
