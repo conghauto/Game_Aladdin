@@ -1177,7 +1177,7 @@ void LoadResources()
 	aladdin->AddAnimation(502);	//Leo dây phải
 	aladdin->AddAnimation(503); // Leo dây trái
 
-	aladdin->SetPosition(40, 850);
+	aladdin->SetPosition(900, 100);
 	//objects.push_back(aladdin);
 
 	// khởi tạo grid
@@ -1236,15 +1236,22 @@ void LoadResources()
 			Rock*rock = new Rock();
 			if (listObjectsInMap[i]->name == "Rock")
 			{
-				if (countRocks == 1) {
+				if ((countRocks == 1)|| (countRocks ==4)||(countRocks==6) || (countRocks == 8) || (countRocks == 10)
+					|| (countRocks == 23)||(countRocks == 25) || (countRocks == 27) || (countRocks == 29) || (countRocks == 31))
+				{
 					rock->AddAnimation(990);
 					rock->name = "rock1";
 				}
-				else if (countRocks == 2) {
+				else if ((countRocks == 2) || (countRocks == 12) || (countRocks == 13) || (countRocks == 21)
+					|| (countRocks == 15) || (countRocks == 17) || (countRocks == 18) || (countRocks == 19)) 
+				{
 					rock->AddAnimation(990);
 					rock->name = "rock1";
 				}
-				else if (countRocks == 3) {
+				else if ((countRocks == 3)||(countRocks == 5)||(countRocks==7) || (countRocks == 16) || (countRocks == 22) || (countRocks == 26)
+					|| (countRocks == 9) || (countRocks == 11) || (countRocks == 14) || (countRocks == 20) || (countRocks == 24)
+					|| (countRocks == 28) || (countRocks == 30) || (countRocks == 32))
+				{
 					rock->AddAnimation(991);
 					rock->name = "rock2";
 				}
@@ -1258,19 +1265,17 @@ void LoadResources()
 			Spike*spike = new Spike();
 			if (listObjectsInMap[i]->name == "Spike")
 			{
-				if (countSpikes == 1) {
+				if ((countSpikes == 1)|| (countSpikes ==5)|| (countSpikes ==6)) {
 					spike->AddAnimation(992);
 					spike->name = "spike1";
 				}
-				else if (countSpikes == 2) {
+				else if ((countSpikes == 2)|| (countSpikes == 10)|| (countSpikes == 11)||(countSpikes == 12)
+					|| (countSpikes == 13)|| (countSpikes == 14)) {
 					spike->AddAnimation(992);
 					spike->name = "spike1";
 				}
-				else if (countSpikes == 3) {
-					spike->AddAnimation(993);
-					spike->name = "spike2";
-				}
-				else if (countSpikes == 4) {
+				else if ((countSpikes == 3)||(countSpikes == 4)||(countSpikes == 7)
+					||(countSpikes == 8) || (countSpikes == 9)) {
 					spike->AddAnimation(993);
 					spike->name = "spike2";
 				}
@@ -1284,15 +1289,15 @@ void LoadResources()
 			Dumbbell*dumbbell = new Dumbbell();
 			if (listObjectsInMap[i]->name == "Dumbbell")
 			{
-				if (countDumbbells == 1) {
+				if ((countDumbbells == 1)||(countDumbbells==4)||(countDumbbells==6)) {
 					dumbbell->AddAnimation(994);
 					dumbbell->name = "dumbbell1";
 				}
-				else if (countDumbbells == 2) {
+				else if ((countDumbbells == 2)||(countDumbbells==7)) {
 					dumbbell->AddAnimation(995);
 					dumbbell->name = "dumbbell2";
 				}
-				else if (countDumbbells == 3) {
+				else if ((countDumbbells == 3)||(countDumbbells==5)) {
 					dumbbell->AddAnimation(996);
 					dumbbell->name = "dumbbell3";
 				}
@@ -1380,45 +1385,6 @@ void LoadResources()
 	checkPoint->SetType(CHECKPOINT_LEVELUP);
 	checkPoint->SetPosition(2071, 62);
 	grid->AddObject(checkPoint);
-#pragma endregion
-
-#pragma region Spike
-	/*Spike*spike = new Spike();
-	spike->AddAnimation(992);
-	spike->SetPosition(683, 927);
-	grid->AddObject(spike);
-
-	spike = new Spike();
-	spike->AddAnimation(992);
-	spike->SetPosition(683, 964);
-	grid->AddObject(spike);
-
-	spike = new Spike();
-	spike->AddAnimation(993);
-	spike->SetPosition(720, 927);
-	grid->AddObject(spike);
-
-	spike = new Spike();
-	spike->AddAnimation(993);
-	spike->SetPosition(720, 964);
-	grid->AddObject(spike);*/
-#pragma endregion
-
-#pragma region Dumbbell
-	/*Dumbbell*dumbbell = new Dumbbell();
-	dumbbell->AddAnimation(994);
-	dumbbell->SetPosition(922, 909);
-	grid->AddObject(dumbbell);
-
-	dumbbell = new Dumbbell();
-	dumbbell->AddAnimation(995);
-	dumbbell->SetPosition(984, 909);
-	grid->AddObject(dumbbell);
-
-	dumbbell = new Dumbbell();
-	dumbbell->AddAnimation(996);
-	dumbbell->SetPosition(1055, 909);
-	grid->AddObject(dumbbell);*/
 #pragma endregion
 }
 float Aladdin::XforGet = 0;
