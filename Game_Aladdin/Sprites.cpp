@@ -176,8 +176,8 @@ void CAnimation::RenderDumbbell(float x, float y, int alpha)
 		}
 
 	}
-
 	frames[currentFrame]->GetSprite()->Draw(x, y, alpha);
+
 }
 
 CAnimations * CAnimations::__instance = NULL;

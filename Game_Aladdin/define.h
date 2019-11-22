@@ -312,7 +312,7 @@
 
 // Dumbbell
 #define DUMBBELL_BBOX_WIDTH				16
-#define DUMBBELL_BBOX_HEIGHT			16
+#define DUMBBELL_BBOX_HEIGHT			32
 
 // Water
 #define WATER_BBOX_WIDTH				16

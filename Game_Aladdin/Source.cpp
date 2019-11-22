@@ -1094,11 +1094,22 @@ void LoadResources()
 	ani->Add(40062);
 	ani->Add(40063);
 	ani->Add(40064);
+	ani->Add(40063);
+	ani->Add(40062);
+	ani->Add(40061);
+	ani->Add(40060);
+	ani->Add(40059);
+	ani->Add(40058);
+	ani->Add(40057);
+	ani->Add(40056);
+	ani->Add(40055);
+	ani->Add(40054);
+	ani->Add(40053);
+	ani->Add(40052);
+	ani->Add(40051);
 	animations->Add(994, ani);
 
 	ani = new CAnimation(0); // dumbbell 1
-	ani->Add(40055);
-	ani->Add(40056);
 	ani->Add(40057);
 	ani->Add(40058);
 	ani->Add(40059);
@@ -1107,19 +1118,43 @@ void LoadResources()
 	ani->Add(40062);
 	ani->Add(40063);
 	ani->Add(40064);
+	ani->Add(40063);
+	ani->Add(40062);
+	ani->Add(40061);
+	ani->Add(40060);
+	ani->Add(40059);
+	ani->Add(40058);
+	ani->Add(40057);
+	ani->Add(40056);
+	ani->Add(40055);
+	ani->Add(40054);
+	ani->Add(40053);
+	ani->Add(40052);
+	ani->Add(40051);
 	ani->Add(40050);
 	ani->Add(40051);
 	ani->Add(40052);
 	ani->Add(40053);
 	ani->Add(40054);
+	ani->Add(40055);
+	ani->Add(40056);
 	animations->Add(995, ani);
 
 	ani = new CAnimation(0); // dumbbell 1
-	ani->Add(40060);
-	ani->Add(40061);
-	ani->Add(40062);
-	ani->Add(40063);
 	ani->Add(40064);
+	ani->Add(40063);
+	ani->Add(40062);
+	ani->Add(40061);
+	ani->Add(40060);
+	ani->Add(40059);
+	ani->Add(40058);
+	ani->Add(40057);
+	ani->Add(40056);
+	ani->Add(40055);
+	ani->Add(40054);
+	ani->Add(40053);
+	ani->Add(40052);
+	ani->Add(40051);
 	ani->Add(40050);
 	ani->Add(40051);
 	ani->Add(40052);
@@ -1130,6 +1165,10 @@ void LoadResources()
 	ani->Add(40057);
 	ani->Add(40058);
 	ani->Add(40059);
+	ani->Add(40060);
+	ani->Add(40061);
+	ani->Add(40062);
+	ani->Add(40063);
 	animations->Add(996, ani);
 
 #pragma endregion
@@ -1452,7 +1491,6 @@ void Update(DWORD dt)
 	//	if (aladdin->nx > 0) {
 	//		if (trum->vx > 0)
 	//		{
-	//			if (aladdin->x < trum->x)
 	//			{
 	//				trum->vx = -trum->vx;
 	//				//soldier->nx = -1.0f;

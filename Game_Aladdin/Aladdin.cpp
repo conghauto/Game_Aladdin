@@ -12,6 +12,7 @@
 #include "Bullet.h"
 #include "Spike.h"
 #include "Rope.h"
+#include "Dumbbell.h"
 
 //#define SCREEN_WIDTH 640
 //#define SCREEN_HEIGHT 480
@@ -198,6 +199,18 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				StartUntouchable();
 			}
 			else if (dynamic_cast<Rock*>(e->obj))
+			{
+				// Da cham dat
+				// Khong va cham theo phuong ngang
+				if (isJump && e->nx == 0 && e->ny < 0)
+					isJump = false;
+				if (isHurt)
+					isHurt = false;
+				// Xét va chạm cứng
+				if (nx != 0) vx = 0;
+				if (ny != 0) vy = 0;
+			}
+			else if (dynamic_cast<Dumbbell*>(e->obj))
 			{
 				// Da cham dat
 				// Khong va cham theo phuong ngang
