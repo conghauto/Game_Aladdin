@@ -10,6 +10,6 @@ void Rope::GetBoundingBox(float &l, float &t, float &r, float &b)
 {
 	l = x;
 	t = y;
-	r = x + ROPE_BBOX_WIDTH;
+	r = x ;
 	b = y + height;
 }

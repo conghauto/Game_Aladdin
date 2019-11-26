@@ -87,20 +87,24 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 	// Nhay
 	if (KeyCode == DIK_Z)
 	{
-		if (aladdin->isJump == false && aladdin->isSit == false && aladdin->isAttack == false && aladdin->isOnStair == false)
+		if (aladdin->isJump == false && aladdin->isSit == false && aladdin->isAttack == false && aladdin->isOnRope == true)
+			aladdin->SetAction(SIMON_ACTION_JUMP_ONROPE);
+		else
+		if (aladdin->isJump == false && aladdin->isSit == false && aladdin->isAttack == false && aladdin->isOnRope == false)
 			aladdin->SetAction(SIMON_ACTION_JUMP);
 	}
 
 	if (KeyCode == DIK_C)
 	{
-		if (aladdin->isAttack == false)
+		if (aladdin->isAttack == false && !aladdin->isOnRope)
 			aladdin->SetAction(SIMON_ACTION_ATTACK);
 	}
 	else
 		if (KeyCode == DIK_X)
 		{
+
 			aladdin->SetCurrentWeapon(809);
-			if (aladdin->isAttack == false) {
+			if (aladdin->isAttack == false && !aladdin->isOnRope) {
 				int nx = aladdin->nx;
 				aladdin->SetAction(SIMON_ACTION_THROW);
 				switch (aladdin->currentWeapon)
@@ -137,22 +141,22 @@ void CSampleKeyHander::OnKeyUp(int KeyCode)
 	// Len xuong cau thang
 	if (KeyCode == DIK_UP)
 	{
-		if (aladdin->isHoldApple)
+		if (aladdin->isOnRope)
 		{
-			aladdin->SetState(SIMON_STATE_IDLE);
-			aladdin->isHoldApple = false;
+			aladdin->SetState(SIMON_STATE_ONROPE);
 		}
-	}
-
-	if (KeyCode == DIK_Q) {
-		aladdin->SetState(SIMON_STATE_IDLE);
-		aladdin->isDashing = false;
+		else
+			aladdin->SetState(SIMON_STATE_IDLE);
 
 	}
+
 	// Ngoi
 	if (KeyCode == DIK_DOWN)
 	{
-
+		if (aladdin->isOnRope) {
+			aladdin->SetState(SIMON_STATE_ONROPE);
+		}
+		else
 		if (aladdin->isSit)
 		{
 			if (!aladdin->isAttack)
@@ -169,6 +173,7 @@ void CSampleKeyHander::OnKeyUp(int KeyCode)
 	// Di bo
 	else if (KeyCode == DIK_RIGHT || KeyCode == DIK_LEFT)
 	{
+
 		aladdin->isMoving = false;
 		aladdin->vx = 0;
 	}
@@ -182,16 +187,19 @@ void CSampleKeyHander::KeyState(BYTE *states)
 	// Len xuong cau thang
 	if (game->IsKeyDown(DIK_UP))
 	{
-		//if (!aladdin->isOnCheckStairDown && !aladdin->isOnStair && !aladdin->isAttack && !aladdin->isJump)
-		aladdin->SetState(SIMON_STATE_HOLD_SHIELD);
+		if (aladdin->isOnRope)
+		{
+			aladdin->SetState(SIMON_STATE_ONROPE_CLIMB);
+		}
 	}
 
 	// Ngoi
-	if (game->IsKeyDown(DIK_Q)) {
-		aladdin->SetState(SIMON_STATE_DASHING);
-	}
 	if (game->IsKeyDown(DIK_DOWN))
 	{
+		if (aladdin->isOnRope ) {
+			aladdin->SetState(SIMON_STATE_ONROPE_CLIMB_DOWN);
+		}
+		else
 		if (!aladdin->isAttack && !aladdin->isJump)
 			aladdin->SetState(SIMON_STATE_SIT);
 	}
@@ -199,14 +207,14 @@ void CSampleKeyHander::KeyState(BYTE *states)
 	// Di bo
 	if (game->IsKeyDown(DIK_RIGHT))
 	{
-		if (!aladdin->isSit && !aladdin->isAttack)
+		if (!aladdin->isSit && !aladdin->isAttack && !aladdin->isOnRope)
 			aladdin->SetState(SIMON_STATE_WALK);
 		if (!aladdin->isJump && !aladdin->isAttack)
 			aladdin->nx = 1.0f;
 	}
 	else if (game->IsKeyDown(DIK_LEFT))
 	{
-		if (!aladdin->isSit && !aladdin->isAttack)
+		if (!aladdin->isSit && !aladdin->isAttack && !aladdin->isOnRope)
 			aladdin->SetState(SIMON_STATE_WALK);
 		if (!aladdin->isJump && !aladdin->isAttack)
 			aladdin->nx = -1.0f;
@@ -573,7 +581,7 @@ void LoadResources()
 	ani->Add(10011);
 	animations->Add(401, ani);
 
-	ani = new CAnimation(180);	//đi phải
+	ani = new CAnimation(100);	//đi phải
 	ani->Add(14002);
 	ani->Add(14003);
 	ani->Add(14004);
@@ -587,7 +595,7 @@ void LoadResources()
 	ani->Add(14012);
 	animations->Add(500, ani);
 
-	ani = new CAnimation(180);	//đi trái
+	ani = new CAnimation(100);	//đi trái
 	ani->Add(14022);
 	ani->Add(14023);
 	ani->Add(14024);
@@ -628,7 +636,7 @@ void LoadResources()
 	ani->Add(14059);
 	animations->Add(503, ani);
 
-	ani = new CAnimation(150); //đánh phải
+	ani = new CAnimation(80); //đánh phải
 	ani->Add(10004);
 	ani->Add(10005);
 	ani->Add(10006);
@@ -636,7 +644,7 @@ void LoadResources()
 	ani->Add(10008);
 	animations->Add(402, ani);
 
-	ani = new CAnimation(150);//đánh trái
+	ani = new CAnimation(80);//đánh trái
 	ani->Add(10014);
 	ani->Add(10015);
 	ani->Add(10016);
@@ -763,30 +771,6 @@ void LoadResources()
 	ani->Add(14126);
 	animations->Add(425, ani);
 
-	ani = new CAnimation(150);//roi lv0 phải
-	ani->Add(10056);
-	ani->Add(10057);
-	ani->Add(10058);
-	animations->Add(426, ani);
-
-	ani = new CAnimation(150);//roi lv0 trái
-	ani->Add(10059);
-	ani->Add(10060);
-	ani->Add(10061);
-	animations->Add(427, ani);
-
-	ani = new CAnimation(150);//roi lv1 phải
-	ani->Add(10062);
-	ani->Add(10063);
-	ani->Add(10064);
-	animations->Add(428, ani);
-
-	ani = new CAnimation(150);//roi lv1 trái
-	ani->Add(10065);
-	ani->Add(10066);
-	ani->Add(10067);
-	animations->Add(429, ani);
-
 	ani = new CAnimation(100);	//chết	
 	ani->Add(10099);
 	animations->Add(599, ani);
@@ -866,6 +850,14 @@ void LoadResources()
 	ani->Add(13034);
 	ani->Add(13035);
 	animations->Add(1613, ani);
+
+	ani = new CAnimation(100);  // dung tren day phai
+	ani->Add(14040);
+	animations->Add(1614, ani);
+
+	ani = new CAnimation(100);  // dung tren day trai
+	ani->Add(14050);
+	animations->Add(1615, ani);
 
 	ani = new CAnimation(100);//Boss di phai
 	ani->Add(41000);
@@ -1215,6 +1207,8 @@ void LoadResources()
 	aladdin->AddAnimation(1613); // ngồi ném táo trái
 	aladdin->AddAnimation(502);	//Leo dây phải
 	aladdin->AddAnimation(503); // Leo dây trái
+	aladdin->AddAnimation(1614);//dung day phai
+	aladdin->AddAnimation(1615);//dung day trai
 
 	aladdin->SetPosition(900, 100);
 	//objects.push_back(aladdin);
@@ -1351,18 +1345,18 @@ void LoadResources()
 #pragma endregion
 
 #pragma region Zombie
-	Zombie *zombie = new Zombie();
-	zombie->nx = -1;
-	zombie->AddAnimation(551);
-	zombie->AddAnimation(552);
-	zombie->AddAnimation(553);
-	zombie->AddAnimation(554);
-	zombie->AddAnimation(555);
-	zombie->AddAnimation(556);
-	zombie->SetPosition(300, 950);
-	zombie->SetState(GUARDIAN_STATE_IDLE);
-	//objects.push_back(zombie);
-	grid->AddObject(zombie);
+	//Zombie *zombie = new Zombie();
+	//zombie->nx = -1;
+	//zombie->AddAnimation(551);
+	//zombie->AddAnimation(552);
+	//zombie->AddAnimation(553);
+	//zombie->AddAnimation(554);
+	//zombie->AddAnimation(555);
+	//zombie->AddAnimation(556);
+	//zombie->SetPosition(300, 950);
+	//zombie->SetState(GUARDIAN_STATE_IDLE);
+	////objects.push_back(zombie);
+	//grid->AddObject(zombie);
 
 
 	//Zombie *zombie1 = new Zombie();
@@ -1385,27 +1379,27 @@ void LoadResources()
 	bat1->SetState(BAT_STATE_WAIT);
 	grid->AddObject(bat1);
 #pragma endregion
-	Skeleton *skeleton = new Skeleton();
-	skeleton->nx = -1;
-	skeleton->AddAnimation(607);
-	skeleton->AddAnimation(608);
-	skeleton->SetPosition(500, 930);
-	skeleton->SetState(SKELETON_STATE_IDLE);
-	grid->AddObject(skeleton);
+	//Skeleton *skeleton = new Skeleton();
+	//skeleton->nx = -1;
+	//skeleton->AddAnimation(607);
+	//skeleton->AddAnimation(608);
+	//skeleton->SetPosition(500, 930);
+	//skeleton->SetState(SKELETON_STATE_IDLE);
+	//grid->AddObject(skeleton);
 #pragma region Skeleton
 
 #pragma endregion
 #pragma region Soldier
-	soldier = new Soldier();
-	soldier->nx = 1;
-	soldier->AddAnimation(563);
-	soldier->AddAnimation(564);
-	soldier->AddAnimation(561);
-	soldier->AddAnimation(562);
-	soldier->SetPosition(200, 940);
-	soldier->SetState(SOLDIER_STATE_IDLE);
-	//objects.push_back(zombie1);
-	grid->AddObject(soldier);
+	//soldier = new Soldier();
+	//soldier->nx = 1;
+	//soldier->AddAnimation(563);
+	//soldier->AddAnimation(564);
+	//soldier->AddAnimation(561);
+	//soldier->AddAnimation(562);
+	//soldier->SetPosition(200, 940);
+	//soldier->SetState(SOLDIER_STATE_IDLE);
+	////objects.push_back(zombie1);
+	//grid->AddObject(soldier);
 
 	//soldier1 = new Soldier();
 	//soldier1->vx = -1;
@@ -1474,6 +1468,7 @@ void Update(DWORD dt)
 		for (int i = 0; i < coObjects.size(); i++)
 		{
 			coObjects[i]->Update(dt + 200, &coObjects);
+			grid->UpdateObjectInCell(coObjects[i]);
 		}
 	else if (boss == true)
 	{

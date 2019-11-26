@@ -54,7 +54,12 @@ void Aladdin::CalcPotentialCollisions(
 				delete e;
 		}*/
 	}
-
+	if (!isOnRope)
+	{
+		isClimbDown = false;
+		isClimbUp = false;
+		ny = 0;
+	}
 	std::sort(coEvents.begin(), coEvents.end(), CCollisionEvent::compare);
 }
 
@@ -86,6 +91,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	}
 
 	// Simple fall down
+	if (!isOnRope)
 	vy += SIMON_GRAVITY * dt;
 
 	vector<LPCOLLISIONEVENT> coEvents;
@@ -101,7 +107,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 
 
 	// Set idle state
-	if (!isSit && !isMoving && !isJump && !isAttack && !isHurt)
+	if (!isSit && !isMoving && !isJump && !isAttack && !isHurt && !isOnRope)
 	{
 		SetState(SIMON_STATE_IDLE);
 	}
@@ -228,8 +234,9 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				// Khong va cham theo phuong ngang
 				y -= 2;
 				ny = -1;
-				vy = -0.5;
+				//vy = -0.5;
 				/*vy= -1.0;*/
+				SetState(SIMON_STATE_ONROPE);
 			}
 			else if (dynamic_cast<Ground *>(e->obj) && !willHurt)
 			{
@@ -239,6 +246,10 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					isJump = false;
 				if (isHurt)
 					isHurt = false;
+				if (isOnRope)
+					isOnRope = false;
+				isClimbDown = false;
+				isClimbUp = false;
 				// Xét va chạm cứng
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
@@ -305,6 +316,22 @@ void Aladdin::Render()
 				ani = SIMON_ANI_HURT_LEFT;
 		}
 		else
+			if (isOnRope) {
+				if (isClimbUp) {
+					ani = SIMON_ANI_CLIMB_RIGHT;
+				}
+				else
+					if (isClimbDown) {
+						ani = SIMON_ANI_CLIMB_LEFT;
+					}
+				else
+				if (nx > 0)
+				{
+					ani = SIMON_ANI_ONROPE_IDLE_RIGHT;
+				}
+				else
+					ani = SIMON_ANI_ONROPE_IDLE_LEFT;
+			}
 			if (isAttack)
 			{
 				if (nx > 0)
@@ -362,10 +389,6 @@ void Aladdin::Render()
 				else
 					ani = SIMON_ANI_JUMP_LEFT;
 			}
-			else if (isDoubleJump) {
-				ani = SIMON_ANI_DOUBLE_JUMP;
-				isJump = false;
-			}
 		// Right direction
 			else if (nx > 0)
 			{
@@ -396,9 +419,6 @@ void Aladdin::Render()
 			{
 				switch (state)
 				{
-				case SIMON_STATE_ONCHECKSTAIR:
-					ani = SIMON_ANI_WALKING_LEFT;
-					break;
 				case SIMON_STATE_SIT:
 					if (isThrow)
 						ani = SIMON_ANI_SIT_THROW_LEFT;
@@ -410,9 +430,6 @@ void Aladdin::Render()
 					break;
 				case SIMON_STATE_WALK:
 					ani = SIMON_ANI_WALKING_LEFT;
-					break;
-				case SIMON_STATE_DASHING:
-					ani = SIMON_ANI_DASHING_LEFT;
 					break;
 				case SIMON_STATE_IDLE:
 					ani = SIMON_ANI_IDLE_LEFT;
@@ -476,18 +493,37 @@ void Aladdin::SetState(int state)
 		isJump = false;
 		isMoving = false;
 		isOnStair = false;
-		isOnCheckStairDown = false;
-		isOnCheckStairUp = false;
+		isClimbDown = false;
+		isClimbUp = false;
 		isSit = false;
 		isExitSit = false;
+		isOnRope = false;
 		break;
+	case SIMON_STATE_ONROPE:
+		isOnRope = true;
+		isClimbDown = false;
+		isClimbUp = false;
+		isJump = false;
+		isHurt = false;
+		vx = 0;
+		vy = 0;
+		break;
+	case SIMON_STATE_ONROPE_CLIMB:
+		isClimbUp = true;
+		vy = -SIMON_CLIMBING_SPEED_Y;
+		break;
+	case SIMON_STATE_ONROPE_CLIMB_DOWN:
+		isClimbDown = true;
+		vy = SIMON_CLIMBING_SPEED_Y;
+		break;
+
 	case SIMON_STATE_SIT:
-		//isOnCheckStair = false;
+		isOnRope = false;
 		isSit = true;
 		vx = 0;
 		break;
 	case SIMON_STATE_WALK:
-		//isOnCheckStair = false;
+		isOnRope = false;
 		isMoving = true;
 		if (nx == 1.0f)
 		{
@@ -499,7 +535,9 @@ void Aladdin::SetState(int state)
 		}
 		break;
 	case SIMON_STATE_IDLE:
-		//isOnCheckStair = false;
+		isOnRope = false;
+		isClimbDown = false;
+		isClimbUp = false;
 		vx = 0;
 		isMoving = false;
 		break;
@@ -530,9 +568,19 @@ void Aladdin::SetAction(int action)
 		isMoving = false;
 		attackTime = GetTickCount();
 		break;
+
 	case SIMON_ACTION_JUMP:
 			isJump = true;
 			vy = -SIMON_JUMP_SPEED_Y;
+		break;
+	case SIMON_ACTION_JUMP_ONROPE:
+		isJump = true;
+		vy = -0.3f;
+		if (nx > 0) {
+			vx = 0.1f;
+		}
+		else
+			vx = -0.1f;
 		break;
 	}
 }

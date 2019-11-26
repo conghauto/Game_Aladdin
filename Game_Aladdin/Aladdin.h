@@ -19,7 +19,10 @@ public:
 	bool isHoldApple;
 	bool isOnCheckStairUp;
 	bool isOnCheckStairDown;
+	bool isClimbUp;
+	bool isClimbDown;
 	bool isOnStair;
+	bool isOnRope;
 	bool isLeftToRight;
 	bool isUseWhip;
 	bool isSit;
