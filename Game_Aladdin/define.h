@@ -3,7 +3,7 @@
 
 #define SIMON_WALKING_SPEED				0.2f 
 #define SIMON_CLIMBING_SPEED_X			0.05f
-#define SIMON_CLIMBING_SPEED_Y			0.05f
+#define SIMON_CLIMBING_SPEED_Y			0.1f
 #define SIMON_JUMP_SPEED_Y				0.52f
 #define SIMON_JUMP_DEFLECT_SPEED		0.08f
 #define SIMON_LEVELUP_SPEED				0.01f
@@ -22,7 +22,6 @@
 #define SIMON_STATE_ONCHECKSTAIR		300
 #define SIMON_STATE_SIT					500
 #define SIMON_STATE_WALK				600
-
 #define SIMON_STATE_ONROPE				700
 #define SIMON_STATE_ONSTAIR_IDLE		800
 #define SIMON_STATE_HOLD_SHIELD			900
@@ -34,6 +33,9 @@
 //action
 #define SIMON_ACTION_JUMP				300
 #define SIMON_ACTION_JUMP_ONROPE		1200
+
+//action
+#define SIMON_ACTION_JUMP				300
 #define SIMON_ACTION_ATTACK				600
 #define SIMON_ACTION_THROW				900
 
@@ -80,7 +82,6 @@
 #define SIMON_ANI_CLIMB_LEFT			39
 #define SIMON_ANI_ONROPE_IDLE_RIGHT		40
 #define SIMON_ANI_ONROPE_IDLE_LEFT		41
-
 // Whip
 #define WHIP_RIGHT 						0
 #define WHIP_LEFT						1
@@ -232,7 +233,6 @@
 #define SCREEN_HEIGHT					370
 #define MAX_HEIGHT_LV1                  1067
 #define MAX_WIDTH_LV1					2144
-
 #define MAX_HEIGHT_LV2                  440
 #define MAX_WIDTH_LV2					960
 #define MAX_FRAME_RATE					120
@@ -318,9 +318,5 @@
 // Dumbbell
 #define DUMBBELL_BBOX_WIDTH				16
 #define DUMBBELL_BBOX_HEIGHT			40
-
-// Water
-#define WATER_BBOX_WIDTH				16
-#define WATER_BBOX_HEIGHT				16
 
 #define CELL_SIZE						320

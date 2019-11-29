@@ -12,6 +12,7 @@ vector<LPGAMEOBJECT> Cell::GetListObject()
 
 void Cell::AddObject(LPGAMEOBJECT object)
 {
+	/*object->cellNumber = this->id;*/
 	listObject.push_back(object);
 }
 
@@ -126,7 +127,6 @@ void Grid::InitObjectsAtCell(LPCSTR fileSource)
 		{
 			if (j == 0)
 			{
-				Cell*cell = new Cell();
 				posSpace[0] = lineString.find(" ");
 				subString = lineString.substr(0, posSpace[0]);
 				idCell = atoi(subString.c_str());
@@ -211,14 +211,15 @@ void Grid::ReleaseList()
 		for (int j = 0; j < listObjectSize; j++)
 		{
 			listRemoveObjects.push_back(cell->listObject[j]);
+			/*delete cell->listObject[j];*/
 		}
 	}
 
-	for (int i = 0; i < listRemoveObjects.size(); i++)
+	/*for (int i = 0; i < listRemoveObjects.size(); i++)
 	{
 		RemoveObject(listRemoveObjects[i]);
 		delete listRemoveObjects[i];
-	}
+	}*/
 
 	for (int i = 0; i < listCells.size(); )
 	{

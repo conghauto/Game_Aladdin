@@ -309,118 +309,118 @@ void Aladdin::Render()
 					if (isClimbDown) {
 						ani = SIMON_ANI_CLIMB_LEFT;
 					}
-				else
-				if (nx > 0)
-				{
-					ani = SIMON_ANI_ONROPE_IDLE_RIGHT;
-				}
-				else
-					ani = SIMON_ANI_ONROPE_IDLE_LEFT;
+					else
+						if (nx > 0)
+						{
+							ani = SIMON_ANI_ONROPE_IDLE_RIGHT;
+						}
+						else
+							ani = SIMON_ANI_ONROPE_IDLE_LEFT;
 			}
-			if (isAttack)
+		if (isAttack)
+		{
+			if (nx > 0)
 			{
-				if (nx > 0)
+				if (isSit)
 				{
-					if (isSit)
-					{
-						ani = SIMON_ANI_SIT_ATTACK_RIGHT;
-					}
-					else
-					{
-						ani = SIMON_ANI_ATTACK_RIGHT;
-					}
+					ani = SIMON_ANI_SIT_ATTACK_RIGHT;
 				}
 				else
 				{
-					if (isSit)
-					{
-						ani = SIMON_ANI_SIT_ATTACK_LEFT;
-					}
-					else
-					{
-						ani = SIMON_ANI_ATTACK_LEFT;
-					}
+					ani = SIMON_ANI_ATTACK_RIGHT;
 				}
 			}
-			else if (isThrow)
+			else
 			{
-				if (nx > 0)
+				if (isSit)
 				{
-					if (isSit)
-					{
-						ani = SIMON_ANI_SIT_THROW_RIGHT;
-					}
-					else
-					{
-						ani = SIMON_ANI_THROW_RIGHT;
-					}
+					ani = SIMON_ANI_SIT_ATTACK_LEFT;
 				}
 				else
 				{
-					if (isSit)
-					{
-						ani = SIMON_ANI_SIT_THROW_LEFT;
-					}
-					else
-					{
-						ani = SIMON_ANI_THROW_LEFT;
-					}
+					ani = SIMON_ANI_ATTACK_LEFT;
 				}
 			}
-			else if (isJump)
+		}
+		else if (isThrow)
+		{
+			if (nx > 0)
 			{
-				if (nx > 0)
-					ani = SIMON_ANI_JUMP_RIGHT;
+				if (isSit)
+				{
+					ani = SIMON_ANI_SIT_THROW_RIGHT;
+				}
 				else
-					ani = SIMON_ANI_JUMP_LEFT;
+				{
+					ani = SIMON_ANI_THROW_RIGHT;
+				}
 			}
+			else
+			{
+				if (isSit)
+				{
+					ani = SIMON_ANI_SIT_THROW_LEFT;
+				}
+				else
+				{
+					ani = SIMON_ANI_THROW_LEFT;
+				}
+			}
+		}
+		else if (isJump)
+		{
+			if (nx > 0)
+				ani = SIMON_ANI_JUMP_RIGHT;
+			else
+				ani = SIMON_ANI_JUMP_LEFT;
+		}
 		// Right direction
-			else if (nx > 0)
+		else if (nx > 0)
+		{
+			switch (state)
 			{
-				switch (state)
-				{
-				case SIMON_STATE_SIT:
-					if (isThrow)
-						ani = SIMON_ANI_SIT_THROW_RIGHT;
+			case SIMON_STATE_SIT:
+				if (isThrow)
+					ani = SIMON_ANI_SIT_THROW_RIGHT;
+				else
+					if (isAttack)
+						ani = SIMON_ANI_SIT_ATTACK_RIGHT;
 					else
-						if (isAttack)
-							ani = SIMON_ANI_SIT_ATTACK_RIGHT;
-						else
-							ani = SIMON_ANI_SIT_RIGHT;
-					break;
-				case SIMON_STATE_WALK:
-					ani = SIMON_ANI_WALKING_RIGHT;
-					break;
-				case SIMON_STATE_DASHING:
-					ani = SIMON_ANI_DASHING_RIGHT;
-					break;
-				case SIMON_STATE_IDLE:
-					ani = SIMON_ANI_IDLE_RIGHT;
-					break;
-				}
+						ani = SIMON_ANI_SIT_RIGHT;
+				break;
+			case SIMON_STATE_WALK:
+				ani = SIMON_ANI_WALKING_RIGHT;
+				break;
+			case SIMON_STATE_DASHING:
+				ani = SIMON_ANI_DASHING_RIGHT;
+				break;
+			case SIMON_STATE_IDLE:
+				ani = SIMON_ANI_IDLE_RIGHT;
+				break;
 			}
+		}
 		// Left direction
-			else if (nx < 0)
+		else if (nx < 0)
+		{
+			switch (state)
 			{
-				switch (state)
-				{
-				case SIMON_STATE_SIT:
-					if (isThrow)
-						ani = SIMON_ANI_SIT_THROW_LEFT;
+			case SIMON_STATE_SIT:
+				if (isThrow)
+					ani = SIMON_ANI_SIT_THROW_LEFT;
+				else
+					if (isAttack)
+						ani = SIMON_ANI_SIT_ATTACK_LEFT;
 					else
-						if (isAttack)
-							ani = SIMON_ANI_SIT_ATTACK_LEFT;
-						else
-							ani = SIMON_ANI_SIT_LEFT;
-					break;
-				case SIMON_STATE_WALK:
-					ani = SIMON_ANI_WALKING_LEFT;
-					break;
-				case SIMON_STATE_IDLE:
-					ani = SIMON_ANI_IDLE_LEFT;
-					break;
-				}
+						ani = SIMON_ANI_SIT_LEFT;
+				break;
+			case SIMON_STATE_WALK:
+				ani = SIMON_ANI_WALKING_LEFT;
+				break;
+			case SIMON_STATE_IDLE:
+				ani = SIMON_ANI_IDLE_LEFT;
+				break;
 			}
+		}
 	}
 
 	int alpha = 255;
@@ -555,8 +555,8 @@ void Aladdin::SetAction(int action)
 		break;
 
 	case SIMON_ACTION_JUMP:
-			isJump = true;
-			vy = -SIMON_JUMP_SPEED_Y;
+		isJump = true;
+		vy = -SIMON_JUMP_SPEED_Y;
 		break;
 	case SIMON_ACTION_JUMP_ONROPE:
 		isJump = true;
