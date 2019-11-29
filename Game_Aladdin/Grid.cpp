@@ -1,9 +1,8 @@
 ﻿#include "Grid.h"
 
-void Cell::GetPoint(float &left, float &right)
+void Cell::SetId(int id)
 {
-	left = this->left;
-	right = this->right;
+	this->id = id;
 }
 
 vector<LPGAMEOBJECT> Cell::GetListObject()
@@ -27,21 +26,20 @@ Grid *Grid::instance = NULL;
 
 void Grid::InitList(float mapWidth,float mapHeight)
 {
-	Cell *cell;
+	
 	int cellX_Count = ceil(mapWidth / CELL_SIZE);
 	int cellY_Count = ceil(mapHeight / CELL_SIZE);
 	
 	this->cellCountInRow = cellX_Count;
 	this->cellCountInColumn = cellY_Count;
 
+	int count = 0;
 	for (int i = 0; i < cellY_Count; i++) {
 		for (int j = 0; j < cellX_Count; j++)
 		{
-			float left, right;
-			left = j* CELL_SIZE;
-			right = (j + 1)* CELL_SIZE;
-			cell = new Cell(left, right,i);
+			Cell *cell = new Cell(count);
 			listCells.push_back(cell);
+			count++;
 		}
 	}
 }
@@ -67,14 +65,14 @@ void Grid::AddObject(LPGAMEOBJECT object)
 	int cellCurrent = cellY_Number > 0 ? (cellX_Number + (cellCountInRow - 1)*cellY_Number) : cellX_Number*/;
 	// Tránh trường hợp vật ra khỏi map
 	cellX_Number = (cellX_Number == cellCountInRow)? (cellCountInRow - 1): cellX_Number;
-	int cellCurrent = cellY_Number > 0 ? (cellX_Number + (cellCountInRow - 1)*cellY_Number) : cellX_Number;
+	int cellCurrent = cellY_Number > 0 ? (cellX_Number + cellCountInRow * cellY_Number) : cellX_Number;
 
-	if (object->x+16 > (cellX_Number+1)*CELL_SIZE) {
-		cellCurrent += 1;
-	}
-	else if(object->x -16 < (cellX_Number)*CELL_SIZE&&cellX_Number>0){
-		cellCurrent -= 1;
-	}
+	//if (object->x+16 > (cellX_Number+1)*CELL_SIZE) {
+	//	cellCurrent += 1;
+	//}
+	//else if(object->x -16 < (cellX_Number)*CELL_SIZE&&cellX_Number>0){
+	//	cellCurrent -= 1;
+	//}
 
 	object->cellNumber = cellCurrent;
 
@@ -104,6 +102,48 @@ void Grid::RemoveObject(LPGAMEOBJECT object)
 	}
 }
 
+void Grid::InitObjectsAtCell(LPCSTR fileSource)
+{
+	fstream pFile;
+	pFile.open(fileSource, fstream::in);
+
+	string lineString;
+	int * posSpace = NULL;
+	string subString;
+	int countLine = 0;
+	int i = 0;
+	int idCell = 0;
+
+	/*LPGAMEOBJECT object;*/
+
+	while (pFile.good())
+	{
+		getline(pFile, lineString);
+		size_t n = std::count(lineString.begin(), lineString.end(), ' ');
+		
+		posSpace = new int[n];
+		for (int j = 0; j < n+1; j++)
+		{
+			if (j == 0)
+			{
+				Cell*cell = new Cell();
+				posSpace[0] = lineString.find(" ");
+				subString = lineString.substr(0, posSpace[0]);
+				idCell = atoi(subString.c_str());
+				//cell->SetId(idCell);
+				//listCells.push_back(cell);
+			}
+			else
+			{
+				posSpace[j] = lineString.find(" ", posSpace[j - 1] + 1);
+				subString = lineString.substr(posSpace[j - 1] + 1, posSpace[j] - (posSpace[j - 1] + 1));
+				int id = atoi(subString.c_str());
+				AddIdAtCell(idCell, id);
+			}
+		}
+	}
+}
+
 Grid * Grid::GetInstance()
 {
 	if (instance == NULL) instance = new Grid();
@@ -116,18 +156,21 @@ vector<Cell*> Grid::GetCurrentCells(float x,float y)
 	int cellX_Number = floor((x / CELL_SIZE));
 	int cellY_Number = floor((y / CELL_SIZE));
 
-	int cellCurrent = cellY_Number > 0 ? (cellX_Number + (cellCountInRow-1)*cellY_Number) : cellX_Number;
+	int cellCurrent = cellY_Number > 0 ? (cellX_Number + cellCountInRow*cellY_Number) : cellX_Number;
 
 	// Trường hợp màn hình game nằm giữa 2 Cell
 	result.push_back(listCells[cellCurrent]);
-	if (cellCurrent > 0)
+	if (cellCurrent > 0) {
 		result.push_back(listCells[cellCurrent - 1]);
-	if (cellCurrent< cellCountInRow)
+	}
+	if (cellCurrent < cellCountInRow) {
 		result.push_back(listCells[cellCurrent + 1]);
-	/*if (cellY_Number > 0)
-		result.push_back(listCells[cellCurrent - cellCountInRow-1]);
+		result.push_back(listCells[cellCurrent + 2]);
+	}
+	if (cellY_Number > 0)
+		result.push_back(listCells[cellCurrent - cellCountInRow]);
 	if (cellY_Number< cellCountInColumn)
-		result.push_back(listCells[cellCurrent + cellCountInRow-1]);*/
+		result.push_back(listCells[cellCurrent + cellCountInRow]);
 
 	return result;
 }
@@ -138,7 +181,7 @@ void Grid::UpdateObjectInCell(LPGAMEOBJECT object)
 	int cellX_Number = floor(object->x / CELL_SIZE);
 	int cellY_Number = floor(object->y / CELL_SIZE);
 
-	int cellCurrent = cellY_Number > 0 ? (cellX_Number + (cellCountInRow - 1)*cellY_Number) : cellX_Number;
+	int cellCurrent = cellY_Number > 0 ? (cellX_Number + cellCountInRow*cellY_Number) : cellX_Number;
 
 	if (cellCurrent < 0)
 		cellCurrent = 0;

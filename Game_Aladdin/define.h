@@ -1,10 +1,9 @@
 //file path
 #define GAME_FONT L"Resources\\prstart.ttf"
 
-#define SIMON_WALKING_SPEED				0.15f 
+#define SIMON_WALKING_SPEED				0.2f 
 #define SIMON_CLIMBING_SPEED_X			0.05f
-#define SIMON_CLIMBING_SPEED_Y			0.1f
-#define SIMON_JUMP_SPEED_Y				0.52f
+#define SIMON_CLIMBING_SPEED_Y			0.05f#define SIMON_JUMP_SPEED_Y				0.52f
 #define SIMON_JUMP_DEFLECT_SPEED		0.08f
 #define SIMON_LEVELUP_SPEED				0.01f
 #define SIMON_GRAVITY					0.0015f
@@ -22,6 +21,7 @@
 #define SIMON_STATE_ONCHECKSTAIR		300
 #define SIMON_STATE_SIT					500
 #define SIMON_STATE_WALK				600
+
 #define SIMON_STATE_ONROPE				700
 #define SIMON_STATE_ONSTAIR_IDLE		800
 #define SIMON_STATE_HOLD_SHIELD			900
@@ -231,9 +231,9 @@
 #define SCREEN_HEIGHT					370
 #define MAX_HEIGHT_LV1                  1067
 #define MAX_WIDTH_LV1					2144
-#define MAX_WIDTH_LV2					512
-#define MAX_WIDTH_LV2_1					4096
-#define MAX_WIDTH_LV2_2					5650
+
+#define MAX_HEIGHT_LV2                  440
+#define MAX_WIDTH_LV2					960
 #define MAX_FRAME_RATE					120
 
 //texture
@@ -248,7 +248,6 @@
 #define ID_TEX_BAT						37
 #define ID_TEX_TILESET					60
 #define ID_TEX_TILESET_2				61
-#define ID_TEX_TILESET_3				62
 #define ID_TEX_SIT						200
 #define ID_TEX_KNIFE					165
 #define ID_TEX_RECT						176
@@ -262,7 +261,7 @@
 #define ID_TEX_GATE						201
 
 #define BRICK_BBOX_WIDTH				32
-#define BRICK_BBOX_HEIGHT				5
+#define BRICK_BBOX_HEIGHT				3
 
 #define ROPE_BBOX_WIDTH					1
 #define ROPE_BBOX_HEIGHT				64
@@ -317,10 +316,10 @@
 
 // Dumbbell
 #define DUMBBELL_BBOX_WIDTH				16
-#define DUMBBELL_BBOX_HEIGHT			32
+#define DUMBBELL_BBOX_HEIGHT			40
 
 // Water
 #define WATER_BBOX_WIDTH				16
 #define WATER_BBOX_HEIGHT				16
 
-#define CELL_SIZE						1024
+#define CELL_SIZE						320

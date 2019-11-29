@@ -2,23 +2,31 @@
 #include "GameObject.h"
 #include "define.h"
 #include <math.h>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
 
 class Cell
 {
-	float left, right;
-	int cellNumber;
+private:
+	int id;
 public:
 	vector<LPGAMEOBJECT> listObject;
+	vector<int>listIdObject;
 
-	Cell(float left, float right, int cellNumber)
+	Cell() {
+
+	}
+	Cell(int id)
 	{
-		this->left = left;
-		this->right = right;
-		this->cellNumber = cellNumber;
+		this->id = id;
 	}
 
-	void GetPoint(float &left, float &right);
+	void SetId(int id);
 	vector<LPGAMEOBJECT> GetListObject();
+	int getId() {
+		return this->id;
+	}
 
 	void AddObject(LPGAMEOBJECT object);
 	void RemoveObject(int i);
@@ -27,18 +35,23 @@ public:
 class Grid
 {
 	static Grid *instance;
-	vector<Cell*> listCells;
 
 	int cellCountInRow;
 	int cellCountInColumn;
 public:
+	vector<Cell*> listCells;
+
 	void InitList(float mapWidth, float mapHeight);
 	void ReleaseList();
 
 	void RemoveCell(int i);
 
 	void AddObject(LPGAMEOBJECT object);
+	void AddIdAtCell(int idCell,int idObject){
+		listCells[idCell]->listIdObject.push_back(idObject);
+	}
 	void RemoveObject(LPGAMEOBJECT object);
+	void InitObjectsAtCell(LPCSTR fileSource);
 
 	static Grid *GetInstance();
 	vector<Cell*> GetCurrentCells(float x, float y);

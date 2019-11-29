@@ -5,8 +5,7 @@
 #include "Game.h"
 #include "Item.h"
 #include "Zombie.h"
-//#include "Ground.h"
-#include "Pillar.h"
+#include "Ground.h"
 #include "CheckPoint.h"
 #include "Soldier.h"
 #include "Bullet.h"
@@ -14,8 +13,6 @@
 #include "Rope.h"
 #include "Dumbbell.h"
 
-//#define SCREEN_WIDTH 640
-//#define SCREEN_HEIGHT 480
 
 int Aladdin::score = 0;
 int Aladdin::heartsAmount = 5;
@@ -34,25 +31,12 @@ void Aladdin::CalcPotentialCollisions(
 	for (UINT i = 0; i < coObjects->size(); i++)
 	{
 		// Aladdin se khong va cham voi nhung vat sau:
-		if (!dynamic_cast<Pillar *>(coObjects->at(i)))
-		{
-			LPCOLLISIONEVENT e = SweptAABBEx(coObjects->at(i));
+		LPCOLLISIONEVENT e = SweptAABBEx(coObjects->at(i));
 
-			if (e->t > 0 && e->t <= 1.0f)
-				coEvents.push_back(e);
-			else
-				delete e;
-		}
-
-		/*if (!dynamic_cast<Rock *>(coObjects->at(i)))
-		{
-			LPCOLLISIONEVENT e = SweptAABBEx(coObjects->at(i));
-
-			if (e->t > 0 && e->t <= 1.0f)
-				coEvents.push_back(e);
-			else
-				delete e;
-		}*/
+		if (e->t > 0 && e->t <= 1.0f)
+			coEvents.push_back(e);
+		else
+			delete e;
 	}
 	if (!isOnRope)
 	{
@@ -129,18 +113,19 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		x = 0;
 	}
 	// Right corner
-	else if (x > rightCorner)
+	else if (x + 32 > rightCorner)
 	{
-		x = rightCorner - 20;
+		x = rightCorner-32;
 	}
 
-	if (level == 1 && (y >= 365 && y <= 1024)) {
-		if (x > 1365 && x <= 1400)x = 1365;
+	if (level == 1 && (x >= 1365 && x < 1400 && y>700)) {
+		x = 1365;
 	}
-	if (level == 1 && ((x >= 140 && x < 180 && y>800)
-		|| (x >= 440 && x < 480 && y>864)
-		|| (x >= 740 && x < 780 && y>337)
-		|| (x >= 1080 && x < 1120 && y>832)))
+
+	if (level == 1 && ((x >=135 && x <= 175 && y>=704)
+		|| (x >= 435 && x < 480 && y>867)
+		|| (x >= 735 && x < 775 && y>340)
+		|| (x >= 1070 && x < 1105 && y>838)))
 	{
 		StartUntouchable();
 	}

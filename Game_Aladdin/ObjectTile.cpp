@@ -37,11 +37,12 @@ vector<ObjectTile*>ListObject::getObjectsInFile(LPCSTR fileSource)
 		object->name = col2;
 
 		object->x = (float)(::atof(col3.c_str()));
-		if (col2 == "Ground") {
+		/*if (col2 == "Ground") {
 			object->y = 1020 - (float)(::atof(col4.c_str()));
 		}else{
 			object->y = (float)(::atof(col4.c_str()));
-		}
+		}*/
+		object->y = (float)(::atof(col4.c_str()));
 		object->height = (float)(::atof(col5.c_str()));
 		if (object->name != "") {
 			result.push_back(object);
@@ -49,6 +50,7 @@ vector<ObjectTile*>ListObject::getObjectsInFile(LPCSTR fileSource)
 	}
 	return result;
 }
+
 
 
 ObjectTile::~ObjectTile()
