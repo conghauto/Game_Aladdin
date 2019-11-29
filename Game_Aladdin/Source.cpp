@@ -1159,14 +1159,14 @@ void LoadResources()
 		aladdin->AddAnimation(1613); // ngồi ném táo trái
 		aladdin->AddAnimation(502);	//Leo dây phải
 		aladdin->AddAnimation(503); // Leo dây trái
-	aladdin->AddAnimation(1614);//dung day phai
-	aladdin->AddAnimation(1615);//dung day trai
+		aladdin->AddAnimation(1614);//dung day phai
+		aladdin->AddAnimation(1615);//dung day trai
 
 		//objects.push_back(aladdin);
 
 		// khởi tạo grid
 		grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
-		aladdin->SetPosition(850, 50);
+		aladdin->SetPosition(50, 850);
 		//grid->AddObject(aladdin);
 
 	#pragma endregion
@@ -1336,15 +1336,6 @@ void LoadResources()
 			}
 		}
 
-	#pragma endregion
-
-	grid->AddObject(zombie);
-
-	#pragma endregion
-
-#pragma region Skeleton
-	grid->AddObject(soldier);
-	#pragma endregion
 
 
 	#pragma region CheckPoint
