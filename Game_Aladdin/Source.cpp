@@ -27,6 +27,8 @@
 #include "Dumbbell.h"
 #include "Rope.h"
 #include "Bat.h"
+#include "BG.h"
+
 BossBullet *bossbullet;
 BossOne *trum;
 CGame *game;
@@ -39,7 +41,7 @@ Map *map;
 Apple *knife;
 Bullet *bullet;
 Ball *ball;
-//UI * ui;
+BG* bg;
 CSprite *sprite;
 
 Grid *grid;
@@ -247,6 +249,16 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 */
 void LoadResources()
 {
+	textures->Add(ID_TEX_PILLAR_1, L"Resources\\pillar_1.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ID_TEX_PILLAR_2, L"Resources\\pillar_2.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ID_TEX_PILLAR_3, L"Resources\\pillar_3.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ID_TEX_PILLAR_4, L"Resources\\pillar_4.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ID_TEX_GATE, L"Resources\\gate_exit.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ITEM_BG_APPLE, L"Resources\\apple.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ITEM_BG_SPEND, L"Resources\\spend.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ALADDIN_LIFE, L"Resources\\aladdin_life.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ITEM_BG_GOD_LIGHT, L"Resources\\god_light.png", D3DCOLOR_XRGB(163, 73, 164));
+
 	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_BAT, L"Resources\\bat.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -531,17 +543,7 @@ void LoadResources()
 	sprites->Add(40034, 111, 4, 147, 24, texRock1);
 	sprites->Add(40035, 154, 4, 194, 26, texRock1);
 
-	LPDIRECT3DTEXTURE9 texPillar1 = textures->Get(ID_TEX_PILLAR1); //pillar 1
-	sprites->Add(410036, 0, 0, 40, 343, texPillar1);
-
-	LPDIRECT3DTEXTURE9 texPillar2 = textures->Get(ID_TEX_PILLAR2); //pillar 2
-	sprites->Add(410037, 0, 0, 30, 160, texPillar2);
-
-	LPDIRECT3DTEXTURE9 texPillar3 = textures->Get(ID_TEX_PILLAR3); //pillar 2
-	sprites->Add(410038, 0, 5, 32, 749, texPillar3);
-
-	LPDIRECT3DTEXTURE9 texPillar4 = textures->Get(ID_TEX_PILLAR4); //pillar 4
-	sprites->Add(410039, 0, 0, 32, 193, texPillar4);
+	
 
 	LPDIRECT3DTEXTURE9 texGate = textures->Get(ID_TEX_GATE); //gate
 	sprites->Add(410040, 0, 0, 78, 212, texGate);
@@ -1039,21 +1041,7 @@ void LoadResources()
 	animations->Add(991, ani);
 
 
-	ani = new CAnimation(0); // pillar 1
-	ani->Add(410036);
-	animations->Add(1000, ani);
-
-	ani = new CAnimation(0); // pillar 2
-	ani->Add(410037);
-	animations->Add(1001, ani);
-
-	ani = new CAnimation(0); // pillar 3
-	ani->Add(410038);
-	animations->Add(1002, ani);
-
-	ani = new CAnimation(0); // pillar 4
-	ani->Add(410039);
-	animations->Add(1003, ani);
+	
 
 	ani = new CAnimation(0); // spike 1
 	ani->Add(40041);
@@ -1448,6 +1436,9 @@ void LoadResources()
 	grid->listCells[6]->AddObject(checkPoint);
 	/*grid->AddObject(checkPoint);*/
 #pragma endregion
+	LPDIRECT3DDEVICE9 d3ddv = game->GetDirect3DDevice();
+	bg = new BG();
+	bg->Initialize(d3ddv);
 }
 
 void LoadResourceLv2()
@@ -1680,6 +1671,10 @@ void Update(DWORD dt)
 			}
 		}
 	#pragma endregion
+		if (lv1 == true)
+			bg->Update(gameTime / 1000, 1, aladdin);
+		else
+			bg->Update(gameTime / 1000, 2, aladdin);
 }
 
 void Render()
@@ -1729,7 +1724,7 @@ void Render()
 		}
 
 		aladdin->Render();
-
+		bg->Render(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 		spriteHandler->End();
 		d3ddv->EndScene();
 	}
@@ -1830,7 +1825,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	game = CGame::GetInstance();
 	game->Init(hWnd);
-
+	
 	keyHandler = new CSampleKeyHander();
 	game->InitKeyboard(keyHandler);
 

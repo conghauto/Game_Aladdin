@@ -1,0 +1,6 @@
+1 Resources\pillar_1.png 
+2 Resources\pillar_2.png 
+3 Resources\pillar_3.png 
+4 Resources\pillar_4.png 
+5 Resources\BloodBar.png 
+6 Resources\Items.png 

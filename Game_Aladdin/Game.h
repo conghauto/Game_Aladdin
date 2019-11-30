@@ -6,6 +6,7 @@
 #include <string>
 #define DIRECTINPUT_VERSION 0x0800
 #include <dinput.h>
+#include "BG.h"
 
 #define KEYBOARD_BUFFER_SIZE 1024
 /*
@@ -47,7 +48,7 @@ public:
 	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom, int alpha = 255);
 	int IsKeyDown(int KeyCode);
 	void ProcessKeyboard();
-
+	
 	static void SweptAABB(
 		float ml,			// move left 
 		float mt,			// move top

@@ -253,6 +253,11 @@
 #define ID_TEX_KNIFE					165
 #define ID_TEX_RECT						176
 #define ID_TEX_SKELETON					177
+#define ID_TEX_PILLAR_1					178
+#define ID_TEX_PILLAR_2					179
+#define ID_TEX_PILLAR_3					180
+#define ID_TEX_PILLAR_4					181
+#define ID_TEX_GATE						182
 
 // Pillar
 #define ID_TEX_PILLAR1					197
@@ -278,6 +283,11 @@
 #define ITEM_1						    813
 #define ITEM_2						    814
 #define ITEM_3						    815
+#define ITEM_BG_APPLE					816
+#define ALADDIN_LIFE					817
+#define ITEM_BG_SPEND					818
+#define ITEM_BG_GOD_LIGHT				819
+
 //bullet
 #define BULLET_BBOX_WIDTH				16
 #define BULLET_BBOX_HEIGHT				16

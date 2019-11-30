@@ -122,13 +122,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		x = 1365;
 	}
 
-	if (level == 1 && ((x >=135 && x <= 175 && y>=704)
-		|| (x >= 435 && x < 480 && y>867)
-		|| (x >= 735 && x < 775 && y>340)
-		|| (x >= 1070 && x < 1105 && y>838)))
-	{
-		StartUntouchable();
-	}
 	else {
 		untouchable_start = 0;
 		untouchable = 0;

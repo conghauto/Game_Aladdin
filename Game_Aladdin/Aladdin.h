@@ -39,6 +39,8 @@ public:
 
 	int life;
 	int preHP;
+	int numberapples;
+	int numberspend;
 	bool isLevelUp;
 	bool isBonus;
 	float timePressJump;
@@ -58,6 +60,8 @@ public:
 		untouchable = 0;
 		life = 3;
 		preHP = 16;
+		numberapples = 20;
+		numberspend = 10;
 		currentWeapon = 0;
 		isUseWhip = true;
 	}
@@ -89,6 +93,8 @@ public:
 	int GetScore() { return score; }
 	int GetLife() { return life; }
 	int GetHP() { return preHP; }
+	int GetNumberapples() { return numberapples; }
+	int GetNumberspend() { return numberspend; }
 	int GetHeart() { return heartsAmount; }
 	float GetX() { return XforGet; };
 };
