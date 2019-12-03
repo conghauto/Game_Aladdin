@@ -12,7 +12,8 @@
 #include "Spike.h"
 #include "Rope.h"
 #include "Dumbbell.h"
-
+#include "Skeleton.h"
+#include "Bat.h"
 
 int Aladdin::score = 0;
 int Aladdin::heartsAmount = 5;
@@ -165,12 +166,50 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					StartUntouchable();
 				}
 			}
+			else
+			if (dynamic_cast<Skeleton *>(e->obj))
+			{
+				Skeleton *skeleton = dynamic_cast<Skeleton *>(e->obj);
+				if (skeleton->GetState() != GUARDIAN_STATE_DIE && untouchable == 0) {
+					// Đặt hướng hurt
+					if (e->nx > 0)
+						this->nx = -1;
+					else if (e->nx < 0)
+						this->nx = 1;
+
+					SetState(SIMON_STATE_HURT);
+					willHurt = true;
+					StartUntouchable();
+				}
+			}
 			else if (dynamic_cast<Soldier *>(e->obj))
 			{
-				Soldier *zombie = dynamic_cast<Soldier *>(e->obj);
-				if (zombie->GetState() != SOLDIER_STATE_DIE) {
+				Soldier *soldier = dynamic_cast<Soldier *>(e->obj);
+				if (soldier->GetState() != SOLDIER_STATE_DIE && untouchable == 0) {
+					// Đặt hướng hurt
+					if (e->nx > 0)
+						this->nx = -1;
+					else if (e->nx < 0)
+						this->nx = 1;
+
+					SetState(SIMON_STATE_HURT);
+					willHurt = true;
 					StartUntouchable();
-					SetState(SIMON_STATE_UNTOUCHABLE);
+				}
+			}
+			else if (dynamic_cast<Bat *>(e->obj))
+			{
+				Bat *bat = dynamic_cast<Bat *>(e->obj);
+				if (bat->GetState() != BAT_STATE_DIE && untouchable == 0) {
+					// Đặt hướng hurt
+					if (e->nx > 0)
+						this->nx = -1;
+					else if (e->nx < 0)
+						this->nx = 1;
+
+					SetState(SIMON_STATE_HURT);
+					willHurt = true;
+					StartUntouchable();
 				}
 			}
 			else if (dynamic_cast<Bullet *>(e->obj))

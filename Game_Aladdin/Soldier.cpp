@@ -19,14 +19,18 @@ void Soldier::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 
 	x += dx;
 	y += dy;
-	if (state == SOLDIER_STATE_DIE)
+	if (GetHP() == 0)
 	{
 		SetSpeed(0.0f, 0.0f);
 		return;
 	}
+	if (isHurt && GetTickCount() - hurtTime >= 600) {
+		isHurt = false;
+		isAttack = true;
+	}
 	float check = this->x - Aladdin::XforGet;
 	if (check < 100)
-		this->SetState(SOLDIER_ANI_ATTACK_RIGHT);
+		this->SetState(SOLDIER_STATE_ATTACK);
 	if (check < 0)
 	{
 		nx = -nx;
@@ -38,17 +42,24 @@ void Soldier::Render()
 {
 	int ani;
 
-	if (state == SOLDIER_STATE_DIE) {
+	if (GetHP() == 0) {
 
 		return;
 	}
-	if (state == SOLDIER_STATE_IDLE)
+	if (isHurt)
 	{
-		if (nx > 0) ani = SOLDIER_ANI_IDLE_RIGHT;
+		if (nx > 0) ani = SOLDIER_ANI_HURT_RIGHT;
 		else
-			ani = SOLDIER_ANI_IDLE_LEFT;
+			ani = SOLDIER_ANI_HURT_LEFT;
 	}
-	else {
+		if (state == SOLDIER_STATE_IDLE)
+		{
+			if (nx > 0) ani = SOLDIER_ANI_IDLE_RIGHT;
+			else
+				ani = SOLDIER_ANI_IDLE_LEFT;
+		}
+		else
+	if (isAttack){
 		if (nx > 0)
 			ani = SOLDIER_ANI_ATTACK_RIGHT;
 		else
@@ -68,15 +79,28 @@ void Soldier::SetState(int state)
 		y += SOLDIER_BBOX_HEIGHT - SOLDIER_BBOX_HEIGHT_DIE + 1;
 		vx = 0;
 		vy = 0;
+		isHurt = false;
+		isAttack = false;
+		break;
+	case SOLDIER_STATE_HURT:
+		DescHP();
+		isHurt = true;
+		vx = 0;
+		vy = 0;
+		isAttack = false;
+		hurtTime = GetTickCount();
 		break;
 	case SOLDIER_STATE_IDLE:
 		vx = 0;
 		vy = 0;
+		isHurt = false;
+		isAttack = false;
 		break;
 	case SOLDIER_STATE_ATTACK:
 		vx = 0;
-		break;
-		
+		isAttack = true;
+		isHurt = false;
+		break;	
 	}
 
 }

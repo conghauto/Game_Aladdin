@@ -461,15 +461,19 @@ void LoadResources()
 	sprites->Add(16019, 6, 572, 64, 626, guardian);
 	sprites->Add(16020, 6, 572, 64, 626, guardian);
 
-	sprites->Add(16021, 657, 237, 727, 270, guardian); //guardian chet phai
-	sprites->Add(16022, 744, 237, 811, 270, guardian);
-	sprites->Add(16023, 831, 237, 900, 270, guardian);
-	sprites->Add(16024, 911, 237, 975, 980, guardian);
+	sprites->Add(16031, 382, 797, 448, 860, guardian); //guardian bi thuong trai
+	sprites->Add(16032, 290, 797, 363, 860, guardian);
+	sprites->Add(16033, 210, 797, 280, 860, guardian);
+	sprites->Add(16034, 138, 797, 202, 860, guardian);
+	sprites->Add(16035, 72, 797, 134, 860, guardian);
+	sprites->Add(16036, 6, 797, 60, 860, guardian);
 
-	sprites->Add(16031, 266, 237, 337, 270, guardian); //guardian chet trai
-	sprites->Add(16032, 182, 237, 248, 270, guardian);
-	sprites->Add(16033, 93, 237, 161, 270, guardian);
-	sprites->Add(16034, 18, 237, 83, 270, guardian);
+	sprites->Add(16021, 545, 797, 610, 860, guardian); //guardian bi thuong phai
+	sprites->Add(16022, 629, 797, 700, 860, guardian);
+	sprites->Add(16023, 712, 797, 780, 860, guardian);
+	sprites->Add(16024, 790, 797, 852, 860, guardian);
+	sprites->Add(16025, 858, 797, 920, 860, guardian);
+	sprites->Add(16026, 932, 797, 986, 860, guardian);
 
 	sprites->Add(16041, 666, 448, 714, 504, guardian); //guardian đứng phải
 	sprites->Add(16042, 721, 448, 770, 504, guardian);
@@ -504,6 +508,23 @@ void LoadResources()
 	sprites->Add(17021, 941, 166, 983, 233, soldierTex); // sodier đứng phải
 
 	sprites->Add(17031, 6, 166, 52, 233, soldierTex); //sodier đứng trái
+
+	sprites->Add(17041, 516, 162, 560, 234, soldierTex); //soldier bi danh phai
+	sprites->Add(17042, 574, 162, 614, 234, soldierTex);
+	sprites->Add(17043, 682, 162, 724, 234, soldierTex);
+	sprites->Add(17044, 736, 162, 780, 234, soldierTex);
+	sprites->Add(17045, 790, 162, 830, 234, soldierTex);
+	sprites->Add(17046, 840, 162, 878, 234, soldierTex);
+	sprites->Add(17047, 892, 162, 932, 234, soldierTex);
+
+	sprites->Add(17051, 434, 162, 478, 234, soldierTex); //soldier bi danh trai
+	sprites->Add(17052, 378, 162, 418, 234, soldierTex);
+	sprites->Add(17053, 268, 162, 310, 234, soldierTex);
+	sprites->Add(17054, 210, 162, 256, 234, soldierTex);
+	sprites->Add(17055, 160, 162, 202, 234, soldierTex);
+	sprites->Add(17056, 114, 162, 152, 234, soldierTex);
+	sprites->Add(17057, 58, 162, 98, 234, soldierTex);
+
 	//Bat enemy
 	sprites->Add(17100, 4, 8, 18, 34, texBat); //bat đứng yên
 
@@ -921,18 +942,22 @@ void LoadResources()
 	ani->Add(16016);
 	animations->Add(552, ani);
 
-	ani = new CAnimation(100);	//Guardian chet phai
+	ani = new CAnimation(100);	//Guardian bi thuong phai
 	ani->Add(16021);
 	ani->Add(16022);
 	ani->Add(16023);
 	ani->Add(16024);
+	ani->Add(16025);
+	ani->Add(16026);
 	animations->Add(553, ani);
 
-	ani = new CAnimation(100);	//Guardian chet trai
+	ani = new CAnimation(100);	//Guardian bi thuong trai
 	ani->Add(16031);
 	ani->Add(16032);
 	ani->Add(16033);
 	ani->Add(16034);
+	ani->Add(16035);
+	ani->Add(16036);
 	animations->Add(554, ani);
 
 	ani = new CAnimation(100);	//Guardian đứng phải
@@ -978,6 +1003,26 @@ void LoadResources()
 	ani = new CAnimation(100);	//soldier dung trai
 	ani->Add(17031);
 	animations->Add(564, ani);
+
+	ani = new CAnimation(150);	//soldier bi danh phai
+	ani->Add(17041);
+	ani->Add(17042);
+	ani->Add(17043);
+	ani->Add(17044);
+	ani->Add(17045);
+	ani->Add(17046);
+	ani->Add(17047);
+	animations->Add(565, ani);
+
+	ani = new CAnimation(150);	//soldier bi danh trai
+	ani->Add(17051);
+	ani->Add(17052);
+	ani->Add(17053);
+	ani->Add(17054);
+	ani->Add(17055);
+	ani->Add(17056);
+	ani->Add(17057);
+	animations->Add(566, ani);
 
 	ani = new CAnimation(100);	//bat đứng đợi
 	ani->Add(17100);
@@ -1377,30 +1422,30 @@ void LoadResources()
 	#pragma endregion
 
 	#pragma region Zombie
-		Zombie *zombie = new Zombie();
-		zombie->nx = -1;
-		zombie->AddAnimation(551);
-		zombie->AddAnimation(552);
-		zombie->AddAnimation(553);
-		zombie->AddAnimation(554);
-		zombie->AddAnimation(555);
-		zombie->AddAnimation(556);
-		zombie->SetPosition(300, 950);
-		zombie->SetState(GUARDIAN_STATE_IDLE);
-		//objects.push_back(zombie);
-		grid->AddObject(zombie);
+		//Zombie *zombie = new Zombie();
+		//zombie->nx = -1;
+		//zombie->AddAnimation(551);
+		//zombie->AddAnimation(552);
+		//zombie->AddAnimation(553);
+		//zombie->AddAnimation(554);
+		//zombie->AddAnimation(555);
+		//zombie->AddAnimation(556);
+		//zombie->SetPosition(300, 950);
+		//zombie->SetState(GUARDIAN_STATE_IDLE);
+		////objects.push_back(zombie);
+		//grid->AddObject(zombie);
 
 
 	#pragma endregion
 
-	#pragma region Bat
+	//#pragma region Bat
 		Bat *bat1 = new Bat();
 		bat1->AddAnimation(605);
 		bat1->AddAnimation(606);
 		bat1->SetPosition(700, 800);
 		bat1->SetState(BAT_STATE_WAIT);
 		grid->AddObject(bat1);
-	#pragma endregion
+	//#pragma endregion
 	
 	#pragma region Skeleton
 		Skeleton *skeleton = new Skeleton();
@@ -1410,19 +1455,21 @@ void LoadResources()
 		skeleton->SetPosition(500, 930);
 		skeleton->SetState(SKELETON_STATE_IDLE);
 		grid->AddObject(skeleton);
-	#pragma endregion
+	//#pragma endregion
 
 	#pragma region Soldier
-		soldier = new Soldier();
-		soldier->nx = 1;
-		soldier->AddAnimation(563);
-		soldier->AddAnimation(564);
-		soldier->AddAnimation(561);
-		soldier->AddAnimation(562);
-		soldier->SetPosition(350, 940);
-		soldier->SetState(SOLDIER_STATE_IDLE);
-		//objects.push_back(zombie1);
-		grid->AddObject(soldier);
+		//soldier = new Soldier();
+		//soldier->nx = -1;
+		//soldier->AddAnimation(563);
+		//soldier->AddAnimation(564);
+		//soldier->AddAnimation(561);
+		//soldier->AddAnimation(562);
+		//soldier->AddAnimation(565);
+		//soldier->AddAnimation(566);
+		//soldier->SetPosition(525, 740);
+		//soldier->SetState(SOLDIER_STATE_IDLE);
+		////objects.push_back(zombie1);
+		//grid->AddObject(soldier);
 
 	#pragma endregion
 
@@ -1548,7 +1595,7 @@ void Update(DWORD dt)
 			{
 				Zombie *zombie = dynamic_cast<Zombie *>(coObjects.at(i));
 
-				if (zombie->GetState() == GUARDIAN_STATE_DIE)
+				if (zombie->GetHP() == 0)
 				{
 					listRemoveObjects.push_back(zombie);
 				}
@@ -1565,7 +1612,7 @@ void Update(DWORD dt)
 			{
 				Soldier*soldier = dynamic_cast<Soldier *>(coObjects.at(i));
 
-				if (soldier->GetState() == SOLDIER_STATE_DIE)
+				if (soldier->GetHP() == 0)
 				{
 					listRemoveObjects.push_back(soldier);
 				}

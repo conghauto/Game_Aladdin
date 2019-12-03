@@ -21,12 +21,16 @@ void Zombie::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	CGameObject::Update(dt, coObjects);
 	x += dx;
 	y += dy;
-	if (state == GUARDIAN_STATE_DIE)
+	if (GetHP() == 0)
 	{
 		SetSpeed(0.0f, 0.0f);
 		return;
 	}
 
+	if (isHurt && GetTickCount() - hurtTime >= 600) {
+		isHurt = false;
+		isAttack = true;
+	}
 	
 
 	if (vx < 0 && x < 0) {
@@ -52,24 +56,25 @@ void Zombie::Render()
 {
 	int ani ;
 	
-	if (state == GUARDIAN_STATE_DIE) {
-		if (nx > 0) {
-			ani = GUARDIAN_ANI_DIE_RIGHT;
-		}
-		else
-		{
-			ani = GUARDIAN_ANI_DIE_LEFT;
-		}
+	if (GetHP() == 0) 
+	{
 
 		return;
 	}
+	if (isHurt)
+		{
+			if (nx > 0) ani = GUARDIAN_ANI_HURT_RIGHT;
+			else
+				ani = GUARDIAN_ANI_HURT_LEFT;
+		}
 	if (state == GUARDIAN_STATE_IDLE)
 	{
 		if (nx > 0) ani = GUARDIAN_ANI_IDLE_RIGHT;
 		else
 			ani = GUARDIAN_ANI_IDLE_LEFT;
 	}
-	else {
+	else 
+	if (isAttack){
 		if (nx > 0)
 			ani = GUARDIAN_ANI_ATTACKING_RIGHT;
 		else
@@ -89,13 +94,27 @@ void Zombie::SetState(int state)
 		y += GUARDIAN_BBOX_HEIGHT - GUARDIAN_BBOX_HEIGHT_DIE + 1;
 		vx = 0;
 		vy = 0;
+		isAttack = false;
+		isHurt = false;
 		break;
 	case GUARDIAN_STATE_IDLE:
 		vx = 0;
 		vy = 0;
+		isHurt = false;
+		isAttack = false;
+		break;
+	case GUARDIAN_STATE_HURT:
+		DescHP();
+		isHurt = true;
+		vx = 0;
+		vy = 0;
+		isAttack = false;
+		hurtTime = GetTickCount();
 		break;
 	case GUARDIAN_STATE_ATTACK:
+		isAttack = true;
 		vx = 0;
+		isHurt = false;
 		break;
 	}
 

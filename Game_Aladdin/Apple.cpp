@@ -1,7 +1,8 @@
 #include "Apple.h"
 #include "Pillar.h"
 #include "Soldier.h"
-
+#include "Skeleton.h"
+#include "Bat.h"
 void Apple::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	Weapon::Update(dt);
@@ -49,13 +50,31 @@ void Apple::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 				if (dynamic_cast<Zombie *>(e->obj))
 				{
 					Zombie *zombie = dynamic_cast<Zombie *>(e->obj);
-					zombie->SetState(GUARDIAN_STATE_DIE);
+					zombie->SetState(GUARDIAN_STATE_HURT);
 					this->isEaten = true;
 				}
 				else if (dynamic_cast<Soldier *>(e->obj))
 				{
 					Soldier *soldier = dynamic_cast<Soldier *>(e->obj);
-					soldier->SetState(SOLDIER_STATE_DIE);
+					soldier->SetState(SOLDIER_STATE_HURT);
+					this->isEaten = true;
+				}
+				else if (dynamic_cast<Skeleton *>(e->obj))
+				{
+					Skeleton *skeleton = dynamic_cast<Skeleton *>(e->obj);
+					skeleton->SetState(SOLDIER_STATE_DIE);
+					this->isEaten = true;
+				}
+				else if (dynamic_cast<Bat *>(e->obj))
+				{
+					Bat *bat = dynamic_cast<Bat *>(e->obj);
+					bat->SetState(SOLDIER_STATE_DIE);
+					this->isEaten = true;
+				}
+				else if (dynamic_cast<Soldier *>(e->obj))
+				{
+					Soldier *soldier = dynamic_cast<Soldier *>(e->obj);
+					soldier->SetState(SOLDIER_STATE_HURT);
 					this->isEaten = true;
 				}
 				else if (dynamic_cast<Pillar *>(e->obj))
