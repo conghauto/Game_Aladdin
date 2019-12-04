@@ -28,14 +28,15 @@ void Soldier::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		isHurt = false;
 		isAttack = true;
 	}
-	float check = this->x - Aladdin::XforGet;
-	if (check < 100)
+	float checkX = this->x - Aladdin::XforGet;
+	float checkY = -this->y + Aladdin::YforGet;
+	if (checkX < 50 && checkY < 10)
 		this->SetState(SOLDIER_STATE_ATTACK);
-	if (check < 0)
-	{
-		nx = -nx;
-		this->SetState(SOLDIER_STATE_IDLE);
-	}
+	//if (check < 0)
+	//{
+	//	nx = -nx;
+	//	this->SetState(SOLDIER_STATE_IDLE);
+	//}
 }
 
 void Soldier::Render()

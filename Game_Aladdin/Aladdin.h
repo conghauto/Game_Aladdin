@@ -48,9 +48,9 @@ public:
 	float distanceJump;
 	int xStartDash;
 	int yStartJump;
-
 public:
 	static float XforGet;
+	static float YforGet;
 	static int score;
 	static int heartsAmount;
 	int currentWeapon;
@@ -59,8 +59,8 @@ public:
 		level = 1;
 		untouchable = 0;
 		life = 3;
-		preHP = 16;
-		numberapples = 20;
+		preHP = 6;
+		numberapples = 100;
 		numberspend = 10;
 		currentWeapon = 0;
 		isUseWhip = true;
@@ -80,7 +80,6 @@ public:
 	void IncHeart(int num) { heartsAmount += num; }
 	void IncScore(int num) { score += num; }
 	void SetState(int state);
-
 	void SetAction(int action);
 	int GetAction() { return action; }
 	int GetDistanceDash() { return abs(this->x - xStartDash); }
@@ -91,10 +90,16 @@ public:
 
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);
 	int GetScore() { return score; }
+	void IncreScore(int bonus) { score += bonus; }
 	int GetLife() { return life; }
 	int GetHP() { return preHP; }
+	void IncreHP(int bonus) { preHP += bonus; }
+	void DesHP() { preHP -= 1; }
 	int GetNumberapples() { return numberapples; }
+	void DescNumberApples() { numberapples -= 1; }
+	void IncrNumberApples() { numberapples += 1; }
 	int GetNumberspend() { return numberspend; }
 	int GetHeart() { return heartsAmount; }
-	float GetX() { return XforGet; };
+	float GetX() { return XforGet; }
+	float GetY() { return YforGet; }
 };

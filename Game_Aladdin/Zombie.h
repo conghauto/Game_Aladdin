@@ -15,7 +15,7 @@ public:
 public:
 	Zombie()
 	{
-		HP = 2;
+		HP = 20;
 	}
 	virtual void SetState(int state);
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);

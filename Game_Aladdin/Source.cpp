@@ -38,7 +38,7 @@ Effect *whipEffect;
 Soldier *soldier;
 Soldier *soldier1;
 Map *map;
-Apple *knife;
+Apple *apple;
 Bullet *bullet;
 Ball *ball;
 BG* bg;
@@ -102,32 +102,33 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 			aladdin->SetAction(SIMON_ACTION_ATTACK);
 	}
 	else
-		if (KeyCode == DIK_X)
+		if (KeyCode == DIK_X && aladdin->GetNumberapples() > 0)
 		{
 			aladdin->SetCurrentWeapon(809);
 			if (aladdin->isAttack == false && !aladdin->isOnRope) {
+				aladdin->DescNumberApples();
 				int nx = aladdin->nx;
 				aladdin->SetAction(SIMON_ACTION_THROW);
 				switch (aladdin->currentWeapon)
 				{
 				case ITEM_KNIFE:
-					knife = new Apple(aladdin, 2 * SCREEN_WIDTH / 3);
+					apple = new Apple(aladdin, 2 * SCREEN_WIDTH / 3);
 					if (nx > 0)
 					{
-						knife->SetSpeed(KNIFE_SPEED, 0);
-						knife->AddAnimation(WEAPON_ANI_KNIFE);
+						apple->SetSpeed(KNIFE_SPEED_X, KNIFE_SPEED_Y);
+						apple->AddAnimation(WEAPON_ANI_KNIFE);
 					}
 					else if (nx < 0)
 					{
-						knife->SetSpeed(-KNIFE_SPEED, 0);
-						knife->AddAnimation(WEAPON_ANI_KNIFE);
+						apple->SetSpeed(-KNIFE_SPEED_X, KNIFE_SPEED_Y);
+						apple->AddAnimation(WEAPON_ANI_KNIFE);
 					}
 					//knife->SetType(ITEM_KNIFE);
-					knife->SetPosition(aladdin->x, aladdin->y);
-					knife->appearTime = GetTickCount();
-					knife->firstCast = GetTickCount();
+					apple->SetPosition(aladdin->x, aladdin->y);
+					apple->appearTime = GetTickCount();
+					apple->firstCast = GetTickCount();
 					//objects.push_back(knife);
-					grid->AddObject(knife);
+					grid->AddObject(apple);
 					break;
 				}
 			}
@@ -151,11 +152,6 @@ void CSampleKeyHander::OnKeyUp(int KeyCode)
 
 	}
 
-	if (KeyCode == DIK_Q) {
-		aladdin->SetState(SIMON_STATE_IDLE);
-		aladdin->isDashing = false;
-
-	}
 	// Ngoi
 	if (KeyCode == DIK_DOWN)
 	{
@@ -1249,7 +1245,7 @@ void LoadResources()
 
 		// khởi tạo grid
 		grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
-		aladdin->SetPosition(50, 850);
+		aladdin->SetPosition(700, 200);
 		//grid->AddObject(aladdin);
 
 	#pragma endregion
@@ -1422,18 +1418,57 @@ void LoadResources()
 	#pragma endregion
 
 	#pragma region Zombie
-		//Zombie *zombie = new Zombie();
-		//zombie->nx = -1;
-		//zombie->AddAnimation(551);
-		//zombie->AddAnimation(552);
-		//zombie->AddAnimation(553);
-		//zombie->AddAnimation(554);
-		//zombie->AddAnimation(555);
-		//zombie->AddAnimation(556);
-		//zombie->SetPosition(300, 950);
-		//zombie->SetState(GUARDIAN_STATE_IDLE);
-		////objects.push_back(zombie);
-		//grid->AddObject(zombie);
+		Zombie *zombie = new Zombie();
+		zombie->nx = -1;
+		zombie->AddAnimation(551);
+		zombie->AddAnimation(552);
+		zombie->AddAnimation(553);
+		zombie->AddAnimation(554);
+		zombie->AddAnimation(555);
+		zombie->AddAnimation(556);
+		zombie->SetPosition(1170, 950);
+		zombie->SetState(GUARDIAN_STATE_IDLE);
+		//objects.push_back(zombie);
+		grid->AddObject(zombie);
+
+		Zombie *zombie1 = new Zombie();
+		zombie1->nx = -1;
+		zombie1->AddAnimation(551);
+		zombie1->AddAnimation(552);
+		zombie1->AddAnimation(553);
+		zombie1->AddAnimation(554);
+		zombie1->AddAnimation(555);
+		zombie1->AddAnimation(556);
+		zombie1->SetPosition(1900, 175);
+		zombie1->SetState(GUARDIAN_STATE_IDLE);
+		//objects.push_back(zombie);
+		grid->AddObject(zombie1);
+
+		Zombie *zombie2 = new Zombie();
+		zombie2->nx = 1;
+		zombie2->AddAnimation(551);
+		zombie2->AddAnimation(552);
+		zombie2->AddAnimation(553);
+		zombie2->AddAnimation(554);
+		zombie2->AddAnimation(555);
+		zombie2->AddAnimation(556);
+		zombie2->SetPosition(440, 360);
+		zombie2->SetState(GUARDIAN_STATE_IDLE);
+		//objects.push_back(zombie);
+		grid->AddObject(zombie2);
+
+		Zombie *zombie3 = new Zombie();
+		zombie3->nx = 1;
+		zombie3->AddAnimation(551);
+		zombie3->AddAnimation(552);
+		zombie3->AddAnimation(553);
+		zombie3->AddAnimation(554);
+		zombie3->AddAnimation(555);
+		zombie3->AddAnimation(556);
+		zombie3->SetPosition(1720, 500);
+		zombie3->SetState(GUARDIAN_STATE_IDLE);
+		//objects.push_back(zombie);
+		grid->AddObject(zombie3);
 
 
 	#pragma endregion
@@ -1442,9 +1477,23 @@ void LoadResources()
 		Bat *bat1 = new Bat();
 		bat1->AddAnimation(605);
 		bat1->AddAnimation(606);
-		bat1->SetPosition(700, 800);
+		bat1->SetPosition(375, 828);
 		bat1->SetState(BAT_STATE_WAIT);
 		grid->AddObject(bat1);
+
+		Bat *bat2 = new Bat();
+		bat2->AddAnimation(605);
+		bat2->AddAnimation(606);
+		bat2->SetPosition(940, 765);
+		bat2->SetState(BAT_STATE_WAIT);
+		grid->AddObject(bat2);
+
+		Bat *bat3 = new Bat();
+		bat3->AddAnimation(605);
+		bat3->AddAnimation(606);
+		bat3->SetPosition(1372, 848);
+		bat3->SetState(BAT_STATE_WAIT);
+		grid->AddObject(bat3);
 	//#pragma endregion
 	
 	#pragma region Skeleton
@@ -1452,24 +1501,45 @@ void LoadResources()
 		skeleton->nx = -1;
 		skeleton->AddAnimation(607);
 		skeleton->AddAnimation(608);
-		skeleton->SetPosition(500, 930);
+		skeleton->SetPosition(400, 930);
 		skeleton->SetState(SKELETON_STATE_IDLE);
 		grid->AddObject(skeleton);
-	//#pragma endregion
+
+		Skeleton *skeleton1 = new Skeleton();
+		skeleton1->nx = -1;
+		skeleton1->AddAnimation(607);
+		skeleton1->AddAnimation(608);
+		skeleton1->SetPosition(750, 750	);
+		skeleton1->SetState(SKELETON_STATE_IDLE);
+		grid->AddObject(skeleton1);
+	#pragma endregion
 
 	#pragma region Soldier
-		//soldier = new Soldier();
-		//soldier->nx = -1;
-		//soldier->AddAnimation(563);
-		//soldier->AddAnimation(564);
-		//soldier->AddAnimation(561);
-		//soldier->AddAnimation(562);
-		//soldier->AddAnimation(565);
-		//soldier->AddAnimation(566);
-		//soldier->SetPosition(525, 740);
-		//soldier->SetState(SOLDIER_STATE_IDLE);
-		////objects.push_back(zombie1);
-		//grid->AddObject(soldier);
+		soldier = new Soldier();
+		soldier->nx = 1;
+		soldier->AddAnimation(563);
+		soldier->AddAnimation(564);
+		soldier->AddAnimation(561);
+		soldier->AddAnimation(562);
+		soldier->AddAnimation(565);
+		soldier->AddAnimation(566);
+		soldier->SetPosition(1098, 765);
+		soldier->SetState(SOLDIER_STATE_IDLE);
+		//objects.push_back(zombie1);
+		grid->AddObject(soldier);
+
+		Soldier *soldier1 = new Soldier();
+		soldier1->nx = -1;
+		soldier1->AddAnimation(563);
+		soldier1->AddAnimation(564);
+		soldier1->AddAnimation(561);
+		soldier1->AddAnimation(562);
+		soldier1->AddAnimation(565);
+		soldier1->AddAnimation(566);
+		soldier1->SetPosition(2030, 355);
+		soldier1->SetState(SOLDIER_STATE_IDLE);
+		//objects.push_back(zombie1);
+		grid->AddObject(soldier1);
 
 	#pragma endregion
 
@@ -1522,12 +1592,14 @@ void LoadResourceLv2()
 	}
 }
 float Aladdin::XforGet = 0;
+float Aladdin::YforGet = 0;
 void Update(DWORD dt)
 {
 
 	float x, y;
 	aladdin->GetPosition(x, y);
 	Aladdin::XforGet = x;
+	Aladdin::YforGet = y;
 	#pragma region Resource
 		if (lv1 == true)
 		{

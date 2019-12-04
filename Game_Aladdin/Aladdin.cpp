@@ -162,6 +162,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
+					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -178,6 +179,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
+					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -193,6 +195,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
+					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -208,6 +211,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
+					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -321,8 +325,8 @@ void Aladdin::Render()
 {
 	int ani = -1, aniWhip = -1;
 
-	if (state == SIMON_STATE_DIE)
-		ani = SIMON_ANI_DIE;
+	if (GetHP() <= 0)
+		return;
 	else
 	{
 		if (isHurt)

@@ -20,7 +20,7 @@ void Weapon::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 				this->max_x = x - max_width;
 			}
 
-			SetPosition(x, y + 10);
+			SetPosition(x, y - 10);
 			appearTime = GetTickCount();
 
 			isActivate = true;

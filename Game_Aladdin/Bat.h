@@ -8,7 +8,6 @@ class Bat : public CGameObject
 public:
 	Bat()
 	{
-		this->time_start_shoot = GetTickCount();
 	}
 	float time_start_shoot;
 	virtual void SetState(int state);

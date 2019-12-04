@@ -309,10 +309,11 @@
 #define BALL_SPEED					0.4f
 //knife
 #define WEAPON_ANI_KNIFE				1607
-#define WEAPON_ACTIVATE_TIME			100
+#define WEAPON_ACTIVATE_TIME			300
 #define KNIFE_BBOX_WIDTH				32
 #define KNIFE_BBOX_HEIGHT				32
-#define KNIFE_SPEED						0.4f
+#define KNIFE_SPEED_X					0.05f
+#define KNIFE_SPEED_Y					0.015f
 // Checkpoint type
 #define CHECKPOINT_LEVELUP				0
 #define CHECKPOINT_BONUS				1

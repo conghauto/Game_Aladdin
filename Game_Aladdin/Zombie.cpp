@@ -27,7 +27,8 @@ void Zombie::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		return;
 	}
 
-	if (isHurt && GetTickCount() - hurtTime >= 600) {
+	if (isHurt && GetTickCount() - hurtTime >= 600) 
+	{
 		isHurt = false;
 		isAttack = true;
 	}
@@ -41,14 +42,15 @@ void Zombie::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		x = 600; 
 		vx = -vx;
 	}
-	float check = this->x - Aladdin::XforGet;
-	if (check < 100)
+	float checkX = this->x - Aladdin::XforGet;
+	float checkY = -this->y + Aladdin::YforGet;
+	if (checkX < 100 && checkY < 10)
 		this->SetState(GUARDIAN_STATE_ATTACK);
-	if (check < 0)
-	{
-		nx = -nx;
-		this->SetState(GUARDIAN_STATE_IDLE);
-	}
+	//if (check < 0)
+	//{
+	//	nx = -nx;
+	//	this->SetState(GUARDIAN_STATE_IDLE);
+	//}
 
 }
 
@@ -63,7 +65,7 @@ void Zombie::Render()
 	}
 	if (isHurt)
 		{
-			if (nx > 0) ani = GUARDIAN_ANI_HURT_RIGHT;
+			if (nx > 0) ani = GUARDIAN_ANI_HURT_LEFT;
 			else
 				ani = GUARDIAN_ANI_HURT_LEFT;
 		}

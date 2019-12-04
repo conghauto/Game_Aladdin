@@ -29,13 +29,34 @@ void Skeleton::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 
 
 	float check = this->x - Aladdin::XforGet;
-	if (check < 100)
+	float checkY = -this->y + Aladdin::YforGet;
+	if (check < 100 && checkY < 10)
 		this->SetState(SKELETON_STATE_WALK);
-	if (check < 0)
-	{
+	if (this->x < 200 && this->y == 930) {
+		this->x = 200;
 		nx = -nx;
-		this->SetState(SKELETON_STATE_IDLE);
+		this->SetState(SKELETON_STATE_WALK);
 	}
+	if (this->x > 500 && this->y == 930) {
+		this->x = 500;
+		nx = -nx;
+		this->SetState(SKELETON_STATE_WALK);
+	}
+	if (this->x < 470 && this->y == 750) {
+		this->x = 470;
+		nx = -nx;
+		this->SetState(SKELETON_STATE_WALK);
+	}
+	if (this->x > 830 && this->y == 750) {
+		this->x = 830;
+		nx = -nx;
+		this->SetState(SKELETON_STATE_WALK);
+	}
+	//if (check < 0)
+	//{
+	//	nx = -nx;
+	//	this->SetState(SKELETON_STATE_IDLE);
+	//}
 
 }
 

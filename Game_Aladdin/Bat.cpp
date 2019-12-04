@@ -33,7 +33,7 @@ void Bat::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		vy = -vy;
 	}
 	float check = this->x - Aladdin::XforGet;
-	if (check < 150)
+	if (check < 300)
 		this->SetState(BAT_STATE_ATTACK);
 
 
