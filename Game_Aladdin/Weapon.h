@@ -3,7 +3,8 @@
 #include "Zombie.h"
 #include "Aladdin.h"
 #include "Soldier.h"
-#include "BossOne.h"
+#include "BossSnake.h"
+#include "BossJafar.h"
 
 class Weapon : public Item
 {
@@ -14,14 +15,15 @@ public:
 	Aladdin *aladdin;
 	Zombie *zombie;
 	Soldier *soldier;
-	BossOne *bossone;
+	BossSnake *snake;
+	BossJafar *jafar;
 	bool isActivate;
 	DWORD firstCast;
 
 	Weapon() {}
 
 	Weapon(Aladdin *aladdin, float max_width = SCREEN_WIDTH) { this->aladdin = aladdin; this->max_width = max_width; }
-	//Weapon(Soldier *soldier, float max_width = SCREEN_WIDTH) { this->soldier = soldier; this->max_width = max_width; }
+	Weapon(BossSnake *snake, float max_width = SCREEN_WIDTH) { this->snake = snake; this->max_width = max_width; }
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects = NULL);
 	virtual void Render();
 };

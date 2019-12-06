@@ -1,32 +1,10 @@
-#include "Bullet.h"
+#include "FireBullet.h"
+#include "BossSnake.h"
+#include "Pillar.h"
 #include "Aladdin.h"
-
-void Bullet::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
+void FireBullet::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
-	if (!isActivate)
-	{
-		if (GetTickCount() - firstCast > 100)
-		{
-			float x = zombie->x;
-			float y = zombie->y;
-
-			nx = zombie->nx;
-
-			if (nx > 0)
-			{
-				this->max_x = x + max_width;
-			}
-			else if (nx < 0)
-			{
-				this->max_x = x - max_width;
-			}
-
-			SetPosition(x, y + 10);
-			appearTime = GetTickCount();
-
-			isActivate = true;
-		}
-	}
+	Weapon::Update(dt);
 
 	if (isActivate)
 	{
@@ -71,7 +49,13 @@ void Bullet::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 				if (dynamic_cast<Aladdin *>(e->obj))
 				{
 					Aladdin *aladdin = dynamic_cast<Aladdin *>(e->obj);
-					aladdin->SetState(SIMON_STATE_DIE);
+					aladdin->SetState(SIMON_STATE_HURT);
+					this->isEaten = true;
+				}
+				else if (dynamic_cast<Pillar *>(e->obj))
+				{
+					Pillar *pillar = dynamic_cast<Pillar *>(e->obj);
+					pillar->isHitted = true;
 					this->isEaten = true;
 				}
 			}

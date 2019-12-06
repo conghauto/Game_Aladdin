@@ -1,6 +1,5 @@
 #include "Zombie.h"
 #include "define.h"
-#include "Bullet.h"
 #include "Game.h"
 #include "Aladdin.h"
 
@@ -65,7 +64,7 @@ void Zombie::Render()
 	}
 	if (isHurt)
 		{
-			if (nx > 0) ani = GUARDIAN_ANI_HURT_LEFT;
+			if (nx > 0) ani = GUARDIAN_ANI_HURT_RIGHT;
 			else
 				ani = GUARDIAN_ANI_HURT_LEFT;
 		}

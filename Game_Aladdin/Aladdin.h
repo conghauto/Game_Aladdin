@@ -59,7 +59,7 @@ public:
 		level = 1;
 		untouchable = 0;
 		life = 3;
-		preHP = 6;
+		preHP = 10;
 		numberapples = 100;
 		numberspend = 10;
 		currentWeapon = 0;

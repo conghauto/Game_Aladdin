@@ -8,12 +8,13 @@
 #include "Ground.h"
 #include "CheckPoint.h"
 #include "Soldier.h"
-#include "Bullet.h"
 #include "Spike.h"
 #include "Rope.h"
 #include "Dumbbell.h"
 #include "Skeleton.h"
 #include "Bat.h"
+#include "BossJafar.h"
+#include "BossSnake.h"
 
 int Aladdin::score = 0;
 int Aladdin::heartsAmount = 5;
@@ -200,6 +201,38 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					StartUntouchable();
 				}
 			}
+			else if (dynamic_cast<BossJafar *>(e->obj))
+			{
+				BossJafar *jafar = dynamic_cast<BossJafar *>(e->obj);
+				if (jafar->GetHP() != 0 && untouchable == 0) {
+					// Đặt hướng hurt
+					if (e->nx > 0)
+						this->nx = -1;
+					else if (e->nx < 0)
+						this->nx = 1;
+
+					SetState(SIMON_STATE_HURT);
+					DesHP();
+					willHurt = true;
+					StartUntouchable();
+				}
+			}
+			else if (dynamic_cast<BossSnake *>(e->obj))
+			{
+				BossSnake *snake = dynamic_cast<BossSnake *>(e->obj);
+				if (snake->GetHP() != 0 && untouchable == 0) {
+					// Đặt hướng hurt
+					if (e->nx > 0)
+						this->nx = -1;
+					else if (e->nx < 0)
+						this->nx = 1;
+
+					SetState(SIMON_STATE_HURT);
+					DesHP();
+					willHurt = true;
+					StartUntouchable();
+				}
+			}
 			else if (dynamic_cast<Bat *>(e->obj))
 			{
 				Bat *bat = dynamic_cast<Bat *>(e->obj);
@@ -215,15 +248,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					willHurt = true;
 					StartUntouchable();
 				}
-			}
-			else if (dynamic_cast<Bullet *>(e->obj))
-			{
-				Bullet *zombie = dynamic_cast<Bullet *>(e->obj);
-				//if (zombie->GetState() != SOLDIER_STATE_DIE) {
-				//	StartUntouchable();
-				//	//SetState(SIMON_STATE_DIE);
-				//}
-				StartUntouchable();
 			}
 			else if (dynamic_cast<Rock*>(e->obj))
 			{
@@ -325,7 +349,7 @@ void Aladdin::Render()
 {
 	int ani = -1, aniWhip = -1;
 
-	if (GetHP() <= 0)
+	if (state == SIMON_STATE_DIE)
 		return;
 	else
 	{

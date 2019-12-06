@@ -3,6 +3,9 @@
 #include "Soldier.h"
 #include "Skeleton.h"
 #include "Bat.h"
+#include "BossJafar.h"
+#include "BossSnake.h"
+#include "Ground.h"
 void Apple::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	Weapon::Update(dt);
@@ -71,10 +74,26 @@ void Apple::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 					bat->SetState(BAT_STATE_DIE);
 					this->isEaten = true;
 				}
+				else if (dynamic_cast<BossJafar *>(e->obj))
+				{
+					BossJafar *jafar = dynamic_cast<BossJafar *>(e->obj);
+					jafar->SetState(JAFAR_STATE_HURT);
+					this->isEaten = true;
+				}
+				else if (dynamic_cast<BossSnake *>(e->obj))
+				{
+					BossSnake *snake = dynamic_cast<BossSnake *>(e->obj);
+					snake->SetState(SNAKE_STATE_HURT);
+					this->isEaten = true;
+				}
 				else if (dynamic_cast<Pillar *>(e->obj))
 				{
 					Pillar *pillar = dynamic_cast<Pillar *>(e->obj);
 					pillar->isHitted = true;
+					this->isEaten = true;
+				}
+				else if (dynamic_cast<Ground *>(e->obj))
+				{
 					this->isEaten = true;
 				}
 			}

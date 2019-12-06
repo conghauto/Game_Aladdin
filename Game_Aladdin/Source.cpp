@@ -19,18 +19,13 @@
 #include "Map.h"
 #include "CheckPoint.h"
 #include "Grid.h"
-#include "Bullet.h"
-#include "Ball.h"
-#include "BossOne.h"
-#include "BossBullet.h"
 #include "Spike.h"
 #include "Dumbbell.h"
 #include "Rope.h"
 #include "Bat.h"
 #include "BG.h"
-
-BossBullet *bossbullet;
-BossOne *trum;
+#include "BossJafar.h"
+#include "BossSnake.h"
 CGame *game;
 Aladdin * aladdin;
 Item *item;
@@ -39,8 +34,6 @@ Soldier *soldier;
 Soldier *soldier1;
 Map *map;
 Apple *apple;
-Bullet *bullet;
-Ball *ball;
 BG* bg;
 CSprite *sprite;
 
@@ -258,6 +251,7 @@ void LoadResources()
 	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_BAT, L"Resources\\bat.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_BOSS, L"Resources\\boss.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_SKELETON, L"Resources\\skeleton.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ROCK, L"Resources\\rock.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_TILESET, L"Resources\\tileset.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -275,6 +269,7 @@ void LoadResources()
 	LPDIRECT3DTEXTURE9 texAladdinSit = textures->Get(ID_TEX_SIT);
 	LPDIRECT3DTEXTURE9 texBat = textures->Get(ID_TEX_BAT);
 	LPDIRECT3DTEXTURE9 texSkeleton = textures->Get(ID_TEX_SKELETON);
+	LPDIRECT3DTEXTURE9 texBoss = textures->Get(ID_TEX_BOSS);
 
 	#pragma region Addsprite
 	sprites->Add(10001, 1121, 0, 1162, 66, texAladdin);		// đứng im phải
@@ -549,6 +544,74 @@ void LoadResources()
 	sprites->Add(17216, 412, 124, 490, 204, texSkeleton);
 	sprites->Add(17217, 294, 124, 386, 204, texSkeleton);
 	sprites->Add(17218, 214, 124, 276, 204, texSkeleton);
+	//boss jafar
+	sprites->Add(17301, 869, 8, 935, 81, texBoss); //jafar dung phai
+
+	sprites->Add(17311, 790, 8, 856, 81, texBoss); //jafar dung trai
+
+	//jafar danh phai
+	sprites->Add(17321, 942, 8, 1000, 81, texBoss);
+	sprites->Add(17322, 1006, 8, 1064, 81, texBoss);
+	sprites->Add(17323, 1069, 8, 1122, 81, texBoss); 
+	sprites->Add(17324, 1132, 8, 1200, 81, texBoss);
+	sprites->Add(17325, 1206, 8, 1288, 81, texBoss);
+	sprites->Add(17326, 1302, 8, 1388, 81, texBoss);
+
+	sprites->Add(17331, 726, 8, 785, 81, texBoss); //jafar danh trai
+	sprites->Add(17332, 664, 8, 720, 81, texBoss);
+	sprites->Add(17333, 605, 8, 656, 81, texBoss);
+	sprites->Add(17334, 526, 8, 592, 81, texBoss);
+	sprites->Add(17335, 436, 8, 520, 81, texBoss);
+	sprites->Add(17336, 258, 8, 328, 81, texBoss);
+
+	sprites->Add(17341, 942, 90, 1001, 161, texBoss); //jafar bi thuong phai
+	sprites->Add(17342, 1008, 90, 1068, 161, texBoss);
+	sprites->Add(17343, 1072, 90, 1138, 161, texBoss);
+	sprites->Add(17344, 1278, 90, 1338, 161, texBoss);
+
+	sprites->Add(17351, 722, 90, 782, 161, texBoss); //jafar bi thuong trai
+	sprites->Add(17352, 658, 90, 716, 161, texBoss);
+	sprites->Add(17353, 585, 90, 654, 161, texBoss);
+	sprites->Add(17354, 386, 90, 450, 161, texBoss);
+
+#pragma region Boss Snake
+	sprites->Add(17401, 869, 290, 940, 376, texBoss); //snake tan cong phai
+	sprites->Add(17402, 950, 290, 1015, 376, texBoss);
+	sprites->Add(17403, 1020, 290, 1088, 376, texBoss);
+	sprites->Add(17404, 1102, 290, 1172, 376, texBoss);
+	sprites->Add(17405, 1182, 290, 1252, 376, texBoss);
+	sprites->Add(17406, 1262, 290, 1330, 376, texBoss);
+	sprites->Add(17407, 1340, 290, 1412, 376, texBoss);
+	sprites->Add(17408, 1422, 290, 1492, 376, texBoss);
+	sprites->Add(17409, 1505, 290, 1570, 376, texBoss);
+	sprites->Add(17410, 1578, 290, 1640, 376, texBoss);
+	sprites->Add(17411, 1648, 290, 1722, 376, texBoss);
+
+	sprites->Add(17421, 785, 290, 856, 376, texBoss); //snake tan cong trai
+	sprites->Add(17422, 710, 290, 775, 376, texBoss);
+	sprites->Add(17423, 636, 290, 704, 376, texBoss);
+	sprites->Add(17424, 550, 290, 624, 376, texBoss);
+	sprites->Add(17425, 470, 290, 544, 376, texBoss);
+	sprites->Add(17426, 392, 290, 465, 376, texBoss);
+	sprites->Add(17427, 310, 290, 384, 376, texBoss);
+	sprites->Add(17428, 232, 290, 306, 376, texBoss);
+	sprites->Add(17429, 154, 290, 220, 376, texBoss);
+	sprites->Add(17430, 82, 290, 150, 376, texBoss);
+	sprites->Add(17431, 2, 290, 78, 376, texBoss);
+
+	sprites->Add(17441, 920, 177, 968, 261, texBoss); //snake bi danh phai
+	sprites->Add(17442, 984, 177, 1034, 261, texBoss);
+	sprites->Add(17443, 1045, 177, 1115, 261, texBoss);
+	sprites->Add(17444, 984, 177, 1034, 261, texBoss);
+	sprites->Add(17445, 920, 177, 968, 261, texBoss);
+
+
+	sprites->Add(17451, 758, 177, 806, 261, texBoss); //snake bi danh trai
+	sprites->Add(17452, 690, 177, 742, 261, texBoss);
+	sprites->Add(17453, 612, 177, 678, 261, texBoss);
+	sprites->Add(17454, 690, 177, 742, 261, texBoss);
+	sprites->Add(17455, 758, 177, 806, 261, texBoss);
+#pragma endregion
 
 	LPDIRECT3DTEXTURE9 texMisc11 = textures->Get(ID_TEX_KNIFE);
 	sprites->Add(40023, 0, 0, 32, 18, texMisc11);
@@ -1056,6 +1119,92 @@ void LoadResources()
 	ani->Add(17218);
 	animations->Add(608, ani);
 
+	ani = new CAnimation(100); // jafar dung phai
+	ani->Add(17301);
+	animations->Add(609, ani);
+
+	ani = new CAnimation(100); // jafar dung trai
+	ani->Add(17311);
+	animations->Add(610, ani);
+
+	ani = new CAnimation(100); // jafar danh phai
+	ani->Add(17321);
+	ani->Add(17322);
+	ani->Add(17323);
+	ani->Add(17324);
+	ani->Add(17325);
+	ani->Add(17326);
+	animations->Add(611, ani);
+
+
+	ani = new CAnimation(100); // jafar danh trai
+	ani->Add(17331);
+	ani->Add(17332);
+	ani->Add(17333);
+	ani->Add(17334);
+	ani->Add(17335);
+	ani->Add(17336);
+	animations->Add(612, ani);
+
+	ani = new CAnimation(100); // jafar bi danh phai
+	ani->Add(17341);
+	ani->Add(17342);
+	ani->Add(17343);
+	ani->Add(17344);
+	animations->Add(613, ani);
+
+	ani = new CAnimation(100); // jafar bi danh trai
+	ani->Add(17351);
+	ani->Add(17352);
+	ani->Add(17353);
+	ani->Add(17354);
+	animations->Add(614, ani);
+
+	//snake
+	ani = new CAnimation(100); // snake danh phai
+	ani->Add(17401);
+	ani->Add(17402);
+	ani->Add(17403);
+	ani->Add(17404);
+	ani->Add(17405);
+	ani->Add(17406);
+	ani->Add(17407);
+	ani->Add(17408);
+	ani->Add(17409);
+	ani->Add(17410);
+	ani->Add(17411);
+	animations->Add(615, ani);
+
+	ani = new CAnimation(100); // snake danh trai
+	ani->Add(17421);
+	ani->Add(17422);
+	ani->Add(17423);
+	ani->Add(17424);
+	ani->Add(17425);
+	ani->Add(17426);
+	ani->Add(17427);
+	ani->Add(17428);
+	ani->Add(17429);
+	ani->Add(17430);
+	ani->Add(17431);
+	animations->Add(616, ani);
+
+	ani = new CAnimation(100); // snake bi danh phai
+	ani->Add(17441);
+	ani->Add(17442);
+	ani->Add(17443);
+	ani->Add(17444);
+	ani->Add(17445);
+	animations->Add(617, ani);
+
+	ani = new CAnimation(100); // snake bi danh trai
+	ani->Add(17451);
+	ani->Add(17452);
+	ani->Add(17453);
+	ani->Add(17454);
+	ani->Add(17455);
+	animations->Add(618, ani);
+
 	ani = new CAnimation(100);	//đất1
 	ani->Add(20001);
 	animations->Add(601, ani);
@@ -1245,7 +1394,7 @@ void LoadResources()
 
 		// khởi tạo grid
 		grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
-		aladdin->SetPosition(700, 200);
+		aladdin->SetPosition(0, 850);
 		//grid->AddObject(aladdin);
 
 	#pragma endregion
@@ -1543,6 +1692,19 @@ void LoadResources()
 
 	#pragma endregion
 
+#pragma region Jafar
+		BossJafar *jafar = new BossJafar();
+		jafar->nx = 1;
+		jafar->AddAnimation(609);
+		jafar->AddAnimation(610);
+		jafar->AddAnimation(611);
+		jafar->AddAnimation(612);
+		jafar->AddAnimation(613);
+		jafar->AddAnimation(614);
+		jafar->SetPosition(200, 930);
+		jafar->SetState(JAFAR_STATE_IDLE);
+		grid->AddObject(jafar);
+#pragma endregion
 
 	#pragma region CheckPoint
 	CheckPoint *checkPoint;
@@ -1689,6 +1851,34 @@ void Update(DWORD dt)
 					listRemoveObjects.push_back(soldier);
 				}
 			}
+			else if (dynamic_cast<BossJafar *>(coObjects.at(i)))
+			{
+				BossJafar *jafar = dynamic_cast<BossJafar *>(coObjects.at(i));
+
+				if (jafar->GetHP() == 0)
+				{
+					listRemoveObjects.push_back(jafar);
+					BossSnake * snake = new BossSnake();
+					snake->SetPosition(200, 915);
+					snake->nx = -1;
+					snake->AddAnimation(615);
+					snake->AddAnimation(616);
+					snake->AddAnimation(617);
+					snake->AddAnimation(618);
+					snake->SetState(SNAKE_STATE_ATTACK);
+					grid->AddObject(snake);
+				}
+			}
+			else if (dynamic_cast<BossSnake *>(coObjects.at(i)))
+			{
+				BossSnake* snake = dynamic_cast<BossSnake *>(coObjects.at(i));
+
+				if (snake->GetHP() == 0)
+				{
+					listRemoveObjects.push_back(snake);
+				}
+			}
+
 			//		item = new Item();
 			//		item->SetPosition(zombie->x, zombie->y);
 			//		item->SetSpeed(0, -0.1);
