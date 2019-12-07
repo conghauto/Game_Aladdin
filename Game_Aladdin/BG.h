@@ -71,8 +71,8 @@ public:
 	void Render(float x, float y, Aladdin* aladdin);
 	void RenderPillar(float x, float y, Aladdin* aladdin);
 	void RenderText(float x, float y, Aladdin* aladdin);
-	LPDIRECT3DTEXTURE9 LoadTexture(char* file, D3DCOLOR);
-	void drawFont(ID3DXFont* font, float x, float y, float width, float height, int value);
+	//LPDIRECT3DTEXTURE9 LoadTexture(char* file, D3DCOLOR);
+	//void drawFont(ID3DXFont* font, float x, float y, float width, float height, int value);
 	CSprite* axe;
 };
 

@@ -37,7 +37,7 @@ public:
 	DWORD onCheckPointTime;
 	int ny;
 
-	
+
 	int preHP;
 	bool isLevelUp;
 	bool isBonus;
@@ -57,14 +57,14 @@ public:
 	int currentWeapon;
 	Aladdin() : CGameObject()
 	{
-		level ;
-		untouchable ;
-		life ;
-		preHP ;
+		level;
+		untouchable;
+		life;
+		preHP;
 		numberapples;
-		numberspend ;
-		currentWeapon ;
-		isUseWhip ;
+		numberspend;
+		currentWeapon;
+		isUseWhip;
 	}
 
 	virtual void CalcPotentialCollisions(vector<LPGAMEOBJECT> *coObjects, vector<LPCOLLISIONEVENT> &coEvents);

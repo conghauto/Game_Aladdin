@@ -135,7 +135,6 @@
 #define GUARDIAN_ANI_IDLE_RIGHT			4
 #define GUARDIAN_ANI_IDLE_LEFT			5
 
-
 // Jafar
 #define JAFAR_WALKING_SPEED			0.05f
 
@@ -372,4 +371,4 @@
 #define DUMBBELL_BBOX_WIDTH				16
 #define DUMBBELL_BBOX_HEIGHT			40
 
-#define CELL_SIZE						320
+#define CELL_SIZE						640

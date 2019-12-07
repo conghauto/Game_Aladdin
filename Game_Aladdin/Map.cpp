@@ -112,7 +112,7 @@ void Map::Draw(float x,float y)
 
 			//tile pos la vi tri de ve tile len camera
 			//tilePos = viewPort->ConvertPosInViewPort(D3DXVECTOR3(j * tileWidth, i * tileHeight + 40, 0));
- 			CGame::GetInstance()->Draw(tileWidth*j, tileHeight*i ,tileSet ,tileRect.left, tileRect.top, tileRect.right, tileRect.bottom);
+ 			CGame::GetInstance()->Draw(tileWidth*j, tileHeight*i,tileSet ,tileRect.left, tileRect.top, tileRect.right, tileRect.bottom);
 			
 			//tileSet->Draw(x, y, 255); //cast pos to int-type to avoid tearing tilemap
 		}
