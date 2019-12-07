@@ -2033,6 +2033,10 @@ void Render()
 		}
 
 		aladdin->Render();
+		if (lv1 == true)
+		{
+			bg->RenderPillar(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+		}
 		bg->Render(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 		spriteHandler->End();
 		d3ddv->EndScene();

@@ -118,11 +118,8 @@ void BG::Render(float x, float y, Aladdin* aladdin)
 	{
 		enemyHPList[i]->Draw(x + 130 + 11 * i, 62, 255);
 	}*/
-	pillar1->Draw(160, 680, 255);
-	pillar2->Draw(463, 863, 255);
-	pillar3->Draw(767, 336, 255);
-	pillar4->Draw(1100, 835, 255);
-	gate->Draw(2070, 60, 255);
+	
+	
 	god_light->Draw(x + 10, y + 10, 255);
 	aladdin_life->Draw(x + 10, y + SCREEN_HEIGHT - 80, 255);
 	spend->Draw(x + SCREEN_WIDTH - 110, y + SCREEN_HEIGHT - 80, 255);
@@ -155,6 +152,16 @@ void BG::Render(float x, float y, Aladdin* aladdin)
 		}
 	}
 }
+
+void BG::RenderPillar(float x, float y, Aladdin* aladdin)
+{
+	pillar1->Draw(160, 680, 255);
+	pillar2->Draw(463, 863, 255);
+	pillar3->Draw(767, 336, 255);
+	pillar4->Draw(1100, 835, 255);
+	gate->Draw(2070, 60, 255);
+}
+
 void BG::RenderText(float x, float y, Aladdin* aladdin)
 {
 	SetRect(&rect_life, 25, SCREEN_HEIGHT - 70, 1000, 1000);
