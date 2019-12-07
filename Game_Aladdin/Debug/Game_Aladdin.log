@@ -1,24 +1,648 @@
-﻿  Apple.cpp
-g:\new\game_aladdin\game_aladdin\define.h(309): warning C4005: 'ID_TEX_GATE': macro redefinition
-  g:\new\game_aladdin\game_aladdin\define.h(301): note: see previous definition of 'ID_TEX_GATE'
-g:\new\game_aladdin\game_aladdin\define.h(342): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\new\game_aladdin\game_aladdin\define.h(339): note: see previous definition of 'BALLBEGIN'
-g:\new\game_aladdin\game_aladdin\define.h(301): warning C4005: 'ID_TEX_GATE': macro redefinition
-  g:\new\game_aladdin\game_aladdin\define.h(309): note: see previous definition of 'ID_TEX_GATE'
-g:\new\game_aladdin\game_aladdin\define.h(309): warning C4005: 'ID_TEX_GATE': macro redefinition
-  g:\new\game_aladdin\game_aladdin\define.h(301): note: see previous definition of 'ID_TEX_GATE'
-g:\new\game_aladdin\game_aladdin\define.h(339): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\new\game_aladdin\game_aladdin\define.h(342): note: see previous definition of 'BALLBEGIN'
-g:\new\game_aladdin\game_aladdin\define.h(342): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\new\game_aladdin\game_aladdin\define.h(339): note: see previous definition of 'BALLBEGIN'
-g:\new\game_aladdin\game_aladdin\aladdin.h(85): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\new\game_aladdin\game_aladdin\aladdin.h(86): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-g:\new\game_aladdin\game_aladdin\define.h(301): warning C4005: 'ID_TEX_GATE': macro redefinition
-  g:\new\game_aladdin\game_aladdin\define.h(309): note: see previous definition of 'ID_TEX_GATE'
-g:\new\game_aladdin\game_aladdin\define.h(309): warning C4005: 'ID_TEX_GATE': macro redefinition
-  g:\new\game_aladdin\game_aladdin\define.h(301): note: see previous definition of 'ID_TEX_GATE'
-g:\new\game_aladdin\game_aladdin\define.h(339): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\new\game_aladdin\game_aladdin\define.h(342): note: see previous definition of 'BALLBEGIN'
-g:\new\game_aladdin\game_aladdin\define.h(342): warning C4005: 'BALLBEGIN': macro redefinition
-  g:\new\game_aladdin\game_aladdin\define.h(339): note: see previous definition of 'BALLBEGIN'
-  Game_Aladdin.vcxproj -> G:\New\Game_Aladdin\Game_Aladdin\Debug\Game_Aladdin.exe
+﻿  Bat.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  BG.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+  BossJafar.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\BG.cpp(154,4): warning C4060: switch statement contains no 'case' or 'default' labels
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  BossSnake.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Camera.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Camera.cpp(6,10): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Camera.cpp(7,10): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Camera.cpp(19,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  FireBullet.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Camera.cpp(22,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Game.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Game.cpp(268,26): warning C4305: '=': truncation from '__int64' to 'float'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Game.cpp(269,24): warning C4305: '=': truncation from '__int64' to 'float'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Game.cpp(279,26): warning C4305: '=': truncation from '__int64' to 'float'
+  GameObject.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Game.cpp(280,24): warning C4305: '=': truncation from '__int64' to 'float'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Grid.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(31,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(32,18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(60,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(61,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(126,21): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(156,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(157,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(181,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(182,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(188,23): warning C4018: '>=': signed/unsigned mismatch
+  ObjectTile.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Grid.cpp(224,20): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\ObjectTile.cpp(46,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\ObjectTile.cpp(29,7): warning C4101: 'id': unreferenced local variable
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\ObjectTile.cpp(30,12): warning C4101: 'y': unreferenced local variable
+  Rock.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\ObjectTile.cpp(30,9): warning C4101: 'x': unreferenced local variable
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Apple.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Map.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Map.cpp(99,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Map.cpp(101,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Map.cpp(115,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Aladdin.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Map.cpp(115,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+  Skeleton.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.cpp(114,19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Soldier.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Source.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(207,18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(214,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1412,22): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1412,50): warning C4804: '>': unsafe use of type 'bool' in operation
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1414,24): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1416,26): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1729,21): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1729,49): warning C4804: '>': unsafe use of type 'bool' in operation
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1731,23): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1733,25): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1805,21): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1816,21): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1826,21): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1919,21): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1932,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1937,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1938,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1946,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1950,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1951,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1960,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1965,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1966,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1974,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1978,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(1979,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(2023,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(2023,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(2024,21): warning C4018: '<': signed/unsigned mismatch
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(2036,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(2036,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(2039,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Spike.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Source.cpp(2039,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Sprites.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Textures.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Generating Code...
+  Compiling...
+  Weapon.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Zombie.cpp
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(86,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Aladdin.h(87,36): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(309,1): warning C4005: 'ID_TEX_GATE': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(301): message : see previous definition of 'ID_TEX_GATE'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339,1): warning C4005: 'BALLBEGIN': macro redefinition
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342): message : see previous definition of 'BALLBEGIN'
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(342,1): warning C4005: 'BALLBEGIN': macro redefinition
+  Generating Code...
+D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\define.h(339): message : see previous definition of 'BALLBEGIN'
+  Game_Aladdin.vcxproj -> D:\game\Game_Aladdin-master\Game_Aladdin-master\Game_Aladdin\Debug\Game_Aladdin.exe

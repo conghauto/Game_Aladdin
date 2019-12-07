@@ -2036,6 +2036,7 @@ void Render()
 		bg->Render(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 		spriteHandler->End();
 		d3ddv->EndScene();
+		bg->RenderText(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 	}
 
 	// Display back buffer content to the screen

@@ -37,10 +37,8 @@ public:
 	DWORD onCheckPointTime;
 	int ny;
 
-	int life;
+	
 	int preHP;
-	int numberapples;
-	int numberspend;
 	bool isLevelUp;
 	bool isBonus;
 	float timePressJump;
@@ -52,18 +50,21 @@ public:
 	static float XforGet;
 	static float YforGet;
 	static int score;
+	static int life;
+	static int numberapples;
+	static int numberspend;
 	static int heartsAmount;
 	int currentWeapon;
 	Aladdin() : CGameObject()
 	{
-		level = 1;
-		untouchable = 0;
-		life = 3;
-		preHP = 10;
-		numberapples = 100;
-		numberspend = 10;
-		currentWeapon = 0;
-		isUseWhip = true;
+		level ;
+		untouchable ;
+		life ;
+		preHP ;
+		numberapples;
+		numberspend ;
+		currentWeapon ;
+		isUseWhip ;
 	}
 
 	virtual void CalcPotentialCollisions(vector<LPGAMEOBJECT> *coObjects, vector<LPCOLLISIONEVENT> &coEvents);
