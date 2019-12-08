@@ -41,6 +41,7 @@ Apple *apple;
 BG* bg;
 CSprite *sprite;
 BossJafar *jafar;
+BossSnake * snake;
 Grid *grid;
 vector<Cell*> currentCell;
 
@@ -1682,13 +1683,13 @@ void LoadResources()
 		//#pragma endregion
 
 #pragma region Skeleton
-		//Skeleton *skeleton = new Skeleton();
-		//skeleton->nx = -1;
-		//skeleton->AddAnimation(607);
-		//skeleton->AddAnimation(608);
-		//skeleton->SetPosition(400, 930);
-		//skeleton->SetState(SKELETON_STATE_IDLE);
-		//grid->AddObject(skeleton);
+		Skeleton *skeleton = new Skeleton();
+		skeleton->nx = -1;
+		skeleton->AddAnimation(607);
+		skeleton->AddAnimation(608);
+		skeleton->SetPosition(400, 930);
+		skeleton->SetState(SKELETON_STATE_IDLE);
+		grid->AddObject(skeleton);
 
 		Skeleton *skeleton1 = new Skeleton();
 		skeleton1->nx = -1;
@@ -1698,7 +1699,8 @@ void LoadResources()
 		skeleton1->SetState(SKELETON_STATE_IDLE);
 		grid->AddObject(skeleton1);
 #pragma endregion
-
+		jafar = new BossJafar();
+		snake = new BossSnake();
 #pragma region Soldier
 		soldier = new Soldier();
 		soldier->nx = 1;
@@ -1728,20 +1730,8 @@ void LoadResources()
 
 #pragma endregion
 
-#pragma region Jafar
-		jafar = new BossJafar();
-		jafar->nx = 1;
-		jafar->AddAnimation(609);
-		jafar->AddAnimation(610);
-		jafar->AddAnimation(611);
-		jafar->AddAnimation(612);
-		jafar->AddAnimation(613);
-		jafar->AddAnimation(614);
-		jafar->SetPosition(600, 930);
-		jafar->SetState(JAFAR_STATE_IDLE);
-		grid->AddObject(jafar);
 
-#pragma endregion
+
 
 #pragma region Fire
 		//Fire *fire = new Fire();
@@ -1825,17 +1815,6 @@ void Update(DWORD dt)
 
 			}
 
-			if (4000 > GetTickCount() - jafar->time_start_shoot &&  GetTickCount() - jafar->time_start_shoot > 3000)
-			{
-				jafar->time_start_shoot = GetTickCount();
-				FireBullet *bullet = new FireBullet();
-				bullet->nx = jafar->nx;
-				bullet->AddAnimation(619);
-				bullet->AddAnimation(620);
-				bullet->SetPosition(jafar->x, jafar->y + 20);
-				bullet->SetState(FIRE_BULLET_STATE_ATTACK);
-				grid->AddObject(bullet);
-			}
 		}
 
 		if (lv2 == true) {
@@ -1850,7 +1829,31 @@ void Update(DWORD dt)
 				/*aladdin->SetPosition(100, 20);*/
 				aladdin->SetState(SIMON_STATE_IDLE);
 				aladdin->GetPosition(x, y);
+
+				jafar->nx = -1;
+				jafar->AddAnimation(609);
+				jafar->AddAnimation(610);
+				jafar->AddAnimation(611);
+				jafar->AddAnimation(612);
+				jafar->AddAnimation(613);
+				jafar->AddAnimation(614);
+				jafar->SetPosition(350, 300);
+				jafar->SetState(JAFAR_STATE_IDLE);
+				grid->AddObject(jafar);
 				
+			}
+
+
+			if ( GetTickCount() - snake->time_start_shoot > 3000 && jafar->GetHP() <= 0)
+			{
+				snake->time_start_shoot = GetTickCount();
+				FireBullet *bullet = new FireBullet();
+				bullet->nx = snake->nx;
+				bullet->AddAnimation(619);
+				bullet->AddAnimation(620);
+				bullet->SetPosition(snake->x, snake->y + 20);
+				bullet->SetState(FIRE_BULLET_STATE_ATTACK);
+				grid->AddObject(bullet);
 			}
 		}
 
@@ -1928,8 +1931,7 @@ void Update(DWORD dt)
 				if (jafar->GetHP() == 0)
 				{
 					listRemoveObjects.push_back(jafar);
-					BossSnake * snake = new BossSnake();
-					snake->SetPosition(600, 915);
+					snake->SetPosition(jafar->x, jafar->y);
 					snake->nx = -1;
 					snake->AddAnimation(615);
 					snake->AddAnimation(616);
@@ -1946,6 +1948,15 @@ void Update(DWORD dt)
 				if (snake->GetHP() == 0)
 				{
 					listRemoveObjects.push_back(snake);
+				}
+			}
+			else if (dynamic_cast<Apple *>(coObjects.at(i)))
+			{
+				Apple* apple = dynamic_cast<Apple *>(coObjects.at(i));
+
+				if (apple->isEaten)
+				{
+					listRemoveObjects.push_back(apple);
 				}
 			}
 			//		item = new Item();
