@@ -125,7 +125,7 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 					apple->appearTime = GetTickCount();
 					apple->firstCast = GetTickCount();
 					//objects.push_back(knife);
-					/*grid->AddObject(apple);*/
+					grid->AddObject(apple);
 					break;
 				}
 			}
@@ -1508,14 +1508,14 @@ void LoadResources()
 										grid->listCells[j]->AddObject(ground);
 									}
 
-									//Rope *rope = new Rope();
-									//if (listObjectsInMap[i]->name == "Rope")
-									//{
-									//	rope->SetPositionAndHeight(listObjectsInMap[i]->x, listObjectsInMap[i]->y, listObjectsInMap[i]->height);
-									//	/*grid->AddObject(rope);*/
-									//	/*rope->cellNumber = grid->listCells[j]->getId();*/
-									//	grid->listCells[j]->AddObject(rope);
-									//}
+									Rope *rope = new Rope();
+									if (listObjectsInMap[i]->name == "Rope")
+									{
+										rope->SetPositionAndHeight(listObjectsInMap[i]->x, listObjectsInMap[i]->y, listObjectsInMap[i]->height);
+										/*grid->AddObject(rope);*/
+										/*rope->cellNumber = grid->listCells[j]->getId();*/
+										grid->listCells[j]->AddObject(rope);
+									}
 
 									// Gắn viên đá - Rock
 									Rock*rock = new Rock();

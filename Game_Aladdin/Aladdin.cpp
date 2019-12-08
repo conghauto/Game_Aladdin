@@ -309,6 +309,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				// Khong va cham theo phuong ngang
 				y -= 2;
 				ny = -1;
+				x = e->obj->x-16;
 				//vy = -0.5;
 				/*vy= -1.0;*/
 				SetState(SIMON_STATE_ONROPE);
