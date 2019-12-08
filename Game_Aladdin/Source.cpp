@@ -26,6 +26,9 @@
 #include "BG.h"
 #include "BossJafar.h"
 #include "BossSnake.h"
+#include "Fire.h"
+#include "FireBullet.h"
+#include "JafarBullet.h"
 CGame *game;
 Aladdin * aladdin;
 Item *item;
@@ -36,7 +39,7 @@ Map *map;
 Apple *apple;
 BG* bg;
 CSprite *sprite;
-
+BossJafar *jafar;
 Grid *grid;
 vector<Cell*> currentCell;
 
@@ -611,6 +614,41 @@ void LoadResources()
 	sprites->Add(17453, 612, 177, 678, 261, texBoss);
 	sprites->Add(17454, 690, 177, 742, 261, texBoss);
 	sprites->Add(17455, 758, 177, 806, 261, texBoss);
+
+
+	sprites->Add(17501, 870, 482, 944, 534, texBoss); //fire bullet right
+	sprites->Add(17502, 958, 482, 1040, 534, texBoss);
+	sprites->Add(17503, 1046, 482, 1146, 534, texBoss);
+	sprites->Add(17504, 1160, 482, 1248, 534, texBoss);
+	sprites->Add(17505, 1260, 482, 1340, 534, texBoss);
+	sprites->Add(17506, 1350, 482, 1424, 534, texBoss);
+	sprites->Add(17507, 1430, 482, 1496, 534, texBoss);
+	sprites->Add(17508, 1506, 482, 1572, 534, texBoss);
+
+
+	sprites->Add(17511, 780, 482, 854, 534, texBoss); //fire bullet left
+	sprites->Add(17512, 688, 482, 768, 534, texBoss);
+	sprites->Add(17513, 580, 482, 680, 534, texBoss);
+	sprites->Add(17514, 478, 482, 568, 534, texBoss);
+	sprites->Add(17515, 384, 482, 464, 534, texBoss);
+	sprites->Add(17516, 302, 482, 376, 534, texBoss);
+	sprites->Add(17517, 230, 482, 296, 534, texBoss);
+	sprites->Add(17518, 154, 482, 220, 534, texBoss);
+
+
+	sprites->Add(17601, 876, 386, 900, 439, texBoss); //fire
+	sprites->Add(17602, 904, 386, 930, 439, texBoss);
+	sprites->Add(17603, 940, 386, 966, 439, texBoss);
+	sprites->Add(17604, 974, 386, 1000, 439, texBoss);
+	sprites->Add(17605, 1012, 386, 1048, 439, texBoss);
+
+	sprites->Add(17701, 1058, 422, 1089, 438, texBoss); //stars
+	sprites->Add(17702, 1098, 422, 1126, 438, texBoss);
+	sprites->Add(17703, 1130, 422, 1160, 438, texBoss); 
+
+	sprites->Add(17711, 1166, 422, 1189, 438, texBoss); //broken stars
+	sprites->Add(17712, 1195, 422, 1219, 438, texBoss);
+	sprites->Add(17713, 1238, 422, 1262, 438, texBoss);
 #pragma endregion
 
 	LPDIRECT3DTEXTURE9 texMisc11 = textures->Get(ID_TEX_KNIFE);
@@ -1205,7 +1243,50 @@ void LoadResources()
 	ani->Add(17455);
 	animations->Add(618, ani);
 
-	ani = new CAnimation(100);	//đất1
+	ani = new CAnimation(100); // fire bullet right
+	ani->Add(17501);
+	ani->Add(17502);
+	ani->Add(17503);
+	ani->Add(17504);
+	ani->Add(17505);
+	ani->Add(17506);
+	ani->Add(17507);
+	ani->Add(17508);
+	animations->Add(619, ani);
+
+	ani = new CAnimation(100); // fire bullet left
+	ani->Add(17511);
+	ani->Add(17512);
+	ani->Add(17513);
+	ani->Add(17514);
+	ani->Add(17515);
+	ani->Add(17516);
+	ani->Add(17517);
+	ani->Add(17518);
+	animations->Add(620, ani);
+
+	ani = new CAnimation(100); // fire 
+	ani->Add(17601);
+	ani->Add(17602);
+	ani->Add(17603);
+	ani->Add(17604);
+	ani->Add(17605);
+	animations->Add(621, ani);
+
+	ani = new CAnimation(100); // stars 
+	ani->Add(17701);
+	ani->Add(17702);
+	ani->Add(17703);
+	animations->Add(622, ani);
+
+
+	ani = new CAnimation(100); // broken stars 
+	ani->Add(17711);
+	ani->Add(17712);
+	ani->Add(17713);
+	animations->Add(623, ani);
+
+	ani = new CAnimation(100);	//đất
 	ani->Add(20001);
 	animations->Add(601, ani);
 
@@ -1646,13 +1727,13 @@ void LoadResources()
 	//#pragma endregion
 	
 	#pragma region Skeleton
-		Skeleton *skeleton = new Skeleton();
-		skeleton->nx = -1;
-		skeleton->AddAnimation(607);
-		skeleton->AddAnimation(608);
-		skeleton->SetPosition(400, 930);
-		skeleton->SetState(SKELETON_STATE_IDLE);
-		grid->AddObject(skeleton);
+		//Skeleton *skeleton = new Skeleton();
+		//skeleton->nx = -1;
+		//skeleton->AddAnimation(607);
+		//skeleton->AddAnimation(608);
+		//skeleton->SetPosition(400, 930);
+		//skeleton->SetState(SKELETON_STATE_IDLE);
+		//grid->AddObject(skeleton);
 
 		Skeleton *skeleton1 = new Skeleton();
 		skeleton1->nx = -1;
@@ -1693,7 +1774,7 @@ void LoadResources()
 	#pragma endregion
 
 #pragma region Jafar
-		BossJafar *jafar = new BossJafar();
+		jafar = new BossJafar();
 		jafar->nx = 1;
 		jafar->AddAnimation(609);
 		jafar->AddAnimation(610);
@@ -1701,11 +1782,22 @@ void LoadResources()
 		jafar->AddAnimation(612);
 		jafar->AddAnimation(613);
 		jafar->AddAnimation(614);
-		jafar->SetPosition(200, 930);
+		jafar->SetPosition(600, 930);
 		jafar->SetState(JAFAR_STATE_IDLE);
 		grid->AddObject(jafar);
+
 #pragma endregion
 
+#pragma region Fire
+		//Fire *fire = new Fire();
+		//fire->AddAnimation(621);
+		//fire->SetPosition(100, 950);
+		//fire->SetState(FIRE_STATE_BURNING);
+		//grid->AddObject(fire);
+
+#pragma endregion
+
+ 
 	#pragma region CheckPoint
 	CheckPoint *checkPoint;
 	checkPoint = new CheckPoint();
@@ -1776,6 +1868,18 @@ void Update(DWORD dt)
 				/*aladdin->isLevelUp = false;
 				aladdin->SetState(SIMON_STATE_IDLE);*/
 
+			}
+
+			if (4000 > GetTickCount() - jafar->time_start_shoot &&  GetTickCount() - jafar->time_start_shoot > 3000)
+			{
+				jafar->time_start_shoot = GetTickCount();
+				FireBullet *bullet = new FireBullet();
+				bullet->nx = jafar->nx;
+				bullet->AddAnimation(619);
+				bullet->AddAnimation(620);
+				bullet->SetPosition(jafar->x, jafar->y + 20);
+				bullet->SetState(FIRE_BULLET_STATE_ATTACK);
+				grid->AddObject(bullet);
 			}
 		}
 
@@ -1851,6 +1955,15 @@ void Update(DWORD dt)
 					listRemoveObjects.push_back(soldier);
 				}
 			}
+			else if (dynamic_cast<FireBullet *>(coObjects.at(i)))
+			{
+				FireBullet*bullet = dynamic_cast<FireBullet *>(coObjects.at(i));
+
+				if (bullet->GetState() == FIRE_BULLET_STATE_DIE)
+				{
+					listRemoveObjects.push_back(bullet);
+				}
+			}
 			else if (dynamic_cast<BossJafar *>(coObjects.at(i)))
 			{
 				BossJafar *jafar = dynamic_cast<BossJafar *>(coObjects.at(i));
@@ -1859,7 +1972,7 @@ void Update(DWORD dt)
 				{
 					listRemoveObjects.push_back(jafar);
 					BossSnake * snake = new BossSnake();
-					snake->SetPosition(200, 915);
+					snake->SetPosition(600, 915);
 					snake->nx = -1;
 					snake->AddAnimation(615);
 					snake->AddAnimation(616);

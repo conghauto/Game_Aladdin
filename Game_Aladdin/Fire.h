@@ -3,7 +3,7 @@
 
 
 
-class FireBullet : public CGameObject
+class Fire : public CGameObject
 {
 	int HP;
 public:
@@ -13,7 +13,7 @@ public:
 	int untouchable;
 	bool isAttack;
 public:
-	FireBullet()
+	Fire()
 	{
 		HP = 5;
 	}

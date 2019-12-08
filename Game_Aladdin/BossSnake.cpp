@@ -51,7 +51,7 @@ void BossSnake::Render()
 	}
 	if (isHurt)
 	{
-		if (nx > 0) ani = SNAKE_ANI_HURT_LEFT;
+		if (nx > 0) ani = SNAKE_ANI_HURT_RIGHT;
 		else
 			ani = SNAKE_ANI_HURT_LEFT;
 	}

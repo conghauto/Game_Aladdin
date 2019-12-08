@@ -15,7 +15,8 @@
 #include "Bat.h"
 #include "BossJafar.h"
 #include "BossSnake.h"
-
+#include "Fire.h"
+#include "FireBullet.h"
 int Aladdin::score = 0;
 int Aladdin::life = 3;
 int Aladdin::numberapples = 50;
@@ -247,6 +248,32 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					else if (e->nx < 0)
 						this->nx = 1;
 
+					SetState(SIMON_STATE_HURT);
+					DesHP();
+					willHurt = true;
+					StartUntouchable();
+				}
+			}
+			else if (dynamic_cast<Fire *>(e->obj))
+			{
+				Fire *fire = dynamic_cast<Fire *>(e->obj);
+				if (untouchable == 0) {
+					//// Đặt hướng hurt
+					//if (e->nx > 0)
+					//	this->nx = -1;
+					//else if (e->nx < 0)
+					//	this->nx = 1;
+
+					SetState(SIMON_STATE_HURT);
+					DesHP();
+					willHurt = true;
+					StartUntouchable();
+				}
+			}
+			else if (dynamic_cast<FireBullet *>(e->obj))
+			{
+				FireBullet *firebullet = dynamic_cast<FireBullet *>(e->obj);
+				if (untouchable == 0) {
 					SetState(SIMON_STATE_HURT);
 					DesHP();
 					willHurt = true;
