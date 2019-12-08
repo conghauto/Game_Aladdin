@@ -22,7 +22,6 @@ int Aladdin::life = 3;
 int Aladdin::numberapples = 50;
 int Aladdin::numberspend = 25;
 int Aladdin::heartsAmount = 5;
-
 /*
 	Calculate potential collisions with the list of colliable objects
 

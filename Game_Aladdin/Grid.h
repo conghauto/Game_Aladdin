@@ -51,6 +51,7 @@ public:
 		listCells[idCell]->listIdObject.push_back(idObject);
 	}
 	void RemoveObject(LPGAMEOBJECT object);
+	bool RemoveObjectInCell(LPGAMEOBJECT object);
 	void InitObjectsAtCell(LPCSTR fileSource);
 
 	static Grid *GetInstance();

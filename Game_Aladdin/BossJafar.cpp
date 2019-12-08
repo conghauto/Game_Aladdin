@@ -37,7 +37,7 @@ void BossJafar::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	float checkY = -this->y + Aladdin::YforGet;
 	if (checkX < 100)
 		this->SetState(JAFAR_STATE_ATTACK);
-	if (checkX > 0) nx = - 1;
+	if (checkX > 0) nx = -1;
 	else nx = 1;
 	////if (check < 0)
 	////{
@@ -114,4 +114,3 @@ void BossJafar::SetState(int state)
 	}
 
 }
-

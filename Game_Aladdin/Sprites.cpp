@@ -122,7 +122,7 @@ void CAnimation::RenderSpike(float x, float y, int alpha)
 	{
 		currentFrame++;
 		lastFrameTime = now;
-		t = frames[currentFrame]->GetTime() + 2500;
+		t = frames[currentFrame]->GetTime() + 1000;
 	}
 	else
 	{
@@ -136,7 +136,7 @@ void CAnimation::RenderSpike(float x, float y, int alpha)
 			{
 				status = 1;
 				currentFrame = frames.size() - 1;
-				t = frames[currentFrame]->GetTime() + 5000;
+				t = frames[currentFrame]->GetTime() + 2000;
 			}
 		}
 		if (now - lastFrameTime > t&& status == 1)
@@ -149,7 +149,7 @@ void CAnimation::RenderSpike(float x, float y, int alpha)
 			{
 				status = 0;
 				currentFrame = 0;
-				t = frames[currentFrame]->GetTime() + 5000;
+				t = frames[currentFrame]->GetTime() + 2000;
 			}
 		}
 	}
