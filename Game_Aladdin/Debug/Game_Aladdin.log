@@ -1,6 +1,14 @@
-﻿  Apple.cpp
+﻿  BossSnake.cpp
 g:\new\game_aladdin\game_aladdin\define.h(309): warning C4005: 'ID_TEX_GATE': macro redefinition
   g:\new\game_aladdin\game_aladdin\define.h(301): note: see previous definition of 'ID_TEX_GATE'
+g:\new\game_aladdin\game_aladdin\define.h(342): warning C4005: 'BALLBEGIN': macro redefinition
+  g:\new\game_aladdin\game_aladdin\define.h(339): note: see previous definition of 'BALLBEGIN'
+g:\new\game_aladdin\game_aladdin\define.h(301): warning C4005: 'ID_TEX_GATE': macro redefinition
+  g:\new\game_aladdin\game_aladdin\define.h(309): note: see previous definition of 'ID_TEX_GATE'
+g:\new\game_aladdin\game_aladdin\define.h(309): warning C4005: 'ID_TEX_GATE': macro redefinition
+  g:\new\game_aladdin\game_aladdin\define.h(301): note: see previous definition of 'ID_TEX_GATE'
+g:\new\game_aladdin\game_aladdin\define.h(339): warning C4005: 'BALLBEGIN': macro redefinition
+  g:\new\game_aladdin\game_aladdin\define.h(342): note: see previous definition of 'BALLBEGIN'
 g:\new\game_aladdin\game_aladdin\define.h(342): warning C4005: 'BALLBEGIN': macro redefinition
   g:\new\game_aladdin\game_aladdin\define.h(339): note: see previous definition of 'BALLBEGIN'
 g:\new\game_aladdin\game_aladdin\define.h(301): warning C4005: 'ID_TEX_GATE': macro redefinition
