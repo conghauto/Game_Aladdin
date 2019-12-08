@@ -13,7 +13,7 @@ class BG
 {
 private:
 	ID3DXFont* font;
-	RECT rect;
+	RECT rect_life, rect_spend, rect_apple;
 	Aladdin* aladdin;
 	D3DXFONT_DESC desc;
 
@@ -69,8 +69,10 @@ public:
 	//void Update(int bossHP, int time, int life, int stage);
 	void Update(int time, int stage, Aladdin* aladdin);
 	void Render(float x, float y, Aladdin* aladdin);
-	LPDIRECT3DTEXTURE9 LoadTexture(char* file, D3DCOLOR);
-	void drawFont(ID3DXFont* font, float x, float y, float width, float height, int value);
+	void RenderPillar(float x, float y, Aladdin* aladdin);
+	void RenderText(float x, float y, Aladdin* aladdin);
+	//LPDIRECT3DTEXTURE9 LoadTexture(char* file, D3DCOLOR);
+	//void drawFont(ID3DXFont* font, float x, float y, float width, float height, int value);
 	CSprite* axe;
 };
 

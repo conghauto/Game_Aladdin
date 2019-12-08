@@ -12,9 +12,11 @@ public:
 	bool isDead;
 	int untouchable;
 	bool isAttack;
+	float time_start_shoot;
 public:
 	BossJafar()
 	{
+		this->time_start_shoot = GetTickCount();
 		HP = 5;
 	}
 	virtual void SetState(int state);

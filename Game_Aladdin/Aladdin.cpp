@@ -15,8 +15,12 @@
 #include "Bat.h"
 #include "BossJafar.h"
 #include "BossSnake.h"
-
+#include "Fire.h"
+#include "FireBullet.h"
 int Aladdin::score = 0;
+int Aladdin::life = 3;
+int Aladdin::numberapples = 50;
+int Aladdin::numberspend = 25;
 int Aladdin::heartsAmount = 5;
 /*
 	Calculate potential collisions with the list of colliable objects
@@ -249,6 +253,32 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					StartUntouchable();
 				}
 			}
+			else if (dynamic_cast<Fire *>(e->obj))
+			{
+				Fire *fire = dynamic_cast<Fire *>(e->obj);
+				if (untouchable == 0) {
+					//// Đặt hướng hurt
+					//if (e->nx > 0)
+					//	this->nx = -1;
+					//else if (e->nx < 0)
+					//	this->nx = 1;
+
+					SetState(SIMON_STATE_HURT);
+					DesHP();
+					willHurt = true;
+					StartUntouchable();
+				}
+			}
+			else if (dynamic_cast<FireBullet *>(e->obj))
+			{
+				FireBullet *firebullet = dynamic_cast<FireBullet *>(e->obj);
+				if (untouchable == 0) {
+					SetState(SIMON_STATE_HURT);
+					DesHP();
+					willHurt = true;
+					StartUntouchable();
+				}
+			}
 			else if (dynamic_cast<Rock*>(e->obj))
 			{
 				// Da cham dat
@@ -279,6 +309,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				// Khong va cham theo phuong ngang
 				y -= 2;
 				ny = -1;
+				x = e->obj->x-16;
 				//vy = -0.5;
 				/*vy= -1.0;*/
 				SetState(SIMON_STATE_ONROPE);

@@ -26,6 +26,9 @@
 #include "BG.h"
 #include "BossJafar.h"
 #include "BossSnake.h"
+#include "Fire.h"
+#include "FireBullet.h"
+#include "JafarBullet.h"
 CGame *game;
 Aladdin * aladdin;
 Item *item;
@@ -34,9 +37,10 @@ Soldier *soldier;
 Soldier *soldier1;
 Map *map;
 Apple *apple;
+
 BG* bg;
 CSprite *sprite;
-
+BossJafar *jafar;
 Grid *grid;
 vector<Cell*> currentCell;
 
@@ -255,6 +259,7 @@ void LoadResources()
 	textures->Add(ID_TEX_SKELETON, L"Resources\\skeleton.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ROCK, L"Resources\\rock.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_TILESET, L"Resources\\tileset.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_TILESET_2, L"Resources\\tileset1.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_GUARDIAN, L"Resources\\enemy.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_PILLAR1, L"Resources\\pillar_1.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_PILLAR2, L"Resources\\pillar_2.png", D3DCOLOR_XRGB(163, 73, 164));
@@ -544,6 +549,7 @@ void LoadResources()
 	sprites->Add(17216, 412, 124, 490, 204, texSkeleton);
 	sprites->Add(17217, 294, 124, 386, 204, texSkeleton);
 	sprites->Add(17218, 214, 124, 276, 204, texSkeleton);
+
 	//boss jafar
 	sprites->Add(17301, 869, 8, 935, 81, texBoss); //jafar dung phai
 
@@ -552,7 +558,7 @@ void LoadResources()
 	//jafar danh phai
 	sprites->Add(17321, 942, 8, 1000, 81, texBoss);
 	sprites->Add(17322, 1006, 8, 1064, 81, texBoss);
-	sprites->Add(17323, 1069, 8, 1122, 81, texBoss); 
+	sprites->Add(17323, 1069, 8, 1122, 81, texBoss);
 	sprites->Add(17324, 1132, 8, 1200, 81, texBoss);
 	sprites->Add(17325, 1206, 8, 1288, 81, texBoss);
 	sprites->Add(17326, 1302, 8, 1388, 81, texBoss);
@@ -611,6 +617,41 @@ void LoadResources()
 	sprites->Add(17453, 612, 177, 678, 261, texBoss);
 	sprites->Add(17454, 690, 177, 742, 261, texBoss);
 	sprites->Add(17455, 758, 177, 806, 261, texBoss);
+
+
+	sprites->Add(17501, 870, 482, 944, 534, texBoss); //fire bullet right
+	sprites->Add(17502, 958, 482, 1040, 534, texBoss);
+	sprites->Add(17503, 1046, 482, 1146, 534, texBoss);
+	sprites->Add(17504, 1160, 482, 1248, 534, texBoss);
+	sprites->Add(17505, 1260, 482, 1340, 534, texBoss);
+	sprites->Add(17506, 1350, 482, 1424, 534, texBoss);
+	sprites->Add(17507, 1430, 482, 1496, 534, texBoss);
+	sprites->Add(17508, 1506, 482, 1572, 534, texBoss);
+
+
+	sprites->Add(17511, 780, 482, 854, 534, texBoss); //fire bullet left
+	sprites->Add(17512, 688, 482, 768, 534, texBoss);
+	sprites->Add(17513, 580, 482, 680, 534, texBoss);
+	sprites->Add(17514, 478, 482, 568, 534, texBoss);
+	sprites->Add(17515, 384, 482, 464, 534, texBoss);
+	sprites->Add(17516, 302, 482, 376, 534, texBoss);
+	sprites->Add(17517, 230, 482, 296, 534, texBoss);
+	sprites->Add(17518, 154, 482, 220, 534, texBoss);
+
+
+	sprites->Add(17601, 876, 386, 900, 439, texBoss); //fire
+	sprites->Add(17602, 904, 386, 930, 439, texBoss);
+	sprites->Add(17603, 940, 386, 966, 439, texBoss);
+	sprites->Add(17604, 974, 386, 1000, 439, texBoss);
+	sprites->Add(17605, 1012, 386, 1048, 439, texBoss);
+
+	sprites->Add(17701, 1058, 422, 1089, 438, texBoss); //stars
+	sprites->Add(17702, 1098, 422, 1126, 438, texBoss);
+	sprites->Add(17703, 1130, 422, 1160, 438, texBoss); 
+
+	sprites->Add(17711, 1166, 422, 1189, 438, texBoss); //broken stars
+	sprites->Add(17712, 1195, 422, 1219, 438, texBoss);
+	sprites->Add(17713, 1238, 422, 1262, 438, texBoss);
 #pragma endregion
 
 	LPDIRECT3DTEXTURE9 texMisc11 = textures->Get(ID_TEX_KNIFE);
@@ -1205,7 +1246,50 @@ void LoadResources()
 	ani->Add(17455);
 	animations->Add(618, ani);
 
-	ani = new CAnimation(100);	//đất1
+	ani = new CAnimation(100); // fire bullet right
+	ani->Add(17501);
+	ani->Add(17502);
+	ani->Add(17503);
+	ani->Add(17504);
+	ani->Add(17505);
+	ani->Add(17506);
+	ani->Add(17507);
+	ani->Add(17508);
+	animations->Add(619, ani);
+
+	ani = new CAnimation(100); // fire bullet left
+	ani->Add(17511);
+	ani->Add(17512);
+	ani->Add(17513);
+	ani->Add(17514);
+	ani->Add(17515);
+	ani->Add(17516);
+	ani->Add(17517);
+	ani->Add(17518);
+	animations->Add(620, ani);
+
+	ani = new CAnimation(100); // fire 
+	ani->Add(17601);
+	ani->Add(17602);
+	ani->Add(17603);
+	ani->Add(17604);
+	ani->Add(17605);
+	animations->Add(621, ani);
+
+	ani = new CAnimation(100); // stars 
+	ani->Add(17701);
+	ani->Add(17702);
+	ani->Add(17703);
+	animations->Add(622, ani);
+
+
+	ani = new CAnimation(100); // broken stars 
+	ani->Add(17711);
+	ani->Add(17712);
+	ani->Add(17713);
+	animations->Add(623, ani);
+
+	ani = new CAnimation(100);	//đất
 	ani->Add(20001);
 	animations->Add(601, ani);
 
@@ -1393,8 +1477,8 @@ void LoadResources()
 			//objects.push_back(aladdin);
 
 		// khởi tạo grid
-		grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
-		aladdin->SetPosition(0, 850);
+	grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
+	aladdin->SetPosition(850, 50);
 		//grid->AddObject(aladdin);
 
 	#pragma endregion
@@ -1403,19 +1487,14 @@ void LoadResources()
 		listObjectsInMap = lsObjs->getObjectsInFile("Resources\\objects.txt");
 		grid->InitObjectsAtCell("Resources\\o_grid.txt");
 
-		int count = 1;
-		int countRocks = 1;
-		int countSpikes = 1;
-		int countDumbbells = 1;
-
 		if (grid->listCells.size() > 0) {
-			for (int j = 0; j < grid->listCells.size() > 0; j++) {
+			for (int j = 0; j < grid->listCells.size(); j++) {
 				if (grid->listCells[j]->listIdObject.size() > 0) {
 					for (int k = 0; k < grid->listCells[j]->listIdObject.size(); k++) {
 						if (listObjectsInMap.size() > 0) {
-							for (int i = 0; i < listObjectsInMap.size(); i++)
+							int p = grid->listCells[j]->listIdObject[k];
+							for (int i = p-1; i < listObjectsInMap.size(); i++)
 							{
-								int p = grid->listCells[j]->listIdObject[k];
 								int l = listObjectsInMap[i]->id;
 								if ((p) == l) {
 									// Gắn đường đi - Ground
@@ -1423,7 +1502,8 @@ void LoadResources()
 									if (listObjectsInMap[i]->name == "Ground")
 									{
 										ground->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
-										/*ground->cellNumber = grid->listCells[j]->getId();*/
+										//ground->cellNumber = grid->listCells[j]->getId();
+										//ground->id= listObjectsInMap[i]->id;
 										/*grid->AddObject(ground);*/
 										grid->listCells[j]->AddObject(ground);
 									}
@@ -1437,124 +1517,80 @@ void LoadResources()
 										grid->listCells[j]->AddObject(rope);
 									}
 
-									//Pillar*pillar = new Pillar();
-									//if (listObjectsInMap[i]->name == "Pillar")
-									//{
-									//	if (count == 1) {
-									//		pillar->AddAnimation(1000);
-									//	}
-									//	else if (count == 2) {
-									//		pillar->AddAnimation(1001);
-									//	}
-									//	else if (count == 3) {
-									//		pillar->AddAnimation(1002);
-									//	}
-									//	else if (count == 4) {
-									//		pillar->AddAnimation(1003);
-									//	}
-
-									//	pillar->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
-									//	/*grid->AddObject(pillar);*/
-									//	grid->listCells[j]->AddObject(pillar);
-									//	count++;
-									//}
-
-									//// Gắn viên đá - Rock
+									// Gắn viên đá - Rock
 									Rock*rock = new Rock();
 									if (listObjectsInMap[i]->name == "Rock")
 									{
-										if ((countRocks == 1) || (countRocks == 2) || (countRocks == 6) || (countRocks == 8) || (countRocks == 10)
-											|| (countRocks == 23) || (countRocks == 25) || (countRocks == 27) || (countRocks == 29) || (countRocks == 31))
+										int id = listObjectsInMap[i]->id;
+										if ((id == 160) || (id==161) || (id==163) || (id == 168) || (id == 265) || (id == 266) || (id == 470)
+											|| (id == 353) || (id == 355) || (id == 357) || (id == 359) || (id == 361) || (id == 363)
+											|| (id == 456) || (id == 458) || (id == 460) || (id == 462) || (id == 464) || (id == 466) || (id == 468))
 										{
 											rock->AddAnimation(990);
 											rock->name = "rock1";
 										}
-										else if ((countRocks == 12) || (countRocks == 13) || (countRocks == 21)
-											|| (countRocks == 15) || (countRocks == 17) || (countRocks == 18) || (countRocks == 19))
-										{
-											rock->AddAnimation(990);
-											rock->name = "rock1";
-										}
-										else if ((countRocks == 4) || (countRocks == 3) || (countRocks == 5) || (countRocks == 7) || (countRocks == 16) || (countRocks == 22) || (countRocks == 26)
-											|| (countRocks == 9) || (countRocks == 11) || (countRocks == 14) || (countRocks == 20) || (countRocks == 24)
-											|| (countRocks == 28) || (countRocks == 30) || (countRocks == 32))
+										else if((id == 162)||(id==164)||(id==167) || (id == 262)||(id==263) || (id == 362)
+											||(id==264) || (id == 352) || (id == 354) || (id == 356) || (id == 360)
+											|| (id == 457) || (id == 459) || (id == 461) || (id == 463) || (id == 465) || (id == 467))
 										{
 											rock->AddAnimation(991);
 											rock->name = "rock2";
-										}
-										else if (countRocks % 2 == 0) {
-											rock->AddAnimation(991);
-											rock->name = "rock2";
-										}
-										else
-										{
-											rock->AddAnimation(990);
-											rock->name = "rock1";
 										}
 
 										rock->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
 										/*grid->AddObject(rock);*/
-										rock->cellNumber = grid->listCells[j]->getId();
+										//rock->id = id;
+										//rock->cellNumber = grid->listCells[j]->getId();
 										grid->listCells[j]->AddObject(rock);
-										countRocks++;
 									}
 
-									//// Gắn mũi nhọn - Spike
+									// Gắn mũi nhọn - Spike
 									Spike*spike = new Spike();
 									if (listObjectsInMap[i]->name == "Spike")
 									{
-										if ((countSpikes == 1) || (countSpikes == 2)) {
+										int id = listObjectsInMap[i]->id;
+										if (id == 155 || id == 156 ||id==165||id==166|| id==267 || id == 469) {
 											spike->AddAnimation(992);
 											spike->name = "spike1";
 										}
-										else if ((countSpikes == 3) || (countSpikes == 4)) {
-											spike->AddAnimation(993);
-											spike->name = "spike2";
-										}
-										else {
+										else if (id == 153 || id == 154|| id==219 || id==220 || id == 358
+											|| id == 451 || id == 452 || id == 453 || id == 454 || id == 455) {
 											spike->AddAnimation(993);
 											spike->name = "spike2";
 										}
 
 										spike->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
 										/*grid->AddObject(spike);*/
-										/*spike->cellNumber = grid->listCells[j]->getId();*/
+										//spike->id = id;
+										//spike->cellNumber = grid->listCells[j]->getId();
 										grid->listCells[j]->AddObject(spike);
-										countSpikes++;
 									}
 
 									//// Gắn quả tạ - Dumbbell
 									Dumbbell*dumbbell = new Dumbbell();
 									if (listObjectsInMap[i]->name == "Dumbbell")
 									{
-										if ((countDumbbells == 1) || (countDumbbells == 4) || (countDumbbells == 6)) {
+										int id = listObjectsInMap[i]->id;
+										if ((id == 157)|| (id == 215)|| (id == 217)) {
 											dumbbell->AddAnimation(994);
 											dumbbell->name = "dumbbell1";
 										}
-										else if ((countDumbbells == 2) || (countDumbbells == 7)) {
+										else if ((id == 158) || (id == 216) || (id == 218)) {
 											dumbbell->AddAnimation(995);
 											dumbbell->name = "dumbbell2";
 										}
-										else if ((countDumbbells == 3) || (countDumbbells == 5)) {
+										else if ((id == 159)) {
 											dumbbell->AddAnimation(996);
 											dumbbell->name = "dumbbell3";
 										}
 
 										dumbbell->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
 										/*grid->AddObject(dumbbell);*/
-										/*dumbbell->cellNumber = grid->listCells[j]->getId();*/
+										//dumbbell->id = id;
+										//dumbbell->cellNumber = grid->listCells[j]->getId();
 										grid->listCells[j]->AddObject(dumbbell);
-										countDumbbells++;
 									}
 
-									/*CheckPoint*checkPoint = new CheckPoint();
-									if (listObjectsInMap[i]->name == "Gate")
-									{
-										checkPoint->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
-										checkPoint->AddAnimation(5555);
-										checkPoint->cellNumber = grid->listCells[j]->getId();
-										grid->listCells[j]->AddObject(checkPoint);
-									}*/
 									break;
 								}
 							}
@@ -1566,7 +1602,7 @@ void LoadResources()
 
 	#pragma endregion
 
-	#pragma region Zombie
+#pragma region Zombie
 		Zombie *zombie = new Zombie();
 		zombie->nx = -1;
 		zombie->AddAnimation(551);
@@ -1620,9 +1656,9 @@ void LoadResources()
 		grid->AddObject(zombie3);
 
 
-	#pragma endregion
+#pragma endregion
 
-	//#pragma region Bat
+		//#pragma region Bat
 		Bat *bat1 = new Bat();
 		bat1->AddAnimation(605);
 		bat1->AddAnimation(606);
@@ -1643,27 +1679,27 @@ void LoadResources()
 		bat3->SetPosition(1372, 848);
 		bat3->SetState(BAT_STATE_WAIT);
 		grid->AddObject(bat3);
-	//#pragma endregion
-	
-	#pragma region Skeleton
-		Skeleton *skeleton = new Skeleton();
-		skeleton->nx = -1;
-		skeleton->AddAnimation(607);
-		skeleton->AddAnimation(608);
-		skeleton->SetPosition(400, 930);
-		skeleton->SetState(SKELETON_STATE_IDLE);
-		grid->AddObject(skeleton);
+		//#pragma endregion
+
+#pragma region Skeleton
+		//Skeleton *skeleton = new Skeleton();
+		//skeleton->nx = -1;
+		//skeleton->AddAnimation(607);
+		//skeleton->AddAnimation(608);
+		//skeleton->SetPosition(400, 930);
+		//skeleton->SetState(SKELETON_STATE_IDLE);
+		//grid->AddObject(skeleton);
 
 		Skeleton *skeleton1 = new Skeleton();
 		skeleton1->nx = -1;
 		skeleton1->AddAnimation(607);
 		skeleton1->AddAnimation(608);
-		skeleton1->SetPosition(750, 750	);
+		skeleton1->SetPosition(750, 750);
 		skeleton1->SetState(SKELETON_STATE_IDLE);
 		grid->AddObject(skeleton1);
-	#pragma endregion
+#pragma endregion
 
-	#pragma region Soldier
+#pragma region Soldier
 		soldier = new Soldier();
 		soldier->nx = 1;
 		soldier->AddAnimation(563);
@@ -1690,10 +1726,10 @@ void LoadResources()
 		//objects.push_back(zombie1);
 		grid->AddObject(soldier1);
 
-	#pragma endregion
+#pragma endregion
 
 #pragma region Jafar
-		BossJafar *jafar = new BossJafar();
+		jafar = new BossJafar();
 		jafar->nx = 1;
 		jafar->AddAnimation(609);
 		jafar->AddAnimation(610);
@@ -1701,18 +1737,28 @@ void LoadResources()
 		jafar->AddAnimation(612);
 		jafar->AddAnimation(613);
 		jafar->AddAnimation(614);
-		jafar->SetPosition(200, 930);
+		jafar->SetPosition(600, 930);
 		jafar->SetState(JAFAR_STATE_IDLE);
 		grid->AddObject(jafar);
+
 #pragma endregion
 
-	#pragma region CheckPoint
+#pragma region Fire
+		//Fire *fire = new Fire();
+		//fire->AddAnimation(621);
+		//fire->SetPosition(100, 950);
+		//fire->SetState(FIRE_STATE_BURNING);
+		//grid->AddObject(fire);
+
+#pragma endregion
+
+ 	#pragma region CheckPoint
 	CheckPoint *checkPoint;
 	checkPoint = new CheckPoint();
 	checkPoint->SetType(CHECKPOINT_LEVELUP);
 	checkPoint->SetPosition(2071, 62);
-	checkPoint->cellNumber = grid->listCells[6]->getId();
-	grid->listCells[6]->AddObject(checkPoint);
+	//checkPoint->cellNumber = grid->listCells[3]->getId();
+	grid->listCells[3]->AddObject(checkPoint);
 	/*grid->AddObject(checkPoint);*/
 #pragma endregion
 	LPDIRECT3DDEVICE9 d3ddv = game->GetDirect3DDevice();
@@ -1740,7 +1786,7 @@ void LoadResourceLv2()
 								if (listObjectsInMap[i]->name == "Ground")
 								{
 									ground->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
-									ground->cellNumber = grid->listCells[j]->getId();
+									/*ground->cellNumber = grid->listCells[j]->getId();*/
 									/*grid->AddObject(ground);*/
 									grid->listCells[j]->AddObject(ground);
 								}
@@ -1770,12 +1816,25 @@ void Update(DWORD dt)
 				//aladdin->SetState(SIMON_STATE_WALK);
 
 				grid->ReleaseList();
+				/*delete bg;*/
 
 				lv2 = true;
 				lv1 = false;
 				/*aladdin->isLevelUp = false;
 				aladdin->SetState(SIMON_STATE_IDLE);*/
 
+			}
+
+			if (4000 > GetTickCount() - jafar->time_start_shoot &&  GetTickCount() - jafar->time_start_shoot > 3000)
+			{
+				jafar->time_start_shoot = GetTickCount();
+				FireBullet *bullet = new FireBullet();
+				bullet->nx = jafar->nx;
+				bullet->AddAnimation(619);
+				bullet->AddAnimation(620);
+				bullet->SetPosition(jafar->x, jafar->y + 20);
+				bullet->SetState(FIRE_BULLET_STATE_ATTACK);
+				grid->AddObject(bullet);
 			}
 		}
 
@@ -1788,8 +1847,10 @@ void Update(DWORD dt)
 				aladdin->SetPosition(50, 50);
 				LoadResourceLv2();
 				countLoadResourceLv2 = true;
-				aladdin->SetPosition(100, 20);
+				/*aladdin->SetPosition(100, 20);*/
+				aladdin->SetState(SIMON_STATE_IDLE);
 				aladdin->GetPosition(x, y);
+				
 			}
 		}
 
@@ -1851,6 +1912,15 @@ void Update(DWORD dt)
 					listRemoveObjects.push_back(soldier);
 				}
 			}
+			else if (dynamic_cast<FireBullet *>(coObjects.at(i)))
+			{
+				FireBullet*bullet = dynamic_cast<FireBullet *>(coObjects.at(i));
+
+				if (bullet->GetState() == FIRE_BULLET_STATE_DIE)
+				{
+					listRemoveObjects.push_back(bullet);
+				}
+			}
 			else if (dynamic_cast<BossJafar *>(coObjects.at(i)))
 			{
 				BossJafar *jafar = dynamic_cast<BossJafar *>(coObjects.at(i));
@@ -1859,7 +1929,7 @@ void Update(DWORD dt)
 				{
 					listRemoveObjects.push_back(jafar);
 					BossSnake * snake = new BossSnake();
-					snake->SetPosition(200, 915);
+					snake->SetPosition(600, 915);
 					snake->nx = -1;
 					snake->AddAnimation(615);
 					snake->AddAnimation(616);
@@ -1878,7 +1948,6 @@ void Update(DWORD dt)
 					listRemoveObjects.push_back(snake);
 				}
 			}
-
 			//		item = new Item();
 			//		item->SetPosition(zombie->x, zombie->y);
 			//		item->SetSpeed(0, -0.1);
@@ -2009,7 +2078,7 @@ void Render()
 		if (lv1 == true)
 		{
 
-			map = new	Map(/*48, 10,*/ tileset, 16, 16);
+			map = new	Map(/*48, 10,*/ tileset, 32, 32);
 			map->LoadMatrixMap("Resources\\Mapstate.txt");
 			//map->Draw(game->x_cam, game->y_cam);
 		}
@@ -2033,9 +2102,14 @@ void Render()
 		}
 
 		aladdin->Render();
+		if (lv1 == true)
+		{
+			bg->RenderPillar(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+		}
 		bg->Render(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 		spriteHandler->End();
 		d3ddv->EndScene();
+		bg->RenderText(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 	}
 
 	// Display back buffer content to the screen

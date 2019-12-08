@@ -26,19 +26,19 @@ void Zombie::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		return;
 	}
 
-	if (isHurt && GetTickCount() - hurtTime >= 600) 
+	if (isHurt && GetTickCount() - hurtTime >= 600)
 	{
 		isHurt = false;
 		isAttack = true;
 	}
-	
+
 
 	if (vx < 0 && x < 0) {
 		x = 0; vx = -vx;
 	}
 
 	if (vx > 0 && x > 600) {
-		x = 600; 
+		x = 600;
 		vx = -vx;
 	}
 	float checkX = this->x - Aladdin::XforGet;
@@ -55,33 +55,33 @@ void Zombie::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 
 void Zombie::Render()
 {
-	int ani ;
-	
-	if (GetHP() == 0) 
+	int ani;
+
+	if (GetHP() == 0)
 	{
 
 		return;
 	}
 	if (isHurt)
-		{
-			if (nx > 0) ani = GUARDIAN_ANI_HURT_RIGHT;
-			else
-				ani = GUARDIAN_ANI_HURT_LEFT;
-		}
+	{
+		if (nx > 0) ani = GUARDIAN_ANI_HURT_RIGHT;
+		else
+			ani = GUARDIAN_ANI_HURT_LEFT;
+	}
 	if (state == GUARDIAN_STATE_IDLE)
 	{
 		if (nx > 0) ani = GUARDIAN_ANI_IDLE_RIGHT;
 		else
 			ani = GUARDIAN_ANI_IDLE_LEFT;
 	}
-	else 
-	if (isAttack){
-		if (nx > 0)
-			ani = GUARDIAN_ANI_ATTACKING_RIGHT;
-		else
-			ani = GUARDIAN_ANI_ATTACKING_LEFT;
-	
-	}
+	else
+		if (isAttack) {
+			if (nx > 0)
+				ani = GUARDIAN_ANI_ATTACKING_RIGHT;
+			else
+				ani = GUARDIAN_ANI_ATTACKING_LEFT;
+
+		}
 	animations[ani]->Render(x, y);
 	RenderBoundingBox();
 }
@@ -120,4 +120,3 @@ void Zombie::SetState(int state)
 	}
 
 }
-

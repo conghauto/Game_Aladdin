@@ -55,13 +55,13 @@ void BossSnake::Render()
 		else
 			ani = SNAKE_ANI_HURT_LEFT;
 	}
-		if (isAttack) {
-			if (nx > 0)
-				ani = SNAKE_ANI_ATTACKING_RIGHT;
-			else
-				ani = SNAKE_ANI_ATTACKING_LEFT;
+	if (isAttack) {
+		if (nx > 0)
+			ani = SNAKE_ANI_ATTACKING_RIGHT;
+		else
+			ani = SNAKE_ANI_ATTACKING_LEFT;
 
-		}
+	}
 	animations[ani]->Render(x, y);
 	RenderBoundingBox();
 }
@@ -78,12 +78,12 @@ void BossSnake::SetState(int state)
 		isAttack = false;
 		isHurt = false;
 		break;
-	//case SNAKE_STATE_IDLE:
-	//	vx = 0;
-	//	vy = 0;
-	//	isHurt = false;
-	//	isAttack = false;
-	//	break;
+		//case SNAKE_STATE_IDLE:
+		//	vx = 0;
+		//	vy = 0;
+		//	isHurt = false;
+		//	isAttack = false;
+		//	break;
 	case SNAKE_STATE_HURT:
 		DescHP();
 		isHurt = true;
@@ -100,4 +100,3 @@ void BossSnake::SetState(int state)
 	}
 
 }
-

@@ -80,6 +80,7 @@ void Grid::AddObject(LPGAMEOBJECT object)
 	listCells[cellCurrent]->AddObject(object);
 }
 
+
 void Grid::RemoveObject(LPGAMEOBJECT object)
 {
 	Cell *cell = listCells[object->cellNumber];
@@ -102,6 +103,7 @@ void Grid::RemoveObject(LPGAMEOBJECT object)
 		cell->RemoveObject(objectNumber);
 	}
 }
+
 
 void Grid::InitObjectsAtCell(LPCSTR fileSource)
 {
@@ -160,17 +162,19 @@ vector<Cell*> Grid::GetCurrentCells(float x,float y)
 
 	// Trường hợp màn hình game nằm giữa 2 Cell
 	result.push_back(listCells[cellCurrent]);
-	if (cellCurrent > 0) {
+	if (cellCurrent > 0){
 		result.push_back(listCells[cellCurrent - 1]);
 	}
-	if (cellCurrent < cellCountInRow) {
+	if (cellCurrent < cellCountInRow-1) {
 		result.push_back(listCells[cellCurrent + 1]);
-		result.push_back(listCells[cellCurrent + 2]);
 	}
-	if (cellY_Number > 0)
+	if (cellY_Number > 0&&cellY_Number< cellCountInColumn-1) {
 		result.push_back(listCells[cellCurrent - cellCountInRow]);
-	if (cellY_Number< cellCountInColumn)
+	}
+
+	if (cellY_Number==0 && cellY_Number < cellCountInColumn - 1) {
 		result.push_back(listCells[cellCurrent + cellCountInRow]);
+	}
 
 	return result;
 }
@@ -181,7 +185,7 @@ void Grid::UpdateObjectInCell(LPGAMEOBJECT object)
 	int cellX_Number = floor(object->x / CELL_SIZE);
 	int cellY_Number = floor(object->y / CELL_SIZE);
 
-	int cellCurrent = cellY_Number > 0 ? (cellX_Number + cellCountInRow*cellY_Number) : cellX_Number;
+	int cellCurrent = cellY_Number > 0 ? (cellX_Number + cellCountInRow * cellY_Number) : cellX_Number;
 
 	if (cellCurrent < 0)
 		cellCurrent = 0;
@@ -196,6 +200,38 @@ void Grid::UpdateObjectInCell(LPGAMEOBJECT object)
 		// Đổi cellCurrent hiện tại của object và thêm object vào cell mới
 		object->cellNumber = cellCurrent;
 		listCells[cellCurrent]->AddObject(object);
+	}
+}
+
+bool Grid::RemoveObjectInCell(LPGAMEOBJECT object) {
+
+	if (object->cellNumber >= 0 && object->cellNumber <= 7) {
+		Cell *cell = listCells[object->cellNumber];
+		int listObjectSize = cell->listObject.size();
+		int objectNumber = -1;
+
+		// Duyệt qua từng phần tử trong gridObjects để lấy chỉ số của object
+		for (int i = 0; i < listObjectSize; i++)
+		{
+			if (cell->listObject[i] == object)
+			{
+				objectNumber = i;
+				break;
+			}
+		}
+
+		// Nếu tồn tại object trong gridObjects thì chỉ số sẽ khác -1
+		if (objectNumber != -1)
+		{
+			cell->RemoveObject(objectNumber);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	else {
+		return false;
 	}
 }
 
@@ -215,11 +251,13 @@ void Grid::ReleaseList()
 		}
 	}
 
-	/*for (int i = 0; i < listRemoveObjects.size(); i++)
+	for (int i = 0; i < listRemoveObjects.size(); i++)
 	{
-		RemoveObject(listRemoveObjects[i]);
-		delete listRemoveObjects[i];
-	}*/
+		if (RemoveObjectInCell(listRemoveObjects[i])) {
+
+			delete listRemoveObjects[i];
+		}
+	}
 
 	for (int i = 0; i < listCells.size(); )
 	{
