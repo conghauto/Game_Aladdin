@@ -468,6 +468,16 @@ void LoadResources()
 	sprites->Add(16019, 180, 630, 292, 702, guardian);
 	sprites->Add(16020, 312, 630, 390, 702, guardian);
 
+	sprites->Add(16011, 395, 572, 492, 626, guardian); // guardian tấn công trái
+	sprites->Add(16012, 297, 572, 388, 626, guardian);
+	sprites->Add(16013, 216, 572, 293, 626, guardian);
+	sprites->Add(16014, 140, 572, 212, 626, guardian);
+	sprites->Add(16015, 65, 572, 133, 626, guardian);
+	sprites->Add(16016, 6, 572, 64, 626, guardian);
+	sprites->Add(16017, 6, 572, 64, 626, guardian);
+	sprites->Add(16018, 6, 572, 64, 626, guardian);
+	sprites->Add(16019, 6, 572, 64, 626, guardian);
+	sprites->Add(16020, 6, 572, 64, 626, guardian);
 	sprites->Add(16031, 382, 797, 448, 860, guardian); //guardian bi thuong trai
 	sprites->Add(16032, 290, 797, 363, 860, guardian);
 	sprites->Add(16033, 210, 797, 280, 860, guardian);
@@ -1566,8 +1576,7 @@ void LoadResources()
 
 		// khởi tạo grid
 	grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
-	aladdin->SetPosition(750, 300);
-	/*grid->AddObject(aladdin);*/
+	grid->AddObject(aladdin);
 
 	#pragma endregion
 
@@ -1892,6 +1901,30 @@ void LoadResources()
 		soldier1->SetState(SOLDIER_STATE_IDLE);
 		//objects.push_back(zombie1);
 		grid->AddObject(soldier1);
+
+#pragma endregion
+
+#pragma region Jafar
+		jafar = new BossJafar();
+		jafar->nx = 1;
+		jafar->AddAnimation(609);
+		jafar->AddAnimation(610);
+		jafar->AddAnimation(611);
+		jafar->AddAnimation(612);
+		jafar->AddAnimation(613);
+		jafar->AddAnimation(614);
+		jafar->SetPosition(100, 930);
+		jafar->SetState(JAFAR_STATE_IDLE);
+		grid->AddObject(jafar);
+
+#pragma endregion
+
+#pragma region Fire
+		//Fire *fire = new Fire();
+		//fire->AddAnimation(621);
+		//fire->SetPosition(100, 950);
+		//fire->SetState(FIRE_STATE_BURNING);
+		//grid->AddObject(fire);
 
 #pragma endregion
 
