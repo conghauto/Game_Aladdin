@@ -173,7 +173,7 @@
 
 //Fire
 
-#define FIRE_BBOX_WIDTH				55
+#define FIRE_BBOX_WIDTH				30
 #define FIRE_BBOX_HEIGHT			55
 
 #define FIRE_STATE_BURNING			100
@@ -223,6 +223,7 @@
 #define SKELETON_STATE_WALK				100
 #define SKELETON_STATE_DIE				200
 #define SKELETON_STATE_IDLE				300
+#define SKELETON_STATE_HURT				400
 
 #define SKELETON_ANI_WALKING_RIGHT		2
 #define SKELETON_ANI_WALKING_LEFT		3
@@ -244,6 +245,30 @@
 #define BOSSBAT_ANI_ATTACK			1
 
 #define BAT_ATTACK_SPEED			0.01f
+//Bone
+#define BONE_BBOX_WIDTH				35	
+#define BONE_BBOX_HEIGHT				30
+
+#define BONE_STATE_ATTACK			600
+#define BONE_STATE_DIE				700
+
+#define BONE_ANI_ATTACK			0
+
+#define BONE_SPEED_ATTACK_X		0.02f
+#define BONE_SPEED_ATTACK_Y		0.021f
+
+
+//Stars
+#define STAR_BBOX_WIDTH				35	
+#define STAR_BBOX_HEIGHT			30
+
+#define STAR_STATE_ATTACK			600
+#define STAR_STATE_DIE				700
+
+#define STAR_ANI_ATTACK			0
+
+#define STAR_SPEED_ATTACK_X		0.02f
+#define STAR_SPEED_ATTACK_Y		0.021f
 
 // Check stair
 #define CHECKSTAIR_UP_LEFT				0
@@ -273,7 +298,7 @@
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 255, 255)
 #define SCREEN_WIDTH					640
 #define SCREEN_HEIGHT					370
-#define MAX_HEIGHT_LV1                  1067
+#define MAX_HEIGHT_LV1                  1064
 #define MAX_WIDTH_LV1					2144
 #define MAX_HEIGHT_LV2                  440
 #define MAX_WIDTH_LV2					960

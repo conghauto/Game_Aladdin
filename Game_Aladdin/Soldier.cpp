@@ -32,6 +32,8 @@ void Soldier::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	float checkY = -this->y + Aladdin::YforGet;
 	if (checkX < 50 && checkY < 10)
 		this->SetState(SOLDIER_STATE_ATTACK);
+	if (checkX > 0) nx = -1;
+	else nx = 1;
 	//if (check < 0)
 	//{
 	//	nx = -nx;

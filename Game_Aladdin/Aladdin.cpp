@@ -17,6 +17,8 @@
 #include "BossSnake.h"
 #include "Fire.h"
 #include "FireBullet.h"
+#include "Bone.h"
+#include "Stars.h"
 int Aladdin::score = 0;
 int Aladdin::life = 3;
 int Aladdin::numberapples = 50;
@@ -36,7 +38,6 @@ void Aladdin::CalcPotentialCollisions(
 
 	for (UINT i = 0; i < coObjects->size(); i++)
 	{
-		// Aladdin se khong va cham voi nhung vat sau:
 		LPCOLLISIONEVENT e = SweptAABBEx(coObjects->at(i));
 
 		if (e->t > 0 && e->t <= 1.0f)
@@ -253,6 +254,23 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					StartUntouchable();
 				}
 			}
+			else if (dynamic_cast<Bone *>(e->obj))
+			{
+				Bone *bone = dynamic_cast<Bone *>(e->obj);
+				if (bone->GetState() != BONE_STATE_DIE && untouchable == 0) {
+					// Đặt hướng hurt
+					if (e->nx > 0)
+						this->nx = -1;
+					else if (e->nx < 0)
+						this->nx = 1;
+
+					SetState(SIMON_STATE_HURT);
+					DesHP();
+					willHurt = true;
+					StartUntouchable();
+					bone->SetState(BONE_STATE_DIE);
+				}
+			}
 			else if (dynamic_cast<Fire *>(e->obj))
 			{
 				Fire *fire = dynamic_cast<Fire *>(e->obj);
@@ -278,6 +296,16 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					willHurt = true;
 					StartUntouchable();
 				}
+			}
+			else if (dynamic_cast<Stars *>(e->obj))
+			{
+			Stars *star = dynamic_cast<Stars *>(e->obj);
+			if (untouchable == 0) {
+				if (star->nx > 0) this->x -= 10;
+				else
+					this->x += 10;
+				star->SetState(STAR_STATE_DIE);
+			}
 			}
 			else if (dynamic_cast<Rock*>(e->obj))
 			{

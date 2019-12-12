@@ -49,6 +49,7 @@ public:
 public:
 	static float XforGet;
 	static float YforGet;
+	static float VyfoGet;
 	static int score;
 	static int life;
 	static int numberapples;
@@ -103,4 +104,5 @@ public:
 	int GetHeart() { return heartsAmount; }
 	float GetX() { return XforGet; }
 	float GetY() { return YforGet; }
+	float GetVy(){ return VyfoGet; }
 };

@@ -20,7 +20,9 @@ void Skeleton::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	CGameObject::Update(dt, coObjects);
 	x += dx;
 	y += dy;
-	if (state == SKELETON_STATE_DIE)
+	preX = x;
+	preY = y;
+	if (GetHP() <= 0)
 	{
 		SetSpeed(0.0f, 0.0f);
 		return;
@@ -30,7 +32,7 @@ void Skeleton::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 
 	float check = this->x - Aladdin::XforGet;
 	float checkY = -this->y + Aladdin::YforGet;
-	if (check < 100 && checkY < 10)
+	if (check < 200 && checkY < 20)
 		this->SetState(SKELETON_STATE_WALK);
 	if (this->x < 200 && this->y == 930) {
 		this->x = 200;
@@ -42,6 +44,7 @@ void Skeleton::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		nx = -nx;
 		this->SetState(SKELETON_STATE_WALK);
 	}
+
 	if (this->x < 470 && this->y == 750) {
 		this->x = 470;
 		nx = -nx;
@@ -52,6 +55,7 @@ void Skeleton::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		nx = -nx;
 		this->SetState(SKELETON_STATE_WALK);
 	}
+
 	//if (check < 0)
 	//{
 	//	nx = -nx;
@@ -64,8 +68,7 @@ void Skeleton::Render()
 {
 	int ani;
 
-	if (state == SKELETON_STATE_DIE) {
-
+	if (GetHP() <= 0) {
 		return;
 	}
 	if (state == SKELETON_STATE_IDLE)
@@ -98,6 +101,9 @@ void Skeleton::SetState(int state)
 	case SKELETON_STATE_IDLE:
 		vx = 0;
 		vy = 0;
+		break;
+	case SKELETON_STATE_HURT:
+		DescHP();
 		break;
 	case SKELETON_STATE_WALK:
 		if (nx > 0)

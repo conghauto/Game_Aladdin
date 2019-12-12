@@ -21,18 +21,36 @@ void FireBullet::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		SetSpeed(0.0f, 0.0f);
 		return;
 	}
-	//if (x < 50 || y > 400)
-	//	SetState(FIRE_BULLET_STATE_DIE);
-	//float checkX = this->x - Aladdin::XforGet;
-	//float checkY = -this->y + Aladdin::YforGet;
-	//if (checkX > 0) {
-	//	nx = -1;
-	//	vx = -FIRE_BULLET_WALKING_SPEED;
+	
+	
+
+	//vector<LPCOLLISIONEVENT> coEvents;
+	//vector<LPCOLLISIONEVENT> coEventsResult;
+
+	//CalcPotentialCollisions(coObjects, coEvents);
+
+
+	//// No collision occured, proceed normally
+	//if (coEvents.size() == 0)
+	//{
+
 	//}
 	//else
 	//{
-	//	nx = 1;
-	//	vx = FIRE_BULLET_WALKING_SPEED;
+	//	float min_tx, min_ty, nx = 0, ny;
+
+	//	FilterCollision(coEvents, coEventsResult, min_tx, min_ty, nx, ny);
+
+	//	for (UINT i = 0; i < coEventsResult.size(); i++)
+	//	{
+	//		LPCOLLISIONEVENT e = coEventsResult[i];
+
+	//		if (dynamic_cast<Aladdin *>(e->obj))
+	//		{
+	//			Aladdin *aladdin = dynamic_cast<Aladdin *>(e->obj);
+	//			aladdin->SetState(SIMON_STATE_HURT);
+	//		}
+	//	}
 	//}
 }
 

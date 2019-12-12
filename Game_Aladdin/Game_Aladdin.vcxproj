@@ -124,6 +124,7 @@
   <ItemGroup>
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="BG.cpp" />
+    <ClCompile Include="Bone.cpp" />
     <ClCompile Include="BossJafar.cpp" />
     <ClCompile Include="BossSnake.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Sprites.cpp" />
+    <ClCompile Include="Stars.cpp" />
     <ClCompile Include="Textures.cpp" />
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="Zombie.cpp" />
@@ -159,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="Bat.h" />
     <ClInclude Include="BG.h" />
+    <ClInclude Include="Bone.h" />
     <ClInclude Include="BossJafar.h" />
     <ClInclude Include="BossSnake.h" />
     <ClInclude Include="Camera.h" />
@@ -186,6 +189,7 @@
     <ClInclude Include="Soldier.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprites.h" />
+    <ClInclude Include="Stars.h" />
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="Zombie.h" />

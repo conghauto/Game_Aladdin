@@ -6,6 +6,7 @@
 #include "BossJafar.h"
 #include "BossSnake.h"
 #include "Ground.h"
+#include "Bone.h"
 void Apple::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	Weapon::Update(dt);
@@ -65,7 +66,7 @@ void Apple::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 				else if (dynamic_cast<Skeleton *>(e->obj))
 				{
 					Skeleton *skeleton = dynamic_cast<Skeleton *>(e->obj);
-					skeleton->SetState(SKELETON_STATE_DIE);
+					skeleton->SetState(SKELETON_STATE_HURT);
 					this->isEaten = true;
 				}
 				else if (dynamic_cast<Bat *>(e->obj))
@@ -92,10 +93,10 @@ void Apple::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 					pillar->isHitted = true;
 					this->isEaten = true;
 				}
-				else if (dynamic_cast<Ground *>(e->obj))
-				{
-					this->isEaten = true;
-				}
+				//else if (dynamic_cast<Ground *>(e->obj))
+				//{
+				//	this->isEaten = true;
+				//}
 			}
 		}
 	}

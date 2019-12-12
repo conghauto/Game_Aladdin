@@ -29,6 +29,8 @@
 #include "Fire.h"
 #include "FireBullet.h"
 #include "JafarBullet.h"
+#include "Bone.h"
+#include "Stars.h"
 CGame *game;
 Aladdin * aladdin;
 Item *item;
@@ -37,17 +39,20 @@ Soldier *soldier;
 Soldier *soldier1;
 Map *map;
 Apple *apple;
-
+Skeleton *skeleton;
+Skeleton *skeleton1;
 BG* bg;
 CSprite *sprite;
 BossJafar *jafar;
 BossSnake * snake;
 Grid *grid;
 vector<Cell*> currentCell;
-
+static float preDieX;
+static float preDieY;
 bool lv1 = true;
 bool lv2 = false;
-
+bool isCrash = false;
+bool isSecondCrash = false;
 bool boss = false;
 // check scene lv2->lv2_1
 bool checkScene = false;
@@ -435,28 +440,28 @@ void LoadResources()
 
 	//Guardian Enemy
 	LPDIRECT3DTEXTURE9 guardian = textures->Get(ID_TEX_GUARDIAN);
-	sprites->Add(16006, 929, 572, 986, 626, guardian); // guardian tấn công phải
-	sprites->Add(16005, 860, 572, 928, 626, guardian);
-	sprites->Add(16004, 782, 572, 854, 626, guardian);
-	sprites->Add(16003, 702, 572, 777, 626, guardian);
-	sprites->Add(16002, 608, 572, 694, 626, guardian);
-	sprites->Add(16001, 502, 572, 600, 626, guardian);
-	sprites->Add(16007, 943, 643, 985, 702, guardian);
-	sprites->Add(16008, 888, 643, 930, 702, guardian);
-	sprites->Add(16009, 824, 643, 878, 702, guardian);
-	sprites->Add(16010, 701, 643, 790, 702, guardian);
+	sprites->Add(16006, 929, 565, 986, 626, guardian); // guardian tấn công phải
+	sprites->Add(16005, 860, 565, 928, 626, guardian);
+	sprites->Add(16004, 782, 565, 854, 626, guardian);
+	sprites->Add(16003, 702, 565, 777, 626, guardian);
+	sprites->Add(16002, 608, 565, 694, 626, guardian);
+	sprites->Add(16001, 502, 565, 600, 626, guardian);
+	sprites->Add(16007, 943, 630, 985, 702, guardian);
+	sprites->Add(16008, 888, 630, 930, 702, guardian);
+	sprites->Add(16009, 824, 630, 878, 702, guardian);
+	sprites->Add(16010, 701, 630, 790, 702, guardian);
+	sprites->Add(16110, 600, 630, 685, 702, guardian);
 
-
-	sprites->Add(16011, 395, 572, 492, 626, guardian); // guardian tấn công trái
-	sprites->Add(16012, 297, 572, 388, 626, guardian);
-	sprites->Add(16013, 216, 572, 293, 626, guardian);
-	sprites->Add(16014, 140, 572, 212, 626, guardian);
-	sprites->Add(16015, 65, 572, 133, 626, guardian);
-	sprites->Add(16016, 6, 572, 64, 626, guardian);
-	sprites->Add(16017, 6, 572, 64, 626, guardian);
-	sprites->Add(16018, 6, 572, 64, 626, guardian);
-	sprites->Add(16019, 6, 572, 64, 626, guardian);
-	sprites->Add(16020, 6, 572, 64, 626, guardian);
+	sprites->Add(16011, 395, 565, 492, 626, guardian); // guardian tấn công trái
+	sprites->Add(16012, 297, 565, 388, 626, guardian);
+	sprites->Add(16013, 216, 565, 293, 626, guardian);
+	sprites->Add(16014, 140, 565, 212, 626, guardian);
+	sprites->Add(16015, 65, 565, 133, 626, guardian);
+	sprites->Add(16016, 5, 630, 50, 702, guardian);
+	sprites->Add(16017, 60, 630, 106, 702, guardian);
+	sprites->Add(16018, 116, 630, 170, 702, guardian);
+	sprites->Add(16019, 180, 630, 292, 702, guardian);
+	sprites->Add(16020, 312, 630, 390, 702, guardian);
 
 	sprites->Add(16031, 382, 797, 448, 860, guardian); //guardian bi thuong trai
 	sprites->Add(16032, 290, 797, 363, 860, guardian);
@@ -487,8 +492,8 @@ void LoadResources()
 	sprites->Add(16055, 56, 448, 96, 504, guardian);
 	sprites->Add(16056, 4, 448, 52, 504, guardian);
 	//Soldier
-	LPDIRECT3DTEXTURE9 soldierTex = textures->Get(ID_TEX_GUARDIAN); //solider danh phai
-	sprites->Add(17001, 570, 92, 609, 156, soldierTex);
+	LPDIRECT3DTEXTURE9 soldierTex = textures->Get(ID_TEX_GUARDIAN); 
+	sprites->Add(17001, 570, 92, 609, 156, soldierTex);	//solider danh phai
 	sprites->Add(17002, 625, 92, 701, 156, soldierTex);
 	sprites->Add(17003, 704, 92, 788, 156, soldierTex);
 	sprites->Add(17004, 792, 92, 885, 156, soldierTex);
@@ -551,6 +556,9 @@ void LoadResources()
 	sprites->Add(17217, 294, 124, 386, 204, texSkeleton);
 	sprites->Add(17218, 214, 124, 276, 204, texSkeleton);
 
+	sprites->Add(17221, 32, 258, 48, 280, texSkeleton); //bone
+	sprites->Add(17222, 52, 258, 66, 280, texSkeleton);
+	sprites->Add(17223, 70, 258, 90, 280, texSkeleton);
 	//boss jafar
 	sprites->Add(17301, 869, 8, 935, 81, texBoss); //jafar dung phai
 
@@ -1032,6 +1040,7 @@ void LoadResources()
 	ani->Add(16008);
 	ani->Add(16009);
 	ani->Add(16010);
+	ani->Add(16110);
 	animations->Add(551, ani);
 
 	ani = new CAnimation(100);	//Guardian tan cong trai
@@ -1041,6 +1050,10 @@ void LoadResources()
 	ani->Add(16014);
 	ani->Add(16015);
 	ani->Add(16016);
+	ani->Add(16017);
+	ani->Add(16018);
+	ani->Add(16019);
+	ani->Add(16020);
 	animations->Add(552, ani);
 
 	ani = new CAnimation(100);	//Guardian bi thuong phai
@@ -1160,6 +1173,12 @@ void LoadResources()
 	ani->Add(17217);
 	ani->Add(17218);
 	animations->Add(608, ani);
+
+	ani = new CAnimation(100); //bone
+	ani->Add(17221);
+	ani->Add(17222);
+	ani->Add(17223);
+	animations->Add(700, ani);
 
 	ani = new CAnimation(100); // jafar dung phai
 	ani->Add(17301);
@@ -1479,8 +1498,8 @@ void LoadResources()
 
 		// khởi tạo grid
 	grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
-	aladdin->SetPosition(850, 50);
-		//grid->AddObject(aladdin);
+	aladdin->SetPosition(750, 300);
+		/*grid->AddObject(aladdin);*/
 
 	#pragma endregion
 
@@ -1612,7 +1631,7 @@ void LoadResources()
 		zombie->AddAnimation(554);
 		zombie->AddAnimation(555);
 		zombie->AddAnimation(556);
-		zombie->SetPosition(1170, 950);
+		zombie->SetPosition(1170, 945);
 		zombie->SetState(GUARDIAN_STATE_IDLE);
 		//objects.push_back(zombie);
 		grid->AddObject(zombie);
@@ -1625,7 +1644,7 @@ void LoadResources()
 		zombie1->AddAnimation(554);
 		zombie1->AddAnimation(555);
 		zombie1->AddAnimation(556);
-		zombie1->SetPosition(1900, 175);
+		zombie1->SetPosition(1900, 165);
 		zombie1->SetState(GUARDIAN_STATE_IDLE);
 		//objects.push_back(zombie);
 		grid->AddObject(zombie1);
@@ -1638,7 +1657,7 @@ void LoadResources()
 		zombie2->AddAnimation(554);
 		zombie2->AddAnimation(555);
 		zombie2->AddAnimation(556);
-		zombie2->SetPosition(440, 360);
+		zombie2->SetPosition(440, 355);
 		zombie2->SetState(GUARDIAN_STATE_IDLE);
 		//objects.push_back(zombie);
 		grid->AddObject(zombie2);
@@ -1651,10 +1670,24 @@ void LoadResources()
 		zombie3->AddAnimation(554);
 		zombie3->AddAnimation(555);
 		zombie3->AddAnimation(556);
-		zombie3->SetPosition(1720, 500);
+		zombie3->SetPosition(1720, 490);
 		zombie3->SetState(GUARDIAN_STATE_IDLE);
 		//objects.push_back(zombie);
 		grid->AddObject(zombie3);
+
+
+		Zombie *zombie4 = new Zombie();
+		zombie4->nx = -1;
+		zombie4->AddAnimation(551);
+		zombie4->AddAnimation(552);
+		zombie4->AddAnimation(553);
+		zombie4->AddAnimation(554);
+		zombie4->AddAnimation(555);
+		zombie4->AddAnimation(556);
+		zombie4->SetPosition(1900, 945);
+		zombie4->SetState(GUARDIAN_STATE_IDLE);
+		//objects.push_back(zombie);
+		grid->AddObject(zombie4);
 
 
 #pragma endregion
@@ -1683,7 +1716,7 @@ void LoadResources()
 		//#pragma endregion
 
 #pragma region Skeleton
-		Skeleton *skeleton = new Skeleton();
+		skeleton = new Skeleton();
 		skeleton->nx = -1;
 		skeleton->AddAnimation(607);
 		skeleton->AddAnimation(608);
@@ -1691,7 +1724,7 @@ void LoadResources()
 		skeleton->SetState(SKELETON_STATE_IDLE);
 		grid->AddObject(skeleton);
 
-		Skeleton *skeleton1 = new Skeleton();
+		skeleton1 = new Skeleton();
 		skeleton1->nx = -1;
 		skeleton1->AddAnimation(607);
 		skeleton1->AddAnimation(608);
@@ -1727,18 +1760,6 @@ void LoadResources()
 		soldier1->SetState(SOLDIER_STATE_IDLE);
 		//objects.push_back(zombie1);
 		grid->AddObject(soldier1);
-
-#pragma endregion
-
-
-
-
-#pragma region Fire
-		//Fire *fire = new Fire();
-		//fire->AddAnimation(621);
-		//fire->SetPosition(100, 950);
-		//fire->SetState(FIRE_STATE_BURNING);
-		//grid->AddObject(fire);
 
 #pragma endregion
 
@@ -1791,6 +1812,7 @@ void LoadResourceLv2()
 }
 float Aladdin::XforGet = 0;
 float Aladdin::YforGet = 0;
+float Aladdin::VyfoGet = 0;
 void Update(DWORD dt)
 {
 
@@ -1798,6 +1820,7 @@ void Update(DWORD dt)
 	aladdin->GetPosition(x, y);
 	Aladdin::XforGet = x;
 	Aladdin::YforGet = y;
+	Aladdin::VyfoGet = aladdin->vy;
 	#pragma region Resource
 		if (lv1 == true)
 		{
@@ -1814,8 +1837,113 @@ void Update(DWORD dt)
 				aladdin->SetState(SIMON_STATE_IDLE);*/
 
 			}
+			if (skeleton1->GetHP() <= 0 && isSecondCrash == false && lv2 == false) {
+				Bone *bone = new Bone();
+				bone->AddAnimation(700);
+				bone->SetSpeed(BONE_SPEED_ATTACK_X, -BONE_SPEED_ATTACK_X);
+				bone->SetState(BONE_STATE_ATTACK);
+				bone->SetPosition(preDieX,preDieY);
+				grid->AddObject(bone);
+
+				Bone *bone1 = new Bone();
+				bone1->AddAnimation(700);
+				bone1->SetSpeed(0, -BONE_SPEED_ATTACK_X);
+				bone1->SetState(BONE_STATE_ATTACK);
+				bone1->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone1);
+
+				Bone *bone2 = new Bone();
+				bone2->AddAnimation(700);
+				bone2->SetSpeed(-BONE_SPEED_ATTACK_X, -BONE_SPEED_ATTACK_Y);
+				bone2->SetState(BONE_STATE_ATTACK);
+				bone2->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone2);
+
+				Bone *bone3 = new Bone();
+				bone3->AddAnimation(700);
+				bone3->SetSpeed(BONE_SPEED_ATTACK_X, 0);
+				bone3->SetState(BONE_STATE_ATTACK);
+				bone3->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone3);
+
+				Bone *bone4 = new Bone();
+				bone4->AddAnimation(700);
+				bone4->SetSpeed(BONE_SPEED_ATTACK_X, BONE_SPEED_ATTACK_X);
+				bone4->SetState(BONE_STATE_ATTACK);
+				bone4->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone4);
+
+				Bone *bone5 = new Bone();
+				bone5->AddAnimation(700);
+				bone5->SetSpeed(-BONE_SPEED_ATTACK_X, 0);
+				bone5->SetState(BONE_STATE_ATTACK);
+				bone5->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone5);
+
+				Bone *bone6 = new Bone();
+				bone6->AddAnimation(700);
+				bone6->SetSpeed(-BONE_SPEED_ATTACK_X, BONE_SPEED_ATTACK_Y);
+				bone6->SetState(BONE_STATE_ATTACK);
+				bone6->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone6);
+
+				isSecondCrash = true;
+			}
+			if (skeleton->GetHP() <= 0 && isCrash == false && lv2 == false) {
+				Bone *bone = new Bone();
+				bone->AddAnimation(700);
+				bone->SetSpeed(BONE_SPEED_ATTACK_X, -BONE_SPEED_ATTACK_X);
+				bone->SetState(BONE_STATE_ATTACK);
+				bone->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone);
+
+				Bone *bone1 = new Bone();
+				bone1->AddAnimation(700);
+				bone1->SetSpeed(0, -BONE_SPEED_ATTACK_X);
+				bone1->SetState(BONE_STATE_ATTACK);
+				bone1->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone1);
+
+				Bone *bone2 = new Bone();
+				bone2->AddAnimation(700);
+				bone2->SetSpeed(-BONE_SPEED_ATTACK_X, -BONE_SPEED_ATTACK_Y);
+				bone2->SetState(BONE_STATE_ATTACK);
+				bone2->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone2);
+
+				Bone *bone3 = new Bone();
+				bone3->AddAnimation(700);
+				bone3->SetSpeed(BONE_SPEED_ATTACK_X, 0);
+				bone3->SetState(BONE_STATE_ATTACK);
+				bone3->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone3);
+
+				Bone *bone4 = new Bone();
+				bone4->AddAnimation(700);
+				bone4->SetSpeed(BONE_SPEED_ATTACK_X, BONE_SPEED_ATTACK_X);
+				bone4->SetState(BONE_STATE_ATTACK);
+				bone4->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone4);
+
+				Bone *bone5 = new Bone();
+				bone5->AddAnimation(700);
+				bone5->SetSpeed(-BONE_SPEED_ATTACK_X, 0);
+				bone5->SetState(BONE_STATE_ATTACK);
+				bone5->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone5);
+
+				Bone *bone6 = new Bone();
+				bone6->AddAnimation(700);
+				bone6->SetSpeed(-BONE_SPEED_ATTACK_X, BONE_SPEED_ATTACK_Y);
+				bone6->SetState(BONE_STATE_ATTACK);
+				bone6->SetPosition(preDieX, preDieY);
+				grid->AddObject(bone6);
+
+				isCrash = true;
+			}
 
 		}
+
 
 		if (lv2 == true) {
 
@@ -1824,6 +1952,7 @@ void Update(DWORD dt)
 				game->mCamera->setX(0);
 				grid->InitList(MAX_WIDTH_LV2, MAX_HEIGHT_LV2);
 				aladdin->SetPosition(50, 50);
+				/*grid->AddObject(aladdin);*/
 				LoadResourceLv2();
 				countLoadResourceLv2 = true;
 				/*aladdin->SetPosition(100, 20);*/
@@ -1837,14 +1966,43 @@ void Update(DWORD dt)
 				jafar->AddAnimation(612);
 				jafar->AddAnimation(613);
 				jafar->AddAnimation(614);
-				jafar->SetPosition(350, 300);
+				jafar->SetPosition(400, 300);
 				jafar->SetState(JAFAR_STATE_IDLE);
 				grid->AddObject(jafar);
 				
 			}
+			if (GetTickCount() - jafar->time_start_shoot > 200 && jafar->GetHP() > 0)
+			{
+				jafar->time_start_shoot = GetTickCount();
+				Stars *star = new Stars();
+				star->AddAnimation(622);
+				star->SetPosition(jafar->x+10, jafar->y+30);
+				star->nx = jafar->nx;
+				star->SetState(STAR_STATE_ATTACK);
+				grid->AddObject(star);
+			}
+			//if (GetTickCount() - jafar->time_start_shoot > 5000)
+			//{
+			//	Fire *fire = new Fire();
+			//	fire->AddAnimation(621);
+			//	fire->SetPosition(100, 300);
+			//	fire->SetState(FIRE_STATE_BURNING);
+			//	grid->AddObject(fire);
 
+			//	Fire *fire1 = new Fire();
+			//	fire1->AddAnimation(621);
+			//	fire1->SetPosition(150, 300);
+			//	fire1->SetState(FIRE_STATE_BURNING);
+			//	grid->AddObject(fire1);
 
-			if ( GetTickCount() - snake->time_start_shoot > 3000 && jafar->GetHP() <= 0)
+			//	Fire *fire2 = new Fire();
+			//	fire2->AddAnimation(621);
+			//	fire2->SetPosition(200, 300);
+			//	fire2->SetState(FIRE_STATE_BURNING);
+			//	grid->AddObject(fire2);
+
+			//}
+			if ( GetTickCount() - snake->time_start_shoot > 2000 && jafar->GetHP() <= 0)
 			{
 				snake->time_start_shoot = GetTickCount();
 				FireBullet *bullet = new FireBullet();
@@ -1899,11 +2057,13 @@ void Update(DWORD dt)
 				}
 			}
 			else if (dynamic_cast<Skeleton *>(coObjects.at(i))) {
-				Skeleton *skeleton = dynamic_cast<Skeleton *>(coObjects.at(i));
+				Skeleton *skeletondie = dynamic_cast<Skeleton *>(coObjects.at(i));
 
-				if (skeleton->GetState() == SKELETON_STATE_DIE)
+				if (skeletondie->GetHP() == 0)
 				{
-					listRemoveObjects.push_back(skeleton);
+					listRemoveObjects.push_back(skeletondie);
+					preDieX = skeletondie->x;
+					preDieY = skeletondie->y;
 				}
 			}
 			else if (dynamic_cast<Soldier *>(coObjects.at(i)))
@@ -1913,6 +2073,33 @@ void Update(DWORD dt)
 				if (soldier->GetHP() == 0)
 				{
 					listRemoveObjects.push_back(soldier);
+				}
+			}
+			else if (dynamic_cast<Bat *>(coObjects.at(i)))
+			{
+				Bat*bat = dynamic_cast<Bat *>(coObjects.at(i));
+
+				if (bat->GetState() == BAT_STATE_DIE)
+				{
+					listRemoveObjects.push_back(bat);
+				}
+			}
+			else if (dynamic_cast<Bone *>(coObjects.at(i)))
+			{
+				Bone* bone = dynamic_cast<Bone *>(coObjects.at(i));
+
+				if (bone->GetState() == BONE_STATE_DIE)
+				{
+					listRemoveObjects.push_back(bone);
+				}
+			}
+			else if (dynamic_cast<Stars *>(coObjects.at(i)))
+			{
+				Stars* star = dynamic_cast<Stars *>(coObjects.at(i));
+
+				if (star->GetState() == STAR_STATE_DIE)
+				{
+					listRemoveObjects.push_back(star);
 				}
 			}
 			else if (dynamic_cast<FireBullet *>(coObjects.at(i)))
