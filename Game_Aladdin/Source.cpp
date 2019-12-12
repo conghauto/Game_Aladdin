@@ -1547,7 +1547,7 @@ void LoadResources()
 		// khởi tạo grid
 	grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
 	aladdin->SetPosition(850, 50);
-		//grid->AddObject(aladdin);
+	grid->AddObject(aladdin);
 
 	#pragma endregion
 

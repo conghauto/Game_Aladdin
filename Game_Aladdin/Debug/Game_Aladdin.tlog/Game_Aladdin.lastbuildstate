@@ -1,6 +1,2 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.17763.0
-<<<<<<< HEAD
-Debug|Win32|G:\Đồ án\Game_Aladdin\Game_Aladdin\|
-=======
-Debug|Win32|D:\Game_UIT\Game_Aladdin.git\trunk\Game_Aladdin\|
->>>>>>> b4c3378df695609166d3234e7282f95cd35b1907
+Debug|Win32|D:\Game_UIT\Game_Aladdin.git\trunk\trunk\Game_Aladdin\|
