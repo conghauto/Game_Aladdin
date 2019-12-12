@@ -114,10 +114,26 @@
     <ClCompile Include="JafarBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Bone.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Stars.cpp">
+=======
+    <ClCompile Include="ItemApple.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GenieFace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GenieJar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSpend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemHeart.cpp">
+>>>>>>> 5dc2ae70cca5e4873959aecf30e08834be624454
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -218,10 +234,26 @@
     <ClInclude Include="JafarBullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Bone.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Stars.h">
+=======
+    <ClInclude Include="ItemApple.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenieFace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenieJar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSpend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemHeart.h">
+>>>>>>> 5dc2ae70cca5e4873959aecf30e08834be624454
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
