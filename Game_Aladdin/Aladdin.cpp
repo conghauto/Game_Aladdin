@@ -22,6 +22,8 @@
 #include "ItemApple.h"
 #include "ItemHeart.h"
 #include "ItemSpend.h"
+#include "GenieFace.h"
+#include "GenieJar.h"
 int Aladdin::score = 0;
 int Aladdin::life = 3;
 int Aladdin::numberapples = 50;
@@ -294,7 +296,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			{
 			ItemApple *itemapple = dynamic_cast<ItemApple *>(e->obj);
 			if (untouchable == 0) {
-				/*itemapple->isEaten = true;*/
+				itemapple->isEaten = true;
 				IncrNumberApples();
 			}
 			}
@@ -303,14 +305,30 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			ItemSpend *itemSpend = dynamic_cast<ItemSpend *>(e->obj);
 			if (untouchable == 0) {
 				IncrNumberSpend();
-				/*itemSpend->isEaten = true;	*/		
+				itemSpend->isEaten = true;			
+			}
+			}
+			else if (dynamic_cast<GenieFace *>(e->obj))
+			{
+			GenieFace *item = dynamic_cast<GenieFace *>(e->obj);
+			if (untouchable == 0) {
+				IncLife();
+				item->isEaten = true;
+			}
+			}
+			else if (dynamic_cast<GenieJar *>(e->obj))
+			{
+			GenieJar *item = dynamic_cast<GenieJar *>(e->obj);
+			if (untouchable == 0) {
+				IncreScore(2000);
+				item->isEaten = true;
 			}
 			}
 			else if (dynamic_cast<ItemHeart *>(e->obj))
 			{
 			ItemHeart *item = dynamic_cast<ItemHeart *>(e->obj);
 			if (untouchable == 0) {
-				/*item->isEaten = true;*/
+				item->isEaten = true;
 				IncrNumberHeart();
 			}
 			}
@@ -342,6 +360,8 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					isJump = false;
 				if (isHurt)
 					isHurt = false;
+				if (isOnRope)
+					isOnRope = false;
 				// Xét va chạm cứng
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
@@ -354,6 +374,8 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					isJump = false;
 				if (isHurt)
 					isHurt = false;
+				if (isOnRope)
+					isOnRope = false;
 				// Xét va chạm cứng
 				if (nx != 0) vx = 0;
 				if (ny != 0) vy = 0;
@@ -706,12 +728,12 @@ void Aladdin::SetAction(int action)
 		break;
 	case SIMON_ACTION_JUMP_ONROPE:
 		isJump = true;
-		vy = -0.3f;
+		vy = -0.03f;
 		if (nx > 0) {
-			vx = 0.1f;
+			vx = 0.01f;
 		}
 		else
-			vx = -0.1f;
+			vx = -0.01f;
 		break;
 	}
 }

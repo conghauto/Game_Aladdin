@@ -2,6 +2,7 @@
 
 void ItemApple::Render()
 {
+	if (isEaten) return;
 	animations[0]->Render(x, y,255);
 	RenderBoundingBox();
 }

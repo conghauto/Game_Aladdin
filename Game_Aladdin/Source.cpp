@@ -1576,6 +1576,7 @@ void LoadResources()
 
 		// khởi tạo grid
 	grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
+	aladdin->name = "aladdin";
 	grid->AddObject(aladdin);
 
 	#pragma endregion
@@ -1613,9 +1614,9 @@ void LoadResources()
 										itemAplle->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
 										//ground->cellNumber = grid->listCells[j]->getId();
 										//ground->id= listObjectsInMap[i]->id;
-										/*grid->AddObject(ground);*/
+										
 										itemAplle->AddAnimation(2000);
-										grid->listCells[j]->AddObject(itemAplle);
+										grid->AddObject(itemAplle);
 									}
 
 									// Gắn GenieFace
@@ -1626,9 +1627,9 @@ void LoadResources()
 										genieface->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
 										//ground->cellNumber = grid->listCells[j]->getId();
 										//ground->id= listObjectsInMap[i]->id;
-										/*grid->AddObject(ground);*/
+										
 										genieface->AddAnimation(2001);
-										grid->listCells[j]->AddObject(genieface);
+										grid->AddObject(genieface);
 									}
 
 									// Gắn GenieJar
@@ -1638,10 +1639,9 @@ void LoadResources()
 
 										geniejar->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
 										//ground->cellNumber = grid->listCells[j]->getId();
-										//ground->id= listObjectsInMap[i]->id;
-										/*grid->AddObject(ground);*/
+										//ground->id= listObjectsInMap[i]->id;										
 										geniejar->AddAnimation(2002);
-										grid->listCells[j]->AddObject(geniejar);
+										grid->AddObject(geniejar);
 									}
 
 									// Gắn item-spend
@@ -1654,7 +1654,8 @@ void LoadResources()
 										//ground->id= listObjectsInMap[i]->id;
 										/*grid->AddObject(ground);*/
 										itemSpend->AddAnimation(2003);
-										grid->listCells[j]->AddObject(itemSpend);
+										/*grid->listCells[j]->AddObject(itemSpend);*/
+										grid->AddObject(itemSpend);
 									}
 
 									// Gắn item-spend
@@ -1665,9 +1666,9 @@ void LoadResources()
 										itemHeart->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
 										//ground->cellNumber = grid->listCells[j]->getId();
 										//ground->id= listObjectsInMap[i]->id;
-										/*grid->AddObject(ground);*/
+										
 										itemHeart->AddAnimation(2004);
-										grid->listCells[j]->AddObject(itemHeart);
+										grid->AddObject(itemHeart);
 									}
 
 									Rope *rope = new Rope();
@@ -1904,21 +1905,6 @@ void LoadResources()
 
 #pragma endregion
 
-#pragma region Jafar
-		jafar = new BossJafar();
-		jafar->nx = 1;
-		jafar->AddAnimation(609);
-		jafar->AddAnimation(610);
-		jafar->AddAnimation(611);
-		jafar->AddAnimation(612);
-		jafar->AddAnimation(613);
-		jafar->AddAnimation(614);
-		jafar->SetPosition(100, 930);
-		jafar->SetState(JAFAR_STATE_IDLE);
-		grid->AddObject(jafar);
-
-#pragma endregion
-
 #pragma region Fire
 		//Fire *fire = new Fire();
 		//fire->AddAnimation(621);
@@ -2117,7 +2103,7 @@ void Update(DWORD dt)
 				game->mCamera->setX(0);
 				grid->InitList(MAX_WIDTH_LV2, MAX_HEIGHT_LV2);
 				aladdin->SetPosition(50, 50);
-				/*grid->AddObject(aladdin);*/
+				grid->AddObject(aladdin);
 				LoadResourceLv2();
 				countLoadResourceLv2 = true;
 				/*aladdin->SetPosition(100, 20);*/
@@ -2319,6 +2305,24 @@ void Update(DWORD dt)
 				{
 					listRemoveObjects.push_back(itemapple);
 				}
+			}
+			else if (dynamic_cast<GenieFace *>(coObjects.at(i)))
+			{
+			GenieFace *item = dynamic_cast<GenieFace *>(coObjects.at(i));
+
+			if (item->isEaten)
+			{
+				listRemoveObjects.push_back(item);
+			}
+			}
+			else if (dynamic_cast<GenieJar *>(coObjects.at(i)))
+			{
+			GenieJar*item = dynamic_cast<GenieJar *>(coObjects.at(i));
+
+			if (item->isEaten)
+			{
+				listRemoveObjects.push_back(item);
+			}
 			}
 			else if (dynamic_cast<ItemSpend *>(coObjects.at(i)))
 			{

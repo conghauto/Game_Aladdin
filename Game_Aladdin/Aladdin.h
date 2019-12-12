@@ -93,7 +93,10 @@ public:
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);
 	int GetScore() { return score; }
 	void IncreScore(int bonus) { score += bonus; }
+
 	int GetLife() { return life; }
+	void IncLife() { life += 1; }
+
 	int GetHP() { return preHP; }
 	void IncreHP(int bonus) { preHP += bonus; }
 	void DesHP() { preHP -= 1; }

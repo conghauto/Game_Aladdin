@@ -246,7 +246,9 @@ void Grid::ReleaseList()
 		Cell *cell = listCells[i];
 		for (int j = 0; j < listObjectSize; j++)
 		{
-			listRemoveObjects.push_back(cell->listObject[j]);
+			if (cell->listObject[j]->name != "aladdin") {
+				listRemoveObjects.push_back(cell->listObject[j]);
+			}
 			/*delete cell->listObject[j];*/
 		}
 	}
