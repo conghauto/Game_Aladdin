@@ -29,6 +29,11 @@
 #include "Fire.h"
 #include "FireBullet.h"
 #include "JafarBullet.h"
+#include "ItemApple.h"
+#include "GenieFace.h"
+#include "GenieJar.h"
+#include "ItemSpend.h"
+#include "ItemHeart.h"
 CGame *game;
 Aladdin * aladdin;
 Item *item;
@@ -251,6 +256,11 @@ void LoadResources()
 	textures->Add(ITEM_BG_SPEND, L"Resources\\spend.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ALADDIN_LIFE, L"Resources\\aladdin_life.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ITEM_BG_GOD_LIGHT, L"Resources\\god_light.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ITEM_APPLE, L"Resources\\item-apple.png", D3DCOLOR_XRGB(255,0,255));
+	textures->Add(ITEM_GENIEFACE, L"Resources\\GenieFace.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ITEM_GENIEJAR, L"Resources\\genie-jar.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ITEM_SPEND, L"Resources\\item-spend.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ITEM_HEART, L"Resources\\item-heart.png", D3DCOLOR_XRGB(163, 73, 164));
 
 	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -261,11 +271,6 @@ void LoadResources()
 	textures->Add(ID_TEX_TILESET, L"Resources\\tileset.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_TILESET_2, L"Resources\\tileset1.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_GUARDIAN, L"Resources\\enemy.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(ID_TEX_PILLAR1, L"Resources\\pillar_1.png", D3DCOLOR_XRGB(163, 73, 164));
-	textures->Add(ID_TEX_PILLAR2, L"Resources\\pillar_2.png", D3DCOLOR_XRGB(163, 73, 164));
-	textures->Add(ID_TEX_PILLAR3, L"Resources\\pillar_3.png", D3DCOLOR_XRGB(163, 73, 164));
-	textures->Add(ID_TEX_PILLAR4, L"Resources\\pillar_4.png", D3DCOLOR_XRGB(163, 73, 164));
-	textures->Add(ID_TEX_GATE, L"Resources\\gate_exit.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_DUMBBELL, L"Resources\\dumbbell.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_SPIKE, L"Resources\\spike.png", D3DCOLOR_XRGB(163, 73, 164));
 
@@ -694,7 +699,36 @@ void LoadResources()
 	sprites->Add(40063, 345, 2, 380, 69, texDumbbell);
 	sprites->Add(40064, 383, 2, 416, 69, texDumbbell);
 
-	#pragma endregion
+
+	LPDIRECT3DTEXTURE9 texItemApple = textures->Get(ITEM_APPLE); // item-apple
+	sprites->Add(40070, 0, 0, 12, 13, texItemApple);
+
+	LPDIRECT3DTEXTURE9 texGenieFace = textures->Get(ITEM_GENIEFACE); // genie-face
+	sprites->Add(40071, 0, 0, 45, 53, texGenieFace);
+	sprites->Add(40072, 56, 0, 103, 53, texGenieFace);
+
+	LPDIRECT3DTEXTURE9 texGenieJar = textures->Get(ITEM_GENIEJAR); // geniejar
+	sprites->Add(40073, 2, 2, 23, 36, texGenieJar);
+
+	LPDIRECT3DTEXTURE9 texSpend = textures->Get(ITEM_SPEND); // item-spend
+	sprites->Add(40074, 1, 2, 18, 20, texSpend);
+	sprites->Add(40075, 23, 3, 41, 20, texSpend);
+	sprites->Add(40076, 46, 1, 65, 20, texSpend);
+	sprites->Add(40077, 72, 2, 101, 23, texSpend);
+	sprites->Add(40078, 106, 2, 132, 20, texSpend);
+	sprites->Add(40079, 136, 4, 154, 20, texSpend);
+	sprites->Add(40080, 159, 4, 177, 20, texSpend);
+	sprites->Add(40081, 188, 4, 205, 20, texSpend);
+
+	LPDIRECT3DTEXTURE9 texHeart = textures->Get(ITEM_HEART); // item-spend
+	sprites->Add(40082, 1, 1, 20, 26, texHeart);
+	sprites->Add(40083, 23, 3, 41, 27, texHeart);
+	sprites->Add(40084, 44, 5, 61, 27, texHeart);
+	sprites->Add(40085, 63, 5, 81, 27, texHeart);
+	sprites->Add(40086, 83, 3, 103, 27, texHeart);
+	sprites->Add(40087, 105, 4, 123, 28, texHeart);
+	sprites->Add(40088, 124, 6, 141, 28, texHeart);
+	sprites->Add(40089, 143, 6, 161, 28, texHeart);
 
 	LPANIMATION ani;
 
@@ -1314,9 +1348,6 @@ void LoadResources()
 	ani->Add(40031);
 	animations->Add(991, ani);
 
-
-	
-
 	ani = new CAnimation(0); // spike 1
 	ani->Add(40041);
 	ani->Add(40042);
@@ -1428,6 +1459,43 @@ void LoadResources()
 	ani->Add(40063);
 	animations->Add(996, ani);
 
+
+	ani = new CAnimation(0);// item-apple
+	ani->Add(40070);
+	animations->Add(2000, ani);
+
+	ani = new CAnimation(200);// genieface
+	ani->Add(40071);
+	ani->Add(40072);
+	animations->Add(2001, ani);
+
+
+	ani = new CAnimation(0);// geniejar
+	ani->Add(40073);
+	animations->Add(2002, ani);
+
+	ani = new CAnimation(100);// item-spend
+	ani->Add(40074);
+	ani->Add(40075);
+	ani->Add(40076); 
+	ani->Add(40077);
+	ani->Add(40078);
+	ani->Add(40079);
+	ani->Add(40080);
+	ani->Add(40081);
+	animations->Add(2003, ani);
+
+	ani = new CAnimation(100);// item-heart
+	ani->Add(40082);
+	ani->Add(40083);
+	ani->Add(40084);
+	ani->Add(40085);
+	ani->Add(40086);
+	ani->Add(40087);
+	ani->Add(40088);
+	ani->Add(40089);
+	animations->Add(2004, ani);
+
 	#pragma endregion
 
 	#pragma region aladdin
@@ -1508,6 +1576,71 @@ void LoadResources()
 										grid->listCells[j]->AddObject(ground);
 									}
 
+									// Gắn Item-apple
+									ItemApple *itemAplle = new ItemApple();
+									if (listObjectsInMap[i]->name == "Apple")
+									{
+										
+										itemAplle->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
+										//ground->cellNumber = grid->listCells[j]->getId();
+										//ground->id= listObjectsInMap[i]->id;
+										/*grid->AddObject(ground);*/
+										itemAplle->AddAnimation(2000);
+										grid->listCells[j]->AddObject(itemAplle);
+									}
+
+									// Gắn GenieFace
+									GenieFace *genieface = new GenieFace();
+									if (listObjectsInMap[i]->name == "GenieFace")
+									{
+
+										genieface->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
+										//ground->cellNumber = grid->listCells[j]->getId();
+										//ground->id= listObjectsInMap[i]->id;
+										/*grid->AddObject(ground);*/
+										genieface->AddAnimation(2001);
+										grid->listCells[j]->AddObject(genieface);
+									}
+
+									// Gắn GenieJar
+									GenieJar *geniejar = new GenieJar();
+									if (listObjectsInMap[i]->name == "GenieJar")
+									{
+
+										geniejar->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
+										//ground->cellNumber = grid->listCells[j]->getId();
+										//ground->id= listObjectsInMap[i]->id;
+										/*grid->AddObject(ground);*/
+										geniejar->AddAnimation(2002);
+										grid->listCells[j]->AddObject(geniejar);
+									}
+
+									// Gắn item-spend
+									ItemSpend *itemSpend = new ItemSpend();
+									if (listObjectsInMap[i]->name == "Spend")
+									{
+
+										itemSpend->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
+										//ground->cellNumber = grid->listCells[j]->getId();
+										//ground->id= listObjectsInMap[i]->id;
+										/*grid->AddObject(ground);*/
+										itemSpend->AddAnimation(2003);
+										grid->listCells[j]->AddObject(itemSpend);
+									}
+
+									// Gắn item-spend
+									ItemHeart *itemHeart = new ItemHeart();
+									if (listObjectsInMap[i]->name == "Heart")
+									{
+
+										itemHeart->SetPosition(listObjectsInMap[i]->x, listObjectsInMap[i]->y);
+										//ground->cellNumber = grid->listCells[j]->getId();
+										//ground->id= listObjectsInMap[i]->id;
+										/*grid->AddObject(ground);*/
+										itemHeart->AddAnimation(2004);
+										grid->listCells[j]->AddObject(itemHeart);
+									}
+
 									Rope *rope = new Rope();
 									if (listObjectsInMap[i]->name == "Rope")
 									{
@@ -1549,11 +1682,11 @@ void LoadResources()
 									if (listObjectsInMap[i]->name == "Spike")
 									{
 										int id = listObjectsInMap[i]->id;
-										if (id == 155 || id == 156 ||id==165||id==166|| id==267 || id == 469) {
+										if (id == 153 || id == 154 ||id==165||id==166|| id==267 || id == 469) {
 											spike->AddAnimation(992);
 											spike->name = "spike1";
 										}
-										else if (id == 153 || id == 154|| id==219 || id==220 || id == 358
+										else if (id == 155 || id == 156|| id==219 || id==220 || id == 358
 											|| id == 451 || id == 452 || id == 453 || id == 454 || id == 455) {
 											spike->AddAnimation(993);
 											spike->name = "spike2";
@@ -1682,13 +1815,13 @@ void LoadResources()
 		//#pragma endregion
 
 #pragma region Skeleton
-		//Skeleton *skeleton = new Skeleton();
-		//skeleton->nx = -1;
-		//skeleton->AddAnimation(607);
-		//skeleton->AddAnimation(608);
-		//skeleton->SetPosition(400, 930);
-		//skeleton->SetState(SKELETON_STATE_IDLE);
-		//grid->AddObject(skeleton);
+		/*Skeleton *skeleton = new Skeleton();
+		skeleton->nx = -1;
+		skeleton->AddAnimation(607);
+		skeleton->AddAnimation(608);
+		skeleton->SetPosition(400, 930);
+		skeleton->SetState(SKELETON_STATE_IDLE);
+		grid->AddObject(skeleton);*/
 
 		Skeleton *skeleton1 = new Skeleton();
 		skeleton1->nx = -1;
@@ -1737,7 +1870,7 @@ void LoadResources()
 		jafar->AddAnimation(612);
 		jafar->AddAnimation(613);
 		jafar->AddAnimation(614);
-		jafar->SetPosition(600, 930);
+		jafar->SetPosition(100, 930);
 		jafar->SetState(JAFAR_STATE_IDLE);
 		grid->AddObject(jafar);
 
@@ -2085,7 +2218,7 @@ void Render()
 		if (lv2 == true)
 		{
 
-			map = new	Map(/*48, 10,*/ tileset1, 16, 16);
+			map = new	Map(/*48, 10,*/ tileset1, 32, 32);
 			map->LoadMatrixMap("Resources\\Mapstate1.txt");
 			//map->Draw(game->x_cam, game->y_cam);
 		}

@@ -312,6 +312,19 @@
 #define BRICK_BBOX_WIDTH				32
 #define BRICK_BBOX_HEIGHT				3
 
+// Item apple
+#define ITEM_APPLE_BBOX_WIDTH			5
+#define ITEM_APPLE_BBOX_HEIGHT			12
+
+
+// GenieFace
+#define ITEM_GENIEFACE_BBOX_WIDTH		35
+#define ITEM_GENIEFACE_BBOX_HEIGHT		50
+
+// GenieJar
+#define ITEM_GENIEJAR_BBOX_WIDTH		23
+#define ITEM_GENIEJAR_BBOX_HEIGHT		30
+
 #define ROPE_BBOX_WIDTH					1
 #define ROPE_BBOX_HEIGHT				64
 
@@ -323,6 +336,7 @@
 #define ITEM_HEART						805
 #define ITEM_KNIFE						809
 #define ITEM_MONEY						810
+#define ITEM_APPLE						812
 #define ITEM_1						    813
 #define ITEM_2						    814
 #define ITEM_3						    815
@@ -330,6 +344,10 @@
 #define ALADDIN_LIFE					817
 #define ITEM_BG_SPEND					818
 #define ITEM_BG_GOD_LIGHT				819
+#define ITEM_GENIEFACE					820
+#define ITEM_GENIEJAR				    821
+#define ITEM_SPEND						822
+#define ITEM_HEART						823
 
 //bullet
 #define BULLET_BBOX_WIDTH				16
