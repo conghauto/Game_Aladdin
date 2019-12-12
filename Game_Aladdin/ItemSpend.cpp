@@ -1,8 +1,17 @@
 #include "ItemSpend.h"
 
+void ItemSpend::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects) {
+	if (isEaten) {
+		return;
+	}
+}
 void ItemSpend::Render()
 {
-	animations[0]->Render(x, y, 255);
+	int ani;
+	if (isEaten) return;
+	else
+		ani = 0;
+	animations[ani]->Render(x, y);
 	RenderBoundingBox();
 }
 

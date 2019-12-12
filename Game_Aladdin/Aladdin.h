@@ -97,11 +97,19 @@ public:
 	int GetHP() { return preHP; }
 	void IncreHP(int bonus) { preHP += bonus; }
 	void DesHP() { preHP -= 1; }
+
 	int GetNumberapples() { return numberapples; }
 	void DescNumberApples() { numberapples -= 1; }
 	void IncrNumberApples() { numberapples += 1; }
+
 	int GetNumberspend() { return numberspend; }
+	void DescNumberSpend() { numberspend -= 1; }
+	void IncrNumberSpend() { numberspend += 1; }
+
 	int GetHeart() { return heartsAmount; }
+	void DescNumberHeart() { heartsAmount -= 1; }
+	void IncrNumberHeart() { heartsAmount += 1; }
+
 	float GetX() { return XforGet; }
 	float GetY() { return YforGet; }
 	float GetVy(){ return VyfoGet; }

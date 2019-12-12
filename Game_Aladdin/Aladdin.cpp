@@ -19,6 +19,9 @@
 #include "FireBullet.h"
 #include "Bone.h"
 #include "Stars.h"
+#include "ItemApple.h"
+#include "ItemHeart.h"
+#include "ItemSpend.h"
 int Aladdin::score = 0;
 int Aladdin::life = 3;
 int Aladdin::numberapples = 50;
@@ -287,15 +290,39 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					StartUntouchable();
 				}
 			}
+			else if (dynamic_cast<ItemApple *>(e->obj))
+			{
+			ItemApple *itemapple = dynamic_cast<ItemApple *>(e->obj);
+			if (untouchable == 0) {
+				/*itemapple->isEaten = true;*/
+				IncrNumberApples();
+			}
+			}
+			else if (dynamic_cast<ItemSpend *>(e->obj))
+			{
+			ItemSpend *itemSpend = dynamic_cast<ItemSpend *>(e->obj);
+			if (untouchable == 0) {
+				IncrNumberSpend();
+				/*itemSpend->isEaten = true;	*/		
+			}
+			}
+			else if (dynamic_cast<ItemHeart *>(e->obj))
+			{
+			ItemHeart *item = dynamic_cast<ItemHeart *>(e->obj);
+			if (untouchable == 0) {
+				/*item->isEaten = true;*/
+				IncrNumberHeart();
+			}
+			}
 			else if (dynamic_cast<FireBullet *>(e->obj))
 			{
-				FireBullet *firebullet = dynamic_cast<FireBullet *>(e->obj);
-				if (untouchable == 0) {
-					SetState(SIMON_STATE_HURT);
-					DesHP();
-					willHurt = true;
-					StartUntouchable();
-				}
+			FireBullet *firebullet = dynamic_cast<FireBullet *>(e->obj);
+			if (untouchable == 0) {
+				SetState(SIMON_STATE_HURT);
+				DesHP();
+				willHurt = true;
+				StartUntouchable();
+			}
 			}
 			else if (dynamic_cast<Stars *>(e->obj))
 			{

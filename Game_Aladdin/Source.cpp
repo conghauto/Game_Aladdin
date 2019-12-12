@@ -30,11 +30,13 @@
 #include "FireBullet.h"
 #include "JafarBullet.h"
 #include "Bone.h"
-#include "Stars.h"#include "ItemApple.h"
+#include "Stars.h"
+#include "ItemApple.h"
 #include "GenieFace.h"
 #include "GenieJar.h"
 #include "ItemSpend.h"
-#include "ItemHeart.h"CGame *game;
+#include "ItemHeart.h"
+CGame *game;
 Aladdin * aladdin;
 Item *item;
 Effect *whipEffect;
@@ -727,7 +729,7 @@ void LoadResources()
 	sprites->Add(40080, 159, 4, 177, 20, texSpend);
 	sprites->Add(40081, 188, 4, 205, 20, texSpend);
 
-	LPDIRECT3DTEXTURE9 texHeart = textures->Get(ITEM_HEART); // item-spend
+	LPDIRECT3DTEXTURE9 texHeart = textures->Get(ITEM_HEART); // item-heart
 	sprites->Add(40082, 1, 1, 20, 26, texHeart);
 	sprites->Add(40083, 23, 3, 41, 27, texHeart);
 	sprites->Add(40084, 44, 5, 61, 27, texHeart);
@@ -1565,7 +1567,7 @@ void LoadResources()
 		// khởi tạo grid
 	grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
 	aladdin->SetPosition(750, 300);
-		/*grid->AddObject(aladdin);*/
+	/*grid->AddObject(aladdin);*/
 
 	#pragma endregion
 
@@ -2275,6 +2277,33 @@ void Update(DWORD dt)
 				{
 					listRemoveObjects.push_back(apple);
 				}
+			}
+			else if (dynamic_cast<ItemApple *>(coObjects.at(i)))
+			{
+			ItemApple*itemapple = dynamic_cast<ItemApple *>(coObjects.at(i));
+
+				if (itemapple->isEaten)
+				{
+					listRemoveObjects.push_back(itemapple);
+				}
+			}
+			else if (dynamic_cast<ItemSpend *>(coObjects.at(i)))
+			{
+			ItemSpend* item = dynamic_cast<ItemSpend *>(coObjects.at(i));
+
+			if (item->isEaten == true)
+			{
+				listRemoveObjects.push_back(item);
+			}
+			}
+			else if (dynamic_cast<ItemHeart *>(coObjects.at(i)))
+			{
+			ItemHeart*item = dynamic_cast<ItemHeart *>(coObjects.at(i));
+
+			if (item->isEaten)
+			{
+				listRemoveObjects.push_back(item);
+			}
 			}
 			//		item = new Item();
 			//		item->SetPosition(zombie->x, zombie->y);

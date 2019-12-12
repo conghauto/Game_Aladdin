@@ -52,6 +52,7 @@ public:
 	}
 	void RemoveObject(LPGAMEOBJECT object);
 	bool RemoveObjectInCell(LPGAMEOBJECT object);
+	bool RemoveObjectItem(LPGAMEOBJECT object);
 	void InitObjectsAtCell(LPCSTR fileSource);
 
 	static Grid *GetInstance();
