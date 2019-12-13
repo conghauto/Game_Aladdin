@@ -59,6 +59,7 @@ bool lv2 = false;
 bool isCrash = false;
 bool isSecondCrash = false;
 bool boss = false;
+static bool isAlive = true;
 // check scene lv2->lv2_1
 bool checkScene = false;
 bool check1 = false;
@@ -468,16 +469,6 @@ void LoadResources()
 	sprites->Add(16019, 180, 630, 292, 702, guardian);
 	sprites->Add(16020, 312, 630, 390, 702, guardian);
 
-	sprites->Add(16011, 395, 572, 492, 626, guardian); // guardian tấn công trái
-	sprites->Add(16012, 297, 572, 388, 626, guardian);
-	sprites->Add(16013, 216, 572, 293, 626, guardian);
-	sprites->Add(16014, 140, 572, 212, 626, guardian);
-	sprites->Add(16015, 65, 572, 133, 626, guardian);
-	sprites->Add(16016, 6, 572, 64, 626, guardian);
-	sprites->Add(16017, 6, 572, 64, 626, guardian);
-	sprites->Add(16018, 6, 572, 64, 626, guardian);
-	sprites->Add(16019, 6, 572, 64, 626, guardian);
-	sprites->Add(16020, 6, 572, 64, 626, guardian);
 	sprites->Add(16031, 382, 797, 448, 860, guardian); //guardian bi thuong trai
 	sprites->Add(16032, 290, 797, 363, 860, guardian);
 	sprites->Add(16033, 210, 797, 280, 860, guardian);
@@ -2092,7 +2083,6 @@ void Update(DWORD dt)
 
 				isCrash = true;
 			}
-
 		}
 
 
@@ -2122,7 +2112,7 @@ void Update(DWORD dt)
 				grid->AddObject(jafar);
 				
 			}
-			if (GetTickCount() - jafar->time_start_shoot > 200 && jafar->GetHP() > 0)
+			if (GetTickCount() - jafar->time_start_shoot > 200 && isAlive == true)
 			{
 				jafar->time_start_shoot = GetTickCount();
 				Stars *star = new Stars();
@@ -2269,6 +2259,7 @@ void Update(DWORD dt)
 				if (jafar->GetHP() == 0)
 				{
 					listRemoveObjects.push_back(jafar);
+					isAlive = false;
 					snake->SetPosition(jafar->x, jafar->y);
 					snake->nx = -1;
 					snake->AddAnimation(615);

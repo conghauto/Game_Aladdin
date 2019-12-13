@@ -24,7 +24,6 @@ void Stars::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	float checkVy = Aladdin::VyfoGet;
 	if (checkVy >= 0) vy = 0.00f;
 	else if (checkVy < 0) vy = -0.005f;
-
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
 
@@ -48,7 +47,8 @@ void Stars::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			if (dynamic_cast<Aladdin *>(e->obj))
 			{
 				Aladdin *aladdin = dynamic_cast<Aladdin *>(e->obj);
-				/*aladdin->SetState(SIMON_STATE_DIE);*/
+				if (this->nx > 0) aladdin->DesX();
+				else aladdin->InsX();
 				this->SetState(STAR_STATE_DIE);
 			}
 		}

@@ -37,6 +37,33 @@ void Bat::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		this->SetState(BAT_STATE_ATTACK);
 
 
+	vector<LPCOLLISIONEVENT> coEvents;
+	vector<LPCOLLISIONEVENT> coEventsResult;
+
+	CalcPotentialCollisions(coObjects, coEvents);
+
+	// No collision occured, proceed normally
+	if (coEvents.size() == 0)
+	{
+
+	}
+	else
+	{
+		float min_tx, min_ty, nx = 0, ny;
+
+		FilterCollision(coEvents, coEventsResult, min_tx, min_ty, nx, ny);
+
+		for (UINT i = 0; i < coEventsResult.size(); i++)
+		{
+			LPCOLLISIONEVENT e = coEventsResult[i];
+
+			if (dynamic_cast<Aladdin *>(e->obj))
+			{
+				Aladdin *aladdin = dynamic_cast<Aladdin *>(e->obj);
+				aladdin->SetState(SIMON_STATE_HURT);
+			}
+		}
+	}
 
 }
 

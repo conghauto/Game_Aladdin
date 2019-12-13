@@ -247,7 +247,7 @@
 #define BAT_ATTACK_SPEED			0.01f
 //Bone
 #define BONE_BBOX_WIDTH				35	
-#define BONE_BBOX_HEIGHT				30
+#define BONE_BBOX_HEIGHT			30
 
 #define BONE_STATE_ATTACK			600
 #define BONE_STATE_DIE				700

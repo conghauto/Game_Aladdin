@@ -24,6 +24,7 @@
 #include "ItemSpend.h"
 #include "GenieFace.h"
 #include "GenieJar.h"
+int Aladdin::preHP = 5;
 int Aladdin::score = 0;
 int Aladdin::life = 3;
 int Aladdin::numberapples = 50;
@@ -63,6 +64,20 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
 	// Calculate dx, dy 
 	CGameObject::Update(dt);
+
+	if (preHP <= 0) {
+		if (life > 0) {
+			life -= 1;
+			preHP = 5;
+		}
+		else
+		{
+			x = x + 30;
+			life = 4;
+			preHP = 5;
+		}
+
+	}
 
 	// Has completed attack animation
 	if (isAttack == true && GetTickCount() - attackTime >= SIMON_TIMER_ATTACK)
@@ -173,7 +188,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
-					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -190,7 +204,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
-					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -206,7 +219,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
-					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -222,7 +234,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
-					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -238,7 +249,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
-					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -254,7 +264,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
-					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -270,7 +279,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
-					DesHP();
 					willHurt = true;
 					StartUntouchable();
 					bone->SetState(BONE_STATE_DIE);
@@ -287,7 +295,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					//	this->nx = 1;
 
 					SetState(SIMON_STATE_HURT);
-					DesHP();
 					willHurt = true;
 					StartUntouchable();
 				}
@@ -337,7 +344,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			FireBullet *firebullet = dynamic_cast<FireBullet *>(e->obj);
 			if (untouchable == 0) {
 				SetState(SIMON_STATE_HURT);
-				DesHP();
 				willHurt = true;
 				StartUntouchable();
 			}
@@ -457,8 +463,14 @@ void Aladdin::Render()
 {
 	int ani = -1, aniWhip = -1;
 
-	if (state == SIMON_STATE_DIE)
-		return;
+	if (state == SIMON_STATE_DIE) {
+		//if (GetLife() >= 0) {
+		//	DesLife();
+		//	x = 0;
+		//	y = 0;
+		//}
+		//else return;
+	}
 	else
 	{
 		if (isHurt)
@@ -630,7 +642,7 @@ void Aladdin::SetState(int state)
 		break;
 	case SIMON_STATE_HURT:
 		isHurt = true;
-
+		DesHP();
 		vy = -SIMON_DIE_DEFLECT_SPEED;
 		if (nx > 0)
 		{

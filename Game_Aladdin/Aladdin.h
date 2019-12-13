@@ -38,7 +38,7 @@ public:
 	int ny;
 
 
-	int preHP;
+	static int preHP;
 	bool isLevelUp;
 	bool isBonus;
 	float timePressJump;
@@ -61,7 +61,6 @@ public:
 		level;
 		untouchable;
 		life;
-		preHP;
 		numberapples;
 		numberspend;
 		currentWeapon;
@@ -96,10 +95,20 @@ public:
 
 	int GetLife() { return life; }
 	void IncLife() { life += 1; }
+	void DesLife() { life -= 1; }
 
+	void InsX() {
+		this->x += 10;
+	}
+	void DesX() {
+		this->x -= 10;
+	}
 	int GetHP() { return preHP; }
 	void IncreHP(int bonus) { preHP += bonus; }
 	void DesHP() { preHP -= 1; }
+	void ResetHp() {
+		preHP = 5;
+	}
 
 	int GetNumberapples() { return numberapples; }
 	void DescNumberApples() { numberapples -= 1; }
