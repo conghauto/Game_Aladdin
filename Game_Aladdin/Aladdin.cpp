@@ -19,6 +19,7 @@
 #include "FireBullet.h"
 #include "Bone.h"
 #include "Stars.h"
+#include "Sound.h"
 #include "ItemApple.h"
 #include "ItemHeart.h"
 #include "ItemSpend.h"
@@ -303,6 +304,8 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			{
 			ItemApple *itemapple = dynamic_cast<ItemApple *>(e->obj);
 			if (untouchable == 0) {
+				Sound::getInstance()->loadSound(APPLE_MUSIC, "apple");
+				Sound::getInstance()->play("apple", false, 1);
 				itemapple->isEaten = true;
 				IncrNumberApples();
 			}
@@ -311,6 +314,8 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			{
 			ItemSpend *itemSpend = dynamic_cast<ItemSpend *>(e->obj);
 			if (untouchable == 0) {
+				Sound::getInstance()->loadSound(APPLE_MUSIC, "apple");
+				Sound::getInstance()->play("apple", false, 1);
 				IncrNumberSpend();
 				itemSpend->isEaten = true;			
 			}
@@ -319,6 +324,8 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			{
 			GenieFace *item = dynamic_cast<GenieFace *>(e->obj);
 			if (untouchable == 0) {
+				Sound::getInstance()->loadSound(APPLE_MUSIC, "apple");
+				Sound::getInstance()->play("apple", false, 1);
 				IncLife();
 				item->isEaten = true;
 			}
@@ -327,6 +334,8 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			{
 			GenieJar *item = dynamic_cast<GenieJar *>(e->obj);
 			if (untouchable == 0) {
+				Sound::getInstance()->loadSound(APPLE_MUSIC, "apple");
+				Sound::getInstance()->play("apple", false, 1);
 				IncreScore(2000);
 				item->isEaten = true;
 			}
@@ -335,6 +344,8 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			{
 			ItemHeart *item = dynamic_cast<ItemHeart *>(e->obj);
 			if (untouchable == 0) {
+				Sound::getInstance()->loadSound(APPLE_MUSIC, "apple");
+				Sound::getInstance()->play("apple", false, 1);
 				item->isEaten = true;
 				IncrNumberHeart();
 			}
@@ -524,6 +535,8 @@ void Aladdin::Render()
 		}
 		else if (isThrow)
 		{
+
+			
 			if (nx > 0)
 			{
 				if (isSit)
@@ -547,6 +560,7 @@ void Aladdin::Render()
 				}
 			}
 		}
+		
 		else if (isJump)
 		{
 			if (nx > 0)
@@ -642,6 +656,8 @@ void Aladdin::SetState(int state)
 		break;
 	case SIMON_STATE_HURT:
 		isHurt = true;
+		Sound::getInstance()->loadSound(HURT_MUSIC, "hurt");
+		Sound::getInstance()->play("hurt", false, 1);
 		DesHP();
 		vy = -SIMON_DIE_DEFLECT_SPEED;
 		if (nx > 0)

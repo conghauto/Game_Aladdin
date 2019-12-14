@@ -36,13 +36,15 @@
 #include "GenieJar.h"
 #include "ItemSpend.h"
 #include "ItemHeart.h"
+#include "Sound.h"
+
 CGame *game;
 Aladdin * aladdin;
 Item *item;
 Effect *whipEffect;
 Soldier *soldier;
 Soldier *soldier1;
-Map *map;
+Map *mapg;
 Apple *apple;
 Skeleton *skeleton;
 Skeleton *skeleton1;
@@ -107,8 +109,14 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 
 	if (KeyCode == DIK_C)
 	{
+		
 		if (aladdin->isAttack == false && !aladdin->isOnRope)
+		{
 			aladdin->SetAction(SIMON_ACTION_ATTACK);
+			Sound::getInstance()->loadSound(CUT_MUSIC, "cut");
+			Sound::getInstance()->play("cut", false, 1);
+			
+		}
 	}
 	else
 		if (KeyCode == DIK_X && aladdin->GetNumberapples() > 0)
@@ -118,6 +126,8 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 				aladdin->DescNumberApples();
 				int nx = aladdin->nx;
 				aladdin->SetAction(SIMON_ACTION_THROW);
+				Sound::getInstance()->loadSound(THROW_MUSIC, "throw");
+				Sound::getInstance()->play("throw", false, 1);
 				switch (aladdin->currentWeapon)
 				{
 				case ITEM_KNIFE:
@@ -2463,18 +2473,22 @@ void Render()
 		if (lv1 == true)
 		{
 
-			map = new	Map(/*48, 10,*/ tileset, 32, 32);
-			map->LoadMatrixMap("Resources\\Mapstate.txt");
+			mapg = new	Map(/*48, 10,*/ tileset, 32, 32);
+			mapg->LoadMatrixMap("Resources\\Mapstate.txt");
+			Sound::getInstance()->loadSound(GAME1_MUSIC, "man1");
+			Sound::getInstance()->play("man1", true, 0);
 			//map->Draw(game->x_cam, game->y_cam);
 		}
 		if (lv2 == true)
 		{
-
-			map = new	Map(/*48, 10,*/ tileset1, 32, 32);
-			map->LoadMatrixMap("Resources\\Mapstate1.txt");
+			Sound::getInstance()->stop("man1");
+			mapg = new	Map(/*48, 10,*/ tileset1, 32, 32);
+			mapg->LoadMatrixMap("Resources\\Mapstate1.txt");
+			Sound::getInstance()->loadSound(GAME2_MUSIC, "man2");
+			Sound::getInstance()->play("man2", true, 0);
 			//map->Draw(game->x_cam, game->y_cam);
 		}
-		map->Draw(game->mCamera->getX(), game->mCamera->getY());
+		mapg->Draw(game->mCamera->getX(), game->mCamera->getY());
 		for (int i = 0; i < currentCell.size(); i++)
 		{
 			vector<LPGAMEOBJECT> listObject = currentCell[i]->GetListObject();

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <d3dx9.h>
 #include <d3d9.h>
 #include "define.h"
@@ -13,7 +13,8 @@ class BG
 {
 private:
 	ID3DXFont* font;
-	RECT rect_life, rect_spend, rect_apple;
+	ID3DXFont* fontscore;
+	RECT rect_life, rect_spend, rect_apple, rect_score;
 	Aladdin* aladdin;
 	D3DXFONT_DESC desc;
 
@@ -21,6 +22,8 @@ private:
 	std::string number_life;
 	std::string number_apples;
 	std::string number_spend;
+	std::string scores;
+	std::string str = "Score: ";
 
 	std::vector<LPSPRITE> simonHPList;
 	std::vector<LPSPRITE> enemyHPList;
