@@ -22,14 +22,14 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{62A0BC96-7277-4AF5-A9C5-69C818D72797}</ProjectGuid>
     <RootNamespace>GameCaptainAmerica</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>Game_Aladdin</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -155,6 +155,7 @@
     <ClCompile Include="Aladdin.cpp" />
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="Soldier.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Sprites.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="Aladdin.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="Soldier.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="Stars.h" />

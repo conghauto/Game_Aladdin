@@ -1,4 +1,4 @@
-#include "BG.h"
+﻿#include "BG.h"
 
 
 BG::BG()
@@ -41,14 +41,21 @@ bool BG::Initialize(LPDIRECT3DDEVICE9 d3ddv)
 	number_life = std::to_string(aladdin->GetLife());
 	number_apples = std::to_string(aladdin->GetNumberapples());
 	number_spend = std::to_string(aladdin->GetNumberspend());
+	scores = str + std::to_string(aladdin->GetScore());
 	font = NULL;
+	fontscore = NULL;
 	HRESULT hr = D3DXCreateFont(d3ddv, 15, 0, FW_NORMAL, 1, false, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS,
 		ANTIALIASED_QUALITY, FF_DONTCARE, L"Arial", &font);
+	HRESULT hrscore = D3DXCreateFont(d3ddv, 22, 0, FW_NORMAL, 1, false, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS,
+		ANTIALIASED_QUALITY, FF_DONTCARE, L"Arial", &fontscore);
 	if (!SUCCEEDED(hr))
 	{
 		return FALSE;
 	}
-	
+	if (!SUCCEEDED(hrscore))
+	{
+		return FALSE;
+	}
 	/*font = NULL;
 	AddFontResourceEx(GAME_FONT, FR_PRIVATE, NULL);
 	HRESULT result = D3DXCreateFont(
@@ -97,6 +104,7 @@ void BG::Update(int time, int stage, Aladdin* aladdin)
 	number_life = std::to_string(aladdin->GetLife());
 	number_apples = std::to_string(aladdin->GetNumberapples());
 	number_spend = std::to_string(aladdin->GetNumberspend());
+	scores = str + std::to_string(aladdin->GetScore());
 	/*number_life = std::to_string(1000000);
 	number_apples = std::to_string(aladdin->GetNumberapples());
 	number_spend = std::to_string(aladdin->GetNumberspend());*/
@@ -162,8 +170,10 @@ void BG::RenderText(float x, float y, Aladdin* aladdin)
 	SetRect(&rect_life, 25, SCREEN_HEIGHT - 70, 1000, 1000);
 	SetRect(&rect_spend, SCREEN_WIDTH - 95, SCREEN_HEIGHT - 70, 1000, 1000);
 	SetRect(&rect_apple, SCREEN_WIDTH - 45, SCREEN_HEIGHT - 70, 1000, 1000);
+	SetRect(&rect_score, SCREEN_WIDTH - 150, 10, 1000, 1000);
 	font->DrawTextA(NULL, number_life.c_str(), -1, &rect_life, DT_TOP | DT_LEFT, D3DCOLOR_XRGB(255, 255, 255));
 	font->DrawTextA(NULL, number_spend.c_str(), -1, &rect_spend, DT_TOP | DT_LEFT, D3DCOLOR_XRGB(255, 255, 255));
 	font->DrawTextA(NULL, number_apples.c_str(), -1, &rect_apple, DT_TOP | DT_LEFT, D3DCOLOR_XRGB(255, 255, 255));
+	fontscore->DrawTextA(NULL, scores.c_str(), -1, &rect_score, DT_TOP | DT_LEFT, D3DCOLOR_XRGB(255, 255, 255));
 }
 

@@ -1,260 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Bat.cpp" />
+    <ClCompile Include="BG.cpp" />
+    <ClCompile Include="Bone.cpp" />
+    <ClCompile Include="BossJafar.cpp" />
+    <ClCompile Include="BossSnake.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CheckPoint.cpp" />
+    <ClCompile Include="debug.cpp" />
+    <ClCompile Include="define.cpp" />
+    <ClCompile Include="Dumbbell.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="Fire.cpp" />
+    <ClCompile Include="FireBullet.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GenieFace.cpp" />
+    <ClCompile Include="GenieJar.cpp" />
+    <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemApple.cpp" />
+    <ClCompile Include="ItemHeart.cpp" />
+    <ClCompile Include="ItemSpend.cpp" />
+    <ClCompile Include="JafarBullet.cpp" />
+    <ClCompile Include="ObjectTile.cpp" />
+    <ClCompile Include="Rock.cpp" />
+    <ClCompile Include="Rope.cpp" />
+    <ClCompile Include="Apple.cpp" />
+    <ClCompile Include="Pillar.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Aladdin.cpp" />
+    <ClCompile Include="Skeleton.cpp" />
+    <ClCompile Include="Soldier.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Spike.cpp" />
+    <ClCompile Include="Sprites.cpp" />
+    <ClCompile Include="Stars.cpp" />
+    <ClCompile Include="Textures.cpp" />
+    <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="Zombie.cpp" />
+    <ClCompile Include="Sound.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CheckPoint.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="debug.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="define.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Effect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ground.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprites.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Textures.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Zombie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Soldier.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rock.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Grid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Pillar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Aladdin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectTile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Spike.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dumbbell.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bat.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rope.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Apple.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Skeleton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BG.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BossJafar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BossSnake.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FireBullet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Fire.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="JafarBullet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Bone.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Stars.cpp">
-=======
-    <ClCompile Include="ItemApple.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GenieFace.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GenieJar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemSpend.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemHeart.cpp">
->>>>>>> 5dc2ae70cca5e4873959aecf30e08834be624454
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CheckPoint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="debug.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="define.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Effect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ground.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprites.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Textures.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Zombie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Weapon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Soldier.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Grid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pillar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Aladdin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectTile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Spike.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dumbbell.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rope.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Apple.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Skeleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BG.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BossJafar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BossSnake.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FireBullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Fire.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="JafarBullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Bone.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Stars.h">
-=======
-    <ClInclude Include="ItemApple.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GenieFace.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GenieJar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemSpend.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemHeart.h">
->>>>>>> 5dc2ae70cca5e4873959aecf30e08834be624454
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="Bat.h" />
+    <ClInclude Include="BG.h" />
+    <ClInclude Include="Bone.h" />
+    <ClInclude Include="BossJafar.h" />
+    <ClInclude Include="BossSnake.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CheckPoint.h" />
+    <ClInclude Include="debug.h" />
+    <ClInclude Include="define.h" />
+    <ClInclude Include="Dumbbell.h" />
+    <ClInclude Include="Effect.h" />
+    <ClInclude Include="Fire.h" />
+    <ClInclude Include="FireBullet.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GenieFace.h" />
+    <ClInclude Include="GenieJar.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="Ground.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemApple.h" />
+    <ClInclude Include="ItemHeart.h" />
+    <ClInclude Include="ItemSpend.h" />
+    <ClInclude Include="JafarBullet.h" />
+    <ClInclude Include="ObjectTile.h" />
+    <ClInclude Include="Rock.h" />
+    <ClInclude Include="Rope.h" />
+    <ClInclude Include="Apple.h" />
+    <ClInclude Include="Pillar.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="Aladdin.h" />
+    <ClInclude Include="Skeleton.h" />
+    <ClInclude Include="Soldier.h" />
+    <ClInclude Include="Spike.h" />
+    <ClInclude Include="Sprites.h" />
+    <ClInclude Include="Stars.h" />
+    <ClInclude Include="Textures.h" />
+    <ClInclude Include="Weapon.h" />
+    <ClInclude Include="Zombie.h" />
+    <ClInclude Include="Sound.h" />
   </ItemGroup>
 </Project>
