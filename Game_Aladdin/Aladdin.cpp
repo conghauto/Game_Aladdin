@@ -27,8 +27,8 @@
 int Aladdin::preHP = 5;
 int Aladdin::score = 0;
 int Aladdin::life = 3;
-int Aladdin::numberapples = 50;
-int Aladdin::numberspend = 25;
+int Aladdin::numberapples = 10;
+int Aladdin::numberspend = 15;
 int Aladdin::heartsAmount = 5;
 /*
 	Calculate potential collisions with the list of colliable objects
@@ -72,7 +72,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		}
 		else
 		{
-			x = x + 30;
+			x += 10;
 			life = 4;
 			preHP = 5;
 		}
@@ -304,6 +304,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			ItemApple *itemapple = dynamic_cast<ItemApple *>(e->obj);
 			if (untouchable == 0) {
 				itemapple->isEaten = true;
+				itemapple->isDisappear = true;
 				IncrNumberApples();
 			}
 			}

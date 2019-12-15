@@ -13,6 +13,7 @@ void Fire::GetBoundingBox(float &left, float &top, float &right, float &bottom)
 
 void Fire::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
+
 	CGameObject::Update(dt, coObjects);
 	x += dx;
 	y += dy;
@@ -20,6 +21,9 @@ void Fire::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	{
 		SetSpeed(0.0f, 0.0f);
 		return;
+	}
+	if (GetTickCount() - timeAppear > 1000) {
+		SetState(FIRE_STATE_DIE);
 	}
 }
 

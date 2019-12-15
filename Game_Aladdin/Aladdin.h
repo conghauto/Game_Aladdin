@@ -107,7 +107,7 @@ public:
 	void IncreHP(int bonus) { preHP += bonus; }
 	void DesHP() { preHP -= 1; }
 	void ResetHp() {
-		preHP = 5;
+		preHP = 3;
 	}
 
 	int GetNumberapples() { return numberapples; }

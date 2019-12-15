@@ -21,6 +21,7 @@ void FireBullet::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		SetSpeed(0.0f, 0.0f);
 		return;
 	}
+	if (x > 1100 && x < 0) SetState(FIRE_STATE_DIE);
 	
 	
 

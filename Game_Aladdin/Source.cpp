@@ -36,8 +36,10 @@
 #include "GenieJar.h"
 #include "ItemSpend.h"
 #include "ItemHeart.h"
+ItemApple *itemapple, *itemapple1, *itemapple2, *itemapple3, *itemapple4, *itemapple5;
 CGame *game;
 Aladdin * aladdin;
+Fire *fire, *fire1, *fire2, *fire3;
 Item *item;
 Effect *whipEffect;
 Soldier *soldier;
@@ -51,13 +53,19 @@ CSprite *sprite;
 BossJafar *jafar;
 BossSnake * snake;
 Grid *grid;
+bool is1FireAppear = false;
+bool is2FireAppear = false;
+bool is3FireAppear = false;
+bool is4FireAppear = false;
 vector<Cell*> currentCell;
 static float preDieX;
 static float preDieY;
 bool lv1 = true;
 bool lv2 = false;
 bool isCrash = false;
+bool isAppleAppear = false;
 bool isSecondCrash = false;
+bool isStartToEatApple = false;
 bool boss = false;
 static bool isAlive = true;
 // check scene lv2->lv2_1
@@ -1567,6 +1575,7 @@ void LoadResources()
 
 		// khởi tạo grid
 	grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
+	aladdin->SetPosition(650, 50);
 	aladdin->name = "aladdin";
 	grid->AddObject(aladdin);
 
@@ -1867,6 +1876,8 @@ void LoadResources()
 #pragma endregion
 		jafar = new BossJafar();
 		snake = new BossSnake();
+		//fire = new Fire();
+		//fire1 = new Fire();
 #pragma region Soldier
 		soldier = new Soldier();
 		soldier->nx = 1;
@@ -1957,7 +1968,6 @@ float Aladdin::YforGet = 0;
 float Aladdin::VyfoGet = 0;
 void Update(DWORD dt)
 {
-
 	float x, y;
 	aladdin->GetPosition(x, y);
 	Aladdin::XforGet = x;
@@ -2107,7 +2117,7 @@ void Update(DWORD dt)
 				jafar->AddAnimation(612);
 				jafar->AddAnimation(613);
 				jafar->AddAnimation(614);
-				jafar->SetPosition(400, 300);
+				jafar->SetPosition(450, 300);
 				jafar->SetState(JAFAR_STATE_IDLE);
 				grid->AddObject(jafar);
 				
@@ -2122,27 +2132,104 @@ void Update(DWORD dt)
 				star->SetState(STAR_STATE_ATTACK);
 				grid->AddObject(star);
 			}
-			//if (GetTickCount() - jafar->time_start_shoot > 5000)
-			//{
-			//	Fire *fire = new Fire();
-			//	fire->AddAnimation(621);
-			//	fire->SetPosition(100, 300);
-			//	fire->SetState(FIRE_STATE_BURNING);
-			//	grid->AddObject(fire);
 
-			//	Fire *fire1 = new Fire();
-			//	fire1->AddAnimation(621);
-			//	fire1->SetPosition(150, 300);
-			//	fire1->SetState(FIRE_STATE_BURNING);
-			//	grid->AddObject(fire1);
+			if (aladdin->GetNumberapples() == 0 && isAppleAppear == false)
+			{
 
-			//	Fire *fire2 = new Fire();
-			//	fire2->AddAnimation(621);
-			//	fire2->SetPosition(200, 300);
-			//	fire2->SetState(FIRE_STATE_BURNING);
-			//	grid->AddObject(fire2);
+				itemapple = new ItemApple();
+				itemapple->AddAnimation(2000);
+				itemapple->SetPosition(160, 290);
+				grid->AddObject(itemapple);
 
+				itemapple1 = new ItemApple();
+				itemapple1->AddAnimation(2000);
+				itemapple1->SetPosition(190, 250);
+				grid->AddObject(itemapple1);
+
+				itemapple2 = new ItemApple();
+				itemapple2->AddAnimation(2000);
+				itemapple2->SetPosition(220, 290);
+				grid->AddObject(itemapple2);
+
+
+				itemapple3 = new ItemApple();
+				itemapple3->AddAnimation(2000);
+				itemapple3->SetPosition(750, 290);
+				grid->AddObject(itemapple3);
+
+				itemapple4 = new ItemApple();
+				itemapple4->AddAnimation(2000);
+				itemapple4->SetPosition(780, 250);
+				grid->AddObject(itemapple4);
+
+				itemapple5 = new ItemApple();
+				itemapple5->AddAnimation(2000);
+				itemapple5->SetPosition(810, 290);
+				grid->AddObject(itemapple5);
+
+				isAppleAppear = true;
+
+			}
+			if (isAppleAppear == true && aladdin->GetNumberapples() == 0 
+				&& itemapple->isDisappear 
+				&& itemapple1->isDisappear
+				&& itemapple2->isDisappear
+				&& itemapple3->isDisappear
+				&& itemapple4->isDisappear
+				&& itemapple5->isDisappear) {
+				isAppleAppear = false;
+				is1FireAppear = false;
+				is2FireAppear = false;
+				is3FireAppear = false;
+				is4FireAppear = false;
+				
+			}
+			if (isAppleAppear) {
+				if (itemapple->isDisappear && itemapple1->isDisappear && itemapple2->isDisappear) {
+					is1FireAppear = true;
+				}
+				if (itemapple3->isDisappear && itemapple4->isDisappear && itemapple5->isDisappear) {
+					is3FireAppear = true;
+				}
+			}
+			//if (GetTickCount() - fire->time_start_shoot > 5000) {
+			//	fire->SetState(FIRE_STATE_DIE);
+			//	fire1->SetState(FIRE_STATE_DIE);
 			//}
+			if (is1FireAppear && is2FireAppear == false)
+			{
+				fire = new Fire();
+				fire->AddAnimation(621);
+				fire->SetPosition(140, 250);
+				fire->SetState(FIRE_STATE_BURNING);
+				grid->AddObject(fire);
+
+				fire1 = new Fire();
+				fire1->AddAnimation(621);
+				fire1->SetPosition(200, 250);
+				fire1->SetState(FIRE_STATE_BURNING);
+				grid->AddObject(fire1);
+				is2FireAppear = true;
+				is1FireAppear = false;
+			}
+
+			if (is3FireAppear && is4FireAppear == false)
+			{
+				fire2 = new Fire();
+				fire2->AddAnimation(621);
+				fire2->SetPosition(740, 250);
+				fire2->SetState(FIRE_STATE_BURNING);
+				grid->AddObject(fire2);
+
+				fire3 = new Fire();
+				fire3->AddAnimation(621);
+				fire3->SetPosition(800, 250);
+				fire3->SetState(FIRE_STATE_BURNING);
+				grid->AddObject(fire3);
+				is4FireAppear = true;
+				is3FireAppear = false;
+			}
+			
 			if ( GetTickCount() - snake->time_start_shoot > 2000 && jafar->GetHP() <= 0)
 			{
 				snake->time_start_shoot = GetTickCount();
@@ -2329,6 +2416,15 @@ void Update(DWORD dt)
 			ItemHeart*item = dynamic_cast<ItemHeart *>(coObjects.at(i));
 
 			if (item->isEaten)
+			{
+				listRemoveObjects.push_back(item);
+			}
+			}
+			else if (dynamic_cast<Fire *>(coObjects.at(i)))
+			{
+			Fire*item = dynamic_cast<Fire *>(coObjects.at(i));
+
+			if (item->GetState() == FIRE_STATE_DIE)
 			{
 				listRemoveObjects.push_back(item);
 			}

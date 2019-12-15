@@ -7,6 +7,7 @@ class Fire : public CGameObject
 {
 	int HP;
 public:
+	float timeAppear;
 	DWORD hurtTime;
 	bool isHurt;
 	bool isDead;
@@ -15,6 +16,7 @@ public:
 public:
 	Fire()
 	{
+		timeAppear = GetTickCount();
 		HP = 5;
 	}
 	virtual void SetState(int state);
