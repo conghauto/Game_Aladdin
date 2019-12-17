@@ -37,6 +37,7 @@
 #include "ItemSpend.h"
 #include "ItemHeart.h"
 #include "Sound.h"
+static bool isJafarDead = false;
 ItemApple *itemapple, *itemapple1, *itemapple2, *itemapple3, *itemapple4, *itemapple5;CGame *game;
 Aladdin * aladdin;
 Fire *fire, *fire1, *fire2, *fire3;
@@ -285,15 +286,15 @@ void LoadResources()
 	textures->Add(ITEM_SPEND, L"Resources\\item-spend.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ITEM_HEART, L"Resources\\item-heart.png", D3DCOLOR_XRGB(163, 73, 164));
 
-	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_BAT, L"Resources\\bat.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_BOSS, L"Resources\\boss.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_SKELETON, L"Resources\\skeleton.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ROCK, L"Resources\\rock.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_TILESET, L"Resources\\tileset.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_TILESET_2, L"Resources\\tileset1.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(ID_TEX_GUARDIAN, L"Resources\\enemy.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_GUARDIAN, L"Resources\\enemy.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_DUMBBELL, L"Resources\\dumbbell.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_SPIKE, L"Resources\\spike.png", D3DCOLOR_XRGB(163, 73, 164));
 
@@ -2238,14 +2239,14 @@ void Update(DWORD dt)
 				is3FireAppear = false;
 			}
 			
-			if ( GetTickCount() - snake->time_start_shoot > 2000 && jafar->GetHP() <= 0)
+			if ( GetTickCount() - snake->time_start_shoot > 2000 && isJafarDead == true)
 			{
 				snake->time_start_shoot = GetTickCount();
 				FireBullet *bullet = new FireBullet();
 				bullet->nx = snake->nx;
 				bullet->AddAnimation(619);
 				bullet->AddAnimation(620);
-				bullet->SetPosition(snake->x, snake->y + 20);
+				bullet->SetPosition(450, 320);
 				bullet->SetState(FIRE_BULLET_STATE_ATTACK);
 				grid->AddObject(bullet);
 			}
@@ -2287,7 +2288,7 @@ void Update(DWORD dt)
 			{
 				Zombie *zombie = dynamic_cast<Zombie *>(coObjects.at(i));
 
-				if (zombie->GetHP() == 0)
+				if (zombie->GetHP() <= 0)
 				{
 					listRemoveObjects.push_back(zombie);
 				}
@@ -2355,13 +2356,14 @@ void Update(DWORD dt)
 				{
 					listRemoveObjects.push_back(jafar);
 					isAlive = false;
-					snake->SetPosition(jafar->x, jafar->y);
+					snake->SetPosition(jafar->x, 280);
 					snake->nx = -1;
 					snake->AddAnimation(615);
 					snake->AddAnimation(616);
 					snake->AddAnimation(617);
 					snake->AddAnimation(618);
 					snake->SetState(SNAKE_STATE_ATTACK);
+					isJafarDead = true;
 					grid->AddObject(snake);
 				}
 			}

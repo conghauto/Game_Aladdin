@@ -53,6 +53,7 @@ void Stars::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			}
 		}
 	}
+	if (this->x > 960 || x <= 0) SetState(STAR_STATE_DIE);
 }
 
 void Stars::Render()

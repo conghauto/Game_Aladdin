@@ -44,7 +44,7 @@ void Zombie::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	float checkX = this->x - Aladdin::XforGet;
 	float checkY = -this->y + Aladdin::YforGet;
 	if (checkX < 100 && checkY < 10)
-		this->SetState(GUARDIAN_STATE_ATTACK);
+		this->SetState(GUARDIAN_STATE_IDLE);
 	if (checkX > 0) nx = -1;
 	else nx = 1;
 	//if (check < 0)
@@ -59,7 +59,7 @@ void Zombie::Render()
 {
 	int ani;
 
-	if (GetHP() == 0)
+	if (GetHP() <= 0)
 	{
 
 		return;

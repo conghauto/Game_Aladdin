@@ -66,6 +66,11 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	// Calculate dx, dy 
 	CGameObject::Update(dt);
 
+	if (isAttack) {
+		SetBound(200);
+	}
+	else SetBound(35);
+
 	if (preHP <= 0) {
 		if (life > 0) {
 			life -= 1;
@@ -80,17 +85,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 
 	}
 
-	// Has completed attack animation
-	if (isAttack == true && GetTickCount() - attackTime >= SIMON_TIMER_ATTACK)
-	{
-		isAttack = false;
-		if (isExitSit)
-		{
-			isSit = false;
-			y -= SIMON_SIT_TO_STAND;
-			isExitSit = false;
-		}
-	}
 	if (isThrow == true && GetTickCount() - attackTime >= SIMON_TIMER_ATTACK)
 	{
 		isThrow = false;
@@ -101,7 +95,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			isExitSit = false;
 		}
 	}
-
 	// Simple fall down
 	if (!isOnRope)
 	vy += SIMON_GRAVITY * dt;
@@ -181,7 +174,12 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			if (dynamic_cast<Zombie *>(e->obj))
 			{
 				Zombie *zombie = dynamic_cast<Zombie *>(e->obj);
-				if (zombie->GetState() != GUARDIAN_STATE_DIE && untouchable == 0) {
+				if (this->isAttack == true && zombie->GetState() != GUARDIAN_STATE_DIE) {
+				
+					zombie->SetState(GUARDIAN_STATE_HURT);
+				}
+				else
+				if (zombie->GetState() != GUARDIAN_STATE_DIE && untouchable == 0 && this->isAttack == false) {
 					// Đặt hướng hurt
 					if (e->nx > 0)
 						this->nx = -1;
@@ -192,12 +190,17 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					willHurt = true;
 					StartUntouchable();
 				}
+
 			}
 			else
 			if (dynamic_cast<Skeleton *>(e->obj))
 			{
 				Skeleton *skeleton = dynamic_cast<Skeleton *>(e->obj);
-				if (skeleton->GetState() != GUARDIAN_STATE_DIE && untouchable == 0) {
+				if (this->isAttack == true && skeleton->GetState() != SKELETON_STATE_DIE) {
+					skeleton->SetState(SKELETON_STATE_HURT);
+				}
+				else
+				if (skeleton->GetState() != GUARDIAN_STATE_DIE && untouchable == 0 && this->isAttack == false) {
 					// Đặt hướng hurt
 					if (e->nx > 0)
 						this->nx = -1;
@@ -307,6 +310,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				Sound::getInstance()->loadSound(APPLE_MUSIC, "apple");
 				Sound::getInstance()->play("apple", false, 1);
 				itemapple->isEaten = true;
+				IncreScore(2000);
 				itemapple->isDisappear = true;
 				IncrNumberApples();
 			}
@@ -469,6 +473,18 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	}
 	// clean up collision events
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
+
+	// Has completed attack animation
+	if (isAttack == true && GetTickCount() - attackTime >= SIMON_TIMER_ATTACK)
+	{
+		isAttack = false;
+		if (isExitSit)
+		{
+			isSit = false;
+			y -= SIMON_SIT_TO_STAND;
+			isExitSit = false;
+		}
+	}
 }
 
 void Aladdin::Render()
@@ -766,12 +782,15 @@ void Aladdin::SetAction(int action)
 		break;
 	}
 }
-
+void Aladdin::SetBound(float dis) {
+	width = x + dis;
+}
 void Aladdin::GetBoundingBox(float &left, float &top, float &right, float &bottom)
 {
-	left = x;
+	
 	top = y;
-	right = x + SIMON_STAND_BBOX_WIDTH;
+	left = x;
+	right = width;
 	bottom = y + SIMON_STAND_BBOX_HEIGHT;
 
 }
