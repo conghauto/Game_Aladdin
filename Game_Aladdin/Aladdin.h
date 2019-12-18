@@ -47,6 +47,8 @@ public:
 	int xStartDash;
 	int yStartJump;
 public:
+	float width;
+	float height;
 	static float XforGet;
 	static float YforGet;
 	static float VyfoGet;
@@ -56,7 +58,6 @@ public:
 	static int numberspend;
 	static int heartsAmount;
 	int currentWeapon;
-	float width;
 	Aladdin() : CGameObject()
 	{
 		level;
@@ -67,6 +68,7 @@ public:
 		currentWeapon;
 		isUseWhip;
 		width = 0;
+		height = 0;
 	}
 
 	virtual void CalcPotentialCollisions(vector<LPGAMEOBJECT> *coObjects, vector<LPCOLLISIONEVENT> &coEvents);
@@ -128,5 +130,5 @@ public:
 	float GetY() { return YforGet; }
 	float GetVy(){ return VyfoGet; }
 	
-	void SetBound(float dis);
+	void SetBound(int n);
 };

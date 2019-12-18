@@ -66,11 +66,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	// Calculate dx, dy 
 	CGameObject::Update(dt);
 
-	if (isAttack) {
-		SetBound(200);
-	}
-	else SetBound(35);
-
 	if (preHP <= 0) {
 		if (life > 0) {
 			life -= 1;
@@ -84,7 +79,13 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		}
 
 	}
-
+	// Has completed attack animation
+	if (isAttack == true && GetTickCount() - attackTime < SIMON_TIMER_ATTACK)
+	{
+		SetBound(200);
+	}
+	else
+		SetBound(0);
 	if (isThrow == true && GetTickCount() - attackTime >= SIMON_TIMER_ATTACK)
 	{
 		isThrow = false;
@@ -215,6 +216,11 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			else if (dynamic_cast<Soldier *>(e->obj))
 			{
 				Soldier *soldier = dynamic_cast<Soldier *>(e->obj);
+				if (this->isAttack == true && soldier->GetState() != SOLDIER_STATE_DIE) {
+
+					soldier->SetState(SOLDIER_STATE_HURT);
+				}
+				else
 				if (soldier->GetState() != SOLDIER_STATE_DIE && untouchable == 0) {
 					// Đặt hướng hurt
 					if (e->nx > 0)
@@ -474,7 +480,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	// clean up collision events
 	for (UINT i = 0; i < coEvents.size(); i++) delete coEvents[i];
 
-	// Has completed attack animation
 	if (isAttack == true && GetTickCount() - attackTime >= SIMON_TIMER_ATTACK)
 	{
 		isAttack = false;
@@ -782,15 +787,15 @@ void Aladdin::SetAction(int action)
 		break;
 	}
 }
-void Aladdin::SetBound(float dis) {
-	width = x + dis;
+void Aladdin::SetBound(int n) {
+	width = n;
 }
 void Aladdin::GetBoundingBox(float &left, float &top, float &right, float &bottom)
 {
 	
 	top = y;
 	left = x;
-	right = width;
+	right = x + SIMON_STAND_BBOX_WIDTH + width;
 	bottom = y + SIMON_STAND_BBOX_HEIGHT;
 
 }

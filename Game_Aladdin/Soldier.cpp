@@ -30,10 +30,20 @@ void Soldier::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	}
 	float checkX = this->x - Aladdin::XforGet;
 	float checkY = -this->y + Aladdin::YforGet;
-	if (checkX < 50 && checkY < 10)
+	if (checkX < 100 && checkY < 10)
 		this->SetState(SOLDIER_STATE_ATTACK);
-	if (checkX > 0) nx = -1;
-	else nx = 1;
+	if (checkX > 0 && state != SOLDIER_STATE_WALK) nx = -1;
+	else if (checkX <= 0 && state != SOLDIER_STATE_WALK) nx = 1;
+	if (this->x < 1220 && y == 275) {
+		x = 1220;
+		nx = -nx;
+		this->SetState(SOLDIER_STATE_WALK);
+	}
+	else if (this->x > 1550 && this->y == 275) {
+		this->x = 1550;
+		this->nx = -nx;
+		this->SetState(SOLDIER_STATE_WALK);
+	}
 	//if (check < 0)
 	//{
 	//	nx = -nx;
@@ -68,6 +78,11 @@ void Soldier::Render()
 		else
 			ani = SOLDIER_ANI_ATTACK_LEFT;
 
+	}
+	if (state == SOLDIER_STATE_WALK) {
+			if (nx > 0) ani = SOLDIER_ANI_WALK_RIGHT;
+			else
+				ani = SOLDIER_ANI_WALK_LEFT;
 	}
 	animations[ani]->Render(x, y);
 	RenderBoundingBox();
@@ -104,6 +119,14 @@ void Soldier::SetState(int state)
 		isAttack = true;
 		isHurt = false;
 		break;	
+	case SOLDIER_STATE_WALK:
+		isHurt = false;
+		isAttack = false;
+		if (nx > 0)
+			vx = SKELETON_WALKING_SPEED;
+		else
+			vx = -SKELETON_WALKING_SPEED;
+		break;
 	}
 
 }
