@@ -337,6 +337,8 @@
 #define ID_TEX_SWORD_WALK				186
 #define ID_TEX_ALADDIN_ATTACK			187
 #define ID_TEX_ALADDIN_STAND			188
+#define ID_TEX_ALADDIN_SIT				189
+#define ID_TEX_ALADDIN_SIT_THROW		190
 // Pillar
 #define ID_TEX_PILLAR1					197
 #define ID_TEX_PILLAR2					198

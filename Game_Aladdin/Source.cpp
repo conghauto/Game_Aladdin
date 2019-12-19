@@ -288,6 +288,8 @@ void LoadResources()
 	textures->Add(ITEM_HEART, L"Resources\\item-heart.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_ALADDIN_ATTACK, L"Resources\\aladdinattack.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ALADDIN_STAND, L"Resources\\aladdinstand.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_ALADDIN_SIT, L"Resources\\aladdinsit.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_ALADDIN_SIT_THROW, L"Resources\\aladdinsitthrow.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_BAT, L"Resources\\bat.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -307,12 +309,13 @@ void LoadResources()
 	LPDIRECT3DTEXTURE9 texSwordWalk = textures->Get(ID_TEX_SWORD_WALK);
 	LPDIRECT3DTEXTURE9 texApple = textures->Get(ID_TEX_KNIFE);
 	LPDIRECT3DTEXTURE9 texAladdin = textures->Get(ID_TEX_ALLADIN);
-	LPDIRECT3DTEXTURE9 texAladdinSit = textures->Get(ID_TEX_SIT);
 	LPDIRECT3DTEXTURE9 texBat = textures->Get(ID_TEX_BAT);
 	LPDIRECT3DTEXTURE9 texSkeleton = textures->Get(ID_TEX_SKELETON);
 	LPDIRECT3DTEXTURE9 texBoss = textures->Get(ID_TEX_BOSS);
 	LPDIRECT3DTEXTURE9 texAladdinAttack = textures->Get(ID_TEX_ALADDIN_ATTACK);
 	LPDIRECT3DTEXTURE9 texAladdinStand = textures->Get(ID_TEX_ALADDIN_STAND);
+	LPDIRECT3DTEXTURE9 texAladdinSit = textures->Get(ID_TEX_ALADDIN_SIT);
+	LPDIRECT3DTEXTURE9 texAladdinSitThrow = textures->Get(ID_TEX_ALADDIN_SIT_THROW);
 	#pragma region Addsprite
 	sprites->Add(10001, 109, 18, 148, 84, texAladdinStand);		// đứng im phải - 66
 
@@ -345,14 +348,14 @@ void LoadResources()
 	sprites->Add(10007, 1275, 61, 1352, 127, texAladdinAttack);
 	sprites->Add(10008, 1365, 61, 1420, 127, texAladdinAttack);
 
-	sprites->Add(10025, 1182, 618, 1235, 673, texAladdin);		// ngồi đánh phải			
-	sprites->Add(10026, 1235, 618, 1307, 673, texAladdin);
-	sprites->Add(10027, 1311, 618, 1404, 673, texAladdin);
-	sprites->Add(10028, 1416, 618, 1502, 673, texAladdin);
-	sprites->Add(10029, 1235, 618, 1307, 673, texAladdin);
+	sprites->Add(10025, 610, 16, 658, 82, texAladdinSit);		// ngồi đánh phải			
+	sprites->Add(10026, 662, 16, 734, 82, texAladdinSit);
+	sprites->Add(10027, 738, 16, 832, 82, texAladdinSit);
+	sprites->Add(10028, 843, 16, 931, 82, texAladdinSit);
+	sprites->Add(10029, 938, 16, 1012, 82, texAladdinSit);
 
 
-	sprites->Add(10018, 1129, 618, 1176, 673, texAladdin); // ngồi phải
+	sprites->Add(10018, 552, 16, 605, 82, texAladdinSit); // ngồi phải
 
 	sprites->Add(12001, 1196, 820, 1248, 890, texAladdin); // nhảy phải
 	sprites->Add(12002, 1258, 820, 1313, 890, texAladdin);
@@ -368,11 +371,11 @@ void LoadResources()
 	sprites->Add(13004, 1282, 232, 1330, 290, texAladdin);
 	sprites->Add(13005, 1339, 232, 1382, 290, texAladdin);
 
-	sprites->Add(13021, 1127, 562, 1169, 615, texAladdin); // ngồi ném táo phải
-	sprites->Add(13022, 1176, 562, 1218, 615, texAladdin);
-	sprites->Add(13023, 1225, 562, 1278, 615, texAladdin);
-	sprites->Add(13024, 1284, 562, 1365, 615, texAladdin);
-	sprites->Add(13025, 1378, 562, 1436, 615, texAladdin);
+	sprites->Add(13021, 436, 18, 478, 84, texAladdinSitThrow); // ngồi ném táo phải
+	sprites->Add(13022, 484, 18, 528, 84, texAladdinSitThrow);
+	sprites->Add(13023, 536, 18, 589, 84, texAladdinSitThrow);
+	sprites->Add(13024, 594, 18, 676, 84, texAladdinSitThrow);
+	sprites->Add(13025, 685, 18, 745, 84, texAladdinSitThrow);
 
 	sprites->Add(14111, 1128, 2163, 1172, 2212, texAladdin); //bị thương bên phải
 	sprites->Add(14112, 1178, 2163, 1234, 2212, texAladdin);
@@ -414,13 +417,13 @@ void LoadResources()
 	sprites->Add(10017, 862, 61, 936, 127, texAladdinAttack);
 	sprites->Add(10009, 786, 61, 850, 127, texAladdinAttack);
 
-	sprites->Add(10031, 1005, 618, 1060, 673, texAladdin);		// ngồi đánh trái				
-	sprites->Add(10032, 927, 618, 1009, 673, texAladdin);
-	sprites->Add(10033, 835, 618, 930, 673, texAladdin);
-	sprites->Add(10034, 737, 618, 825, 673, texAladdin);
-	sprites->Add(10035, 927, 618, 1009, 673, texAladdin);
+	sprites->Add(10031, 436, 16, 482, 82, texAladdinSit);		// ngồi đánh trái				
+	sprites->Add(10032, 360, 16, 430, 82, texAladdinSit);
+	sprites->Add(10033, 262, 16, 353, 82, texAladdinSit);
+	sprites->Add(10034, 165, 16, 250, 82, texAladdinSit);
+	sprites->Add(10035, 82, 16, 155, 82, texAladdinSit);
 
-	sprites->Add(10019, 1064, 618, 1115, 673, texAladdin); // ngồi trái
+	sprites->Add(10019, 490, 16, 540, 82, texAladdinSit); // ngồi trái
 
 	sprites->Add(12011, 994, 820, 1047, 890, texAladdin);//nhảy trái
 	sprites->Add(12012, 929, 820, 986, 890, texAladdin);
@@ -434,11 +437,11 @@ void LoadResources()
 	sprites->Add(13014, 912, 232, 959, 290, texAladdin);
 	sprites->Add(13015, 861, 232, 902, 290, texAladdin);
 
-	sprites->Add(13031, 1073, 562, 1115, 615, texAladdin); //ngồi ném táo trái
-	sprites->Add(13032, 1022, 562, 1065, 615, texAladdin);
-	sprites->Add(13033, 962, 562, 1015, 615, texAladdin);
-	sprites->Add(13034, 877, 562, 956, 615, texAladdin);
-	sprites->Add(13035, 808, 562, 866, 615, texAladdin);
+	sprites->Add(13031, 380, 18, 422, 84, texAladdinSitThrow); //ngồi ném táo trái
+	sprites->Add(13032, 332, 18, 372, 84, texAladdinSitThrow);
+	sprites->Add(13033, 272, 18, 322, 84, texAladdinSitThrow);
+	sprites->Add(13034, 183, 18, 266, 84, texAladdinSitThrow);
+	sprites->Add(13035, 115, 18, 175, 84, texAladdinSitThrow);
 
 	sprites->Add(14121, 1070, 2163, 1113, 2212, texAladdin); //bị thương bên trái
 	sprites->Add(14122, 1008, 2163, 1062, 2212, texAladdin);
