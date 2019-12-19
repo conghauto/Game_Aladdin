@@ -48,23 +48,23 @@ void Zombie::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		//if (state == GUARDIAN_STATE_WALK)
 		//	vx = SKELETON_WALKING_SPEED;
 	}
-	if (this->x < 1150 && y == 945) {
+	if (this->x < 1150 && y == 935) {
 		x = 1150;
 		nx = -nx;
 		this->SetState(GUARDIAN_STATE_WALK);
 	}
-	else if (this->x > 1260 && this->y == 945) {
+	else if (this->x > 1260 && this->y == 935) {
 		this->x = 1250;
 		this->nx = -nx;
 		this->SetState(GUARDIAN_STATE_WALK);
 	}
 
-	if (this->x < 1550 && y == 944) {
+	if (this->x < 1550 && y == 934) {
 		x = 1550;
 		nx = -nx;
 		this->SetState(GUARDIAN_STATE_WALK);
 	}
-	else if (this->x > 1900 && this->y == 944) {
+	else if (this->x > 1900 && this->y == 934) {
 		this->x = 1900;
 		this->nx = -nx;
 		this->SetState(GUARDIAN_STATE_WALK);

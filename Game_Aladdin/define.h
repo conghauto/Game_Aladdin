@@ -332,7 +332,11 @@
 #define ID_TEX_PILLAR_4					181
 #define ID_TEX_GATE						182
 #define ID_TEX_BOSS						183
-
+#define ID_TEX_SWORD_GUARDIAN			184
+#define ID_TEX_SWORD_ATTACK				185
+#define ID_TEX_SWORD_WALK				186
+#define ID_TEX_ALADDIN_ATTACK			187
+#define ID_TEX_ALADDIN_STAND			188
 // Pillar
 #define ID_TEX_PILLAR1					197
 #define ID_TEX_PILLAR2					198

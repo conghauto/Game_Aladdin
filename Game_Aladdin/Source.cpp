@@ -286,28 +286,35 @@ void LoadResources()
 	textures->Add(ITEM_GENIEJAR, L"Resources\\genie-jar.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ITEM_SPEND, L"Resources\\item-spend.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ITEM_HEART, L"Resources\\item-heart.png", D3DCOLOR_XRGB(163, 73, 164));
-
+	textures->Add(ID_TEX_ALADDIN_ATTACK, L"Resources\\aladdinattack.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_ALADDIN_STAND, L"Resources\\aladdinstand.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(163, 73, 164));
-	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_BAT, L"Resources\\bat.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_BOSS, L"Resources\\boss.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_SKELETON, L"Resources\\skeleton.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ROCK, L"Resources\\rock.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_TILESET, L"Resources\\tileset.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_TILESET_2, L"Resources\\tileset1.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(ID_TEX_GUARDIAN, L"Resources\\enemy.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ID_TEX_GUARDIAN, L"Resources\\enemy.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_SWORD_ATTACK, L"Resources\\swordattack.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_DUMBBELL, L"Resources\\dumbbell.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_SPIKE, L"Resources\\spike.png", D3DCOLOR_XRGB(163, 73, 164));
-
+	textures->Add(ID_TEX_SWORD_GUARDIAN, L"Resources\\sword.png", D3DCOLOR_XRGB(255, 0, 255));
+	textures->Add(ID_TEX_SWORD_WALK, L"Resources\\swordwalk.png", D3DCOLOR_XRGB(255, 0, 255));
+	LPDIRECT3DTEXTURE9 texSword = textures->Get(ID_TEX_SWORD_GUARDIAN);
+	LPDIRECT3DTEXTURE9 texSwordAttack = textures->Get(ID_TEX_SWORD_ATTACK);
+	LPDIRECT3DTEXTURE9 texSwordWalk = textures->Get(ID_TEX_SWORD_WALK);
 	LPDIRECT3DTEXTURE9 texApple = textures->Get(ID_TEX_KNIFE);
 	LPDIRECT3DTEXTURE9 texAladdin = textures->Get(ID_TEX_ALLADIN);
 	LPDIRECT3DTEXTURE9 texAladdinSit = textures->Get(ID_TEX_SIT);
 	LPDIRECT3DTEXTURE9 texBat = textures->Get(ID_TEX_BAT);
 	LPDIRECT3DTEXTURE9 texSkeleton = textures->Get(ID_TEX_SKELETON);
 	LPDIRECT3DTEXTURE9 texBoss = textures->Get(ID_TEX_BOSS);
-
+	LPDIRECT3DTEXTURE9 texAladdinAttack = textures->Get(ID_TEX_ALADDIN_ATTACK);
+	LPDIRECT3DTEXTURE9 texAladdinStand = textures->Get(ID_TEX_ALADDIN_STAND);
 	#pragma region Addsprite
-	sprites->Add(10001, 1121, 0, 1162, 66, texAladdin);		// đứng im phải
+	sprites->Add(10001, 109, 18, 148, 84, texAladdinStand);		// đứng im phải - 66
 
 	sprites->Add(14002, 1186, 1215, 1229, 1275, texAladdin);		// đi phải
 	sprites->Add(14003, 1239, 1216, 1280, 1275, texAladdin);
@@ -332,11 +339,11 @@ void LoadResources()
 	sprites->Add(14048, 1476, 1360, 1518, 1447, texAladdin);
 	sprites->Add(14049, 1525, 1360, 1555, 1447, texAladdin);
 
-	sprites->Add(10004, 1125, 330, 1173, 387, texAladdin);		// đánh phải
-	sprites->Add(10005, 1174, 330, 1227, 387, texAladdin);
-	sprites->Add(10006, 1232, 330, 1280, 387, texAladdin);
-	sprites->Add(10007, 1289, 330, 1373, 387, texAladdin);
-	sprites->Add(10008, 1377, 330, 1431, 387, texAladdin);
+	sprites->Add(10004, 1110, 61, 1156, 127, texAladdinAttack);		// đánh phải
+	sprites->Add(10005, 1160, 61, 1212, 127, texAladdinAttack);
+	sprites->Add(10006, 1220, 61, 1267, 127, texAladdinAttack);
+	sprites->Add(10007, 1275, 61, 1352, 127, texAladdinAttack);
+	sprites->Add(10008, 1365, 61, 1420, 127, texAladdinAttack);
 
 	sprites->Add(10025, 1182, 618, 1235, 673, texAladdin);		// ngồi đánh phải			
 	sprites->Add(10026, 1235, 618, 1307, 673, texAladdin);
@@ -375,7 +382,7 @@ void LoadResources()
 	sprites->Add(14116, 1474, 2163, 1530, 2212, texAladdin);
 
 	LPDIRECT3DTEXTURE9 texAladdin2 = textures->Get(ID_TEX_ALLADIN);
-	sprites->Add(10011, 1079, 0, 1120, 66, texAladdin2);		// đứng im trái
+	sprites->Add(10011, 66, 18, 105, 84, texAladdinStand);		// đứng im trái
 
 	sprites->Add(14022, 1008, 1215, 1057, 1275, texAladdin2);		// đi trái
 	sprites->Add(14023, 959, 1215, 1003, 1275, texAladdin2);
@@ -401,11 +408,11 @@ void LoadResources()
 	sprites->Add(14058, 722, 1360, 765, 1447, texAladdin2);
 	sprites->Add(14059, 687, 1360, 715, 1447, texAladdin2);
 
-	sprites->Add(10014, 1070, 330, 1115, 387, texAladdin2);		// đánh trái				
-	sprites->Add(10015, 1013, 330, 1068, 387, texAladdin2);
-	sprites->Add(10016, 956, 330, 1009, 387, texAladdin2);
-	sprites->Add(10017, 867, 330, 954, 387, texAladdin2);
-	sprites->Add(10009, 808, 330, 866, 387, texAladdin2);
+	sprites->Add(10014, 1056, 61, 1102, 127, texAladdinAttack);		// đánh trái				
+	sprites->Add(10015, 1000, 61, 1054, 127, texAladdinAttack);
+	sprites->Add(10016, 938, 61, 994, 127, texAladdinAttack);
+	sprites->Add(10017, 862, 61, 936, 127, texAladdinAttack);
+	sprites->Add(10009, 786, 61, 850, 127, texAladdinAttack);
 
 	sprites->Add(10031, 1005, 618, 1060, 673, texAladdin);		// ngồi đánh trái				
 	sprites->Add(10032, 927, 618, 1009, 673, texAladdin);
@@ -464,23 +471,23 @@ void LoadResources()
 
 	//Guardian Enemy
 	LPDIRECT3DTEXTURE9 guardian = textures->Get(ID_TEX_GUARDIAN);
-	sprites->Add(16006, 929, 565, 986, 626, guardian); // guardian tấn công phải
-	sprites->Add(16005, 860, 565, 928, 626, guardian);
-	sprites->Add(16004, 782, 565, 854, 626, guardian);
-	sprites->Add(16003, 702, 565, 777, 626, guardian);
-	sprites->Add(16002, 608, 565, 694, 626, guardian);
-	sprites->Add(16001, 502, 565, 600, 626, guardian);
+	sprites->Add(16006, 499, 16, 594, 87, texSwordAttack); // guardian tấn công phải
+	sprites->Add(16005, 604, 16, 694, 87, texSwordAttack);
+	sprites->Add(16004, 700, 16, 774, 87, texSwordAttack);
+	sprites->Add(16003, 780, 16, 850, 87, texSwordAttack);
+	sprites->Add(16002, 855, 16, 925, 87, texSwordAttack);
+	sprites->Add(16001, 928, 16, 986, 87, texSwordAttack);
 	sprites->Add(16007, 943, 630, 985, 702, guardian);
 	sprites->Add(16008, 888, 630, 930, 702, guardian);
 	sprites->Add(16009, 824, 630, 878, 702, guardian);
 	sprites->Add(16010, 701, 630, 790, 702, guardian);
 	sprites->Add(16110, 600, 630, 685, 702, guardian);
 
-	sprites->Add(16011, 395, 565, 492, 626, guardian); // guardian tấn công trái
-	sprites->Add(16012, 297, 565, 388, 626, guardian);
-	sprites->Add(16013, 216, 565, 293, 626, guardian);
-	sprites->Add(16014, 140, 565, 212, 626, guardian);
-	sprites->Add(16015, 65, 565, 133, 626, guardian);
+	sprites->Add(16011, 393, 16, 489, 87, texSwordAttack); // guardian tấn công trái
+	sprites->Add(16012, 294, 16, 385, 87, texSwordAttack);
+	sprites->Add(16013, 216, 16, 293, 87, texSwordAttack);
+	sprites->Add(16014, 140, 16, 212, 87, texSwordAttack);
+	sprites->Add(16015, 2, 16, 60, 87, texSwordAttack);
 	sprites->Add(16016, 5, 630, 50, 702, guardian);
 	sprites->Add(16017, 60, 630, 106, 702, guardian);
 	sprites->Add(16018, 116, 630, 170, 702, guardian);
@@ -501,38 +508,37 @@ void LoadResources()
 	sprites->Add(16025, 858, 797, 920, 860, guardian);
 	sprites->Add(16026, 932, 797, 986, 860, guardian);
 
-	sprites->Add(16041, 666, 448, 714, 504, guardian); //guardian đứng phải
-	sprites->Add(16042, 721, 448, 770, 504, guardian);
-	sprites->Add(16043, 775, 448, 835, 504, guardian);
-	sprites->Add(16044, 838, 448, 894, 504, guardian);
-	sprites->Add(16045, 896, 448, 936, 504, guardian);
-	sprites->Add(16046, 942, 448, 986, 504, guardian);
+	sprites->Add(16041, 475, 15, 523, 85, texSword); //guardian đứng phải
+	sprites->Add(16042, 528, 15, 582, 85, texSword);
+	sprites->Add(16043, 585, 15, 644, 85, texSword);
+	sprites->Add(16044, 646, 15, 705, 85, texSword);
+	sprites->Add(16045, 707, 15, 748, 85, texSword);
+	sprites->Add(16046, 750, 15, 800, 85, texSword);
 
+	sprites->Add(16051, 380, 15, 428, 85, texSword); //guardian đứng trái
+	sprites->Add(16052, 324, 15, 375, 85, texSword);
+	sprites->Add(16053, 260, 15, 320, 85, texSword);
+	sprites->Add(16054, 202, 15, 257, 85, texSword);
+	sprites->Add(16055, 160, 15, 200, 85, texSword);
+	sprites->Add(16056, 108, 15, 155, 85, texSword);
 
-	sprites->Add(16051, 277, 448, 325, 504, guardian); //guardian đứng trái
-	sprites->Add(16052, 220, 448, 272, 504, guardian);
-	sprites->Add(16053, 158, 448, 216, 504, guardian);
-	sprites->Add(16054, 97, 448, 154, 504, guardian);
-	sprites->Add(16055, 56, 448, 96, 504, guardian);
-	sprites->Add(16056, 4, 448, 52, 504, guardian);
+	sprites->Add(16061, 560, 21, 610, 92, texSwordWalk); // guardian di phai
+	sprites->Add(16062, 614, 21, 660, 92, texSwordWalk);
+	sprites->Add(16063, 666, 21, 709, 92, texSwordWalk);
+	sprites->Add(16064, 712, 21, 764, 92, texSwordWalk);
+	sprites->Add(16065, 768, 21, 820, 92, texSwordWalk);
+	sprites->Add(16066, 824, 21, 880, 92, texSwordWalk);
+	sprites->Add(16067, 885, 21, 938, 92, texSwordWalk);
+	sprites->Add(16068, 942, 21, 991, 92, texSwordWalk);
 
-	sprites->Add(16061, 560, 314, 610, 372, guardian); // guardian di phai
-	sprites->Add(16062, 614, 314, 660, 372, guardian);
-	sprites->Add(16063, 666, 314, 709, 372, guardian);
-	sprites->Add(16064, 712, 314, 764, 372, guardian);
-	sprites->Add(16065, 768, 314, 820, 372, guardian);
-	sprites->Add(16066, 824, 314, 880, 372, guardian);
-	sprites->Add(16067, 885, 314, 938, 372, guardian);
-	sprites->Add(16068, 942, 314, 991, 372, guardian);
-
-	sprites->Add(16071, 382, 314, 430, 372, guardian); // guardian di trai
-	sprites->Add(16072, 333, 314, 377, 372, guardian);
-	sprites->Add(16073, 282, 314, 326, 372, guardian);
-	sprites->Add(16074, 230, 314, 280, 372, guardian);
-	sprites->Add(16075, 172, 314, 226, 372, guardian);
-	sprites->Add(16076, 112, 314, 168, 372, guardian);
-	sprites->Add(16077, 55, 314, 107, 372, guardian);
-	sprites->Add(16078, 2, 314, 50, 372, guardian);
+	sprites->Add(16071, 382, 21, 430, 92, texSwordWalk); // guardian di trai
+	sprites->Add(16072, 333, 21, 377, 92, texSwordWalk);
+	sprites->Add(16073, 282, 21, 326, 92, texSwordWalk);
+	sprites->Add(16074, 230, 21, 280, 92, texSwordWalk);
+	sprites->Add(16075, 172, 21, 226, 92, texSwordWalk);
+	sprites->Add(16076, 112, 21, 168, 92, texSwordWalk);
+	sprites->Add(16077, 55, 21, 107, 92, texSwordWalk);
+	sprites->Add(16078, 2, 21, 50, 92, texSwordWalk);
 	//Soldier
 	LPDIRECT3DTEXTURE9 soldierTex = textures->Get(ID_TEX_GUARDIAN); 
 	sprites->Add(17001, 570, 92, 609, 156, soldierTex);	//solider danh phai
@@ -1865,7 +1871,7 @@ void LoadResources()
 		zombie->AddAnimation(556);
 		zombie->AddAnimation(557);
 		zombie->AddAnimation(558);
-		zombie->SetPosition(1250, 945);
+		zombie->SetPosition(1250, 935);
 		zombie->SetState(GUARDIAN_STATE_WALK);
 		//objects.push_back(zombie);
 		grid->AddObject(zombie);
@@ -1880,7 +1886,7 @@ void LoadResources()
 		zombie1->AddAnimation(556);
 		zombie1->AddAnimation(557);
 		zombie1->AddAnimation(558);
-		zombie1->SetPosition(1900, 165);
+		zombie1->SetPosition(1900, 155);
 		zombie1->SetState(GUARDIAN_STATE_IDLE);
 		//objects.push_back(zombie);
 		grid->AddObject(zombie1);
@@ -1895,7 +1901,7 @@ void LoadResources()
 		zombie2->AddAnimation(556);
 		zombie2->AddAnimation(557);
 		zombie2->AddAnimation(558);
-		zombie2->SetPosition(440, 355);
+		zombie2->SetPosition(440, 345);
 		zombie2->SetState(GUARDIAN_STATE_IDLE);
 		//objects.push_back(zombie);
 		grid->AddObject(zombie2);
@@ -1910,7 +1916,7 @@ void LoadResources()
 		zombie3->AddAnimation(556);
 		zombie3->AddAnimation(557);
 		zombie3->AddAnimation(558);
-		zombie3->SetPosition(1720, 490);
+		zombie3->SetPosition(1720, 480);
 		zombie3->SetState(GUARDIAN_STATE_IDLE);
 		//objects.push_back(zombie);
 		grid->AddObject(zombie3);
@@ -1926,7 +1932,7 @@ void LoadResources()
 		zombie4->AddAnimation(556);
 		zombie4->AddAnimation(557);
 		zombie4->AddAnimation(558);
-		zombie4->SetPosition(1550, 944);
+		zombie4->SetPosition(1550, 934);
 		zombie4->SetState(GUARDIAN_STATE_WALK);
 		//objects.push_back(zombie);
 		grid->AddObject(zombie4);
