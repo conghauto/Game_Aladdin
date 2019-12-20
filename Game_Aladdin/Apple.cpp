@@ -31,7 +31,7 @@ void Apple::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		vector<LPCOLLISIONEVENT> coEvents;
 		vector<LPCOLLISIONEVENT> coEventsResult;
 
-		CalcPotentialCollisions(coObjects, coEvents);
+		CalcPotentialCollisionsApple(coObjects, coEvents);
 
 		x += dx;
 		y += dy;

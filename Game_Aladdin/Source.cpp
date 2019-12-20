@@ -127,7 +127,7 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 			
 		}
 	}
-	else
+	
 		if (KeyCode == DIK_X && aladdin->GetNumberapples() > 0)
 		{
 			aladdin->SetCurrentWeapon(809);

@@ -28,7 +28,7 @@
 int Aladdin::preHP = 5;
 int Aladdin::score = 0;
 int Aladdin::life = 3;
-int Aladdin::numberapples = 10;
+int Aladdin::numberapples = 1000;
 int Aladdin::numberspend = 15;
 int Aladdin::heartsAmount = 5;
 /*
@@ -65,7 +65,6 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
 	// Calculate dx, dy 
 	CGameObject::Update(dt);
-
 	if (preHP <= 0) {
 		if (life > 0) {
 			life -= 1;
@@ -82,12 +81,14 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	// Has completed attack animation
 	if (isAttack == true && GetTickCount() - attackTime < SIMON_TIMER_ATTACK)
 	{
-		SetBound(50);
+		SetBound(10);
+		
 	}
 	else
 		SetBound(0);
-	if (isThrow == true && GetTickCount() - attackTime >= SIMON_TIMER_ATTACK)
+	if (isThrow == true && GetTickCount() - attackTime > SIMON_TIMER_ATTACK)
 	{
+		
 		isThrow = false;
 		if (isExitSit)
 		{
