@@ -82,7 +82,7 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	// Has completed attack animation
 	if (isAttack == true && GetTickCount() - attackTime < SIMON_TIMER_ATTACK)
 	{
-		SetBound(200);
+		SetBound(50);
 	}
 	else
 		SetBound(0);
@@ -96,9 +96,20 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 			isExitSit = false;
 		}
 	}
-	// Simple fall down
 	if (!isOnRope)
-	vy += SIMON_GRAVITY * dt;
+	{
+		vy += SIMON_GRAVITY * dt;
+	}
+	// Simple fall down
+	/*if (isOnRope && isAttack)
+	{
+
+	}
+	else
+	{
+		vy += SIMON_GRAVITY * dt;
+	}*/
+	
 
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
@@ -756,7 +767,10 @@ void Aladdin::SetAction(int action)
 		// Neu dang nhay toi thi de nguyen van toc, neu khong thi dung lai va danh
 		isAttack = true;
 		if (!isJump)
+		{
 			vx = 0;
+			
+		}
 		isJump = false;
 		isMoving = false;
 		attackTime = GetTickCount();

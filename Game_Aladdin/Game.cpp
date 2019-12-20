@@ -236,9 +236,29 @@ void CGame::SweptAABB(
 	float bb = dy > 0 ? mb + dy : mb;
 
 	if (br < sl || bl > sr || bb < st || bt > sb) return;
+	
+	if (dx == 0 && dy == 0)
+	{
+		if (sl - mr < 0 && sr - ml>0)
+		{
+			tx_entry = 0.001f;
+			tx_exit =1.0f;
 
-
-	if (dx == 0 && dy == 0) return;		// moving object is not moving > obvious no collision
+		}
+		if (st - mb < 0 && sb - mt>0)
+		{
+			ty_entry = 0.001f;
+			ty_exit = 1.0f;
+		}
+		if (tx_entry == ty_entry)
+		{
+			t = 0.001f;
+			nx = 0.001f;
+			
+			return;
+		}
+	}
+			// moving object is not moving > obvious no collision
 
 	if (dx > 0)
 	{
@@ -256,6 +276,7 @@ void CGame::SweptAABB(
 	{
 		dy_entry = st - mb;
 		dy_exit = sb - mt;
+		
 	}
 	else if (dy < 0)
 	{
@@ -265,8 +286,11 @@ void CGame::SweptAABB(
 
 	if (dx == 0)
 	{
+		
 		tx_entry = -99999999999;
 		tx_exit = 99999999999;
+		
+		
 	}
 	else
 	{
@@ -276,8 +300,11 @@ void CGame::SweptAABB(
 
 	if (dy == 0)
 	{
+		
 		ty_entry = -99999999999;
 		ty_exit = 99999999999;
+		
+		
 	}
 	else
 	{
@@ -286,7 +313,7 @@ void CGame::SweptAABB(
 	}
 
 
-	if ((tx_entry < 0.0f && ty_entry < 0.0f) || tx_entry > 1.0f || ty_entry > 1.0f) return;
+	if ((tx_entry < 0.0f && ty_entry < 0.0f) || tx_entry > 1.0f || ty_entry > 1.0f || (dx == 0 && dy == 0)) return;
 
 	t_entry = max(tx_entry, ty_entry);
 	t_exit = min(tx_exit, ty_exit);

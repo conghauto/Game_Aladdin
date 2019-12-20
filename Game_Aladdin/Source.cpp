@@ -120,6 +120,7 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 		
 		if (aladdin->isAttack == false && !aladdin->isOnRope)
 		{
+			aladdin->vy = 0;
 			aladdin->SetAction(SIMON_ACTION_ATTACK);
 			Sound::getInstance()->loadSound(CUT_MUSIC, "cut");
 			Sound::getInstance()->play("cut", false, 1);
