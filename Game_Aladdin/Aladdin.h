@@ -130,5 +130,5 @@ public:
 	float GetY() { return YforGet; }
 	float GetVy(){ return VyfoGet; }
 	
-	void SetBound(int n);
+	void SetBound(int n,int m);
 };

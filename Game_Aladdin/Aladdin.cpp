@@ -81,11 +81,14 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	// Has completed attack animation
 	if (isAttack == true && GetTickCount() - attackTime < SIMON_TIMER_ATTACK)
 	{
-		SetBound(10);
+		
 		
 	}
 	else
-		SetBound(0);
+	{
+		SetBound(0, 0);
+	}
+		
 	if (isThrow == true && GetTickCount() - attackTime > SIMON_TIMER_ATTACK)
 	{
 		
@@ -546,6 +549,7 @@ void Aladdin::Render()
 		{
 			if (nx > 0)
 			{
+				SetBound(10,0);
 				if (isSit)
 				{
 					ani = SIMON_ANI_SIT_ATTACK_RIGHT;
@@ -557,6 +561,7 @@ void Aladdin::Render()
 			}
 			else
 			{
+				SetBound(0,10);
 				if (isSit)
 				{
 					ani = SIMON_ANI_SIT_ATTACK_LEFT;
@@ -802,14 +807,15 @@ void Aladdin::SetAction(int action)
 		break;
 	}
 }
-void Aladdin::SetBound(int n) {
+void Aladdin::SetBound(int n, int m) {
 	width = n;
+	height = m;
 }
 void Aladdin::GetBoundingBox(float &left, float &top, float &right, float &bottom)
 {
 	
 	top = y;
-	left = x;
+	left = x-height;
 	right = x + SIMON_STAND_BBOX_WIDTH + width;
 	bottom = y + SIMON_STAND_BBOX_HEIGHT;
 
