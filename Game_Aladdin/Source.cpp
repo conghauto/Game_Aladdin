@@ -2366,7 +2366,7 @@ void Update(DWORD dt)
 				/*mapg->ReleaseTileMap();*/
 				/*grid->ReleaseList();*/
 				/*bg->ReleaseObjectsInScreen();*/
-
+				aladdin->SetPosition(600, 300);
 				delete mapg;
 				lv2 = false;
 				lvEnd = true;
@@ -2379,8 +2379,12 @@ void Update(DWORD dt)
 			//	grid->InitList(1000, 670);
 			//	aladdin->SetPosition(100, 50);
 			//	grid->AddObject(aladdin);
+			//aladdin->SetPosition(400, 300);
 
-
+			if (!aladdin->isSit && !aladdin->isAttack && !aladdin->isOnRope)
+				aladdin->SetState(SIMON_STATE_WALK);
+			if (!aladdin->isJump && !aladdin->isAttack)
+				aladdin->nx = -1.0f;
 			//	for (int i = 0; i < 21; i++) {
 			//		Ground *ground = new Ground();
 			//		ground->SetPosition(i * 32.0f, 300);
@@ -2782,7 +2786,7 @@ void Render()
 			bg->RenderPillar(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 		}
 		if (lvEnd) {
-			bg->RenderNextGame(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+			/*bg->RenderNextGame(game->mCamera->getX(), game->mCamera->getY(), aladdin);*/
 		}
 		bg->Render(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 		spriteHandler->End();
