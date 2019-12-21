@@ -74,6 +74,9 @@ static bool isAlive = true;
 bool checkScene = false;
 bool check1 = false;
 bool check = false;
+bool isDeadBossSnake = false;
+bool checkEndLv2 = false;
+bool lvEnd = false;
 vector<ObjectTile*> listObjectsInMap;
 ListObject*lsObjs;
 
@@ -273,6 +276,7 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 */
 void LoadResources()
 {
+	textures->Add(ITEM_BG_NEXT_GAME, L"Resources\\Next.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_PILLAR_1, L"Resources\\pillar_1.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_PILLAR_2, L"Resources\\pillar_2.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_PILLAR_3, L"Resources\\pillar_3.png", D3DCOLOR_XRGB(163, 73, 164));
@@ -1674,7 +1678,7 @@ void LoadResources()
 
 		// khởi tạo grid
 	grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
-	aladdin->SetPosition(250, 50);
+	aladdin->SetPosition(850, 50);
 	aladdin->name = "aladdin";
 	grid->AddObject(aladdin);
 
@@ -1864,7 +1868,7 @@ void LoadResources()
 
 	#pragma endregion
 
-#pragma region Zombie
+	#pragma region Zombie
 		Zombie *zombie = new Zombie();
 		zombie->nx = -1;
 		zombie->AddAnimation(551);
@@ -1944,7 +1948,7 @@ void LoadResources()
 
 #pragma endregion
 
-		//#pragma region Bat
+	#pragma region Bat
 		Bat *bat1 = new Bat();
 		bat1->AddAnimation(605);
 		bat1->AddAnimation(606);
@@ -1965,62 +1969,62 @@ void LoadResources()
 		bat3->SetPosition(1372, 848);
 		bat3->SetState(BAT_STATE_WAIT);
 		grid->AddObject(bat3);
-		//#pragma endregion
+		#pragma endregion
 
-#pragma region Skeleton
-		skeleton = new Skeleton();
-		skeleton->nx = -1;
-		skeleton->AddAnimation(607);
-		skeleton->AddAnimation(608);
-		skeleton->SetPosition(400, 930);
-		skeleton->SetState(SKELETON_STATE_IDLE);
-		grid->AddObject(skeleton);
-		skeleton1 = new Skeleton();
-		skeleton1->nx = -1;
-		skeleton1->AddAnimation(607);
-		skeleton1->AddAnimation(608);
-		skeleton1->SetPosition(750, 750);
-		skeleton1->SetState(SKELETON_STATE_IDLE);
-		grid->AddObject(skeleton1);
-#pragma endregion
+	#pragma region Skeleton
+			skeleton = new Skeleton();
+			skeleton->nx = -1;
+			skeleton->AddAnimation(607);
+			skeleton->AddAnimation(608);
+			skeleton->SetPosition(400, 930);
+			skeleton->SetState(SKELETON_STATE_IDLE);
+			grid->AddObject(skeleton);
+			skeleton1 = new Skeleton();
+			skeleton1->nx = -1;
+			skeleton1->AddAnimation(607);
+			skeleton1->AddAnimation(608);
+			skeleton1->SetPosition(750, 750);
+			skeleton1->SetState(SKELETON_STATE_IDLE);
+			grid->AddObject(skeleton1);
+	#pragma endregion
 		jafar = new BossJafar();
 		snake = new BossSnake();
 		//fire = new Fire();
 		//fire1 = new Fire();
-#pragma region Soldier
-		soldier = new Soldier();
-		soldier->nx = 1;
-		soldier->AddAnimation(563);
-		soldier->AddAnimation(564);
-		soldier->AddAnimation(561);
-		soldier->AddAnimation(562);
-		soldier->AddAnimation(565);
-		soldier->AddAnimation(566);
-		soldier->AddAnimation(567);
-		soldier->AddAnimation(568);
-		soldier->SetPosition(10, 200);
-		soldier->SetState(SOLDIER_STATE_IDLE);
-		//objects.push_back(zombie1);
-		grid->AddObject(soldier);
+	#pragma region Soldier
+			soldier = new Soldier();
+			soldier->nx = 1;
+			soldier->AddAnimation(563);
+			soldier->AddAnimation(564);
+			soldier->AddAnimation(561);
+			soldier->AddAnimation(562);
+			soldier->AddAnimation(565);
+			soldier->AddAnimation(566);
+			soldier->AddAnimation(567);
+			soldier->AddAnimation(568);
+			soldier->SetPosition(10, 200);
+			soldier->SetState(SOLDIER_STATE_IDLE);
+			//objects.push_back(zombie1);
+			grid->AddObject(soldier);
 
-		Soldier *soldier1 = new Soldier();
-		soldier1->nx = -1;
-		soldier1->AddAnimation(563);
-		soldier1->AddAnimation(564);
-		soldier1->AddAnimation(561);
-		soldier1->AddAnimation(562);
-		soldier1->AddAnimation(565);
-		soldier1->AddAnimation(566);
-		soldier1->AddAnimation(567);
-		soldier1->AddAnimation(568);
-		soldier1->SetPosition(1550, 275);
-		soldier1->SetState(SOLDIER_STATE_WALK);
-		//objects.push_back(zombie1);
-		grid->AddObject(soldier1);
+			Soldier *soldier1 = new Soldier();
+			soldier1->nx = -1;
+			soldier1->AddAnimation(563);
+			soldier1->AddAnimation(564);
+			soldier1->AddAnimation(561);
+			soldier1->AddAnimation(562);
+			soldier1->AddAnimation(565);
+			soldier1->AddAnimation(566);
+			soldier1->AddAnimation(567);
+			soldier1->AddAnimation(568);
+			soldier1->SetPosition(1550, 275);
+			soldier1->SetState(SOLDIER_STATE_WALK);
+			//objects.push_back(zombie1);
+			grid->AddObject(soldier1);
 
-#pragma endregion
+	#pragma endregion
 
-#pragma region Fire
+	#pragma region Fire
 		//Fire *fire = new Fire();
 		//fire->AddAnimation(621);
 		//fire->SetPosition(100, 950);
@@ -2098,6 +2102,7 @@ void Update(DWORD dt)
 
 				lv2 = true;
 				lv1 = false;
+				aladdin->isLevelUp = false;
 				/*aladdin->isLevelUp = false;
 				aladdin->SetState(SIMON_STATE_IDLE);*/
 
@@ -2354,6 +2359,41 @@ void Update(DWORD dt)
 				bullet->SetState(FIRE_BULLET_STATE_ATTACK);
 				grid->AddObject(bullet);
 			}
+
+			if (checkEndLv2) {
+				/*aladdin->isLevelUp = true;
+				grid->ReleaseList();*/
+				/*mapg->ReleaseTileMap();*/
+				/*grid->ReleaseList();*/
+				/*bg->ReleaseObjectsInScreen();*/
+
+				delete mapg;
+				lv2 = false;
+				lvEnd = true;
+			}
+		}
+
+		if (lvEnd) {
+			//if (aladdin->isLevelUp) {
+			//	game->mCamera->setX(0);
+			//	grid->InitList(1000, 670);
+			//	aladdin->SetPosition(100, 50);
+			//	grid->AddObject(aladdin);
+
+
+			//	for (int i = 0; i < 21; i++) {
+			//		Ground *ground = new Ground();
+			//		ground->SetPosition(i * 32.0f, 300);
+			//		//objects.push_back(ground);
+			//		grid->AddObject(ground);
+			//	}
+			//	//LoadResourceLv2();
+			//	//countLoadResourceLv2 = true;
+			//	/*aladdin->SetPosition(100, 20);*/
+			//	aladdin->SetState(SIMON_STATE_IDLE);
+			//	aladdin->GetPosition(x, y);
+
+			//}
 		}
 
 	#pragma endregion
@@ -2474,7 +2514,7 @@ void Update(DWORD dt)
 			else if (dynamic_cast<BossSnake *>(coObjects.at(i)))
 			{
 				BossSnake* snake = dynamic_cast<BossSnake *>(coObjects.at(i));
-
+				snake->name = "Snake";
 				if (snake->GetHP() == 0)
 				{
 					isSnakeDead = true;
@@ -2583,8 +2623,15 @@ void Update(DWORD dt)
 		// Remove lần lượt từng object từ listRemoveObjects trong grid
 		for (int i = 0; i < listRemoveObjects.size(); i++)
 		{
+			if (listRemoveObjects[i]->name == "Snake") {
+				isDeadBossSnake = true;
+			}
 			grid->RemoveObject(listRemoveObjects[i]);
 			delete listRemoveObjects[i];
+		}
+
+		if (isDeadBossSnake==true) {
+			checkEndLv2 = true;
 		}
 	#pragma endregion	
 
@@ -2633,6 +2680,34 @@ void Update(DWORD dt)
 
 			// Ox
 			if (x > SCREEN_WIDTH / 2 && x < MAX_WIDTH_LV2 - SCREEN_WIDTH / 2)
+			{
+
+				game->mCamera->setX(x - SCREEN_WIDTH / 2);
+				game->mCamera->setY(game->mCamera->getY());
+			}
+			else
+			{
+				game->mCamera->setX(game->mCamera->getX());
+				game->mCamera->setY(game->mCamera->getY());
+			}
+		}
+
+		if (lvEnd == true)
+		{
+			// Oy
+			if (y > SCREEN_HEIGHT / 2 && y < 370 - SCREEN_HEIGHT / 2)
+			{
+				game->mCamera->setX(game->mCamera->getX());
+				game->mCamera->setY(y - SCREEN_HEIGHT / 2);
+			}
+			else
+			{
+				game->mCamera->setX(game->mCamera->getX());
+				game->mCamera->setY(game->mCamera->getY());
+			}
+
+			// Ox
+			if (x > SCREEN_WIDTH / 2 && x < 640 - SCREEN_WIDTH / 2)
 			{
 
 				game->mCamera->setX(x - SCREEN_WIDTH / 2);
@@ -2705,6 +2780,9 @@ void Render()
 		if (lv1 == true)
 		{
 			bg->RenderPillar(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+		}
+		if (lvEnd) {
+			bg->RenderNextGame(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 		}
 		bg->Render(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 		spriteHandler->End();

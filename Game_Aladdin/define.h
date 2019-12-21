@@ -385,6 +385,7 @@
 #define ITEM_GENIEJAR				    821
 #define ITEM_SPEND						822
 #define ITEM_HEART						823
+#define ITEM_BG_NEXT_GAME				824
 
 //bullet
 #define BULLET_BBOX_WIDTH				16

@@ -25,6 +25,7 @@ bool BG::Initialize(LPDIRECT3DDEVICE9 d3ddv)
 	spend = new CSprite(7, 0, 0, 21, 21, textures->Get(ITEM_BG_SPEND));
 	aladdin_life = new CSprite(8, 0, 0, 20, 22, textures->Get(ALADDIN_LIFE));
 	god_light = new CSprite(9, 0, 0, 111, 38, textures->Get(ITEM_BG_GOD_LIGHT));
+	next_game = new CSprite(10, 0, 0, 640, 382, textures->Get(ITEM_BG_NEXT_GAME));
 
 	/*for (int i = 0; i < 16; i++)
 	{
@@ -163,6 +164,11 @@ void BG::RenderPillar(float x, float y, Aladdin* aladdin)
 	pillar3->Draw(767, 336, 255);
 	pillar4->Draw(1100, 835, 255);
 	gate->Draw(2070, 60, 255);
+}
+
+void BG::RenderNextGame(float x, float y, Aladdin* aladdin)
+{
+	next_game->Draw(0, 0, 255);
 }
 
 void BG::RenderText(float x, float y, Aladdin* aladdin)

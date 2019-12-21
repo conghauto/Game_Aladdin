@@ -50,6 +50,7 @@ private:
 	CSprite* spend;
 	CSprite* aladdin_life;
 	CSprite* god_light;
+	CSprite* next_game;
 
 	ID3DXFont* numberofapples;
 
@@ -74,8 +75,23 @@ public:
 	void Render(float x, float y, Aladdin* aladdin);
 	void RenderPillar(float x, float y, Aladdin* aladdin);
 	void RenderText(float x, float y, Aladdin* aladdin);
+	void RenderNextGame(float x, float y, Aladdin* aladdin);
 	//LPDIRECT3DTEXTURE9 LoadTexture(char* file, D3DCOLOR);
 	//void drawFont(ID3DXFont* font, float x, float y, float width, float height, int value);
 	CSprite* axe;
+
+	void ReleaseObjectsInScreen() {
+		if (apple != NULL) {
+			delete apple;
+		}
+
+		if (spend != NULL) {
+			delete spend;
+		}
+
+		if (aladdin_life) {
+			delete aladdin_life;
+		}
+	}
 };
 

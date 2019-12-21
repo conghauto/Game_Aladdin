@@ -17,7 +17,7 @@ public:
 	BossJafar()
 	{
 		this->time_start_shoot = GetTickCount();
-		HP = 10;
+		HP = 1;
 	}
 	virtual void SetState(int state);
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);

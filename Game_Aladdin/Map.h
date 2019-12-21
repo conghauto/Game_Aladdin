@@ -34,5 +34,16 @@ public:
 	int GetRows() { return this->rows; }
 	int GetTileWidth() { return this->tileWidth; }
 	int GetTileHeight() { return this->tileHeight; }
+	void ReleaseTileMap() {
+		if (matrix)
+		{
+			for (int i = 0; i < rows; i++)
+			{
+				delete matrix[i];
+			}
+			delete matrix;
+			matrix = nullptr;
+		}
+	}
 };
 
