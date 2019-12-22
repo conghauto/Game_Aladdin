@@ -299,7 +299,7 @@ void LoadResources()
 	textures->Add(ID_TEX_ALADDIN_STAND, L"Resources\\aladdinstand.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ALADDIN_SIT, L"Resources\\aladdinsit.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ALADDIN_SIT_THROW, L"Resources\\aladdinsitthrow.png", D3DCOLOR_XRGB(255, 0, 255));
-	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ID_TEX_KNIFE, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_ALLADIN, L"Resources\\aladdin.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_BAT, L"Resources\\bat.png", D3DCOLOR_XRGB(255, 0, 255));
 	textures->Add(ID_TEX_BOSS, L"Resources\\boss.png", D3DCOLOR_XRGB(255, 0, 255));
@@ -1682,7 +1682,7 @@ void LoadResources()
 
 		// khởi tạo grid
 	grid->InitList(MAX_WIDTH_LV1, MAX_HEIGHT_LV1);
-	aladdin->SetPosition(850, 50);
+	aladdin->SetPosition(10, 850);
 	aladdin->name = "aladdin";
 	grid->AddObject(aladdin);
 

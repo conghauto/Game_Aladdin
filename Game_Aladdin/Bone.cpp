@@ -24,7 +24,9 @@ void Bone::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		SetSpeed(0.0f, 0.0f);
 		return;
 	}
-
+	if (this->x < 0 || this->x > 800 || this->y < 300) {
+		SetState(BONE_STATE_DIE);
+	}
 	vector<LPCOLLISIONEVENT> coEvents;
 	vector<LPCOLLISIONEVENT> coEventsResult;
 

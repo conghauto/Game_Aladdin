@@ -549,7 +549,7 @@ void Aladdin::Render()
 		{
 			if (nx > 0)
 			{
-				SetBound(10,0);
+				SetBound(20,0);
 				if (isSit)
 				{
 					ani = SIMON_ANI_SIT_ATTACK_RIGHT;
@@ -561,7 +561,7 @@ void Aladdin::Render()
 			}
 			else
 			{
-				SetBound(0,10);
+				SetBound(0,20);
 				if (isSit)
 				{
 					ani = SIMON_ANI_SIT_ATTACK_LEFT;
