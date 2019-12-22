@@ -1,6 +1,7 @@
 //file path
 #define GAME_FONT L"Resources\\prstart.ttf"
 
+#define SIMON_WALKING_SPEED_END_GAME	0.005f 
 #define SIMON_WALKING_SPEED				0.015f 
 #define SIMON_CLIMBING_SPEED_X			0.01f
 #define SIMON_CLIMBING_SPEED_Y			0.01f
@@ -30,6 +31,7 @@
 #define SIMON_STATE_HURT				1200
 #define SIMON_STATE_ONROPE_CLIMB		1300
 #define SIMON_STATE_ONROPE_CLIMB_DOWN	1400
+#define SIMON_STATE_WALK_END_GAME		1500
 //action
 #define SIMON_ACTION_JUMP				300
 #define SIMON_ACTION_JUMP_ONROPE		1200
@@ -386,6 +388,8 @@
 #define ITEM_SPEND						822
 #define ITEM_HEART						823
 #define ITEM_BG_NEXT_GAME				824
+#define ITEM_BG_GAME_OVER				825
+#define ITEM_BG_INFO					826
 
 //bullet
 #define BULLET_BBOX_WIDTH				16

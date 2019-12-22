@@ -25,9 +25,9 @@
 #include "ItemSpend.h"
 #include "GenieFace.h"
 #include "GenieJar.h"
-int Aladdin::preHP = 5;
+int Aladdin::preHP = 2;
 int Aladdin::score = 0;
-int Aladdin::life = 3;
+int Aladdin::life = 5;
 int Aladdin::numberapples = 1000;
 int Aladdin::numberspend = 15;
 int Aladdin::heartsAmount = 5;
@@ -68,13 +68,13 @@ void Aladdin::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	if (preHP <= 0) {
 		if (life > 0) {
 			life -= 1;
-			preHP = 5;
+			preHP = 2;
 		}
 		else
 		{
-			x += 10;
+			/*x += 10;
 			life = 4;
-			preHP = 5;
+			preHP = 5;*/
 		}
 
 	}
@@ -745,13 +745,25 @@ void Aladdin::SetState(int state)
 	case SIMON_STATE_WALK:
 		isOnRope = false;
 		isMoving = true;
-		if (nx == 1.0f)
-		{
-			vx = SIMON_WALKING_SPEED;
+		if (!endGame) {
+			if (nx == 1.0f)
+			{
+				vx = SIMON_WALKING_SPEED;
+			}
+			else if (nx == -1.0f)
+			{
+				vx = -SIMON_WALKING_SPEED;
+			}
 		}
-		else if (nx == -1.0f)
-		{
-			vx = -SIMON_WALKING_SPEED;
+		else {
+			if (nx == 1.0f)
+			{
+				vx = SIMON_WALKING_SPEED_END_GAME;
+			}
+			else if (nx == -1.0f)
+			{
+				vx = -SIMON_WALKING_SPEED_END_GAME;
+			}
 		}
 		break;
 	case SIMON_STATE_IDLE:

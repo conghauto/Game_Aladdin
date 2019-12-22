@@ -30,6 +30,7 @@ public:
 	bool isDashing;
 	bool isJump;
 	bool isThrow;
+	bool endGame=false;
 
 	bool isMoving;
 

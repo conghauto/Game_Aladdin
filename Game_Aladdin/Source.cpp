@@ -77,6 +77,8 @@ bool check = false;
 bool isDeadBossSnake = false;
 bool checkEndLv2 = false;
 bool lvEnd = false;
+bool isDeadAladdin = false;
+bool checkInfo = false;
 vector<ObjectTile*> listObjectsInMap;
 ListObject*lsObjs;
 
@@ -276,6 +278,8 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 */
 void LoadResources()
 {
+	textures->Add(ITEM_BG_INFO, L"Resources\\author.jpg", D3DCOLOR_XRGB(163, 73, 164));
+	textures->Add(ITEM_BG_GAME_OVER, L"Resources\\game-over.jpg", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ITEM_BG_NEXT_GAME, L"Resources\\Next.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_PILLAR_1, L"Resources\\pillar_1.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ID_TEX_PILLAR_2, L"Resources\\pillar_2.png", D3DCOLOR_XRGB(163, 73, 164));
@@ -286,7 +290,7 @@ void LoadResources()
 	textures->Add(ITEM_BG_SPEND, L"Resources\\spend.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ALADDIN_LIFE, L"Resources\\aladdin_life.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ITEM_BG_GOD_LIGHT, L"Resources\\god_light.png", D3DCOLOR_XRGB(163, 73, 164));
-	textures->Add(ITEM_APPLE, L"Resources\\item-apple.png", D3DCOLOR_XRGB(255,0,255));
+	textures->Add(ITEM_APPLE, L"Resources\\item-apple.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ITEM_GENIEFACE, L"Resources\\GenieFace.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ITEM_GENIEJAR, L"Resources\\genie-jar.png", D3DCOLOR_XRGB(163, 73, 164));
 	textures->Add(ITEM_SPEND, L"Resources\\item-spend.png", D3DCOLOR_XRGB(163, 73, 164));
@@ -2361,43 +2365,28 @@ void Update(DWORD dt)
 			}
 
 			if (checkEndLv2) {
-				/*aladdin->isLevelUp = true;
-				grid->ReleaseList();*/
-				/*mapg->ReleaseTileMap();*/
-				/*grid->ReleaseList();*/
-				/*bg->ReleaseObjectsInScreen();*/
 				aladdin->SetPosition(600, 300);
 				delete mapg;
-				lv2 = false;
-				lvEnd = true;
+				if (GetTickCount() > 5000) {
+					lv2 = false;
+					lvEnd = true;
+					aladdin->endGame = true;
+				}
 			}
 		}
 
 		if (lvEnd) {
-			//if (aladdin->isLevelUp) {
-			//	game->mCamera->setX(0);
-			//	grid->InitList(1000, 670);
-			//	aladdin->SetPosition(100, 50);
-			//	grid->AddObject(aladdin);
-			//aladdin->SetPosition(400, 300);
 
 			if (!aladdin->isSit && !aladdin->isAttack && !aladdin->isOnRope)
 				aladdin->SetState(SIMON_STATE_WALK);
 			if (!aladdin->isJump && !aladdin->isAttack)
 				aladdin->nx = -1.0f;
-			//	for (int i = 0; i < 21; i++) {
-			//		Ground *ground = new Ground();
-			//		ground->SetPosition(i * 32.0f, 300);
-			//		//objects.push_back(ground);
-			//		grid->AddObject(ground);
-			//	}
-			//	//LoadResourceLv2();
-			//	//countLoadResourceLv2 = true;
-			//	/*aladdin->SetPosition(100, 20);*/
-			//	aladdin->SetState(SIMON_STATE_IDLE);
-			//	aladdin->GetPosition(x, y);
 
-			//}
+			if (aladdin->GetX() < 10) {
+				grid->RemoveObject(aladdin);
+				/*delete aladdin;*/
+				checkInfo = true;
+			}
 		}
 
 	#pragma endregion
@@ -2588,40 +2577,7 @@ void Update(DWORD dt)
 				listRemoveObjects.push_back(item);
 			}
 			}
-			//		item = new Item();
-			//		item->SetPosition(zombie->x, zombie->y);
-			//		item->SetSpeed(0, -0.1);
-			//		coObjects.push_back(item);
-			//		grid->AddObject(item);
-			//		srand(time(NULL));
-			//		int random_portion = rand() % 100;
-
-			//		// Heart
-			//		if (random_portion < 30)
-			//		{
-			//			item->AddAnimation(ITEM_HEART);
-			//			item->SetType(ITEM_HEART);
-			//		}
-			//		// Item 1
-			//		else if (random_portion >= 30 && random_portion < 50)
-			//		{
-			//			item->AddAnimation(ITEM_1);
-			//			item->SetType(ITEM_1);
-			//		}
-			//		// Item 2
-			//		else if (random_portion >= 50 && random_portion < 80)
-			//		{
-			//			item->AddAnimation(ITEM_2);
-			//			item->SetType(ITEM_2);
-			//		}
-			//		// Item 3
-			//		else
-			//		{
-			//			item->AddAnimation(ITEM_3);
-			//			item->SetType(ITEM_3);
-			//		}
-			//	}
-			//}
+			
 		}
 
 		// Remove lần lượt từng object từ listRemoveObjects trong grid
@@ -2728,6 +2684,10 @@ void Update(DWORD dt)
 			bg->Update(gameTime / 1000, 1, aladdin);
 		else
 			bg->Update(gameTime / 1000, 2, aladdin);
+
+		if (aladdin->preHP <= 0 && aladdin->life <= 0) {
+			isDeadAladdin = true;
+		}
 }
 
 void Render()
@@ -2779,19 +2739,36 @@ void Render()
 				listObject[j]->Render();
 			}
 		}
+		// chuyển qua màn kết thúc
+		if (lvEnd && !checkInfo) {
+			/*bg->RenderNextGame(game->mCamera->getX(), game->mCamera->getY(), aladdin);*/
+			bg->RenderNextGame(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+		}
 
 		aladdin->Render();
-		if (lv1 == true)
+
+		// giới thiệu thành viên
+		if (lvEnd && checkInfo) {
+			/*bg->RenderNextGame(game->mCamera->getX(), game->mCamera->getY(), aladdin);*/
+			bg->RenderInfo(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+		}
+
+		if (isDeadAladdin) {
+			bg->RenderGameOver(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+		}
+
+		if (lv1 == true && !isDeadAladdin)
 		{
 			bg->RenderPillar(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 		}
-		if (lvEnd) {
-			/*bg->RenderNextGame(game->mCamera->getX(), game->mCamera->getY(), aladdin);*/
-		}
-		bg->Render(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+
+		// Game over
+		if ((lv1 == true || lv2 == true)&& !isDeadAladdin)
+			bg->Render(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 		spriteHandler->End();
 		d3ddv->EndScene();
-		bg->RenderText(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+		if((lv1==true||lv2==true) && !isDeadAladdin)
+			bg->RenderText(game->mCamera->getX(), game->mCamera->getY(), aladdin);
 	}
 
 	// Display back buffer content to the screen

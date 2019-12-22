@@ -26,7 +26,8 @@ bool BG::Initialize(LPDIRECT3DDEVICE9 d3ddv)
 	aladdin_life = new CSprite(8, 0, 0, 20, 22, textures->Get(ALADDIN_LIFE));
 	god_light = new CSprite(9, 0, 0, 111, 38, textures->Get(ITEM_BG_GOD_LIGHT));
 	next_game = new CSprite(10, 0, 0, 640, 382, textures->Get(ITEM_BG_NEXT_GAME));
-
+	game_over= new CSprite(11, 0, 0, 640, 370, textures->Get(ITEM_BG_GAME_OVER));
+	bg_info = new CSprite(12, 0, 0, 640, 382, textures->Get(ITEM_BG_INFO));
 	/*for (int i = 0; i < 16; i++)
 	{
 		CSprite* sprite = new CSprite(8, 23, 37, 30, 50, textures->Get(ID_TEX_UI));
@@ -112,7 +113,6 @@ void BG::Update(int time, int stage, Aladdin* aladdin)
 }
 
 
-
 void BG::Render(float x, float y, Aladdin* aladdin)
 {
 	
@@ -168,8 +168,19 @@ void BG::RenderPillar(float x, float y, Aladdin* aladdin)
 
 void BG::RenderNextGame(float x, float y, Aladdin* aladdin)
 {
-	next_game->Draw(0, 0, 255);
+	next_game->Draw(x, y, 255);
 }
+
+void BG::RenderGameOver(float x, float y, Aladdin* aladdin)
+{
+	game_over->Draw(x,y,255);
+}
+
+void BG::RenderInfo(float x, float y, Aladdin* aladdin)
+{
+	bg_info->Draw(x, y, 255);
+}
+
 
 void BG::RenderText(float x, float y, Aladdin* aladdin)
 {
