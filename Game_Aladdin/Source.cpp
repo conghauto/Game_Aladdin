@@ -2719,14 +2719,22 @@ void Render()
 			Sound::getInstance()->play("man1", true, 0);
 			//map->Draw(game->x_cam, game->y_cam);
 		}
-		if (lv2 == true)
+		else
 		{
 			Sound::getInstance()->stop("man1");
+		}
+		if (lv2 == true)
+		{
+			
 			mapg = new	Map(/*48, 10,*/ tileset1, 32, 32);
 			mapg->LoadMatrixMap("Resources\\Mapstate1.txt");
 			Sound::getInstance()->loadSound(GAME2_MUSIC, "man2");
 			Sound::getInstance()->play("man2", true, 0);
 			//map->Draw(game->x_cam, game->y_cam);
+		}
+		else
+		{
+			Sound::getInstance()->stop("man2");
 		}
 		mapg->Draw(game->mCamera->getX(), game->mCamera->getY());
 		for (int i = 0; i < currentCell.size(); i++)
@@ -2743,8 +2751,13 @@ void Render()
 		if (lvEnd && !checkInfo) {
 			/*bg->RenderNextGame(game->mCamera->getX(), game->mCamera->getY(), aladdin);*/
 			bg->RenderNextGame(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+			Sound::getInstance()->loadSound(BACKGROUND_MUSIC, "end");
+			Sound::getInstance()->play("end", true, 0);
 		}
-
+		else
+		{
+			Sound::getInstance()->stop("end");
+		}
 		aladdin->Render();
 
 		// giới thiệu thành viên
@@ -2763,8 +2776,16 @@ void Render()
 		}
 
 		// Game over
-		if ((lv1 == true || lv2 == true)&& !isDeadAladdin)
+		if ((lv1 == true || lv2 == true) && !isDeadAladdin)
+		{
 			bg->Render(game->mCamera->getX(), game->mCamera->getY(), aladdin);
+			Sound::getInstance()->loadSound(DIE_MUSIC, "die");
+			Sound::getInstance()->play("die", true, 0);
+		}
+		else
+		{
+			Sound::getInstance()->stop("die");
+		}
 		spriteHandler->End();
 		d3ddv->EndScene();
 		if((lv1==true||lv2==true) && !isDeadAladdin)
